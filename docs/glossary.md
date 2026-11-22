@@ -8,9 +8,6 @@ only it has.
 
 ## Language
 
-**Unit of work — proposed definition**:
-Work with an explicit scale, owner, outcome and completion evidence; a milestone and a ticket can both be units at different scales. The term alone does not specify an agent-sized step; see the scales held at [q-p4mcme](questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md).
-
 <straw-dog question="q-5wbvz6">
 ### Product to implementation
 

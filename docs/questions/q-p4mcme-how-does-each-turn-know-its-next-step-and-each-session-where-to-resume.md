@@ -6,9 +6,21 @@
 - **owner** [01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md)
 - **realizes** A4 "A session resumes at its step", A44 "One step per reply"
 - **rung** development: load-bearing, self-improvement: the method
-- **lean** session 49: a Claude Code session is keyed on the desktop app own id for the conversation, so a reopening under a new id resumes it; observed passing in the app and the terminal; the transcript match removed
+- **lean** 2026-11-22: cut down — every part of the next step and the resume has its home, a turn chaining to the dial; docs/process.md and the proposed Unit of work removed; Where it stands put to the person
 - **opened** 2026-10-03T11:36:26Z
 - **struck** 5, last 2026-11-22T00:26Z
+
+## Where it stands
+
+Every part of a turn's next step and a session's resume stands in a home of its own (decision
+1): the wake is S6; the resume, the store's window keyed on the host's id for the conversation;
+the stop for the person, the autonomy dial; the weight of the ceremony, `/impact` and *Weight
+follows the work*; the order of work, `/pathfinder`; that a reply says what is next, the reply's
+form. A turn chains steps until the first decision at or above its ladder's dial. `docs/process.md`
+and the glossary's proposed *Unit of work* are gone (decisions 2 and 3). 01-0020 closes on one live
+criterion — a session that ends mid-ring resumed at its step without the person restating where
+things stood, read by a judge who did not build it — and its verification. The product's answer
+A44, "One step per reply", no longer stands as worded; how it is reworded is the product's.
 
 ## Decisions
 
@@ -29,6 +41,11 @@
    pointed to the ticket format, the entry file's *Autonomy* and L3. What it kept of its own — the
    user's request of 2026-09-05 and the bootstrap's renaming — is history, which git keeps. This
    answers q-t34gyc. Not: a page kept to point at the homes.
+3. **The glossary's *Unit of work — proposed definition* is removed** — the user, 2026-11-22:
+   "Yes, remove it". The method says *unit* of what goes round the delivery ring — a ticket here,
+   an item on a project's board — and the method's glossary defines a ticket as a tracked unit of
+   agreed work; the proposed sense, work at any scale up to a milestone, was used nowhere. The
+   scales it pointed to stay as evidence below. Not: an entry of its own in the method's glossary.
 
 ## Evidence — a correction ended the next move, 2026-10-26
 
