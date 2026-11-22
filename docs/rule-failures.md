@@ -1852,6 +1852,11 @@ refused the command whoever ran it.
 shell command refuses `git commit` that names no paths after `--`, and `git add` ahead of a commit
 is left to it. Shown to the person before it lands.
 
+**Disposition after the third strike:** landed 2026-11-22 on the person's word ("хук ставь"), in
+7ad25f37: Claude Code's `PreToolUse` on `Bash` and `PowerShell` denies a `git commit` naming no
+paths, with S5's reason; tried live the same day, a bare `git commit --dry-run` refused. Codex and
+Cursor have no such hook yet; closed for Claude Code.
+
 ## 55. A decision abandoned twelve days earlier was carried as waiting in six replies running — 2026-10-20
 
 **Source cases, retrospective extraction:**
