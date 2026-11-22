@@ -49,3 +49,38 @@ The reader assessed supplied excerpts, not complete host transcripts. This estab
 automatic check's accuracy or live hook behaviour, and no cause of the difference from Claude
 Code. The observed distinction is a concrete unfulfilled obligation, not a requirement that every
 answer propose more work. No instruction or hook was changed.
+
+## Evidence — what the pacer held, carried from docs/pacer.md, 2026-11-22
+
+Carried when `docs/pacer.md` was emptied ahead of its removal; the person agreed the homes,
+2026-11-22 ("да, все верно"). A hypothesis, as the pacer held it, not a decision.
+
+**Scales.** Work scale, the understanding of its shape and the next execution step are held
+apart; candidate scales, not a required hierarchy of records:
+
+| Scale | What is controlled | Typical representation |
+|---|---|---|
+| Direction / milestone / capability | Intended change and governing agreements | A question's `Where it stands`, a roadmap or a parent ticket |
+| Delivery work | A verifiable slice, dependencies and readiness | A ticket or subticket |
+| Execution step | One bounded operation or pass and its feedback | A skill invocation, or a bounded stage within it |
+
+A unit of work named without its scale is not enough to choose a step by. An execution step is a
+bounded pass with known input state, one purpose, an expected output and a point where it is
+reassessed; a skill invocation is a candidate step, not a guarantee of boundedness.
+
+**A "next thing" request.** Name the outcome it belongs to and its scale, where the work stands,
+the last pass and what it showed, the constraints and authorization, then the next bounded step,
+what it should yield and when to reassess. "Deliver the milestone" is not a step.
+
+**Chaining.** The user, 2026-09-06: chaining steps inside one turn, up to the next human
+checkpoint, is the intended later shape — a stated allowance once the principles settle, never
+the default.
+
+**Read against today, 2026-11-22.** A standing session seldom runs `/recall`: the question of the
+next step comes at every step's end, not only at a wake, so this question and its ticket,
+written around the wake, are to be read again. `/impact` already weighs a work's volume and its
+form — an align for load-bearing work, tickets for mechanical; the person: the one who cuts the
+work and the one who names its ceremony seem one actor. Dropped: the pacer's note that a project's
+maturity is not read from its age or its commit count — `/impact`'s load-bearing test reads what
+a change touches, not how old the project is; the user, 2026-11-22: "про зрелость можно
+выкинуть".
