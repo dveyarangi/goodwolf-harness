@@ -318,6 +318,25 @@ person's words where they said it, with where it stands.
   on q-ggpx2r. The product side: *What it is for* already names a method of one's own built on
   the harness; this would say the ring serves work beyond coding and its practice is the
   project's own.
+- *The harness drives the agents*, 2026-11-22, said in a ChatGPT chat the person shared with a
+  session of this tree, which relayed it: "the main thing that causes me to investigate this topic
+  in relation to harness, is that I want to combine session visibility with better automatic
+  session control. I'e for each role or group of roles of an agent - right now the harness started
+  to define persistent sessions/agents, but this approach is expensive - instead of that a more
+  compact role definition and context that is aimed to run short and disappear, while next agent
+  iteration will pick up knowing where the things stand for this role"; "and other ideas i struggle
+  to implement in the claude or codex UIs - cheaper and controllable message formatting and
+  referencing, project dashboard, role and prompt control, facilitating the mechanism rules
+  installation in full"; "also the various mechanisms to do not have the full set of tools for
+  their job and relying on instructions for procedures that define harness and project integrity
+  as well". And "yes, you are on point" to the chat's conclusion: the harness owns the roles, the
+  state, the scheduling, the permissions and the messaging; Claude Code and Codex are execution
+  backends; a UI observes and controls the harness — an older attempt at one is
+  github.com/dveyarangi/goodwolf-ui. Not yet a decision. The product side: it would move the
+  account's G2 and A47 from roles held by standing sessions to short-lived agents per role run by
+  the harness, A41's coordination into the harness, and q-pcnqd5's dashboard into a controlling
+  UI; the document's *Who it is for* and the harness's definition — the instructions, records and
+  scripts around a runtime — would widen to the harness running the runtime.
 
 **How a complaint is read** *(the user, 2026-11-16)*: "непонятно было бы лучше без харнесс )) я
 считаю что нет, он держит линию хотябы. оптимальность это не только про вес. и не всякая жалоба
