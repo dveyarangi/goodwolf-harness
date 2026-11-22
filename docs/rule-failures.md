@@ -2768,6 +2768,14 @@ the hosts whose message hook reaches the agent, the rule at session start the fl
 and *The shape's context* gains *— in this tree and in every tree core reaches*. Put to the user,
 the first being mechanism work on the window; the second landed as entry contract v80.
 
+**The first landed in another form, 2026-11-22**, on the person's word of that day ("хорошо,
+делаем хук"): a running session whose entry file changed is shown the changed passages, as was
+and now, leading its next message, once — the passages and not the version, and no re-read of
+the whole file (990ac6d7,
+[01-0018.0010 a-session-learns-the-entry-file-moved](tickets/01-0018.0010-a-session-learns-the-entry-file-moved.md)).
+It is the harness mechanism's own hook line, not the window's. Closed on it; the ticket's live
+observation is still to be made.
+
 **Source cases, retrospective extraction:**
 
 - [Claude Code · claude-opus-5-5 · 2026-10-11T20:35:51.243Z](cases/rf-a-first-install-ended-in-a-techn-d672d63b2d/case.json).
