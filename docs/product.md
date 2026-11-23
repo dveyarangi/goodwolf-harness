@@ -147,7 +147,7 @@ yet waits on its purpose question, bound to it in *waits on*.
 | **A43 A starting session takes a free area** — a starting session takes an area no other session is in | C5 |  | ● |  | |  |  |  |
 | **A51 Several people develop one project together** — their queue, their decisions, their branches | C5 |  |  | ● | |  |  | <straw-dog question="q-37xc3y">✗</straw-dog> |
 | **Process weighed to the work** | | | | | | | | |
-| **A44 One step per reply** — one step per reply, with a point to reassess at its end | C8, C9 |  | ● | ● | |  |  |  |
+| **A44 A turn runs to the person's next decision** — a turn chains steps up to the first decision at or above the dial and reassesses there; no rule holds it to one step (the user, 2026-11-22, on q-p4mcme's decision 1) | C8, C9 |  | ● | ● | |  |  |  |
 | **A45 Work weighed to its shape** — the work's shape recommended, and a lighter path for small work and a heavier one for large | C8 |  | ● | ● | |  |  |  |
 | **Refusing harm** | | | | | | | | |
 | **A46 Writes that refuse** — writes that refuse rather than overwrite: a refusal writes nothing, interference is a failure, a removal needs the fingerprint it expects, push waits for a yes; the harness's own scripts refuse; an agent's own edits are guarded by the host — its stale-write refusal, its worktrees — not by the harness | C12 |  |  |  | |  | ● |  |
