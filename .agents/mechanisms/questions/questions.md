@@ -99,6 +99,7 @@ roles, is an open question of the store.
 | re-parenting, merging or pruning by hand | `.agents/skills/questions/SKILL.md` | |
 | drawing the window | `.agents/scripts/gw/questions.py` | |
 | delivering a session's window through a host's hook | `.agents/scripts/gw/questions.py` | |
+| answering a host's call before a tool: refusing a shell command that commits naming no paths — the session mechanism's S5 — where the host's row names that event | `.agents/scripts/gw/questions.py` | |
 | writing entries and the position from a call | `.agents/scripts/gw/questions.py` | |
 | writing a question's argument, the body after its parts, by hand | `.agents/skills/questions/QUESTION-FORMAT.md` | |
 | landing a decision an align makes, and holding one with nowhere to land yet | `.agents/skills/align/SKILL.md` | |
@@ -166,7 +167,8 @@ roles, is an open question of the store.
   to tell whether anything moved; a compaction clears it.
 - **The hook wiring** — *what must always hold* — read by the installer, which merges each shelf
   file into the host file at its own path beside the project's hooks, and by each host from there.
-- **The hook's answers** — *what exists* — read by the host, which places them in the agent's context.
+- **The hook's answers** — *what exists* — read by the host, which places them in the agent's
+  context, or, before a tool, refuses a shell command that commits naming no paths with S5's reason.
 - **The check's report** — *what exists* — read by `/maintain` at its pass, by `/verify` through the
   verification set and by the pre-push check, `harness.py --pre-push`, at a push that carries a file of the method.
 - **The former ids** — *what happened* — `docs/questions/former-ids.md`, written once by the

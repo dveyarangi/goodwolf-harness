@@ -564,14 +564,16 @@ def release(root: Path, tag: str, now: datetime) -> Session:
 
 
 def take_name(root: Path, tag: str, name: str, now: datetime) -> tuple[Session, str | None, str | None, str | None]:
-    """The session writes the name of the role it holds on its row; one name stands on one row, and
-    a name it bore before is dropped. A name another row bears passes to this chat with that row's
+    """The session writes its own name on its row, the one the person gave it, never a role's (S11);
+    one name stands on one row, and a name it bore before is dropped. A name another row bears
+    passes to this chat with that row's
     position and hold, a resume under a new id being the same conversation (S6): a unit this chat
     held is let go for it, where that row held one, and a mark of one taken from that row stays
     with the row it leaves, which ends nameless and holding nothing. Says from whom the name was
     taken, the unit let go and the name dropped. Bearing it already writes nothing. Refused,
     writing nothing: a name out of the row's form, and a name on a running row seen within
-    `SILENT_AFTER`, so two live chats never share one role (the user, 2026-11-16, q-q5i2um)."""
+    `SILENT_AFTER`, so two live chats never share one name (the user, 2026-11-16, q-q5i2um; the
+    session's own name, the user, 2026-11-21)."""
     if not re.fullmatch(_NAME, name):
         _refuse(f"{name!r} is not a name a row can bear: words of letters, digits, hyphens and underscores, one space between each two")
     held_row = held(root, tag)

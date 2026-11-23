@@ -32,7 +32,7 @@ finds it and turns it running again with its position kept, and reads the wake; 
 a sign of life, kept outside the tree so the committed file does not move with every turn. A
 running row nothing has seen for three hours is ended by the next wake, quietly *(the user,
 2026-10-10)*; the session's next message turns it running again. A session that holds a role
-bears its name on its row, written by the session script's `--name`, one name on one row; no
+bears its own name on its row, never a role's, written by the session script's `--name`, one name on one row; no
 silence ends that row and no wake removes it. A chat that takes the name takes the
 row's position and hold, letting go a unit of its own for it, and the row it leaves ends
 nameless; the name does not pass from a running row seen in the last three hours *(the user,
@@ -109,6 +109,7 @@ for this mechanism.
 | a reply shows the sessions it runs beside, under debug | `AGENTS.md` | |
 | a recall re-ranks nothing another running session is on | `.agents/skills/recall/SKILL.md` | |
 | a commit holds one session's work alone | `.agents/skills/commit/SKILL.md` | |
+| a shell command that commits naming no paths is refused before it runs, through the store's hook, where the host's row names that event | `.agents/scripts/gw/sessions.py` | |
 | checking the rows | `.agents/scripts/gw/sessions.py` | |
 | a chat resumed under a new id its host does not keep steady | — | <straw-dog question="q-ou6kps">not yet</straw-dog> |
 | sessions reaching each other beyond one working directory | — | <straw-dog question="q-2gw24v">not yet</straw-dog> |

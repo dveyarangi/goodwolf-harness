@@ -908,9 +908,10 @@ class TheGone(Hooked):
 
 
 class ANamedRow(Hooked):
-    """A session that holds a role bears its name on its row: a wake neither ends it for silence
-    nor removes it, and a chat that takes the name takes the row with it (the user, 2026-11-16,
-    q-q5i2um)."""
+    """A session that holds a role bears its own name on its row, the one the person gave it, never
+    a role's: a wake neither ends it for silence nor removes it, and a chat that takes the name
+    takes the row with it (the user, 2026-11-16, q-q5i2um; the session's own name, the user,
+    2026-11-21)."""
 
     def rows(self) -> list[str]:
         return sorted(held.tag for held in sessions.rows(self.root)[0])
