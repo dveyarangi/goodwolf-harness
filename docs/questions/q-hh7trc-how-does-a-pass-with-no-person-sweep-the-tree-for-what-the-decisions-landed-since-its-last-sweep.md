@@ -66,3 +66,24 @@ run: the RFC's G2 text still says "another running session's work", trailing dec
 G3 amended on the person's word, 2026-11-21 («да, записать G3»): a finding left neither repaired,
 told nor asked keeps the sweep unmarked, and the pass ends its own row last. Waits on the next
 night's run, judged again; then `/verify`, where the RFC's G2 and G3 texts are brought to the skill.
+
+## The night run of 2026-11-23, judged
+
+The pass of 2026-11-23 (`94d57252`) was read with the next morning's wake by a judge who built
+neither, briefed as on 2026-11-21. Verdict on the fourth criterion: **fail, narrow**. Met: the mark
+and the range, every due level re-checked, L14's whole-tree check run, fourteen findings told to
+five sessions, one question asking the person (q-2t3ukx) with every contradicting text, the sweep
+left unmarked when the push was refused, and its own row ended last — G3's amendment of 2026-11-21
+held there. Failed:
+
+1. The failure G3's amendment was written for came back: its subagent reported live tickets
+   naming `process.md` and `/setup-devops` as "mostly history", and the pass neither judged them
+   nor told Практика; it planned to mark the sweep `amended`, stopped only by the refused push.
+   G3's wording did not hold it: the second strike, which takes a mechanical amendment.
+2. It marked the session output level against another session's uncommitted drafts — the mark
+   names content no commit holds and the re-check never read.
+3. It put Продукт's decision in its own Decisions table and next-step ask, against S9, and
+   already out of date when sent.
+
+Lesser: the mechanism-shape repair worded L14 wider than its words; counts in its commit and
+reply off by two levels; the holder of this unit not told that the sweep stayed unmarked.
