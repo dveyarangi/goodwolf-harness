@@ -292,6 +292,30 @@ landed, and the first session tells the person. Tried on a fresh reader before i
 three cases the person was asked nothing, nothing, and once from one chat; what the reader found
 open — who tells the person it landed, and whether the wording itself is put — was written in.
 
+**Struck 2026-11-23 — a second time, the day after the amendment.** The pass with no person
+opened a question as asking the person: the rule landed the day before against an older line of
+the messages' shelf. It lay between the keeper's rule and the store's shelf. The store's session
+put it to the person as a drafted change to that shelf. The keeper, reading the wake's list,
+looked at the store's last turn, saw nothing of it there, wrote to the store's session "if you
+have already put it to them, tell me at once", and in the same turn put the question to the
+person from its own chat. The answer came after: it had been put. The keeper withdrew.
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-fable-5-2 · 2026-11-23T04:14Z — the keeper's chat `1981de0e-7693-4931-aeab-4881f9fa0065`; the instant is the one the question was opened at, the nearest recorded, and the model is the one the session reported itself running on.
+
+**Why it did not fire.** The keeper's reading, no model-internal cause established. Nothing
+shows a session that a question asking the person has been put, or by whom: the wake lists it
+the same before and after. The keeper asked the one session that could know, and did not wait
+for what it had asked.
+
+**Proposed amendment**, mechanical, as a second strike takes: the store records that a question
+asking the person was put, when and by which session, and the wake shows it — the call the
+entry of 2026-11-21 above, on questions no session put, already hands to the store's session.
+One record ends both: a question put by nobody, and one put by two.
+
+**Disposition:** open — the mechanism is the store's session's; told 2026-11-23.
+
 ## A criterion the person had set aside kept a working ticket open, and a second ticket was made to wait on it — 2026-11-16
 
 **Source, no case yet:**
