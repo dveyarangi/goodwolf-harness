@@ -19,6 +19,42 @@ This register and its rules belong to the mechanism shape under
 decision 1, the user, 2026-10-25. The move is
 [01-0019 harness-amends-itself-by-explicit-meta-rules](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)'s.
 
+## A sweep's findings were left neither repaired, told nor asked, and the sweep was to be marked — 2026-11-21
+
+**Source, no case yet:**
+
+- Claude Code desktop · unknown · 2026-11-21T04:07Z — the scheduled pass with no person, session `local_1168c9ce`, as the maintenance session reported it on 2026-11-23; the model is not in the report. Entered late: the first occurrence was mended in `/maintain` and recorded in its question, and reached the register only with its repeat.
+
+**Goal missed:** what a sweep finds is repaired, told to the session whose work it is, or put to
+the person, before the sweep is marked done.
+
+**Rules in play, loaded:** `/maintain`'s G2 and G3, on what a pass does with a finding and when
+it marks its sweep.
+
+**What happened.** The first night run stopped with findings a subagent had returned left in none
+of the three states. G3 was reworded on the person's word: a finding left neither repaired, told
+nor asked keeps the sweep unmarked (e96e922c).
+
+**Struck 2026-11-23 — once, the reworded rule in place.** The night's pass was handed, by its
+subagent, live tickets naming a removed page and a renamed skill as "mostly history". It neither
+judged them nor told the session that holds the tickets, and planned to mark the sweep; only a
+refused push stopped the mark. Found by the judge of that run:
+[q-hh7trc](questions/q-hh7trc-how-does-a-pass-with-no-person-sweep-the-tree-for-what-the-decisions-landed-since-its-last-sweep.md),
+"The night run of 2026-11-23, judged".
+
+**Source, no case yet:**
+
+- Claude Code desktop · unknown · 2026-11-23T04:07Z — the scheduled pass, session `local_88d939be`, as the maintenance session reported it; the model is not in the report.
+
+**Why it did not fire.** The judge's reading, no model-internal cause established: the pass took
+its subagent's label for a judgement of its own, so the findings never became findings to it,
+and a rule about findings had nothing to hold.
+
+**Proposed amendment**, mechanical, as a repeat of a reworded rule takes: the maintain
+mechanism's, drafted and put to the person by the session that holds it.
+
+**Disposition:** open — handed to the maintenance session, which reported it, 2026-11-23.
+
 ## A message nobody waited on was sent, and its receiver retold it to the person — 2026-11-22
 
 **Source, no case yet:**
@@ -315,6 +351,18 @@ entry of 2026-11-21 above, on questions no session put, already hands to the sto
 One record ends both: a question put by nobody, and one put by two.
 
 **Disposition:** open — the mechanism is the store's session's; told 2026-11-23.
+
+**Struck 2026-11-23 — a third time, by the pass with no person, hours before the second.** The
+night's pass put the product session's decision — whether that session rewrites a row the pass
+had changed — in its own decisions table and in its closing ask, already out of date when sent.
+Found by the judge of that run and recorded in
+[q-hh7trc](questions/q-hh7trc-how-does-a-pass-with-no-person-sweep-the-tree-for-what-the-decisions-landed-since-its-last-sweep.md),
+"The night run of 2026-11-23, judged". The same record that ends the second strike would end
+this: the pass would see whose the decision is and that it is not its own to put.
+
+**Source, no case yet:**
+
+- Claude Code desktop · unknown · 2026-11-23T04:07Z — the scheduled pass, session `local_88d939be`, as the maintenance session reported it; the model is not in the report.
 
 ## A criterion the person had set aside kept a working ticket open, and a second ticket was made to wait on it — 2026-11-16
 
