@@ -4,7 +4,7 @@
 - **part of** q-fjlob4
 - **state** open
 - **owner** [01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md)
-- **realizes** A4 "A session resumes at its step", A44 "One step per reply"
+- **realizes** A4 "A session resumes at its step", A44 "A turn runs to the person's next decision"
 - **rung** development: load-bearing, self-improvement: the method
 - **lean** 2026-11-22: cut down — every part of the next step and the resume has its home, a turn chaining to the dial; docs/process.md and the proposed Unit of work removed; Where it stands put to the person
 - **opened** 2026-10-03T11:36:26Z
@@ -20,7 +20,7 @@ form. A turn chains steps until the first decision at or above its ladder's dial
 and the glossary's proposed *Unit of work* are gone (decisions 2 and 3). 01-0020 closes on one live
 criterion — a session that ends mid-ring resumed at its step without the person restating where
 things stood, read by a judge who did not build it — and its verification. The product's answer
-A44, "One step per reply", no longer stands as worded; how it is reworded is the product's.
+A44 reads "A turn runs to the person's next decision" since it was brought to decision 1.
 
 ## Decisions
 
