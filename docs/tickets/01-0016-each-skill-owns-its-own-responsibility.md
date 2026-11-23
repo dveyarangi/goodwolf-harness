@@ -47,10 +47,10 @@ correct as it stands. `/ticket`, `TICKET-FORMAT` and `/impact` use *repair* in t
 repairing citations — and are not appliers at all. With injection available, one home and one
 installed copy replaces the election; the home is this ticket's to name, and the evidence now
 points at `/verify`, whose pass is *what to do with a discrepancy against an explicit rule* and
-which [the process](../process.md#verification) already routes discrepancies to.
+which the process (removed 2026-11-22, eadd0b64) already routes discrepancies to.
 
 The same restatement happens elsewhere: `/verify` restates repair-and-report that
-[the process](../process.md#autonomy-and-repair) owns; `/maintain` restates archive eligibility that
+[the entry file's Autonomy section](../../AGENTS.md#autonomy) now owns; `/maintain` restates archive eligibility that
 `TICKET-FORMAT` owns; `/plan` and `/ticket` both carry slicing rules. Restatement is how two sites
 drift apart without either being edited.
 
@@ -72,9 +72,9 @@ left unhosted.
 - Restated methodology replaced by links. A skill keeps a rule only if it owns it.
 - Contradictions between skills surfaced and resolved, not annotated.
 - Repair-and-report moves into the skill. **2026-09-06, user:** the `/maintain` bullet that links
-  out to [the process](../process.md#autonomy-and-repair) should carry the rule itself instead. It
+  out to the process (removed 2026-11-22, eadd0b64) should carry the rule itself instead. It
   currently lives in `docs/process.md` and is linked from `/verify`, `/implement` and `/maintain`,
-  while [the pacer's temporary block](../process.md) says step rules move into their skills as those
+  while the pacer's temporary block (removed 2026-11-22, eadd0b64) says step rules move into their skills as those
   skills install. What this pass still owes is the consequence, not the decision: three skills apply
   the rule, so moving it into one of them either duplicates it or makes that skill its owner and the
   others its callers.
@@ -109,7 +109,7 @@ left unhosted.
   wrapper retires with the answer.
 - A live instance to settle: on 2026-09-06 `/verify`'s skill body lost its opening line — "`/verify`
   is the verification of landed work, not only documentation or shape review" — while
-  [the process](../process.md#verification) still says it. The skill and its governing document now
+  the process (removed 2026-11-22, eadd0b64) still said it. The skill and its governing document now
   differ in emphasis, and nothing decided that. Whichever way it resolves, one of them stops
   saying it.
 

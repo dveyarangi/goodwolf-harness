@@ -13,7 +13,8 @@
 
 ## Parent
 
-[AGENTS.md](../../AGENTS.md) and [the process](../process.md). Sibling of
+[AGENTS.md](../../AGENTS.md) and the process, whose sequence and scoping of work
+[q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md) now holds. Sibling of
 [01-0012](./done/01-0012-hierarchy-coherent.md), on the same argument for staying out of
 [01-0010](./01-0010-a-shared-harness-improves-without-losing-project-conventions.md).
 
