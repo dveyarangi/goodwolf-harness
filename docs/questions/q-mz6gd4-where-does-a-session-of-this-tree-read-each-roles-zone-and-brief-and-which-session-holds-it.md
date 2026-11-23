@@ -32,7 +32,21 @@
    ahead is found and shown at a wake, and the product's roadmap; it reads the product document,
    the tickets and the store and writes none of them *(the user, 2026-11-21, to that session; to
    the keeper, of the line as shown: "Да, дописать")*. Written in L13 until the cut's own record
-   holds it; the cut is read with it: seven roles on six sessions.
+   holds it; the cut is read with it: seven roles on six sessions. *(Narrowed 2026-11-22 as to
+   what it writes — decision 7.)*
+7. **Путь weighs and hands on** — it keeps the roadmap and corrects the questions and tickets
+   its weighing meets; the product document it reads and never writes; it builds nothing and
+   starts no work, its own mechanism's text aside, and hands what it opens to the session whose
+   zone holds it *(the user, 2026-11-22, to that session: "ты сам ничего не строишь, только
+   анализируешь и выбираешь работу, выравниваешь роадмап, ну и корректируешь вопросы или
+   тикеты - но не сам запускаешь работу, только открываешь и передаешь"; of the line as shown:
+   "принимаю")*. Written in L13, fe401b0b.
+
+A tension left standing, found by the pass with no person of 2026-11-23: L13 still titles a
+session `🐺 <role> — <its area>`, while decision 5 and the session mechanism's rule on a row's
+name give a session one name and a list of roles. It is not mended here: the first line of L13
+goes with the cut's own record, and the roles are to be looked at again (the section of
+2026-11-22 below).
 
 ## What the decisions change — 2026-11-20
 
