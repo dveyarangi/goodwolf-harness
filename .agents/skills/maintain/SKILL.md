@@ -72,8 +72,8 @@ One pass over a declared scope. The scope decides which rules apply.
 
 ## Straw dogs
 
-- **T1** List with `straw_dogs.py docs AGENTS.md local.rules.md .agents README.md`. Any diagnostic fails the run;
-  zero straw dogs is clean. A straw dog listed `due` is C2's.
+- **T1** List with `straw_dogs.py` over each of `docs`, `AGENTS.md`, `local.rules.md`, `.agents`
+  and `README.md` that the tree holds. Any diagnostic fails the run; zero straw dogs is clean. A straw dog listed `due` is C2's.
 - **T2** Remove one you have judged obsolete with `--remove FILE:LINE --expect <fingerprint>`.
   A straw dog holding a nested one is refused: dispose of the children, scan again.
 - **T3** Guess with `--guess` over the scope you declared, and judge each candidate: wrap and
