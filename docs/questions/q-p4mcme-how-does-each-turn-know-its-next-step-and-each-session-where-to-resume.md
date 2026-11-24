@@ -16,7 +16,9 @@ Every part of a turn's next step and a session's resume stands in a home of its 
 1): the wake is S6; the resume, the store's window keyed on the host's id for the conversation;
 the stop for the person, the autonomy dial; the weight of the ceremony, `/impact` and *Weight
 follows the work*; the order of work, `/pathfinder`; that a reply says what is next, the reply's
-form. A turn chains steps until the first decision at or above its ladder's dial. `docs/process.md`
+form. A turn chains steps until the first decision at or above its ladder's dial. How the loop's
+granularity and ceremony become switchable, which the ticket also held, is open at q-p2tgdv, the
+user's words carried there; nothing here decides it. `docs/process.md`
 and the glossary's proposed *Unit of work* are gone (decisions 2 and 3). 01-0020 closes on one live
 criterion — a session that ends mid-ring resumed at its step without the person restating where
 things stood, read by a judge who did not build it — and its verification. The product's answer
