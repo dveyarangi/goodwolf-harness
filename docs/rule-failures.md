@@ -4038,7 +4038,7 @@ Graded by the next list anyone proposes for what files can say themselves.
 
 **Rule in play:** [`AGENTS.md` — The loop](../AGENTS.md#the-loop), read at the start of every
 session, whose picture has read `session: wake with /recall → /align → /conclude` since v1. Behind
-it, [pacer.md](pacer.md#core-rules--under-alignment)'s 2026-09-06 rule that a session starting
+it, the pacer's page's (*Core rules — under alignment*; the page removed 2026-11-22) 2026-09-06 rule that a session starting
 with "what's next" starts with `/recall`.
 
 **What happened.** The session of 2026-09-15 opened with "good evening". The first reply announced

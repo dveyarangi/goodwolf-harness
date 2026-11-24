@@ -136,3 +136,5 @@ Records that do not name the decision of 2026-11-21:
 - The ticket 01-0090.0010: lines 27–28, 47–48, 52–53, 58, 62–64, 85, 88–89, 95, 109–110, which
   its note at 39–46 does not name.
 - q-xbp22o, 45–46, on relayed decisions; the journal of the way of working, 54–55.
+- q-gbt7cy, decision 1 at lines 15 and 20, "Every skill has a mechanism", which the plan of
+  01-0090.0020 narrows at 145–166; passed on by the practice's session, 2026-11-24.

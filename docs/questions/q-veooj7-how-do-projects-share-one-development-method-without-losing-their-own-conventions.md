@@ -18,8 +18,9 @@ beside the delivery ring*. Read against this tree, each thing it stands on is op
 
 - **a recipient's own mechanisms, declared and injecting into core files** — q-dsxyi5; the
   ref comparison setting their blocks aside is decided (q-zx6ftb);
-- **a second ring, or the loop's steps configurable** — the pacer, 01-0020 and q-p2tgdv, the
-  loop switchable held as a straw dog since 2026-09-21;
+- **a second ring, or the loop's steps configurable** — q-p2tgdv, which holds the loop's
+  switchability since 2026-11-24, a straw dog since 2026-09-21 and the pacer's ticket's until
+  then;
 - **a corpus a project swaps in one edit** — the practice mechanism, 01-0017.0020 and
   q-qmq6ty, in progress; research practice is such a corpus;
 - **mechanisms from a second repository reaching a tree that holds core** — its ADR-0001 names
