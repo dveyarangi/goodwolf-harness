@@ -34,7 +34,7 @@ so. Development's ladder has a rung called *code*. Slices 1 and 2 need nothing o
 the practice injects into the skills whether or not the form is declared.
 
 **Leave alone.** `/align`, `/maintain`, `/impact` — not practice, q-qmq6ty decision 2; their
-owners are their own questions. `/setup-devops`, the environment's,
+owners are their own questions. `/devops`, the environment's,
 [q-t3p7na](q-t3p7na-is-a-projects-environment-its-toolchain-its-checks-its-pipeline-a-mechanism-of-the-method-and-what-does.md).
 `/review-architecture`, kept for arrival,
 [q-a2mmjn](q-a2mmjn-what-does-review-architecture-own.md). The ticket mechanism.

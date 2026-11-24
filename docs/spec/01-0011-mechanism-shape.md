@@ -546,8 +546,9 @@ building per concept before a second one needs them — and which this harness h
 shared-part ownership rule is stated and not yet enforced. A register as a *separate* artifact,
 which is now moot: **no file holds the register at all**, and a renderer derives it from the
 mechanism directories on request — see *Implementation Decisions*, amended 2026-09-07. `/edge`
-and `docs/edge/`, owned by `01-0010.0100`. The pacer, and `docs/process.md`'s final disposition,
-owned by `01-0020`. Migrating every existing mechanism: this spec builds three and states what
+and `docs/edge/`, owned by `01-0010.0100`. The pacer and `docs/process.md`, whose pages were
+removed 2026-11-22 ([q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md)).
+Migrating every existing mechanism: this spec builds three and states what
 the next must prove.
 
 Also out of scope, and surfaced by this spec's own align on 2026-09-06: the references from core

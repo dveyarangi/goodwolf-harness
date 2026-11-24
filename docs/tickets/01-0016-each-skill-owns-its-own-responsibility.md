@@ -73,9 +73,9 @@ left unhosted.
 - Contradictions between skills surfaced and resolved, not annotated.
 - Repair-and-report moves into the skill. **2026-09-06, user:** the `/maintain` bullet that links
   out to the process (removed 2026-11-22, eadd0b64) should carry the rule itself instead. It
-  currently lives in `docs/process.md` and is linked from `/verify`, `/implement` and `/maintain`,
-  while the pacer's temporary block (removed 2026-11-22, eadd0b64) says step rules move into their skills as those
-  skills install. What this pass still owes is the consequence, not the decision: three skills apply
+  lived in `docs/process.md`, linked from `/verify`, `/implement` and `/maintain`, while the pacer's
+  temporary block (removed 2026-11-22, eadd0b64) said step rules move into their skills as those
+  skills install; its home is now [the entry file's *Autonomy*](../../AGENTS.md#autonomy). What this pass still owes is the consequence, not the decision: three skills apply
   the rule, so moving it into one of them either duplicates it or makes that skill its owner and the
   others its callers.
 - The investigation responsibility consolidated into `/impact`, per the user's example.
@@ -96,8 +96,10 @@ left unhosted.
   and a mechanism's one instruction file is where its rules are read; rules it needs in skills it
   does not own arrive by injection, which is [.0020](./done/01-0011.0020-rules-one-home.md)'s. The
   question that remains is not the unit but the elected owner in each contested case.
-- Whether `docs/process.md` survives this pass as a rule home or becomes policy-only — its
-  `<temporary>` block already promises the sequence to [the pacer](./01-0020-each-turn-knows-its-next-step.md).
+- ~~Whether `docs/process.md` survives this pass as a rule home or becomes policy-only — its
+  `<temporary>` block already promises the sequence to [the pacer](./01-0020-each-turn-knows-its-next-step.md).~~
+  **Settled 2026-11-22:** the page is removed ([q-p4mcme, decision 2](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md#decisions)),
+  and the order of work is `/pathfinder`'s.
 - Whether "update the glossary/architecture inline" is `/align`'s or `/maintain`'s.
 - **Which mechanism is responsible for straw dogs** *(raised 2026-09-08 at
   [01-0011.0070](./done/01-0011.0070-straw-dogs-marked-and-found.md)'s align, the user)*. The duty to

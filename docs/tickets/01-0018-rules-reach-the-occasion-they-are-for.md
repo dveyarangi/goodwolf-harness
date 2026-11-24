@@ -114,5 +114,6 @@ restated at tier 1 precisely because it is needed there, which E1 currently read
 
 ## Out of scope
 
-Hierarchy, scope and responsibility. The pacer's session-resumption rules, which are
-[01-0020](./01-0020-each-turn-knows-its-next-step.md)'s even though they are also Tier 1.
+Hierarchy, scope and responsibility. The session-resumption rules, once the pacer's, which are the
+session mechanism's and the question store's even though they are also Tier 1
+([q-p4mcme, decision 1](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md#decisions)).

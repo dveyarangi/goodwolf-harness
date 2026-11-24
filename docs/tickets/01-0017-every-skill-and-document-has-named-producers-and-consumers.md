@@ -49,9 +49,9 @@ project's domain. The corpus already assumed that split: `/align`, `/tdd`, `/imp
 `GLOSSARY-FORMAT` all mean the domain glossary, and only `/maintain` and `AGENTS.md` meant the
 harness's. Life keeps the same split by construction.
 
-**What remains here is the general case, and it is most of it.** Every other core skill still
-leans on instance-half documents: `/maintain` cites `docs/process.md`, `docs/architecture.md` and
-`docs/research/maintenance-findings.md`; `/implement` and `/impact` cite the process. Each is
+**What remains here is the general case, and it is most of it.** That day every other core skill
+leaned on instance-half documents: `/maintain` cited `docs/process.md`, `docs/architecture.md` and
+`docs/research/maintenance-findings.md`; `/implement` and `/impact` cited the process. Each was
 owned by its own ticket as a repair, but *what core may lean on at all* — and whether the answer
 is a travelling counterpart, a local block, or an accepted limit stated out loud — is this
 ticket's align to weigh. The glossary is now the worked example of one answer, not a precedent
@@ -144,8 +144,8 @@ The other direction is unwatched too: `docs/pacer.md` and two of the three
   mechanism, so nineteen rows are owed. The allowlist rows are as much the deliverable as the
   declarations, because a skill nothing knows about is where an injected rule goes to hide.
 - Documents brought into the mechanisms that own them. A document no mechanism writes or reads is a
-  finding, not a fact to record — `docs/pacer.md` and two of the three `docs/research/*-findings.md`
-  are named by no skill file today.
+  finding, not a fact to record — on 2026-09-06 `docs/pacer.md`, removed 2026-11-22, and two of the
+  three `docs/research/*-findings.md` were named by no skill file.
 - Dispositions for `docs/concerns.md` and `docs/adr/`: created with an owning mechanism, or their
   references removed from `/align`, `/plan`, `/ticket` and `/maintain`. The check surfaces these on
   its first run over a tree that declares more than one mechanism. **`concerns.md`'s owner is

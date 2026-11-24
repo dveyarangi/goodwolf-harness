@@ -47,7 +47,7 @@ Consolidate the existing dev skill family into the requested canonical home, aft
 ## Decisions this ticket's align owns
 
 - Spec lifecycle: enduring decisions move to maintained governing documents, specs eventually become history. ~~Who owns maintenance and archiving?~~ **2026-09-05, user: `/maintain` owns all tree maintenance, all `/denoise` and `/sync-arch` responsibilities, and archiving.** It checks all mechanisms against their actual rules and can run at whole-tree, project or RFC scope. Current policy: [tree maintenance](../../.agents/mechanisms/maintain/maintain.md). Exact lifecycle state and implementation design remain open.
-- Issue capture, routing, decomposition and pace: define Tier 1 natural-language triggers, an owner for initially unowned issues, and feedback to earlier stages. The user's `/step` and `/decompose` examples are alternatives to assess, not selected new skills. **2026-09-06, user:** the loop's sequence and the scoping of work are the pacer's concern; `docs/process.md` (removed 2026-11-22, eadd0b64) is marked preliminary and the pacer is expected to own it; each step's rules move into the step's skill as it is installed. The pacer's core rules are Tier 1: they say what the agent does after `/recall` and what one turn's reply is scoped to. Their content is under alignment in [pacer.md](../pacer.md); the ticket is [01-0020](./01-0020-each-turn-knows-its-next-step.md).
+- Issue capture, routing, decomposition and pace: define Tier 1 natural-language triggers, an owner for initially unowned issues, and feedback to earlier stages. The user's `/step` and `/decompose` examples are alternatives to assess, not selected new skills. **2026-09-06, user:** the loop's sequence and the scoping of work are the pacer's concern; `docs/process.md` (removed 2026-11-22, eadd0b64) is marked preliminary and the pacer is expected to own it; each step's rules move into the step's skill as it is installed. The pacer's core rules are Tier 1: they say what the agent does after `/recall` and what one turn's reply is scoped to. Their content was under alignment on the pacer's page, removed 2026-11-22, what it held carried in [q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md); the ticket is [01-0020](./01-0020-each-turn-knows-its-next-step.md).
 - Governing principles for the harness and its use in software development; operational definitions and a robust load-bearing-seam test are now the alignment priority. [Draft principles](../spec/01-0010-a-shared-harness-improves-without-losing-project-conventions.md#governing-principles--for-alignment).
 - Observable selection and delivery of rule slices: the user directs Tier 1 strict/meta rules and skill descriptions, Tier 2 routed detail, and occasion-specific generated context supplied by hooks. Cross-host delivery and evidence contracts remain to be defined.
 - ~~Bootstrap suite membership and source variants.~~ **2026-09-05, user: accepted the [bootstrap source selection](#bootstrap-corpus-selection).** Exact instruction adaptations and installation remain to be planned.
@@ -85,7 +85,7 @@ M = `D:/Dev/AI/meteoscape/.agents/skills`; F = `D:/Dev/DriftSense/workspace/fore
 | `recall` | `/recall` | F core: retain priority for landed-but-unchecked work. Use this project's delivery records locally. |
 | `review-architecture` | `/review-architecture` | M and its `REFERENCE.md`; equivalent shared content. Update calls to the current workflow. |
 | `review-impl` | `/verify` | M review body, reconciled directly with agreed repair-and-report. F contains both "do not make changes until requested" and an unconditional amendment direction, so neither body is suitable unchanged. **2026-09-05, user: renamed `/verify`.** |
-| `setup-devops` | `/setup-devops` | M; equivalent to A/F and correctly named. Do not use H's mismatched `setup-project` metadata. |
+| `setup-devops` | `/setup-devops` | M; equivalent to A/F and correctly named. Do not use H's mismatched `setup-project` metadata. **2026-11-21, user: renamed `/devops`.** |
 | `skill-up` | `/skill-up` | M/F core as source. Adapt to inline local instructions initially and explicit file ownership; blanket appendix preservation cannot remain. Leave unresolved override policy explicit. |
 | `sync-arch` | `/maintain` | M responsibilities absorbed in maintenance, as agreed: architecture/code consistency in both directions and reconstruction of load-bearing contracts. |
 | `tdd` | `/tdd` | M with all five identical supporting documents. Retain the existing rule that an agreed RFC can satisfy its planning gate. |
@@ -805,7 +805,8 @@ case.
 a suite run on Linux and CI → [01-0011.0090 a-test-catches-what-its-name-promises](./01-0011.0090-a-test-catches-what-its-name-promises.md);
 what the method may cost and what it is for → [`.0168`](./01-0010.0168-the-harness-measures-what-it-costs-and-saves.md)'s
 align; a Claude Code hook ahead of the host survey → [`.0125`](./01-0010.0125-the-host-blocks-what-a-rule-forbids.md)'s
-align. The light path for small work is [01-0020](./01-0020-each-turn-knows-its-next-step.md)'s already; every panel run
+align. The light path for small work is [01-0020](./01-0020-each-turn-knows-its-next-step.md)'s already *(carried
+to [q-p2tgdv](../questions/q-p2tgdv-how-does-the-method-lighten-for-small-work-and-weigh-more-for-large.md), 2026-11-24)*; every panel run
 and both review passes named it.
 
 ## A recipient's own maintenance — 2026-09-27
