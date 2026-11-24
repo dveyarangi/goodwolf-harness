@@ -210,4 +210,13 @@ The register's entry *76. Rules were proposed in a reply without `/skill-up`*, s
 time: the keeper drew a rule's frame twice from the memory of `/skill-up`, the skill loaded in the
 session's context both times. The third decision's test — loaded, not read in the turn — passes
 both; neither an edit's refusal nor a reply's would have fired. Evidence for whoever takes the
-tracer up; no decision.
+tracer up; no decision. Read in the keeper's transcript the same day: the load was of 2026-11-15,
+carried by the host across a dozen compactions, with no call of the skill between.
+
+## The person on the tracer's turn, 2026-11-24
+
+Asked in the keeper's chat whether to start the tracer's ticket now: "я думаю что мы решаем ту же
+задачу  - или как минимум улучшаем исполняемость правил - ролями и короткими сессиями - текущая
+задача хранилища." The ticket keeps its place in the order. The count the person asked for beside
+it, before and after that work:
+[q-b4um7c](q-b4um7c-do-sessions-load-the-skill-their-act-needs-counted-from-the-hosts-transcripts-before-and-after-a-change.md).
