@@ -53,9 +53,11 @@ nothing; a question worked for days strikes too, so the count ranks time spent a
 
 **Delivery.** Where a host's hooks can add context, the window comes from them, and the session
 mechanism's registration with it; the rule stays the floor every host reads. Claude Code
-and Codex take context at session start and before every message; Cursor only at session start, so
-its agent draws the window by the rule, and its prompt hook only marks the session seen. A window stays in the conversation once drawn, so the next
-is drawn only when the session's position or an entry moved, and whole again after a compaction.
+and Codex take context at session start and before every message; Cursor's hooks put none in front
+of its agent, so the agent draws the wake and the window by the rule, and the hooks only register
+the session and mark it seen. A window stays in the conversation once drawn, so the next is drawn
+only when an entry, the session's position or unit, or the unit another running session holds
+moved, and whole again at a start or after a compaction.
 Either form ends with the counters — the tree's open tickets, open questions and straw dogs, each
 with what came and went since the session's previous window, matched by name — since a ticket or
 a straw dog moves while no entry does; the names are remembered outside the tree beside the
@@ -99,14 +101,14 @@ roles, is an open question of the store.
 | re-parenting, merging or pruning by hand | `.agents/skills/questions/SKILL.md` | |
 | drawing the window | `.agents/scripts/gw/questions.py` | |
 | delivering a session's window through a host's hook | `.agents/scripts/gw/questions.py` | |
-| answering a host's call before a tool: refusing a shell command that commits naming no paths — the session mechanism's S5 — where the host's row names that event | `.agents/scripts/gw/questions.py` | |
+| answering a host's call before a tool with the session mechanism's refusal, where the host's row names that event | `.agents/scripts/gw/questions.py` | |
 | writing entries and the position from a call | `.agents/scripts/gw/questions.py` | |
 | writing a question's argument, the body after its parts, by hand | `.agents/skills/questions/QUESTION-FORMAT.md` | |
 | landing a decision an align makes, and holding one with nowhere to land yet | `.agents/skills/align/SKILL.md` | |
 | checking the store | `.agents/scripts/gw/questions.py` | |
 | reading the store at a session's wake: the most struck, what asks the person, the deferred, the straw dogs due | `.agents/scripts/gw/questions.py` | |
 | marking an open question as asking the person, shown by every wake until it closes, closed on the person's word | `.agents/skills/questions/SKILL.md` | |
-| <straw-dog question="q-huss2x">reading the path ahead at the wake and on request: the work in hand, what was touched lately with no ticket, the candidates with their reasons, the roots</straw-dog> | `.agents/scripts/gw/questions.py` | |
+| <straw-dog question="q-huss2x">reading the path ahead at the wake and on request: the work in hand, what was touched lately with no ticket, the candidates with their reasons and the running sessions beside each, the roots</straw-dog> | `.agents/scripts/gw/questions.py` | |
 | writing the session's leans | `.agents/skills/conclude/SKILL.md` | |
 | leaving a finished subtree out of the window, where it stands | `.agents/scripts/gw/questions.py` | |
 | installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
@@ -147,7 +149,9 @@ roles, is an open question of the store.
 | the installer | `.agents/scripts/gw/inject_rules.py` | `mechanism-shape` |
 | the hooks' wrapper — a host's hooks launched by a Git alias, Git's `pre-push` by the clone's hook file — which runs the store's hook and hands it what the other mechanisms' hook lines print: the installer's, the harness mechanism's | `.agents/scripts/gw/hook.sh` | `mechanism-shape` |
 | the interpreter record the wrapper reads, made by the link step | `.agents/scripts/gw/harness.py` | `harness` |
-| the rows' script, for each session's position | `.agents/scripts/gw/sessions.py` | `session` |
+| the rows' script, for each session's row, and for whether a command commits bare and the reason it is refused with, `bare_commit` and `COMMIT_REFUSAL` | `.agents/scripts/gw/sessions.py` | `session` |
+| the ticket maintainer, for the live tickets the counters count and the path reads | `.agents/scripts/gw/tickets.py` | `ticket` |
+| the product document's reader, for how much of each answer is built, which the path shows | `.agents/scripts/gw/product.py` | `product` |
 | the mover, which the migration moves the entries with | `.agents/scripts/gw/move_doc.py` | `ticket` |
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |
 
@@ -156,19 +160,25 @@ roles, is an open question of the store.
 - **A fresh store's roots** — *what it intends to become* — read by the first session's `/recall`
   and every window after, before the project has written a question of its own; worded on the
   shelf, written by the script, the project's from then on.
-- **The entries** — *what it intends to become, what happened once closed* — read by the script at every window, wake, declaration and check, by a
-  person through `--tree`, and by the product mechanism's script, which asks `realizes` for each
-  question's trace link — a part the store keeps as written and never resolves.
+- **The entries** — *what it intends to become, what happened once closed* — read by the script at every window, wake, path, call and check, by a
+  person through `--tree`, by the product mechanism's script, which asks `realizes` for each
+  question's trace link — a part the store keeps as written and never resolves — and by the other
+  mechanisms' scripts through `read_store`: the rows' for what a row names, the ticket maintainer
+  for what a ticket answers, the straw dogs' listing and the shape check for whether one is due.
 - **The window** — *what exists* — read by the agent before every message, from the host's hook or the rule.
 - **The wake's read** — *what exists* — read by the agent at session start, from the hook or `/recall`; it names
   the straw dogs due, whose text `/maintain` rewrites, and every open question asking the person, which
   `/recall` puts to them as a decision until it closes *(the user, 2026-10-25 and 2026-10-26)*.
 - **The fingerprint of each session's last window**, outside the tree — *what exists* — read by the script alone,
-  to tell whether anything moved; a compaction clears it.
+  to tell whether anything moved; a start or a compaction clears it.
 - **The hook wiring** — *what must always hold* — read by the installer, which merges each shelf
   file into the host file at its own path beside the project's hooks, and by each host from there.
 - **The hook's answers** — *what exists* — read by the host, which places them in the agent's
-  context, or, before a tool, refuses a shell command that commits naming no paths with S5's reason.
+  context, led by the lines the hooks' wrapper hands over as `GW_NOTICE`, or, before a tool,
+  refuses the command with the session mechanism's reason.
+- **The reading of a hook's payload**, `hook_input` and `session_of` — *what exists* — read by the
+  harness mechanism's hook line, `entry_notice.py`: the payload as the host wrote it, and the host,
+  the event and the session it speaks for.
 - **The check's report** — *what exists* — read by `/maintain` at its pass, by `/verify` through the
   verification set and by the pre-push check, `harness.py --pre-push`, at a push that carries a file of the method.
 - **The former ids** — *what happened* — `docs/questions/former-ids.md`, written once by the

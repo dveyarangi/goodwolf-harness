@@ -191,6 +191,9 @@ class Entry:
     # it neither open, deferred nor suspect, and none of them depended on by a question held open.
     # Set by the reader over the whole store; a closed question stays where it is.
     archived: bool = False
+    # The lines among the parts that no part holds, each with its number: writing the entry would
+    # drop them, so a call that would is refused.
+    unheld: tuple[tuple[int, str], ...] = ()
 
     @property
     def state(self) -> re.Match[str] | None:
@@ -555,6 +558,7 @@ def _read(name: str, text: str) -> tuple[Entry, list[Diagnostic]]:
     parts: dict[str, Part] = {}
     last: str | None = None
     body = ""
+    unheld: list[tuple[int, str]] = []
     carries_former_mark = False
     for number, line in enumerate(lines[1:], start=2):
         if last is not None and not line.strip():
@@ -570,8 +574,10 @@ def _read(name: str, text: str) -> tuple[Entry, list[Diagnostic]]:
                 )
             elif last not in PARTS:
                 problems.append(Diagnostic(name, number, f"`{last}` is not a part of an entry"))
+                unheld.append((number, line))
             elif last in parts:
                 problems.append(Diagnostic(name, number, f"`{last}` is written twice"))
+                unheld.append((number, line))
             else:
                 parts[last] = Part(bullet.group(2).strip(), number)
         elif last in parts and _CONTINUATION.match(line):
@@ -579,7 +585,8 @@ def _read(name: str, text: str) -> tuple[Entry, list[Diagnostic]]:
             parts[last] = Part(f"{joined.value} {line.strip()}", joined.line)
         elif line.strip():
             problems.append(Diagnostic(name, number, "holds a line that is not one of its parts"))
-    read = Entry(name, title.group(1) if title else None, title.group(2) if title else "", parts, body)
+            unheld.append((number, line))
+    read = Entry(name, title.group(1) if title else None, title.group(2) if title else "", parts, body, unheld=tuple(unheld))
     return read, (
         problems
         + _state_problems(read)
@@ -1430,10 +1437,10 @@ def _asking_section(store: Store, live: list[Entry], others: list[sessions.Sessi
 
 def _whose(store: Store, read: Entry, others: list[sessions.Session]) -> str:
     """The running session whose work holds the question — it stands on it or above it, or holds
-    it or a question above it — or nothing."""
+    it or a question above it, the unit open — or nothing."""
     above = {each.identity for each in _ancestry(store.index, read.identity or "")}
     for other in others:
-        if other.current in above or (other.holds and other.holds in above):
+        if other.current in above or (other.holds in above and store.index[other.holds].open):
             return f" — in {other.tag}'s work"
     return ""
 
@@ -1456,7 +1463,7 @@ def _most_struck(live: list[Entry]) -> list[Entry]:
 
 # --- the path -----------------------------------------------------------------------------------
 
-# TODO q-huss2x: the path is the pathfinder's, drawn here while that mechanism is undeclared.
+# TODO q-huss2x: the path is the pathfinder's, drawn here until its mechanism draws it.
 AHEAD_READY = 5
 AHEAD_STRUCK = 3
 AHEAD_LATELY = 5
@@ -1467,11 +1474,11 @@ _FIRST_ID = re.compile(_ID)
 def path_ahead(root: Path, now: datetime) -> str:
     """The path read from the records as they are, for the agent to tell the person: the work in
     hand, the questions touched lately with no ticket, the candidates at the next boundary each
-    with its reasons, and how the roots balance. A reading, written nowhere, so two sessions read
+    with its reasons and the running sessions beside it, and how the roots balance. A reading, written nowhere, so two sessions read
     one path; it ranks nothing, no order among the candidates being written yet, and compares
     no count with the project's limit on work in hand, which the agent reads from the entry file.
     """
-    # TODO q-ojs4jd: the order, once the product roadmap gives one.
+    # TODO q-huss2x: the order, once the roadmap's rows hold one.
     if not (root / STORE).is_dir():
         return "path: no question store here"
     return "\n".join(["path:", *_ahead_lines(root, now)])
@@ -1557,7 +1564,7 @@ class _Ahead:
     def ready(self) -> list:
         """The Ready tickets, in id order: none stands above another until the product's roadmap
         orders them."""
-        # TODO q-ojs4jd: stand them by the product roadmap once it exists.
+        # TODO q-huss2x: stand them by the roadmap's order, docs/roadmap.md, once its rows hold one.
         return [ticket for ticket in self.tickets if _status_of(ticket) == "Ready"]
 
     def open_work(self) -> "collections.Counter[str]":
@@ -1593,7 +1600,9 @@ class _Ahead:
         name where it bears one. A position on a root is over everything and says nothing."""
         found = []
         for held in self.running:
-            where = [self._relation(at, identity) for at in (held.current, held.holds) if at]
+            # A closed unit holds nobody, as the window's line of another session says.
+            unit = held.holds if held.holds in self.index and self.index[held.holds].open else None
+            where = [self._relation(at, identity) for at in (held.current, unit) if at]
             where = [relation for relation in where if relation]
             if where:
                 found.append(f"{held.name or held.tag} ({min(where, key=('on', 'under', 'over').index)})")
@@ -2620,14 +2629,16 @@ class _Draft:
             self.changed.append(read.identity or "")
 
     def recheck(self, seen: dict[str, bytes]) -> None:
-        """Every entry the clauses change is as it was read, and every id they open is still free —
-        under any slug, since another session names its question in its own words."""
+        """Every entry the clauses change is as it was read and can be written whole, and every id
+        they open is still free — under any slug, since another session names its question in its
+        own words."""
         for identity in self.changed:
             if identity in self.new and _files_holding(self.root, identity):
                 raise Taken(f"{identity} was written by another session since this call read the store")
             if identity in self.new:
                 continue
             record = self.index[identity].record
+            refuse_a_loss(self.index[identity])
             now = (self.root / record).read_bytes() if (self.root / record).is_file() else None
             if now != seen.get(record):
                 raise Refused(f"{record} changed since this call read it; call it again")
@@ -2667,6 +2678,16 @@ def _files_holding(root: Path, identity: str) -> list[Path]:
         if folder.is_dir()
         for path in (*folder.glob(f"{identity}.md"), *folder.glob(f"{identity}-*.md"))
     ]
+
+
+def refuse_a_loss(read: Entry) -> None:
+    """An entry is written from its parts and its body, so a line among the parts that no part
+    holds would be dropped: the first one refuses the write, named."""
+    for number, line in read.unheld:
+        raise Refused(
+            f"{read.record}:{number} holds `{line.strip()}`, which no part of an entry holds and "
+            "writing the entry would drop; move it into the body or take it out, and call again"
+        )
 
 
 def _with(read: Entry, **changes: str | None) -> Entry:

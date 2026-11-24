@@ -692,6 +692,16 @@ class ThePathAhead(RepositoryCase):
         self.assertNotIn("s-root", "\n".join(lines))
         self.assertNotIn("s-gone", "\n".join(lines))
 
+    def test_a_session_holding_a_closed_unit_is_beside_nothing_by_it(self) -> None:
+        self.a_tree()
+        self.write(f"{STORE}/q-0002.0002.0001-q.md", entry(
+            "q-0002.0002.0001", "Who closes a ticket?",
+            {"part of": "q-0002.0002", "state": "closed:moot", "answer": "nobody asks it"},
+        ))
+        self.write(SESSIONS, "s-done running 2026-09-29T11:00Z q-0003 holds q-0002.0002.0001\n")
+
+        self.assertNotIn("beside", "\n".join(self.under(self.path()[1], "ready")))
+
     def test_a_struck_question_names_the_session_over_it(self) -> None:
         self.a_tree()
         self.question("q-0002.0004.0001", "Does the path read twice?", parent="q-0002.0004")
@@ -1757,6 +1767,29 @@ class TheBody(Declared):
         )
 
         self.assertTrue(any("not one of its parts" in problem for problem in self.problems()), self.problems())
+
+    def test_a_call_is_refused_where_writing_would_drop_a_line_the_parts_do_not_hold(self) -> None:
+        stem = "q-0007-who-moves-a-subtree"
+        whole = self.entry_text(stem)
+        state = next(line for line in whole.splitlines() if line.startswith("- **state** "))
+        for named, held in (
+            ("colour", "- **colour** blue"),
+            ("a line wrapped under it", "- **colour** blue\n  and green"),
+            ("written twice", "- **state** open"),
+            ("glued to the parts", "glued to the parts"),
+        ):
+            with self.subTest(held=named):
+                self.write(f"{STORE}/{stem}.md", whole.replace(state, f"{state}\n{held}", 1))
+
+                self.assertRefused("would drop", "lean", "q-0007", "a lean")
+
+    def test_another_entry_holding_such_a_line_holds_back_nothing(self) -> None:
+        stem = "q-0010-how-do-sessions-reach-each-other"
+        self.write(f"{STORE}/{stem}.md", self.entry_text(stem) + "glued to the parts\n")
+
+        self.called("lean", "q-0007", "a lean")
+
+        self.assertIn("glued to the parts", self.entry_text(stem))
 
     def test_a_hand_edit_to_the_body_meanwhile_refuses_the_call_and_keeps_the_edit(self) -> None:
         self.argue("q-0007-who-moves-a-subtree")
