@@ -170,6 +170,28 @@ remedies. Not remedied, and so open:
 It found sound: the advice and no hold, the bound's figures, the letter's end recorded, the recall's
 offer, and that a fresh session is tried before anything is built.
 
+## The closing as it was done by hand, to be reproduced — 2026-11-25
+
+The user, 2026-11-25, of the readiness before the clearing: "я понял. но это все должно как-то быть
+воспроизводимым?" It is q-ja5mp4's decision 2, reproducible and not added and forgotten. What was done, and
+what of it needs judgement:
+
+| step | done by | reproduced by |
+|---|---|---|
+| seen with the eyes of a cleared chat: what its start and first message would show it | hand, and found three holes | code, with its test: the wake opens with the session's name, question and unit, the window shows its name |
+| what lives in this chat alone: each promise to the person, each refusal and order of theirs, each thing noticed and set aside, each script or text made, sought in the tree | judgement | a rule, the sweep `/conclude` opens with, which names promises, decisions, own changes and drift, and not the person's refusals and orders |
+| the same, by someone else | nobody; the builder judged itself | a subagent given the person's words and the replies alone, drawn from the transcript by a script, and the tree: what is in the first and not in the second |
+| each put in its home | judgement | decision 4 |
+| *Where it stopped*, at the head of the unit's record: the person's last words, the next steps, what waits on the person, what is not for now and whose | hand, its four slots made up | a form, and a check that the unit's record bears one newer than the session's last clearing |
+| what is in doubt marked at its place, so that the next does not build it | judgement | the form's fifth slot |
+| nothing own uncommitted, nothing of its own running | hand | a rule; a script cannot tell whose a changed file is |
+| cleared | the app's call | untried |
+| on opening, the stop read first, and what was missing written | untried | the recall's rule |
+
+The text of it, in `/conclude` and `/recall`, is drafted through `/skill-up` after the trial shows what of this
+is missing or idle, and the stop's form is declared with it. The journal of the way of working is the
+keeper's, and is told with the message this question owes it.
+
 ## No letters, if a chat clears itself — 2026-11-25
 
 The user, 2026-11-25: "на самом деле, вообще нет проблем будить спящих, если они взяли роли, если мы сможем
