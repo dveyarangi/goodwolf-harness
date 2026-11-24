@@ -6,7 +6,7 @@
 - **owner** [01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md)
 - **realizes** A4 "A session resumes at its step", A44 "A turn runs to the person's next decision"
 - **rung** development: load-bearing, self-improvement: the method
-- **lean** 2026-11-22: cut down — every part of the next step and the resume has its home, a turn chaining to the dial; docs/process.md and the proposed Unit of work removed; Where it stands put to the person
+- **lean** 2026-11-25: Where it stands accepted, 01-0020 rewritten to it; it closes on a judge reading a resumed session and its verification
 - **opened** 2026-10-03T11:36:26Z
 - **struck** 5, last 2026-11-22T00:26Z
 
@@ -36,6 +36,7 @@ A44 reads "A turn runs to the person's next decision" since it was brought to de
    allowance the user named on 2026-09-06 is the dial, and no rule holds a turn to one step. Left
    to the ticket: `docs/process.md`, the glossary's *Unit of work*, and the record of where each
    part went. Not: a one-step rule standing apart from the dial.
+   → [the method's glossary, *Turn*](../../.agents/glossary.md).
 2. **`docs/process.md` is removed** — the user, 2026-11-22: "Yes, remove it". No rule lived there
    alone: its straw dog waited on the pacer, dissolved; *Work and documents* retold the entry
    file's helpers, the path's reading at `/recall` and Q6, and said wrongly that the skills link
@@ -48,6 +49,8 @@ A44 reads "A turn runs to the person's next decision" since it was brought to de
    an item on a project's board — and the method's glossary defines a ticket as a tracked unit of
    agreed work; the proposed sense, work at any scale up to a milestone, was used nowhere. The
    scales it pointed to stay as evidence below. Not: an entry of its own in the method's glossary.
+4. **`Where it stands` is accepted** — the user, 2026-11-25: "Yes, accept".
+   → [01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md), rewritten to it.
 
 ## Evidence — a correction ended the next move, 2026-10-26
 
@@ -123,3 +126,12 @@ work and the one who names its ceremony seem one actor. Dropped: the pacer's not
 maturity is not read from its age or its commit count — `/impact`'s load-bearing test reads what
 a change touches, not how old the project is; the user, 2026-11-22: "про зрелость можно
 выкинуть".
+
+## Evidence — the written queue's order, carried from 01-0020, 2026-11-25
+
+Carried when the ticket was rewritten, which alone held it. The user, 2026-09-27, of the
+queue then written by hand, retracting an agreement in principle of 2026-09-20: the order is not
+re-ranked mechanically when delivery state moves; it changes by the user's decision, when
+priorities or product requirements change, when the order is found inconsistent, or when a HITL
+ticket's resolution meets unpredicted complexity or a split that forces a reordering. The written
+queue is since withdrawn and the order of work is `/pathfinder`'s.

@@ -1,156 +1,43 @@
 # Each turn knows its next step
 
 - **record of** what it intends to become
-- **Status:** Partial (2026-10-25: the wake rule landed 2026-09-20; the align resumes when taken)
-- **Type:** HITL
+- **Status:** Partial (aligned 2026-11-25)
+- **Type:** AFK
 - **Minted:** 2026-09-06
 - **Answers:** [q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md)
-- **Outcome:** The agent knows, on every turn, what it does after `/recall` and what
-  the turn's reply is scoped to, from Tier 1 rules in the entry file; and after a
-  session break the next session resumes the delivery ring at the step it stopped,
-  stopping only for a HITL escalation.
+- **Outcome:** A turn runs to the person's next decision, and a session that ends mid-ring is
+  resumed at its step without the person restating where things stood.
 
 ## Parent
 
-The pacer's page, removed 2026-11-22, what it held carried in
-[q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md).
-**2026-09-06, user:** not a child of
-[01-0010](./01-0010-a-shared-harness-improves-without-losing-project-conventions.md). Pace is this ticket's contract;
-the shared-harness ticket is a different one. Minted 2026-09-06 as
-`01-0010.0040` to bind the `<temporary until="/pacer is installed">` block in
-`docs/process.md`; reparented the same day to `01-0020`. The idea and the rules
-resolved so far live in [q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md) until this ticket carries them.
+[What the harness is for](../product.md), its answers A4 and A44. Not a child of
+[01-0010](./01-0010-a-shared-harness-improves-without-losing-project-conventions.md): pace is this
+ticket's contract *(the user, 2026-09-06)*.
 
 ## What to build
 
-- The pacer's core rules, reaching `AGENTS.md`'s core part as Tier 1 with the entry contract
-  bumped — as installed blocks from the pacer's rules file once the mechanism is declared, never
-  authored there by hand *(the form the mechanism shape fixed on 2026-09-07; this bullet said
-  "placed" until 2026-09-20, a day older than that rule, and the first landed rule was written
-  by hand on its word)*. Resolved so far, 2026-09-06: a turn holds at most one
-  execution step; a step is the execution of a single skill; a session that starts
-  with "what's next" starts with `/recall`, which finds the next probable move, and
-  `/align` on what's next when nothing is active. **First one landed, 2026-09-20, the user:**
-  every session runs `/recall` first, whatever the first message says — a widening of the
-  "what's next" rule with no carve-out for a message that names a skill or a task. In
-  [AGENTS.md](../../AGENTS.md) at v9, beside the announce line; occasion
-  [rule failure 4](../rule-failures.md#4-the-wake-rule-sat-in-a-diagram-and-a-greeting-was-answered-with-a-greeting--2026-09-20).
-  It is hand-authored and wrapped as a straw dog bound to this ticket's question, q-p4mcme:
-  inception owes it a rules file
-  and an `<installed by>` block in `AGENTS.md`, which makes this ticket the third claimant on
-  `AGENTS.md` as an injection target after `.0110` and 01-0017.0010. The rest stay in
-  [q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md).
-- The resume state a session writes at `/conclude` and reads at `/recall`, so
-  the ring resumes where it stopped. Where it lives and what it holds are this
-  ticket's decisions; the session record is not it.
-- Ownership of `docs/process.md`: the sequence and scoping of work, with each
-  step's rules already in the step's skill by then.
-- Whether `/pacer` is a skill at all, or rules alone. The `<temporary>` condition
-  assumes a skill; the decision may change the condition.
-- Where `/recall` sits, now that it exists. **Installed 2026-09-09**, after twelve sessions in which
-  the entry file's loop said *wake with `/recall`* and every wake was taken by hand. It is a
-  candidate for being this mechanism's instruction file rather than a mechanism of its own: this
-  ticket's outcome is *what the agent does after `/recall`*, its second bullet is the resume state
-  `/recall` reads, and a skill declared separately would split one mechanism across two tickets.
-  Deciding it belongs to this align, which is why no declaration ticket was minted for the skill.
-
-## Decisions this ticket's align owns
-
-- The remaining core rules: how a step is bounded and its boundary reported; the
-  escalation threshold at which a turn stops for a human, against the
-  [dynamic-autonomy policy](../process.md#autonomy-and-repair).
-- **How the loop's granularity and ceremony become switchable** *(the user, 2026-09-21)*: a
-  level-of-ceremony setting, local steps, or the steps themselves configurable — which, and what
-  a project can say in its local file about what deserves a ticket, a spec or nothing. The
-  user's grading, 2026-09-26, after a README rewrite drew an RFC: **minor** amendments land inline
-  with no ceremony; **simple** ones need a ticket to carry them and not the loop; **bigger** ones
-  take the loop at an intensity matched to their weight — how many `/plan` and `/verify` passes —
-  which today the user asks for by hand on heavier tickets.
-  [01-0010.0080](./01-0010.0080-impact-recommends-the-works-shape.md), `/impact` routing work to its shape, is
-  where the grade would be read. Both adoption panels of 2026-09-26
-  ([record](../research/adoption-panel-2026-09-26.md)) named the uniform ceremony in every reader's
-  reasons, and two asked for a lighter profile outright — `/recall` and `/conclude` alone, a memory
-  without the delivery loop. Until it
-  is decided, the loop is suggested and enforced as a straw dog, and a tree with a process of its
-  own meets it at `/align` step by step under
-  [01-0010.0150](./01-0010.0150-harness-meets-a-tree-with-a-method.md)'s flow. Touches
-  the pacer's open question on which artifact levels can be omitted, carried in
-  [q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md), and
-  [01-0010.0080](./01-0010.0080-impact-recommends-the-works-shape.md)'s routing answer.
-- Resume state: owner, shape, and what `/conclude` and `/recall` do with it.
-- When chaining steps inside one turn becomes allowed, and how that allowance
-  is stated.
-- **Who applies the queue's ordering rule, and where the order lives.** Raised 2026-09-20, when
-  `/recall` was asked how the candidate had been chosen and the answer was: a closing session
-  advanced a chain and wrote the result as a candidate, with no evaluation behind it. The rule —
-  *the slice that hands the next one a tool ranks first* *(the user, 2026-09-07)* — has been
-  applied once in the tree's history; three carriers hold the order and disagree: the position
-  number, which the ticket format declares as priority and nobody renumbers; the hand-ordered
-  table; and the status page's candidate line. The ticket mechanism's doc already binds the
-  moment *ordering the queue and writing its pacing prose* to this ticket. **Decided** *(the user,
-  2026-09-27, retracting the in-principle agreement of 2026-09-20)*: the order is not re-ranked
-  mechanically when delivery state moves. It changes, by the user's decision, when one of these
-  occurs: priorities change; product requirements change; an inconsistency is found in the queue's
-  ordering; or a HITL ticket's resolution meets unpredicted complexity or a split that forces the
-  tickets to be reordered or reorganised. The shape proposed on 2026-09-20, kept for what else it holds:
-  - ~~The order changes when delivery state moves — a close, a mint, a precedence decision — and
-    never at wake.~~ `/recall` reads it and does not rank.
-  - This mechanism owns the rule and installs it: into `/maintain`'s close, to re-rank what is
-    Ready and renumber; into `/ticket`, to place a ticket at mint; into `/align`, so a precedence
-    decision lands as a renumbering rather than a paragraph; into `/recall`, to read the first
-    Ready ticket by position.
-  - The position number is the one carrier. [01-0011.0040](./done/01-0011.0040-the-ticket-list-is-rendered-never-copied.md)
-    then derives the table from the tickets sorted by it, and the candidate line and the
-    hand-ordered table stop being second and third homes.
-  - The rule stays judgment, applied by whoever renumbers, with the human checkpoint where it is
-    at `next-cycle`. A per-ticket field saying what the slice hands the next one — a check, a
-    script, a rule, nothing — would make it derivable; not adopted, on one application's evidence.
-- **Whether this ticket still waits behind the four rule refactors.** **Decided** *(the user,
-  2026-09-27)*: it waits. The pacer waits for skills to become mechanisms, which is tied to the
-  coherence refactors; `.0110` having landed does not release it. The reasoning below was the case
-  for moving it, and did not hold. The queue places it after
-  [01-0018](./01-0018-rules-reach-the-occasion-they-are-for.md) because it wanted the Tier 1 placement rule that
-  ticket settles: how a rule reaches the entry file. Two things landed on 2026-09-20 that answer
-  most of that: R5, under which a mechanism's rule reaches the entry file only as an installed
-  block from its rules file, and [01-0010.0110](./done/01-0010.0110-project-facets-injected.md)'s
-  making the entry file an injection target with an anchor. Once `.0110` lands, this mechanism has
-  the form and the target for its rules, and its declaration could plausibly follow `.0110`
-  directly rather than the whole coherence chain. Meanwhile its rules can keep landing one at a
-  time, hand-written and wrapped on this ticket, as the wake rule did. Raised 2026-09-20; a
-  renumbering for this align to decide, alongside `.0040`'s placement above.
-
-## Handed to this ticket
-
-**2026-09-06, from [01-0010.0070](./done/01-0010.0070-install-maintain.md)'s `/verify`:** the glossary's
-`Unit of work` entry links the pacer hypothesis as `docs/pacer.md#scales-and-steps--revised-hypothesis`
-from inside `docs/`, so it resolves to `docs/docs/pacer.md` and leads nowhere. Found mechanically,
-left unrepaired because it sat outside that pass's declared scope. It is this ticket's because
-`pacer.md` is this ticket's until the rules move here.
-
-**2026-09-06:** the `<temporary>` block in `docs/process.md` was rebound from
-`until="/pacer is installed"` to `until="01-0020 is done"`. The old condition presumed a `/pacer`
-skill, which this ticket's own open question says may not exist.
-
-**2026-09-28, from [01-0012](./done/01-0012-hierarchy-coherent.md)'s close:** two things arrive. The
-resume state this ticket's second bullet owes is the `questions` store's current question and its
-path — [01-0011.0100](./01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md) — so this
-ticket may need no record of its own for it; the escalation threshold stays here, read by that
-mechanism as the HITL policy together with the autonomy switches and the ticket type. And the
-glossary's *Unit of work — proposed definition* is this ticket's to promote or retire, as
-`pacer.md` already claims it.
+Nothing is left to write: each part of a turn's next step and a session's resume has a home of its
+own, and the question names them
+([its decision 1](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md#decisions)).
+A turn chains steps until the first decision at or above its ladder's dial, and a resumed session
+reads the question it stands on and the unit it holds from the store's window. What is left is to
+see a resume happen: the parts were each built for a purpose of their own, and no record holds one
+observed.
 
 ## Acceptance criteria
 
-- [ ] The core rules are in the entry file, announced by a bumped version line,
-  and a fresh session's first turn after `/recall` is scoped as they say.
-- [ ] A session that ends mid-ring is resumed by the next session at the right
-  step without the user restating where things stood, observed at least once.
-- [ ] `docs/process.md` carries no step rules and its `<temporary>` block is gone.
+- [x] `docs/process.md` and the glossary's proposed *Unit of work* are gone. 2026-11-22.
+- [ ] A session that ended mid-ring is resumed at its step without the person restating where
+      things stood, read from its transcript by a judge who did not build it.
 - [ ] `/verify` has been run on this ticket against its ticket, RFC, and governing docs.
-  *(Added 2026-09-09 under repair-and-report: the shelf requires the box of every ticket, and
-  this one was minted before the rule.)*
 
 ## Out of scope
 
-The shared-harness corpus, `/edge`, and this project's remaining 0010 bootstrap.
-Those stay on [01-0010](./01-0010-a-shared-harness-improves-without-losing-project-conventions.md).
+How the loop's granularity and ceremony become switchable —
+[q-p2tgdv](../questions/q-p2tgdv-how-does-the-method-lighten-for-small-work-and-weigh-more-for-large.md).
+The order of work —
+[q-huss2x](../questions/q-huss2x-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three.md).
+Which decisions stop for the person —
+[q-xmk75m](../questions/q-xmk75m-which-of-the-agents-acts-need-the-persons-yes-and-which-does-it-do-on-its-own.md).
+How a session splits its effort between the task in hand and later improvements —
+[q-jn54hg](../questions/q-jn54hg-how-does-a-session-split-its-effort-between-the-task-in-hand-and-improvements-for-later-and-where-is.md).
