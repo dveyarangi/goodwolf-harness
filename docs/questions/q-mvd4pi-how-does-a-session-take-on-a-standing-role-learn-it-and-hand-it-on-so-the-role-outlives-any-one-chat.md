@@ -14,8 +14,10 @@ next. Bears on [q-p4sdnv](q-p4sdnv-what-is-an-agent-role-and-which-mechanism-kee
 
 ## Where it stands
 
-Put to the person whole, 2026-11-25, not accepted. A number is the decision below that a part stands
-on; *new* is a part no decision holds, the agent's proposal, accepted with the whole or not.
+Accepted by the user, 2026-11-25: "по ролям все верно", of this whole retold to them in ten points, the
+new ones named as new. A number is the decision below that a part stands on; *new* is a part no decision
+held before, the agent's wording, accepted with the whole. One part changed at the acceptance: a letter is
+written through the server (decision 11).
 
 **The problem.** A standing chat is costly and grows dull: it is read whole at each request, waking it
 cold costs twenty of its requests, and what its host compacts away is lost by no rule. The role must
@@ -49,8 +51,11 @@ it does, and the chat stays in its place.
 **Letters** (7, 9). To a role somebody holds and is awake, a message as now. To one nobody holds, a letter:
 a file of its own in the role's folder, a pointer or a word and never state.
 - *New.* Two calls carry them, and no session touches the folder: one leaves a letter for a role; one
-  takes a letter off, naming where what it said stands or that it was refused and why. So what stands
-  behind the calls can move, to the store's own branch or a server, with no rule changing.
+  takes a letter off, naming where what it said stands or that it was refused and why. They are the
+  server's, as every write of the store is, and the letters stand as files on the store's branch beside
+  the questions (decision 11; [q-cn7gef](q-cn7gef-which-kinds-of-record-are-written-through-the-server-and-which-travel-with-the-code.md)). Until the server runs the scripts do it
+  ([q-7ebz2f](q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md) 17), and the folder moves with the questions when the branch is built
+  (01-0010.0250.0110), no rule changing.
 - *New.* They are delivered by the call that takes the role, whose output prints them whole: an agent's
   command shows 30 thousand characters, where a hook's shows 10, and 2 where it is longer. The hook at a
   start carries one line of counts, first in the wake, which is cut today: role, how many, the oldest.
@@ -464,3 +469,9 @@ The role's chat that clears itself leaves one chat where each piece of work woul
     согласен, но - в первых все же можно создать бесконечную сессию которую мы все таки будим - это
     редкий режим сессии оркестратора например". The exception is the user's: one session, rarely, is
     always reached, and woken.
+11. **Letters are written through the server** — the user, 2026-11-25: "тякс, точно, это же должно работать
+    через наш сервер, разве нет?", of the agent's saying that files were best for one folder of a project.
+    The agent's folder stands for where they are read; who writes them is
+    [q-7ebz2f](q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md)'s decision 1.
+12. **The whole above, its new parts included** — the user, 2026-11-25: "по ролям все верно". The wake and
+    the calls are not built before test 1 has run and the base is counted.

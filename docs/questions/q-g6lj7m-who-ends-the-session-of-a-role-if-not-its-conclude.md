@@ -31,6 +31,9 @@ days: "conclude должен удалять только временные се
    session like any other, which its `/conclude` ends.
    → [session.md, A session's life](../../.agents/mechanisms/session/session.md#how-it-works)
 
+*Decisions 1 and 2 overturned by the user, 2026-11-25: a chat that held a role closes as any other, the role
+outliving it ([q-mvd4pi](q-mvd4pi-how-does-a-session-take-on-a-standing-role-learn-it-and-hand-it-on-so-the-role-outlives-any-one-chat.md), *Where it stands*). Not yet carried into the skills and the script.*
+
 ## Where it stands
 
 Accepted by the user, 2026-11-20, with decision 3; the ticket

@@ -178,6 +178,7 @@ Zones are chosen and shifted by paths and the domain's seams, the same in every 
 which of the harness's mechanisms they touch; a role's own mechanism is where the zone, once cut,
 is written, so a shift is decided in paths and recorded there.
 
+*(Overturned 2026-11-25 as to the session: a role is taken for one piece of work, its holder stands on the row, and the chat closes — [q-mvd4pi](q-mvd4pi-how-does-a-session-take-on-a-standing-role-learn-it-and-hand-it-on-so-the-role-outlives-any-one-chat.md), *Where it stands*, accepted by the user.)*
 **Who holds which.** Which session holds which role is the tree's own setting: a table in its
 local rules file, installed into the entry file, where every session reads it. A session is
 named there by its name, never by a chat's id. What the table does not name is held by the
@@ -212,7 +213,7 @@ store, and in a tree that installed the harness and took this part, by the sessi
 the harness. That role is carried by this part of the session mechanism until the part leaves as
 a mechanism of its own.
 
-**The roles core ships.** To a tree with more than one standing session, two: the one that holds
+**The roles core ships.** *(The default session offered at install overturned 2026-11-25, [q-mvd4pi](q-mvd4pi-how-does-a-session-take-on-a-standing-role-learn-it-and-hand-it-on-so-the-role-outlives-any-one-chat.md).)* To a tree with more than one standing session, two: the one that holds
 the harness, offered at install as the default session, and the lander, folded into the first in
 a small tree. A project composes the rest by this cut. Judges, discovery and audits are
 subagents; the maintenance sweep is a session the host's schedule starts, and no standing one.
@@ -233,7 +234,7 @@ subagents; the maintenance sweep is a session the host's schedule starts, and no
   another.
 - *A tree is installed.* The harness offers to start the default session; it is offered, never
   required, and a tree with one session needs no roles.
-- *A session takes a role.* It writes its name on its row, reads the role's skill, and reads the
+- *A session takes a role.* *(Overturned 2026-11-25, [q-mvd4pi](q-mvd4pi-how-does-a-session-take-on-a-standing-role-learn-it-and-hand-it-on-so-the-role-outlives-any-one-chat.md).)* It writes its name on its row, reads the role's skill, and reads the
   tree by the role's zone: its own whole, the rest through what is shared and the contracts
   between zones, without loading it.
 
