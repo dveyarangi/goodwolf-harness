@@ -4,7 +4,7 @@
 - **part of** q-tt733j
 - **state** open
 - **rung** development: a feature, self-improvement: the method
-- **lean** the user, 2026-10-12: a regime of the tree that develops the harness, not regular harness work; q-hah6zp and its ticket 01-0018.0010 placed here
+- **lean** the user, 2026-10-12: a regime of the tree that develops the harness, not regular harness work; q-hah6zp and its ticket 01-0018.0010 placed here; 2026-11-24: the notice that the entry file moved ships to every tree all the same, the rest of the regime stays this tree alone
 - **opened** 2026-10-12T14:56:13Z
 - **struck** 0, last 2026-10-12T14:55Z
 

@@ -1,10 +1,10 @@
 # q-d7zsba Where the entry-file notice asks for a read past its budget, and ships as core, do the person's two earlier words give way?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-hah6zp
-- **state** open
+- **state** closed:decided
+- **answer** [the harness mechanism](../../.agents/mechanisms/harness/harness.md) — the user, 2026-11-24: the notice in every project
 - **rung** development: a feature, self-improvement: a script
-- **asks** the person, 2026-11-24
 - **opened** 2026-11-24T04:24:38Z
 - **struck** 0, last 2026-11-24T04:24Z
 
@@ -23,3 +23,15 @@ Asked by the pass with no person of 2026-11-24, which met two earlier words of t
 2. The exceptions are taken back: past the budget the notice says only how many passages changed, and the line is kept to this tree.
 
 **Recommendation.** Option 1. The budget is a limit of the host, and a notice cut in half would say less than a request to read; a recipient's sessions meet the same gap. The records that say otherwise are brought to it on the person's word.
+
+## Decisions
+
+1. **The notice ships as core, to every tree** *(the user, 2026-11-24, to the keeper: "хук во всех
+   проектах")* — the word of 2026-10-12 that placed the need in this tree alone gives way for the
+   notice; what else that regime asks stays this tree's
+   → [the harness mechanism](../../.agents/mechanisms/harness/harness.md)
+2. **The read asked past the budget narrows no word of the person's.** The ban on a re-read was
+   the path's session's proposal, handed on as the person's and corrected by that session on
+   2026-11-24; the person had said only that a session take the change silently, at its next
+   turn. The mechanism's doc and the plan now say whose each part was
+   → [the harness mechanism](../../.agents/mechanisms/harness/harness.md)

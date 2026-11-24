@@ -143,7 +143,8 @@ it was and as it is now, and the memory moves — before the text is handed on, 
 cut short is read on from the output the host saved, as its first lines say: one
 change is shown once, several between two messages as one notice, and never a request to read
 the file again while the passages fit — the old text stays in the context, and adding to its end
-keeps what a re-read would replace *(the user, 2026-11-22)*. Past its budget the notice asks for
+keeps what a re-read would replace *(proposed in session and agreed by the user, 2026-11-22;
+the user's own words asked only that a session take the change silently, at its next turn)*. Past its budget the notice asks for
 the read. A context that took the file in anew, and a session whose start no hook saw, are shown
 nothing. The line never fails the host and never speaks of its own trouble.
 

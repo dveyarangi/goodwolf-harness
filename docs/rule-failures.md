@@ -229,8 +229,11 @@ session has closed every turn so since 2026-11-20 and the person has read and an
 where the host may cut it. What failed is the reading — the box taken for the reply's end — and
 the host's own text already says the contrary at every call.
 
-**Disposition:** open — put to the person, 2026-11-22, with the keeper's recommendation against a
-local rule: it would restate one host's instruction, the other way round.
+**Disposition:** refused 2026-11-24 — by the keeper, whose file the local rules are, and told to
+the person as taken: the host says at every closing call that the answer is written after it,
+the one session that missed it has been told, and no second occurrence is recorded. It was put
+to the person from 2026-11-22 to 2026-11-24 and not taken up. A repeat in another session
+strikes this entry.
 
 ## A gap was named without reading what the running sessions hold — 2026-11-22
 
