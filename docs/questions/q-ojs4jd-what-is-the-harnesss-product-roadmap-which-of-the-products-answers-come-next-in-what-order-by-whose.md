@@ -4,9 +4,9 @@
 - **part of** q-m6unv4
 - **state** open
 - **rung** development: the whole product
-- **lean** the user, 2026-11-22: the product is the bearing, but what leads to it counts too — a stopgap where the harness already moves toward a fuller or more general answer is taken only well justified, and wrapped as a straw dog; else the work is a bottleneck, moving many at once, or readies the harness for its next stage, or stands alone and closes something of the product. Who makes that analysis: the Путь session, L13 (the user, 2026-11-22). The order itself, open
+- **lean** the user, 2026-11-22: the product is the bearing, but what leads to it counts too — a stopgap where the harness already moves toward a fuller or more general answer is taken only well justified, and wrapped as a straw dog; else the work is a bottleneck, moving many at once, or readies the harness for its next stage, or stands alone and closes something of the product. Who makes that analysis: the Путь session, L13 (the user, 2026-11-22). The order itself, open; the user, 2026-11-25: "сейчас проблема для меня это перерасход токенов"
 - **opened** 2026-10-25T19:34:35Z
-- **struck** 2, last 2026-11-22T00:15Z
+- **struck** 3, last 2026-11-24T22:08Z
 
 ## The written queue, as it stood when withdrawn, 2026-10-25
 
@@ -92,6 +92,27 @@ no answer. The seven directions are the agent's grouping of the headings, not ag
 Two things it shows. *Adopting the harness* is one answer, A49, with 61 of the 236, so a row naming
 it orders little. And `--path` draws the first five Ready tickets by id of seventeen; the
 candidates told on 2026-11-22 as weighed anew were two of those five and three from elsewhere.
+
+## The problem now is cost — 2026-11-25
+
+The user: "встреча и установка у нас постоянно происходит, мы накапливаем настоящие случаи, вот
+сейчас с проектами дрифтсенс. если надо, можешь обратиться к его сессии за инфой. сейчас проблема
+для меня это перерасход токенов )". It answers the agent's recommendation to take the meeting
+first, which is withdrawn: the meeting goes on by itself and its cases arrive. No product answer was
+named, so the roadmap holds no row for it.
+
+Weighed by [the week's measure](../research/measures-2026-11-25/REPORT.md), shares of this tree,
+which overlap and are ceilings:
+
+| candidate | what it can save | weighs as |
+|---|---|---|
+| a session taken for one piece of work and ended ([q-mvd4pi](q-mvd4pi-how-does-a-session-take-on-a-standing-role-learn-it-and-hand-it-on-so-the-role-outlives-any-one-chat.md), under way) | waking a long chat 18 %, re-reading above 200 thousand 15 % | moves many at once, and is the general answer |
+| a letter to a sleeping session waits in its record instead of waking it | within the 37 % letters cost, 15 % being the waking itself | falls out of the first; alone it is a stopgap |
+| subagents by the weight of the work ([q-p2tgdv](q-p2tgdv-how-does-the-method-lighten-for-small-work-and-weigh-more-for-large.md)) | within 25 % here, 34 % in fimonitor | stands alone |
+| the host's tools, some 37 thousand of a request's fixed 66 | not measured as a share | the person's setting, no work of the harness |
+
+The agent's recommendation, not decided: the first, with the second taken inside it, and the third
+after it, since that is what is left in the trees where sessions do not write to each other.
 
 ## Decisions
 
