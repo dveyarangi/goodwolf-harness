@@ -114,6 +114,10 @@ which overlap and are ceilings:
 The agent's recommendation, not decided: the first, with the second taken inside it, and the third
 after it, since that is what is left in the trees where sessions do not write to each other.
 
+The user, 2026-11-25, of that: "расход первым, но я хочу как-то увидеть работу лучше, все же." The
+order is cost first. No product answer says that the work costs little — A39 counts it, A45 weighs
+work to its shape — so a row has nothing to name; whether a row may name a pain is put to the person.
+
 ## Decisions
 
 1. **The roadmap is a record of its own, kept by the session holding the Путь role** *(the user,
