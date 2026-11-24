@@ -15,7 +15,7 @@ an entry's body is written by hand. The window is the part of the store near a s
 
 ## Invoked by a person
 
-- No argument: `questions.py --tree` and the session's window drawn whole,
+- No argument: `questions.py --tree` and the session's window drawn again,
   `--window --session <tag> --full`.
 - With an argument: the tidy-up asked for, as calls — re-parent with `move`, merge with
   `close q-N merged q-M`, prune with `close q-N pruned '<reason>'`.

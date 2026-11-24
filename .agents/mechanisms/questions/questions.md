@@ -29,8 +29,8 @@ together, never an entry. How one root's answers bear on another's is the projec
 nothing fixes it.
 
 **The turn.** Before drafting, the agent reads the window — the path from the root to its session's
-current question, the children along it, the root's other open questions, the other roots, the
-other sessions — and says what the turn is: on a question, placed on the lowest one that contains
+current question, the children along it, how many stand open deeper, which the tree under one
+question draws, the other roots, the other sessions — and says what the turn is: on a question, placed on the lowest one that contains
 the message and never on one that only resembles it, nor on a far one that holds it only as it
 holds everything beneath it, where the parent is missing and is opened; a process, the agent carrying out what it
 knows how to do, which is placed nowhere; uncharted, a question whose home the person settles; or
@@ -57,7 +57,8 @@ and Codex take context at session start and before every message; Cursor's hooks
 of its agent, so the agent draws the wake and the window by the rule, and the hooks only register
 the session and mark it seen. A window stays in the conversation once drawn, so the next is drawn
 only when an entry, the session's position or unit, or the unit another running session holds
-moved, and whole again at a start or after a compaction.
+moved, and again at a start or after a compaction. It is kept under a host's cap on what a hook
+puts in front of the agent, past which the host shows the beginning alone.
 Either form ends with the counters — the tree's open tickets, open questions and straw dogs, each
 with what came and went since the session's previous window, matched by name — since a ticket or
 a straw dog moves while no entry does; the names are remembered outside the tree beside the

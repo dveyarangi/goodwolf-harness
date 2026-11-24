@@ -1200,14 +1200,16 @@ def successor(index: dict[str, Entry], read: Entry) -> Entry | None:
 def window(root: Path, tag: str, full: bool = False) -> str:
     """What the agent reads before placing a message: the session's position and what is near it.
 
-    It prints position, never relevance — it has no idea what the message says. The rendering is
-    the one the window test in the mechanism's evidence measured, with each line's state and lean
-    added; a change to it reruns that test.
+    It prints position, never relevance — it has no idea what the message says. It holds the path,
+    the children of each question on it and what must be acted on, and no more, since a host shows
+    the agent whole only what stays under its cap; what stands deeper is `--tree`'s, drawn under the
+    one question a message leads to. The rendering is measured by the window test in the
+    mechanism's evidence; a change to it reruns it.
 
     Every window drawn stays in the conversation, so one is drawn only when something moved: when
     neither this session's position nor any entry changed since the last one, a single line says
     so (parent decision 44). Another session's position alone is not a change; a unit held, or
-    taken from this session, is.
+    taken from this session, is. `full` draws it all the same.
 
     Either form ends with the counters, since a ticket or a straw dog moves while no entry does.
     """
@@ -1400,7 +1402,7 @@ def wake(root: Path, now: datetime, tag: str | None = None) -> str:
 
 def _wake_read(root: Path, held: sessions.Session, header: str, now: datetime) -> str:
     """What keeps coming back, who else is running and where, what waits to be re-read, and this
-    session's window drawn whole. An ended session is nobody's business at a wake."""
+    session's window. An ended session is nobody's business at a wake."""
     store = read_store(root)
     live = sorted((read for read in store.index.values() if not read.archived), key=_order)
     others = [other for other in store.sessions if other.running and other.tag != held.tag]
@@ -1467,6 +1469,7 @@ def _most_struck(live: list[Entry]) -> list[Entry]:
 AHEAD_READY = 5
 AHEAD_STRUCK = 3
 AHEAD_LATELY = 5
+NO_STATUS = "unread — no ticket here carries a status"
 _TICKET_ID = re.compile(r"^(\d\d-\d{4}(?:\.\d{4})*)-")
 _FIRST_ID = re.compile(_ID)
 
@@ -1491,12 +1494,18 @@ def _ahead_lines(root: Path, now: datetime) -> list[str]:
         *ahead.in_work(),
         *ahead.touched_lately_lines(lately),
         "  ready, in id order, none ranked above another:",
-        *_or_none(line for ticket in ahead.ready()[:AHEAD_READY] for line in ahead.ticket_lines(ticket)),
+        *ahead.ready_lines(),
         "  most struck, no ticket, past those touched lately:",
         *_or_none(line for read in ahead.most_struck(lately)[:AHEAD_STRUCK] for line in ahead.question_lines(read)),
+        *_left_out(len(ahead.most_struck(lately)), AHEAD_STRUCK),
         "  roots:",
         *ahead.roots(),
     ]
+
+
+def _left_out(found: int, shown: int) -> list[str]:
+    """A list cut short says how many it left out, so a part is never read as the whole."""
+    return [f"    and {found - shown} more"] if found > shown else []
 
 
 def _or_none(lines) -> list[str]:
@@ -1535,6 +1544,8 @@ class _Ahead:
         """The tickets In progress with none under them In progress: a parent is in progress
         because a child is, and is counted once, through the child."""
         # TODO q-b3myg2: sessions in the ring count too once the store can tell them.
+        if self._status_kept_elsewhere():
+            return [f"  in work: {NO_STATUS}"]
         going = [ticket for ticket in self.tickets if _status_of(ticket) == "In progress"]
         ids = [_ticket_id(ticket) for ticket in going]
         leaves = [ticket for ticket in going if not any(other.startswith(f"{_ticket_id(ticket)}.") for other in ids)]
@@ -1556,8 +1567,7 @@ class _Ahead:
             f"    {read.question} — {read.identity} (struck {read.strike.count}, {read.strike.last:%Y-%m-%d})"
             for read in lately[:AHEAD_LATELY]
         ]
-        more = [f"    and {len(lately) - AHEAD_LATELY} more"] if len(lately) > AHEAD_LATELY else []
-        return [f"  touched lately, no ticket: {len(lately)}", *shown, *more]
+        return [f"  touched lately, no ticket: {len(lately)}", *shown, *_left_out(len(lately), AHEAD_LATELY)]
 
     # --- the candidates ---
 
@@ -1566,6 +1576,17 @@ class _Ahead:
         orders them."""
         # TODO q-huss2x: stand them by the roadmap's order, docs/roadmap.md, once its rows hold one.
         return [ticket for ticket in self.tickets if _status_of(ticket) == "Ready"]
+
+    def ready_lines(self) -> list[str]:
+        if self._status_kept_elsewhere():
+            return [f"    {NO_STATUS}"]
+        ready = self.ready()
+        shown = _or_none(line for ticket in ready[:AHEAD_READY] for line in self.ticket_lines(ticket))
+        return [*shown, *_left_out(len(ready), AHEAD_READY)]
+
+    def _status_kept_elsewhere(self) -> bool:
+        """Tickets there are, and none says its status: a board keeps it, and none is not a count."""
+        return bool(self.tickets) and not any(_status_of(ticket) for ticket in self.tickets)
 
     def open_work(self) -> "collections.Counter[str]":
         """How many open questions below a root reach each answer, through their own trace link or
@@ -1989,7 +2010,7 @@ def _frontier_lines(store: Store, path: list[Entry]) -> list[str]:
     """Every child of every question on the path. A closed one is shown with its kind, so that a
     question asked again is seen as a reopening, and a deferral can be told from drift."""
     frontier = [
-        f"  under {read.identity}: {_line(child)}"
+        f"  under {read.identity}: {_short_line(child)}"
         for read in path
         for child in store.children.get(read.identity or "", [])
         if child not in path
@@ -1998,20 +2019,14 @@ def _frontier_lines(store: Store, path: list[Entry]) -> list[str]:
 
 
 def _root_lines(store: Store, path: list[Entry]) -> list[str]:
-    """The open questions of the current root, and its suspect entries wherever they sit in it:
-    open questions are bounded by attention within a root, closed ones are not."""
+    """How many questions are open under the current root, which the tree draws, and its suspect
+    entries wherever they sit in it."""
     root = path[0]
     below = store.under(root.identity or "")
     shown = path + [child for read in path for child in store.children.get(read.identity or "", [])]
+    opened = sum(1 for read in below if read.open)
     return (
-        _section(
-            f"open questions under this root ({root.identity}), with their parent:",
-            [
-                f"  {read.identity} (parent {read.parent}) {read.question}{_count(read)}{_lean(read)}"
-                for read in below
-                if read.open
-            ],
-        )
+        [f"open under this root ({root.identity}): {opened}; `--tree q-N` draws what stands under one", ""]
         + _section(
             "suspect under this root:",
             [f"  {_line(read)}" for read in below if read.suspect and read not in shown],
@@ -2073,7 +2088,11 @@ def _without_position(store: Store, held: sessions.Session) -> str:
 
 
 def _line(read: Entry) -> str:
-    return f"{read.identity} [{read.parts['state'].value}] {read.question}{_count(read)}{_lean(read)}"
+    return f"{_short_line(read)}{_lean(read)}"
+
+
+def _short_line(read: Entry) -> str:
+    return f"{read.identity} [{read.parts['state'].value}] {read.question}{_count(read)}"
 
 
 def _count(read: Entry) -> str:
