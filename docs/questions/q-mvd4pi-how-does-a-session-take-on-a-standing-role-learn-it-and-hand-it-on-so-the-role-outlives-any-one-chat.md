@@ -284,6 +284,12 @@ moves to another zone's work; 50 % of the window, a reminder at 20 % (decision 5
 quiet with nothing waiting on it, over some 120 thousand tokens: past its cache's hour a chat that
 size costs more to wake than one to open.
 
+**A unit nobody resumed.** The practice's session, 2026-11-25, of a judge's reading: three units whose
+holder ended. Read against the rows and tickets: 01-0018.0010 is closed, its holder's ended row naming
+it still, to no effect; 01-0010.0125.0010 and 01-0010.0240.0020 are *Ready*, held by nobody, their
+holders' rows gone. Nothing at a wake says a piece of work was begun and let go: such a letter, left at
+the closing, would.
+
 ## Decisions
 
 1. **Every role has a mechanism of its own** — the user, 2026-11-16: "да, у каждой роли свой
