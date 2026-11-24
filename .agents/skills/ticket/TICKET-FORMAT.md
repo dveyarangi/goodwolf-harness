@@ -59,8 +59,9 @@ Artifacts predating this keep their names.
 
 A ticket is a unit of agreed work. Whatever holds one states its outcome — one sentence of
 observable behaviour; <straw-dog question="q-hih5yp">the question it
-answers;</straw-dog> what to build; its acceptance criteria, each observably true when done and one
-of them verification; its parent, where it was carved from one; and its status. It is done when
+answers</straw-dog> or, <straw-dog question="q-an5uw2">for a hazard the person set aside,</straw-dog>
+who set it aside, when, and its reach; what to build; its acceptance criteria, each observably true
+when done and one of them verification; its parent, where it was carved from one; and its status. It is done when
 every criterion holds, verification included.
 
 The file under `docs/tickets/`, in the shape below, is the contract's default form. A project's own
@@ -86,9 +87,9 @@ never content *(the user, 2026-09-08)*.
   to `what happened` as it closes the pair. The mark has no colon, which
   tells it from a field; its earlier name, `kind`, is reported.
 - **The shape** is read from `Minted`. A ticket is minted from the body of
-  the question it answers once the work's form is seen, never before, and
-  holds what is actual for the work — the existing state where it bears
-  included — filling the picture by references rather than restating it. A
+  the question it answers once the work's form is seen, never before —
+  a hazard the person set aside, at once and from none — and holds what is
+  actual for the work, the existing state where it bears included, filling the picture by references rather than restating it. A
   decision lands where it is made, the story goes to evidence or a session
   record, and the ticket links them. A checked box with its date is the whole
   verification record. <straw-dog question="q-q6xwpv">A ticket
@@ -112,6 +113,7 @@ one-off field anywhere before `Outcome`, `Outcome` last:
 - **Depends on:** [{title}](./RR-NNNN-slug.md) ({the thing it brings that this work uses})
 - **Blocks:** [{title}](./RR-NNNN-slug.md) — {why}
 - **Answers:** [q-{id}](../questions/q-{id}-{slug}.md)
+- **Hazard:** set aside by {who}, YYYY-MM-DD; {its reach, counted in the code}
 - **Outcome:** {the delivered change, one sentence}
 ```
 
@@ -123,7 +125,8 @@ one-off field anywhere before `Outcome`, `Outcome` last:
 | `Plan` | exactly when an RFC with the ticket's basename exists under `docs/rfc/` or its `done/` | its link resolves to that RFC | plus one clause on what it selected |
 | `Depends on` | optional | every link resolves | only what this work will use and does not exist yet, the parenthetical naming that thing — a decision, a format, a command — never the other ticket's state; that a ticket is still open, or that two touch one file, is no dependency |
 | `Blocks` | optional | every link resolves | only when the blocking relation is itself an argument; carries its `— why` |
-| `Answers` | required | one link to an entry of the question store whose `owner` is this ticket | the question the ticket's goal answers — its *what for*; its open questions sit under that entry, and a child ticket's question under its parent's |
+| `Answers` | required, save where `Hazard` stands | one link to an entry of the question store whose `owner` is this ticket | the question the ticket's goal answers — its *what for*; its open questions sit under that entry, and a child ticket's question under its parent's |
+| `Hazard` | <straw-dog question="q-an5uw2">only on a hazard the person set aside</straw-dog> | `set aside by`, who, a day, its reach | how far the harm goes, as counted in the code |
 | one-off fields | optional | every link resolves | `Trigger`, `Related`, `Owning decision` and the like, when the ticket carries that fact |
 | `Outcome` | required, last | one sentence | observable behavior, never code shape |
 

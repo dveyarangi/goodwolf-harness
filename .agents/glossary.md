@@ -163,7 +163,7 @@ _Avoid_: unplaced, nowhere, new as names for this.
 A historical account retained after its active role ends, with its disposition explicit; of the kind *what happened*. Current work should be understandable from maintained sources without requiring that record; historical investigation and mechanical maintenance may still reach it.
 
 **Ticket**:
-A tracked unit of agreed work with an intended outcome and observable completion criteria, minted from the body of the question it answers once the work's form is seen. It holds what is actual for the work; a decision lands where it is made, not in the ticket. Of the kind *what it intends to become*: spent when its criteria hold.
+A tracked unit of agreed work with an intended outcome and observable completion criteria, minted from the body of the question it answers once the work's form is seen; a hazard the person set aside is minted at once, from none. It holds what is actual for the work; a decision lands where it is made, not in the ticket. Of the kind *what it intends to become*: spent when its criteria hold.
 _Avoid_: dossier, decision log, history as names for a ticket's contents.
 
 **HITL ticket**:

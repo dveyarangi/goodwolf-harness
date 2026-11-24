@@ -23,9 +23,11 @@ decisions make true, and `/recall` and `/ticket` read the live tickets from the 
 ticket is minted.
 
 **A ticket holds what is actual for the work** *(the user, 2026-09-08; 2026-10-11)*. It is minted
-from the body of the question it answers once the work's form is seen and its `Where it stands` accepted, and keeps the work and its
-criteria. A decision lands where it is made, by the questions mechanism's rule; the question's
-body holds what has nowhere to land yet, and the session record the align.
+from the body of the question it answers once the work's form is seen and its `Where it stands`
+accepted, and keeps the work and its criteria. A hazard the person set aside is minted at once, with
+no question: questions are for exploring the tree of ideas, not for recording important tasks *(the
+user, 2026-11-25)*. A decision lands where it is made, by the questions mechanism's rule; the
+question's body holds what has nowhere to land yet, and the session record the align.
 
 <straw-dog question="q-huss2x">
 **The seam between the record and delivery.** What is generic in a unit of work — an outcome,

@@ -480,6 +480,49 @@ class TheQuestionItAnswers(Records):
         self.assertTrue(all("Open issues" in problem for problem in problems), problems)
 
 
+class AHazardSetAside(Records):
+    """A hazard the person set aside is a ticket with no question behind it, its `Hazard` field
+    saying who set it aside, the day and its reach (the user, 2026-11-25)."""
+
+    def hazard(self, value: str) -> None:
+        self.write_raw(LIVE, ticket(BEFORE.replace("- **Outcome:**", f"- **Hazard:** {value}\n- **Outcome:**")))
+
+    def test_needs_no_answers(self) -> None:
+        self.hazard("set aside by the user, 2026-11-25; 35 routes serve without a session")
+
+        self.assertEqual([], self.problems())
+
+    def test_naming_nobody_no_day_or_no_reach_is_reported(self) -> None:
+        for value in (
+            "set aside, 2026-11-25; 35 routes",
+            "set aside by the user; 35 routes",
+            "set aside by the user, 2026-13-25; 35 routes",
+            "set aside by the user, 2026-11-25",
+        ):
+            with self.subTest(value):
+                self.hazard(value)
+
+                problems = self.problems()
+
+                self.assertEqual(1, len(problems), problems)
+                self.assertIn("Hazard", problems[0])
+
+    def test_after_the_outcome_is_reported(self) -> None:
+        self.write_raw(LIVE, ticket(BEFORE + "- **Hazard:** set aside by the user, 2026-11-25; 35 routes\n"))
+
+        self.assertEqual(1, len(self.problems()))
+
+    def test_shows_in_the_list_in_the_place_of_its_question(self) -> None:
+        self.hazard("set aside by the user, 2026-11-25; 35 routes serve without a session")
+        out = io.StringIO()
+        with contextlib.redirect_stdout(out):
+            tickets.main(["--list"], self.root)
+
+        row = next(line for line in out.getvalue().splitlines() if "01-0002" in line)
+
+        self.assertTrue(row.endswith("| hazard, set aside 2026-11-25 |"), row)
+
+
 class Pairing(Records):
     def test_a_live_rfc_whose_ticket_is_archived_is_reported(self) -> None:
         self.write("docs/tickets/done/01-0003-planned.md", self.read(PLANNED))
