@@ -5,7 +5,7 @@
 - **depends on** q-7ld3wt
 - **state** open
 - **rung** development: load-bearing, self-improvement: the method
-- **lean** the align of 2026-10-07: the environment is a mechanism, the gate passes whole; it owns the verification set, whose home is the local rules file injected into the skills that run it and into no document; a description of the environment is a record of what exists and is rendered, not kept; open: the set's shape, the rule on changing it, setup-devops as its instruction file
+- **lean** the align of 2026-10-07: the environment is a mechanism, the gate passes whole; it owns the verification set, whose home is the local rules file injected into the skills that run it and into no document; a description of the environment is a record of what exists and is rendered, not kept; open: the set's shape, the rule on changing it, devops (named setup-devops until 2026-11-21) as its instruction file
 - **opened** 2026-10-13T14:38:28Z
 - **struck** 0, last 2026-10-07T06:52Z
 

@@ -153,7 +153,7 @@ claimant is the always-on mechanism, so no uninstall can remove what another mec
   finding is a file, a line and a count, never what was met. Read by whoever runs it; a tree
   whose repository others read names it in its verification set. With `--all` it reads every
   file the repository speaks for, which core runs nowhere unasked: it is run when the list gains
-  a line, and wherever a tree's own rules have a pass run it.
+  a line, and by a pass with no person, where a tree's own rules have it run.
 - **`--index`'s render** — *what exists* — read on request by someone asking what is declared. **Nothing runs it
   unasked**, and nothing consumes its output: it exists so the register never becomes a file, and
   a register nobody asks for is a register nobody needed.
@@ -207,10 +207,10 @@ mechanism cannot be retired. The shape's block absent from `/mechanism` under `-
 signal that the always-on mechanism has lost what it installed into itself, and the check is
 what says it happened.
 
-**Nine declared mechanisms are still thin evidence for a shape.** The first three each forced
+**Twelve declared mechanisms are still thin evidence for a shape.** The first three each forced
 amendments to it, the fourth passed its check unedited and sharpened one word, the session's
 loosened one skill per mechanism to one owner per skill — what each one forced is in the
-evidence; the other four left no account there — and
+evidence; the other seven left no account there — and
 <straw-dog question="q-g6624x">the rest of the corpus meets it at once</straw-dog>.
 
 ## What retires this

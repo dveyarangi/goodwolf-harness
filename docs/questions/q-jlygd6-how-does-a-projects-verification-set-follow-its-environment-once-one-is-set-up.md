@@ -4,7 +4,7 @@
 - **part of** q-t3p7na
 - **state** open
 - **rung** development: a feature, self-improvement: a rule
-- **lean** 2026-10-14: opened from 01-0010.0170's re-read — setup-devops writes docs/cicd.md and leaves the set behind; the trial's installing agent wrapped its own L3 as a straw dog for the same reason
+- **lean** 2026-10-14: opened from 01-0010.0170's re-read — devops, then named setup-devops, writes docs/cicd.md and leaves the set behind; the trial's installing agent wrapped its own L3 as a straw dog for the same reason
 - **opened** 2026-10-14T14:46:45Z
 - **struck** 0, last 2026-10-14T14:38Z
 

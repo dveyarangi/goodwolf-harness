@@ -13,7 +13,8 @@
 - The host's row `claude-code` in `HOSTS`, `.agents/scripts/gw/questions.py`: `session_id`, and
   the desktop app's `CLAUDE_CODE_HOST_SESSION_ID`, read first where it is set, since the app gives
   a resumed conversation a new `session_id` and keeps its own id; the terminal keeps the
-  `session_id` on resume, a new one only under `--fork-session`.
+  `session_id` on resume, a new one only under `--fork-session`; its tool event is `PreToolUse`,
+  and `_deny` writes its refusal.
 - Its hook cases in `.agents/scripts/gw/test/test_sessions.py`, its merge in
   `.agents/scripts/gw/test/test_harness.py`.
 - A project `settings.json` written mid-session is read without a restart; nothing to approve.

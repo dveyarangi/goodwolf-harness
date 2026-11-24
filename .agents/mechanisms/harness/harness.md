@@ -234,7 +234,8 @@ would otherwise fail the shape check for the same absence the report already nam
   including the recipient's own copy at its own `--check`; and by a person or a fork asking where
   this tree's core comes from, or pointing it somewhere else.
 - **Each host's hook file, core's entries merged in** — *what exists* — read by that host at session
-  start and before each message, and by `--check`, which compares core's entries alone.
+  start, before each message and, where the host's file names that event, before a shell command;
+  and by `--check`, which compares core's entries alone.
 <straw-dog question="q-t3p7na">
 - **The clone's `pre-push`** — *what exists* — in its Git directory or a hooks folder of the
   project's own work tree, run by Git at each push, which it refuses on any finding in a copy of
@@ -242,9 +243,9 @@ would otherwise fail the shape check for the same absence the report already nam
   hooks nor outside the project, where the report gives the line and its place.
 </straw-dog>
 - **The interpreter record**, in the clone's common Git directory — *what exists* — shared by the
-  clone's worktrees and read by the hooks' wrapper before every hook; made by the link step, so
-  `--links` is the one step a fresh clone runs, and a worktree of the clone runs none: its links
-  are made, or their command given, at its session's start.
+  clone's worktrees and read by the hooks' wrapper before every hook that starts the interpreter;
+  made by the link step, so `--links` is the one step a fresh clone runs, and a worktree of the
+  clone runs none: its links are made, or their command given, at its session's start.
 - **The pending command** — *what exists* — read by a person, once, in an elevated prompt.
 - **The notice of a changed entry file** — *what happened* — read by a running session with its
   next message, once.
