@@ -178,8 +178,8 @@ Read by column:
   person — and self-improvement, and nothing measures whether it holds.
 - **G2** has guarded writes, the dial, and a push refused on a broken record. Roles have begun as
   the mechanisms a standing session holds, a change in another's asked of the session that holds it.
-  The host refusing a forbidden action has begun with one act on one host: Claude Code refuses a
-  commit that names no paths. The question store's writes refuse a stale
+  The host refuses no forbidden action; Git's own `pre-commit` stops an agent's commit that names no
+  paths, in this tree's clone alone and on trial. The question store's writes refuse a stale
   read; every other file's are the host's.
 </straw-dog>
 
