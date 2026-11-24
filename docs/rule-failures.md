@@ -1856,7 +1856,7 @@ local file, allowed and rare, brought to match by the next session before its fi
 wake line carries the action to the session that meets it, and the installer's check in the
 verification set carries it to `/maintain` for the one no session met. The `/harness` paragraph
 told it a third time, and told it where no session reads it. It goes. The re-read it asked for is
-[01-0018.0010](tickets/01-0018.0010-a-session-learns-the-entry-file-moved.md)'s question, and the
+[01-0018.0010](tickets/done/01-0018.0010-a-session-learns-the-entry-file-moved.md)'s question, and the
 one-line report is what the entry file asks of every outcome. At the self-improvement dial, a
 rule, so shown first.
 
@@ -3063,7 +3063,7 @@ the first being mechanism work on the window; the second landed as entry contrac
 делаем хук"): a running session whose entry file changed is shown the changed passages, as was
 and now, leading its next message, once — the passages and not the version, and no re-read of
 the whole file (990ac6d7,
-[01-0018.0010 a-session-learns-the-entry-file-moved](tickets/01-0018.0010-a-session-learns-the-entry-file-moved.md)).
+[01-0018.0010 a-session-learns-the-entry-file-moved](tickets/done/01-0018.0010-a-session-learns-the-entry-file-moved.md)).
 It is the harness mechanism's own hook line, not the window's. Closed on it; the ticket's live
 observation is still to be made.
 

@@ -26,7 +26,7 @@ dates, is evidence for the roadmap; the numbers were its order, which nothing re
 10. Coherence: [01-0011.0100.0050](../tickets/01-0011.0100.0050-a-question-branches-before-it-is-answered.md) → [01-0014](../tickets/01-0014-scope-reads-the-same-everywhere.md) → [01-0017](../tickets/01-0017-every-skill-and-document-has-named-producers-and-consumers.md) → [01-0010.0080](../tickets/01-0010.0080-impact-recommends-the-works-shape.md) → [01-0016](../tickets/01-0016-each-skill-owns-its-own-responsibility.md) → [01-0010.0120](../tickets/01-0010.0120-what-each-host-says-without-being-asked.md) → [01-0018](../tickets/01-0018-rules-reach-the-occasion-they-are-for.md) → [01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md) *(the user, 2026-09-27, 2026-09-29)*
 11. Existing recipients: [01-0010.0200](../tickets/01-0010.0200-a-project-can-remove-the-harness.md) *(the user, 2026-09-27)*
 
-[01-0018.0010](../tickets/01-0018.0010-a-session-learns-the-entry-file-moved.md) waits with [q-kt3ntt](q-kt3ntt-what-does-the-harness-need-while-its-own-rules-are-amended-many-times-a-day-under-sessions-still.md) *(the user, 2026-10-12)*. Team memory comes after coherence, under [q-37xc3y](q-37xc3y-how-does-the-harness-serve-several-people-steering-agents-in-one-project.md) *(the user, 2026-09-27)*.
+[01-0018.0010](../tickets/done/01-0018.0010-a-session-learns-the-entry-file-moved.md) waits with [q-kt3ntt](q-kt3ntt-what-does-the-harness-need-while-its-own-rules-are-amended-many-times-a-day-under-sessions-still.md) *(the user, 2026-10-12)*. Team memory comes after coherence, under [q-37xc3y](q-37xc3y-how-does-the-harness-serve-several-people-steering-agents-in-one-project.md) *(the user, 2026-09-27)*.
 
 ## Another reading of the order, 2026-10-25
 

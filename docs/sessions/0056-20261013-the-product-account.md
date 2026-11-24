@@ -12,7 +12,7 @@ mechanism of the method aligned, specified and decomposed:
 
 - **The entry-file notice is a regime's need, not regular harness work** *(the user: "feels like a
   topic for a high-frequency self-amendment requirement, not regular harness work")*. The agent had
-  argued for [01-0018.0010](../tickets/01-0018.0010-a-session-learns-the-entry-file-moved.md) from
+  argued for [01-0018.0010](../tickets/done/01-0018.0010-a-session-learns-the-entry-file-moved.md) from
   failure 34 and two user stories — a correction landed in one session reaching the others, a
   tightened switch reaching running work. The user's reframing: this tree amends its entry file
   about ten times an evening (v60 to v84 in two days); a recipient's rules seldom move
