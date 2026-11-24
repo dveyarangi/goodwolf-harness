@@ -1096,6 +1096,7 @@ class Store:
     it. Ids still resolve over every entry, finished ones included.
     """
 
+    root: Path
     index: dict[str, Entry]
     children: dict[str, list[Entry]]
     roots: list[Entry]
@@ -1161,7 +1162,7 @@ def read_store(root: Path, seen: dict[str, bytes] | None = None) -> Store:
             children.setdefault(read.parent, []).append(read)
     index = {read.identity: read for read in entries if read.identity}
     roots = [read for read in live if read.parent is None or read.parent not in index]
-    return Store(index, children, roots, rows)
+    return Store(root, index, children, roots, rows)
 
 
 def due(root: Path, read: Entry) -> bool:
@@ -2046,7 +2047,7 @@ def _held_unit(store: Store, held: sessions.Session) -> str | None:
 
 def _elsewhere_lines(store: Store, held: sessions.Session) -> list[str]:
     others = [
-        f"  {other.tag} at {_position(store, other.current)} (last wrote {sessions.stamp(other.wrote)}){_holding(store, other)}"
+        f"  {other.tag} at {_position(store, other.current)} (last seen {sessions.stamp(sessions.last_seen(store.root, other))}){_holding(store, other)}"
         for other in store.sessions
         if other.running and other.tag != held.tag
     ]
