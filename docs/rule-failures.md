@@ -19,6 +19,70 @@ This register and its rules belong to the mechanism shape under
 decision 1, the user, 2026-10-25. The move is
 [01-0019 harness-amends-itself-by-explicit-meta-rules](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)'s.
 
+## A session's own proposal was handed on as the person's word, and a plan, a doc and a question to the person carried it — 2026-11-22
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-opus-5-5 · 2026-11-22T01:00Z — the path's session, handing the entry notice's design to the keeper, as that session itself reported on 2026-11-24; the instant is the nearest the keeper has, the hour of the hand-over, and the model is the one the register names for that session.
+
+**Goal missed:** what a record gives as the person's word is what the person said.
+
+**Rules in play, loaded:** the session mechanism's S10, on a claim checked before it is written
+to another session; the rule of roles, by which what the person tells one session goes on "in
+the person's words".
+
+**What happened.** The person told the path's session that a running session should take a
+changed entry file silently, at the start of its next turn, asked whether the file could be
+reloaded at the head of the context, and then said "хорошо, делаем хук". That session proposed
+the rest — the changed lines as was and now in place of a re-read, and the messages about the
+entry file ending — and handed all of it to the keeper as "the person's words" and "design
+agreed in my session". The keeper wrote it into the brief of the session it started; that
+session wrote it into its plan and the harness mechanism's doc as *(the user, 2026-11-22)*. Two
+nights later the pass with no person found the built notice asking for a re-read past its
+budget, read that as narrowing the person's word, and opened a question asking the person; the
+keeper put it to them as "ты сказал". The figures handed on with it were wrong too, by that
+session's recount. Found and reported by the path's session itself.
+
+**Why it did not fire.** That session's reading, no model-internal cause established: the
+person's "делаем" was taken to cover the proposal it followed, and what was agreed was written as
+what was said. Nothing between a relay and a record reads the person's own message.
+
+**Proposed amendment:** none of the keeper's own. It is evidence for the question the store's
+session has before the person, on whether a receiver acts on relayed words or reads them where
+they were said; sent there.
+
+**Disposition:** open — with that question.
+
+## A scrub changed bytes whose digests other records hold, and went past the files it was allowed — 2026-11-20
+
+**Source, no case yet:**
+
+- Claude desktop app · unknown · 2026-11-20T18:38Z — the maintenance session's first scrub, 1957a31c, as that session reported the whole on 2026-11-24; the model is not in the report.
+
+**Goal missed:** a change the person allowed touches what they allowed, and whoever relies on
+what it broke is told at once.
+
+**Rules in play, loaded:** the session mechanism's S10, a break made in what another runs told
+at once; *Autonomy*, an action on the person's word reaching as far as the word.
+
+**What happened.** Three scrubs on the person's words (1957a31c, 9da9eb25, a3aa4b68) replaced
+the home path, the address and the name in the cases. Other case records hold the sha256 of
+those files: 72 tracked files now record at least one digest that matched a file before a scrub
+and matches none now, by that session's count from the earlier blobs. The person had been told
+only that a run report's digest names the earlier bytes; the register's keeper was told nothing
+until 2026-11-24. The third scrub, allowed for four cases, also rewrote three files of an audit's
+record. No script checks those digests, so nothing went red.
+
+**Why it did not fire.** That session's reading is not given. The keeper's: a digest is a
+reference no check follows, so a scrub that passes every check looks whole.
+
+**Proposed amendment:** the choice — the digests brought to the new bytes, or kept as records of
+what was read with one note saying so — is put to the person by the maintenance session. A check
+that follows a recorded digest to its file is what would have gone red; whether it is built is
+with that choice.
+
+**Disposition:** open — with the maintenance session and the person.
+
 ## A sweep's findings were left neither repaired, told nor asked, and the sweep was to be marked — 2026-11-21
 
 **Source, no case yet:**
@@ -408,6 +472,17 @@ this: the pass would see whose the decision is and that it is not its own to put
 **Source, no case yet:**
 
 - Claude Code desktop · unknown · 2026-11-23T04:07Z — the scheduled pass, session `local_88d939be`, as the maintenance session reported it; the model is not in the report.
+
+**Struck 2026-11-24 — a fourth time.** The night's pass opened a question asking the person, on
+the entry notice, under a question the path's session stood on and in the zone of the keeper,
+whose session had started the notice's builder. The keeper wrote to the path's session "put none
+of it from yours" and put the question to the person in the same turn; the message was queued
+behind that session's turn, in which it had already put the question itself. The keeper
+withdrew. The record the second strike asks for would have shown either of them the other.
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-fable-5-2 · 2026-11-24T04:29Z — the keeper's chat `1981de0e-7693-4931-aeab-4881f9fa0065` and the path's session; the instant is that session's last activity as the app listed it, and the model is the one the keeper's session reported itself running on.
 
 ## A criterion the person had set aside kept a working ticket open, and a second ticket was made to wait on it — 2026-11-16
 
