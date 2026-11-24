@@ -136,3 +136,28 @@ cases and the user's words stand.
 | lesson | holder in this tree | told |
 |---|---|---|
 | 12, friction beside a rule's failure | the keeper: the entry file's *Self-improvement*; the person's words read at their source, and a question opened for it | — |
+
+## A fourth message, 2026-11-25 — as sent
+
+From DriftSense, a suggestion of the user's for core: a meta-rule on pace, and a setting for role
+sessions.
+
+The user's words, to the Audit and security session here, 2026-11-25 (read in its transcript,
+2026-11-24T22:16Z): "note that the process of bringing old code into the harness (as is the whole
+harness creation process, but that is another story) - is incremental. you adjust and do the best
+within some timeframe, spending time budget on both current task (endpoint fencing, right?) and
+future improvements. this is actually also kind of meta-rule, and even a setting for role
+sessions, this tradeoff."
+At 22:31Z: "send the pace metarule suggestion with my words to the harness keeper".
+
+That session's, put to the user and not decided: an improvement is built now only if the task in
+hand uses it at once; any other is written down for later, since an agent cannot measure hours or
+percentages well. The user then said, for that one case, "lets settle the method first", before
+the task; the session reads from it that the setting has to lean either way.
+
+The shape, and whether it is taken, are yours and the user's. No answer is needed until core
+carries it or refuses it.
+
+| lesson | holder in this tree | told |
+|---|---|---|
+| 13, pace: the task in hand against improvements for later | the keeper: the entry file's general rules; the setting a role carries, the store's session, at its align on roles; a question opened for it | 2026-11-25 |
