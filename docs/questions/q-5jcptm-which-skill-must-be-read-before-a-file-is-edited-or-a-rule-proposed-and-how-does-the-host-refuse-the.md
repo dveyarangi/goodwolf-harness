@@ -211,7 +211,7 @@ time: the keeper drew a rule's frame twice from the memory of `/skill-up`, the s
 session's context both times. The third decision's test — loaded, not read in the turn — passes
 both; neither an edit's refusal nor a reply's would have fired. Evidence for whoever takes the
 tracer up; no decision. Read in the keeper's transcript the same day: the load was of 2026-11-15,
-carried by the host across a dozen compactions, with no call of the skill between.
+carried by the host across at least ten compactions, with no call of the skill between.
 
 ## The person on the tracer's turn, 2026-11-24
 

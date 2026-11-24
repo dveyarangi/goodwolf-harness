@@ -9,9 +9,11 @@
 
 ## Where it stands
 
-Asked by the person, no decision taken: a count of how often a session acts without the skill its
-act needs, taken before the cut into roles and short sessions is built and again after it. A
-first probe shows the count costs no model call; what it counts is not settled.
+Asked by the person: a count of how often a session acts without the skill its act needs, taken
+before the cut into roles and short sessions is built and again after it. The first reading is
+taken, on the person's word of 2026-11-25, "снимай исходную точку", and judged twice:
+[the reading of 2026-11-25](../research/skill-use-2026-11-25/REPORT.md). The second reading waits
+for that cut to be built.
 
 ## The person, 2026-11-24
 
@@ -23,6 +25,9 @@ In the keeper's chat, of the guard on edits to instruction files
 как это сделав не сожрав все мои-твои токены )"
 
 ## A first probe, 2026-11-24
+
+Every count of this probe is void: it counted an act once for each forked transcript that copies
+it, as the reading's judge found. What it showed can be done stands; the numbers are the reading's.
 
 A script of some 130 lines, kept nowhere, read Claude Code's 310 transcripts of this tree in 14
 seconds, calling no model. For each turn that edited an instruction file — the entry file, a rules
@@ -38,7 +43,7 @@ file, a skill's text — or drew a rule's frame in a reply, it asked whether `/s
 - What the transcript tells apart, per act: the skill loaded since the last compaction; carried
   across one or more, and how many; absent. The keeper's two slips of the register's entry
   *76. Rules were proposed in a reply without `/skill-up`*, second strike, are the second kind:
-  a load nine days and a dozen compactions old.
+  a load nine days and at least ten compactions old.
 
 Open: which acts and which skills are counted beyond instruction files and `/skill-up`; whether
 the count is per turn or per act; where the script and its dated readings are kept — the first
