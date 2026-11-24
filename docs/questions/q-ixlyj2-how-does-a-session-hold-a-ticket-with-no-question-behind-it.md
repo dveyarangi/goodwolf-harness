@@ -21,3 +21,6 @@ could take it unseen. No such ticket exists in this tree today.
 
 The agent's recommendation, put to the person 2026-11-25 and not answered: (b), on their words "вопросы
 нужны чтобы исследовать дерево идей, не записывать важные задачи".
+
+With it, when it is built: the path's reading prints such a ticket "→ unread", its question being none
+(`questions.py`, `_ticket_line`); to say *no question*. The practice's session, 2026-11-25.
