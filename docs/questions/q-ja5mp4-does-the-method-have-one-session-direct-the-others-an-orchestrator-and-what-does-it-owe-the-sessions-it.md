@@ -516,3 +516,9 @@ stand for the role. Their words and the reading they agreed with:
 [q-p4sdnv](q-p4sdnv-what-is-an-agent-role-and-which-mechanism-keeps-roles.md#the-person-2026-11-22-the-role-lasts-the-session-does-not).
 It touches this whole's premise — that a role is held by a session that stands — and nothing
 here is changed by it until the person decides.
+
+## The person, 2026-11-24 — a central chat, later
+
+"в будущем мы сделаем центральный хаб-чат, в котором пользователь сможет общаться и передавать
+работу любому агенту." Said in answer to whom a question that comes up outside its zone goes to.
+Nothing here is changed by it until the person decides.
