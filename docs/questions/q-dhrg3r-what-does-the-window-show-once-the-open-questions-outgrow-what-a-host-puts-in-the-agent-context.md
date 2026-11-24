@@ -28,3 +28,17 @@ a search failure". Decision 28 refused a candidate search over the glossary's te
 The path; the children of each question on it, a line each without its lean; what must be acted on
 now, first; the rest by `--window --full`. No search. Why one root holds over two hundred open
 questions is the steering the signal asks for, apart from the window's form.
+
+## Decisions
+
+1. **The window shows the path, the children of each question on it, a short line each, and what
+   must be acted on; the rest on request** — the agent's proposal, agreed to by the person,
+   2026-11-24: "да, оставляй как предложил". In place of decision 26's and 33's every open title
+   under the current root. Not: a search, withdrawn by the agent against decisions 28 and 29; nor the
+   2 KB the agent named as the room: a host shows whole what stays under its cap, 10,000 characters
+   on Claude Code, and this tree's window without the root's list and the children's leans is 6,326
+   of 60,741, measured the same day.
+
+Not settled by it: what must be acted on beyond what the window shows today, which waits on
+[q-2ng6nb](q-2ng6nb-which-session-puts-a-question-that-asks-the-person-and-how-is-it-known-that-it-was-put.md);
+the wake, cut by the same cap; and Q1's word for a message the short window holds no place for.

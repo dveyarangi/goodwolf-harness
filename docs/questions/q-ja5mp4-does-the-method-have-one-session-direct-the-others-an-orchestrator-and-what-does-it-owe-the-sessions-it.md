@@ -522,3 +522,18 @@ here is changed by it until the person decides.
 "в будущем мы сделаем центральный хаб-чат, в котором пользователь сможет общаться и передавать
 работу любому агенту." Said in answer to whom a question that comes up outside its zone goes to.
 Nothing here is changed by it until the person decides.
+
+**The same day, modes of work.** "в q-ja5mp4 что возможно центральный оркестратор это режим работы -
+другие режимы это постоянные сессии или просто ручные по необходимости - как у нас было до этого
+(пользователь решает, но минимальная кооперация нужна, вероятно, все равно)"; and, asked whether
+`/pack` is built on roles or on standing sessions: "я снова думаю что постоянные сессии vs роли на
+коротких сессиях это режим. надо подумать как их совместить без плождения сущностей."
+
+*The agent's thought, put to the person 2026-11-24, not decided:* the three differ in who starts a
+session and when it ends, and in nothing the cut holds. So the role alone is written — its name and
+what it holds — and which session holds it now stands on that session's row, as a held unit does:
+one for months, one for an hour, or none. No mode is then declared or read by a rule. What every
+mode needs is what the rows give already — who stands where, one holder of a unit, a commit of one's
+own files. Two things would have to give: S11, by which a row bears the session's own name and
+never a role's (the person, 2026-11-21), and a message, which is written to a session and would be
+written to a role, kept where nobody holds it.
