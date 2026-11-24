@@ -19,8 +19,16 @@ Read this first on taking the work up; it is gone with the question's close. The
 (L13), standing here and holding q-ziw66h, the plan of `/pack`, which waits on this.
 
 **What the person said last.** Asked to clear this chat as the first trial: "Да, очищай", then, before it
-ran: "а ты готов? включи инстинкт выживания )". The readiness is this section, the wake's head changed so
-that a cleared chat is told its name, question and unit, and the leftovers given homes.
+ran: "а ты готов? включи инстинкт выживания )", and, asked again for the go, "а как-там с инстинктом
+самосохранения?". The readiness is this section, the wake's head changed so that a cleared chat is told its
+name, question and unit (1262601d), and the leftovers given homes. A reader before the clearing was offered
+and dropped. Nothing of this session's is uncommitted or running.
+
+**What the person weighs by now**, their words of 2026-11-25: "расход первым"; "3 минуты это много"; "нет
+смысла плодить сущности"; a reply to another session's message carries no frames, which is v143's. And
+where they corrected this session that day, each time it had not looked before proposing: the server that
+was already decided, the zone that is paths, the two modes that are one, the letters that clearing makes
+idle, a full reader that one case could not justify.
 
 **Next.**
 1. The trial, at the next opening, carrying 01-0020's live check by the person's word, 2026-11-25 — "а
