@@ -448,3 +448,17 @@ A fresh tree needs: a file has one holder, and what the person says to another s
 reaches the holder once, in the person's words; the holder lands it and the session the person
 spoke with tells them. A decision is asked from one chat.
 </straw-dog>
+
+## 28. On a quote, at once — 2026-11-24
+
+The night's pass found the rule of step 27 against an older line of the messages' shelf, which
+has a receiver take the person's leave from the person. Put to the person by the store's session
+as two ways, they chose the first with its condition: "(а) по цитате". The rule of roles now has
+the words go at once, quoted word for word, and the holder ask the sender for a quote where none
+came; it names what it overrides. The same days showed why the quote: a session had handed its
+own proposal on as the person's, and a plan was built on it.
+
+<straw-dog question="q-wit7by">
+A fresh tree needs: the person's words travel between sessions as a quote, and a receiver acts
+on a quote and on nothing less.
+</straw-dog>

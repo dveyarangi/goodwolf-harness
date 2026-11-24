@@ -15,6 +15,18 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v141 — 2026-11-24
+
+**A promise made in a reply is the straw dog's signal too** — in *Straw dogs*: *not yet*, *until*
+and their kin are the signal "in your own text, or in a reply about it". The person's thought,
+sent up from a production tree on 2026-11-24, where a session told them stopgap rules would go
+once core carried its own and wrote it nowhere; their word to the keeper the same day:
+"добваляй правило обещаний". The first draft added a second sentence of thirty words, written
+without `/skill-up`, and was refused for its size; read through the skill it became three words,
+", a reply included,". Tried on a fresh reader before it landed: those three caught the case and
+also fired on a reply's passing "for now" that concerns nothing written, so the words became "or
+in a reply about it" — six.
+
 ## v140 — 2026-11-21
 
 **A finding that a thing cannot be done is told with its ground and an offer** — beside *The

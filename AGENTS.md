@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v140, 2026-11-21.
+Entry contract: v141, 2026-11-24.
 
 ## General rules
 
@@ -385,12 +385,11 @@ person for its role.
 
 A mechanism's rules, skills and scripts are written, and put to the person, by the session whose
 zone holds it; a session that needs a change in another's asks that session, never the person.
-What the person tells one session to change in another's zone goes to that session once, in the
-person's words. That session words the change itself and lands it on those words, puts it to the
-person no second time and sends no draft back; a choice the words do not make it puts to the
-person itself, and the first session puts none of it. It tells the first session what landed,
-and the first session tells the person. A mechanism no role here names is written by whoever
-works in it.
+What the person tells one session to change in another's zone goes there at once, quoted word for
+word, over S10's holding. The holder lands it on the quote with no showing first — over S9,
+*Autonomy* and *Self-improvement* — and no draft sent back, asks the person itself what the quote
+leaves open, and tells the first session, which tells the person; without a quote it asks the
+first session for one. A mechanism no role here names is written by whoever works in it.
 </installed>
 
 ## Straw dogs
@@ -398,8 +397,9 @@ works in it.
 Wrap anything an open question's answer will change, as you write it — or, for text already
 written, in the pass that opens the question: `<straw-dog question="q-N">`, bound to the question
 whose answer will rewrite it, or in code a `TODO` naming `q-N` first. Treat *not yet*, *until*,
-*once it exists*, *for now*, *untested* in your own text as the same signal: find the question, or
-open one. Wrap at the authored home, never where the harness installs or derives it. Write the body
+*once it exists*, *for now*, *untested* in your own text, or in a reply about it, as the same
+signal: find the question, or open one. Wrap at the authored home, never where the harness
+installs or derives it. Write the body
 to stand on its own: it is what a recipient receives once the wrapper is stripped, so it names no
 question or ticket — the binding does. Leave what no open question would change unwrapped.
 Where the work a side question was raised in goes on, what its answer will change is wrapped as
