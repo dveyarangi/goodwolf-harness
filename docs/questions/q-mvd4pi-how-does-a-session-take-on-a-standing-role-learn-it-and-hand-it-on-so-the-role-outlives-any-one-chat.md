@@ -189,6 +189,22 @@ rule's whole case. Kept apart from it: the person's quoted word for another zone
 once, and a question a session cannot go on without. It is S10's text, shown before it lands, and
 meets [q-cdw6yk](q-cdw6yk-when-does-a-session-write-to-another-session-and-to-which.md).
 
+## What a role sets: the task in hand against improvements — 2026-11-25
+
+The user, 2026-11-24T22:16Z, to a session of a recipient tree, sent here by the keeper: "note that the
+process of bringing old code into the harness (as is the whole harness creation process, but that is
+another story) - is incremental. you adjust and do the best within some timeframe, spending time
+budget on both current task (endpoint fencing, right?) and future improvements. this is actually also
+kind of meta-rule, and even a setting for role sessions, this tradeoff." The general rule is
+[q-jn54hg](q-jn54hg-how-does-a-session-split-its-effort-between-the-task-in-hand-and-improvements-for-later-and-where-is.md)'s, the keeper's; whether a role carries the setting, and where, is this
+question's, open. As it stands: a role is the mechanisms a session holds and nothing of its own is
+written for it, so a setting has no place yet; and a piece of work taken alone already leans it, its
+leftovers going to their homes instead of being built. To be put with the whole, not before.
+
+**A leftover of the questions mechanism.** Sent with it: the entry file's Q1 shows the store's calls as
+bare `questions.py`, no interpreter beside them, and the sessions of a recipient tree ran them by a
+full path instead of that tree's own form. Q1's text, in `questions.rules.md`; nothing is drafted.
+
 ## Decisions
 
 1. **Every role has a mechanism of its own** — the user, 2026-11-16: "да, у каждой роли свой
