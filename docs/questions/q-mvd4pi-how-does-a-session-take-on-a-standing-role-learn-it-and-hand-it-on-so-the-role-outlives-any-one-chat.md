@@ -136,6 +136,43 @@ remedies. Not remedied, and so open:
 It found sound: the advice and no hold, the bound's figures, the letter's end recorded, the recall's
 offer, and that a fresh session is tried before anything is built.
 
+## No letters, if a chat clears itself — 2026-11-25
+
+The user, 2026-11-25: "на самом деле, вообще нет проблем будить спящих, если они взяли роли, если мы сможем
+сделать нашу компактизацию и очищение. мне кажется вероятно нет смысла плодить сущности, а ты как
+думаешь?" The agent agrees, and proposes the whole above cut by it; not decided, and all of it rests on
+one thing nobody has tried, that a chat clears itself and opens by the recall.
+
+**What falls.** The role's folder, its letters, the two calls, their printing, their erasing, their age and
+their move at a re-cut; the closing's letter to its own role; the rule of who is awake; the always-reached
+session as anything apart, every role's chat being always reached; S10's and S9's amendments; a chat's
+closing as the role's release; the letters' row in [q-cn7gef](q-cn7gef-which-kinds-of-record-are-written-through-the-server-and-which-travel-with-the-code.md). Decisions 7, 9 and 11 are
+withdrawn by it, 10 reads of clearing where it says closing, and what it overturned in
+[q-g6lj7m](q-g6lj7m-who-ends-the-session-of-a-role-if-not-its-conclude.md) and [q-q5i2um](q-q5i2um-how-does-the-row-of-a-session-that-holds-a-role-outlive-its-sleep-and-when-does-it-end.md) stands again: a role's chat lives, its row
+outlives its sleep, and only its context is short.
+
+**What stays.** The leftovers, the work and the lessons in their homes (4); the bound at 20 and 50 % (5); a
+role by the task (2); the recall offering the roles on which tasks hang, read from the units nobody holds
+(8). The hand-over is what the row already bears, its name, position and unit, and the record of the work.
+A session woken by a message opens by the recall as any other.
+
+**What clears a chat.** The piece is done; the talk moved; the bound; and, before it goes quiet, a chat over
+some 120 thousand tokens.
+
+**What it costs against letters waiting**, rerun on this tree, 2026-11-17 to 2026-11-25, rough, the same
+price ratios. Letters woke turns of 73.9 M of 168.6; to chats cleared, their contexts held at 130
+thousand, the same come to 36.6 M — 37 M less, some 22 % of the tree. Of that the cold wakes: 37, 23.0 M
+at 305 thousand on average, 7.0 M cleared. A folder would save at the most what is left of them, 4 % of
+the tree, and the turns they begin, by delaying each letter.
+
+**What it leaves out.** A role no chat holds, since nobody opened one: what would be written to it is a
+question opened in its zone, which the recall shows; a host that cannot pass a message, and other
+machines, need what the letters were for, later.
+
+**The test, before any of it is decided.** This session, at 43 % of its window, closes by hand and clears
+itself, and its next opening is read: is the row, the name and the unit the same; does the wake reach it;
+what does it lack; does the app ask each time. Where it fails, the folder stands.
+
 ## A role's skill, and so its mechanism — 2026-11-16
 
 The user, 2026-11-16, told that a role is a zone and a mechanism only by this tree's
