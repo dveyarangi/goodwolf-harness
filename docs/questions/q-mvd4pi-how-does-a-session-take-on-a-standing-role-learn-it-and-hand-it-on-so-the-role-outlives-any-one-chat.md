@@ -125,6 +125,52 @@ refusal of `/conclude` to a session with a role goes.
 host carries a loaded skill across compactions, and both its slips of the register's entry 76 were
 made on a load of `/skill-up` nine days and a dozen compactions old; a short session has none.
 
+## Whether 20 % is real — 2026-11-25
+
+The user, 2026-11-25: "надо проверить насколько 20% вообще реальны, что это означает для переписки.
+надо как-то отследить тоже, сколько процентов достаточно для задачи. возможно стоит отцеплять MCP от
+части ролей, если возможно". Read from the host's transcripts since 2026-11-10 by scripts kept
+nowhere, no model called; the window is a million tokens, 20 % is 200 thousand.
+
+- **The start.** 67 chats of every tree that ran `/recall`: the first request 86 thousand at the
+  median, the end of the first turn 110, three quarters under 134. Work begins at 11 % and has some
+  90 thousand under 20 %.
+- **A message.** What the context grows by in answering one message of the person: 10.8 thousand on
+  average, 2483 of them. A letter from another session 7.5, 1905 of them, a third of all growth.
+  The model's own words, its thinking counted, are up to 45 % of what is added.
+- **The talk.** 34 of the 67 ever passed 20 %, at the person's fifth message at the median; 26
+  passed 30 %, at the tenth; 13 passed 50 %, at the sixteenth. Half never left 20 %.
+- **The piece of work.** This tree alone, 42 stretches on one question in chats that also answered
+  letters and the rest: 100 thousand at the median, a quarter over 237, a tenth over 388. Begun at
+  90 to 110, 57 % end within 20 %, 71 % within 30 %, 90 % within 50 %. A stretch is the time a
+  session stands on a question, no measure of the work being done at its end.
+- **Failures by how full the context was.** The register's 17 dated failures with a chat that could
+  be found: 9 of them, 53 %, under 400 thousand tokens, where 67 % of those chats' requests were
+  made; 8, 47 %, above it, where 33 % were. By bands under 200, 400, 600 and over: 6, 3, 6, 2
+  failures for 29, 38, 19 and 14 % of the requests. Too few to say the fuller window errs more,
+  and no refutation: a failure the register holds is one somebody caught.
+
+**What it says.** 20 % holds for a small piece — a talk of some eight messages, or a change of a
+few files. An align of one question runs over it in two cases of five. This session's own align
+of roles: from 13 to 25 % in four messages of the person's and one letter, the measurements in it.
+What suffices for a piece is read after the fact, by such a script, from the window at its taking
+and at its release; no record is written for it.
+
+**The tools.** The host's documentation, read by a subagent the same day:
+- The host defers the tools of a connector by default and loads them on a search: Notion's 78,
+  Gmail's 31 cost names alone, so detaching those buys little. What is loaded in full is the
+  host's own: of 51 tools of this chat, 37 thousand tokens, `Artifact` is 28 % by characters, and
+  `PowerShell` 9, `Workflow` 4, `ScheduleWakeup` 4.
+- A bare tool's name denied in `permissions.deny` takes its schema out of the context, the host's
+  own tools included; a whole server the same is not said. There is no switch per session in the
+  desktop app that is documented, so a role with its own tools is open: `--agent` and a restricted
+  set are the command line's. Left is the tree's own `.claude/settings.local.json`.
+- Used in this tree's chats since 2026-11-10: `Artifact` 4, `ScheduleWakeup` 1, `SearchPlugins`,
+  `SuggestPluginInstall`, `SuggestSkills`, `ReportFindings` none; `Claude_Browser` 101, `Workflow`
+  18. The first six are 38 % of the tools by characters, some 14 thousand tokens of the 86 a chat
+  starts with.
+- `CLAUDE_CODE_AUTO_COMPACT_WINDOW` sets where the host compacts; nothing of it stops a session.
+
 ## Decisions
 
 1. **Every role has a mechanism of its own** — the user, 2026-11-16: "да, у каждой роли свой
@@ -144,3 +190,7 @@ made on a load of `/skill-up` nine days and a dozen compactions old; a short ses
    Held or advised is open. It overturns, with the whole's re-acceptance, that a role's session is
    never concluded ([q-g6lj7m](q-g6lj7m-who-ends-the-session-of-a-role-if-not-its-conclude.md), decisions 1 and 2) and that its row outlives its sleep
    ([q-q5i2um](q-q5i2um-how-does-the-row-of-a-session-that-holds-a-role-outlive-its-sleep-and-when-does-it-end.md)); the person was told of both with the proposal.
+4. **What a session leaves: the work, the leftovers and the rules, each in its own home; no note of
+   hand-over** — the agent's wording above, agreed by the user, 2026-11-25: "хорошо, дело, хвосты и
+   правила по своим местам пока". *For now* is the person's, and it is read again when the test of
+   a fresh session has run.
