@@ -11,7 +11,7 @@ What comes next is derived, never written as a list of work. The candidates are 
 store's reading of the path; their order is the **roadmap**'s — the order the person gives the
 product document's answers, each row in their words and dated. A piece of work takes the place of
 the answer it serves. A proxy such as how much stays unfinished orders nothing *(the user,
-2026-11-21)*.
+2026-10-25)*.
 
 The mechanism weighs questions, never the method's records: a unit of work is whatever the
 installed method materialises a question into, so it works in a tree with no method installed.
@@ -27,12 +27,15 @@ person first orders the work; a tree with none has no order yet.
 
 | rule | decided by |
 |---|---|
-| the path is ordered by the product roadmap, not by how much stays unfinished | the user, 2026-11-21 |
-| no written queue: what comes next is a reading | the user, 2026-11-21 |
+| the path is ordered by the product roadmap, not by how much stays unfinished | the user, 2026-10-25 |
+| no written queue: what comes next is a reading | the user, 2026-10-25 |
 | the roadmap is a record of its own | the user, 2026-11-21 |
-| the method's records do not cross a mechanism that works without it | the user, 2026-11-21 |
+| the method's records do not cross a mechanism that works without it | the user, 2026-10-25 |
 | the skill's rules, drawn from the person's corrections | the user, 2026-11-21 |
 | the mechanism declared | the user, 2026-11-21 |
+| `owner core` | settled by the session that declared it, 2026-11-21, the user not asked |
+| candidates weighed by how they lead toward the product's answers | the user's idea, 2026-11-22; the text the agent's, agreed |
+| a question waiting on the person that no work under way holds is a candidate | the user's words to another session, 2026-11-22; the text the agent's, landed on them |
 
 ## Moments
 

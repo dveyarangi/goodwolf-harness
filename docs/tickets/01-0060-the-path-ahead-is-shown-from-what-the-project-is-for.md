@@ -25,6 +25,10 @@ built next, the person deciding. The cap and the cadence are landed before it as
 clause; this ticket makes them visible and counted, then adds the weighing and the picture, each
 slice a complete pass from the records to what the person reads.
 
+The mechanism is declared: [its doc](../../.agents/mechanisms/pathfinder/pathfinder.md) says what
+stands and what does not, [its skill](../../.agents/skills/pathfinder/SKILL.md) how a candidate is
+weighed, and the candidates' order is [the roadmap](../roadmap.md)'s — by q-ojs4jd's decision 1.
+
 ## Acceptance criteria
 
 - [ ] A person new to the tree reads one `/recall` and can say what is in work, what waits, what
