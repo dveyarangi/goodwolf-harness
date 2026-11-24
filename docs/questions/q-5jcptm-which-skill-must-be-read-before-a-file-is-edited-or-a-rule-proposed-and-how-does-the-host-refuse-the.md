@@ -190,3 +190,24 @@ refusal**, **Skill load** and **Skill lifetime**. Two correct what was gathered 
 at `970111f`, injects a typed `$name` skill as a user message and has the model read a skill it
 picks itself through a tool call, tells the model in its own catalog *Do not carry skills across
 turns unless re-mentioned*, and drops every skill text at compaction, re-injecting none.
+
+## The person on holding the reply, 2026-11-24
+
+In the keeper's chat, asked whether to build a guard on a reply that shows a rule's frame — which
+the keeper had put as new, this question unread: "да, сторож это хорошая идея, но тогда мы
+енфорсим рамку как часть работы, и уже не сможем так легко ее снять. вторая проблема это что
+пользователь может просто проигноррировать предложение и тогда сторож сработает вхолостую.
+возможно это правильный способ, однако есть еще один - сторожить напрямую изменение файлов
+правил?"
+
+Two points against the fifth decision's reply: the frame becomes a part the guard stands on, and
+it is a straw dog today; and a proposal the person passes over is held for nothing. No decision:
+the fifth stands, and is weighed with these words where its slice is planned.
+
+## A case the test passes, 2026-11-24
+
+The register's entry *76. Rules were proposed in a reply without `/skill-up`*, struck a second
+time: the keeper drew a rule's frame twice from the memory of `/skill-up`, the skill loaded in the
+session's context both times. The third decision's test — loaded, not read in the turn — passes
+both; neither an edit's refusal nor a reply's would have fired. Evidence for whoever takes the
+tracer up; no decision.

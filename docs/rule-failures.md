@@ -1296,9 +1296,22 @@ text had been in the session's context since an earlier turn, and the frame was 
 memory of having read it; nothing between a draft and its frame asks whether the skill was read
 in this turn.
 
-**Proposed amendment**, mechanical, as a second strike takes, not built and not yet put to the
-person: where a host's hook reads a reply before it ends, a reply holding a 🧩 header in a turn
-that did not load `/skill-up` goes back to the agent.
+**Amendment**, mechanical, as a second strike takes: none new. The host's refusal was accepted on
+2026-10-25 at
+[q-5jcptm](questions/q-5jcptm-which-skill-must-be-read-before-a-file-is-edited-or-a-rule-proposed-and-how-does-the-host-refuse-the.md)
+and stands unbuilt as tickets: an edit to an instruction file waits for `/skill-up`,
+[01-0010.0125.0010 an-edit-waits-for-the-skill-that-keeps-its-file](tickets/01-0010.0125.0010-an-edit-waits-for-the-skill-that-keeps-its-file.md),
+Ready; a reply proposing such text, and the commit,
+[01-0010.0125.0030 a-proposed-text-and-a-commit-wait-like-an-edit](tickets/01-0010.0125.0030-a-proposed-text-and-a-commit-wait-like-an-edit.md),
+Planned. The keeper first wrote here a hook on the reply as a proposal of its own and put it to
+the person as new, the line above that names q-5jcptm unread. The person answered with two points
+against holding the reply and named the edit as another way; their words stand on q-5jcptm.
+
+**What that guard would not have held.** Its test, by q-5jcptm's third decision, is the skill
+loaded in the session's context, not read in the turn. On this strike the skill was loaded both
+times: neither the edit's refusal nor the reply's would have fired. The entry waits on the
+tracer's ticket for a session that never loaded the skill; a skill loaded and not applied is
+evidence on q-5jcptm, with no answer.
 
 **Disposition:** open again.
 
