@@ -15,6 +15,19 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v142 — 2026-11-25
+
+**A reply to another session's message carries no table and no frame** — in *A paragraph shows
+what it stands on*, standing over S4's table of sessions and D3's of commits; text such a turn
+wrote is shown under its header in the next reply to the person. The person's words, to the
+store's session and sent on to the keeper word for word, read at their source: "надо передать кому
+надо что в ответе на сообщения других сессий не надо заново печатать шапку и решения и вообще все
+рамки". Landed on the quote with no showing first, as the rule of roles has it. Tried on a fresh
+reader before it landed: it dropped every table and the landed rule's frame in such a turn and
+showed the rule in the next reply to the person; a turn its own helper's return started kept the
+whole form, the sentence naming another session's message alone. Left by the text to judgement:
+the marks a paragraph ends with, which the reader kept.
+
 ## v141 — 2026-11-24
 
 **A promise made in a reply is the straw dog's signal too** — in *Straw dogs*: *not yet*, *until*

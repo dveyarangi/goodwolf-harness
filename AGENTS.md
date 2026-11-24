@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v141, 2026-11-24.
+Entry contract: v142, 2026-11-25.
 
 ## General rules
 
@@ -91,6 +91,9 @@ is goodwolf-harness's own.
 
 A turn that completes a step of the delivery ring adds a row to the head table:
 `| 🔁 <the ticket, linked with its slug> · ✅ <each step this turn completed> |`.
+
+A reply in a turn another session's message started carries no table and no frame, over S4 and
+D3; text the turn wrote stands under its header in the next reply to the person.
 </straw-dog>
 
 <installed by="ticket">
