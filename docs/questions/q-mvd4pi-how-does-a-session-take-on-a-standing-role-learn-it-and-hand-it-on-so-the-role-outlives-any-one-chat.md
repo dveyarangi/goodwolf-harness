@@ -5,7 +5,7 @@
 - **state** open
 - **rung** development: load-bearing, self-improvement: the method
 - **opened** 2026-11-15T00:43:21Z
-- **struck** 0, last 2026-11-15T00:43Z
+- **struck** 1, last 2026-11-24T21:24Z
 
 A role lives longer than the chat that holds it: a chat ends, is compacted, or resumes under a
 new id. What a session reads to take a role on, where the role's own brief lives — an instruction,
@@ -53,6 +53,36 @@ architecture file are what the role's mechanism produces, and who reads each is 
 the neighbouring zone. What remains a detail of the plan and no contradiction: an output is
 named there in words today, and the harness can say whose path a file is only where the output
 names its paths.
+
+## How long a session stays in a role — 2026-11-24
+
+The user, 2026-11-24: "у моделей есть умная зона и глупая зона. в идеале надо останавливаться на 20
+или ну хотя бы 50 процентак контекстого окна. + компактизация вообще все сбивает, сам сказал"; and
+of the money: "сегондя вечером я купил 200$ подписку, работа с этим харнессом над несколькими
+проектами УЖЕ сьела 6 процентов". It answers this session's having read 6 % of the weekly limit as a
+small figure. Not yet a rule: what a bound does at the moment it is reached is open here. The thought it
+continues, 2026-11-22, stands in [q-p4sdnv](q-p4sdnv-what-is-an-agent-role-and-which-mechanism-keeps-roles.md).
+
+Measured the same evening from the hosts' transcripts of every project on this machine, 17:00 to
+23:25 local; the units are input tokens at the API's price ratios (a cache read 0.1, a one-hour
+cache write 2, an output token 5); how the plan counts is not published.
+
+- 49.4M in all: re-reading what a request already holds 51 %, writing it to the cache 36 %, the
+  models' own words 13 %. Subagents are 24 %.
+- Re-reading the part of a context above 200 thousand tokens is 25 %.
+- Waking seven chats that slept past their cache, at 307 to 724 thousand tokens each, is 13.1 % in
+  seven requests: the first request of a woken chat costs what re-reading it twenty times does.
+- A replay of the same requests with every chat cut at 200 thousand and restarted at 90 comes to
+  72 % of what was spent, at 500 thousand to 78 %. It pays a restart its 90 thousand and nothing
+  for what the work makes it read again, so the saving is less than it shows.
+- A chat's first request in the trees of this method is 67 to 92 thousand; of this chat's fixed
+  part, some 66 thousand, the host's tools are 37, its prompt 11, the entry file 9, the skills'
+  list 9. The floor is paid by every short session, and most of it is the host's.
+
+What it says: a limit of 20 % buys a quarter of the cost at the most and is worth setting for how
+well the model works; the most expensive single act of a standing session is being woken, which a
+letter to a sleeping chat also does. Not measured: whether the work at 20 % is better than at 50 %,
+which is the user's account of the models.
 
 ## Decisions
 

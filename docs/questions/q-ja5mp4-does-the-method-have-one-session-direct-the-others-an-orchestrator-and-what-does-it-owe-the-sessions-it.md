@@ -119,6 +119,14 @@ Neighbours: [q-psa5ha](q-psa5ha-how-do-sessions-hand-work-to-each-other-a-verifi
    [q-dyc63i](q-dyc63i-which-standing-roles-does-this-tree-have-where-every-session-develops-the-harness-itself.md)'s
    decision 1 says, and what the sweep finds goes to the owner of the mechanism it falls in
    once a record of the roles can say who that is.
+8. **A session may take a role** — the agent's wording, agreed by the user, 2026-11-24: "да, мне
+   нравится твой совет сессия может брать роль, но надо понять как это происходит". The question
+   put was whether a role lives without a chat, so that any fresh session takes it and goes on
+   from the tree alone. How it is taken, and when it is let go, is
+   [q-mvd4pi](q-mvd4pi-how-does-a-session-take-on-a-standing-role-learn-it-and-hand-it-on-so-the-role-outlives-any-one-chat.md)'s and open; nothing is built or rewritten on this line before the whole below is
+   accepted anew. It meets the whole's *Who holds which*, and what it overturns there is named
+   with that answer: that a role's session is never concluded
+   ([q-g6lj7m](q-g6lj7m-who-ends-the-session-of-a-role-if-not-its-conclude.md), decisions 1 and 2), and that its row outlives its sleep ([q-q5i2um](q-q5i2um-how-does-the-row-of-a-session-that-holds-a-role-outlive-its-sleep-and-when-does-it-end.md)).
 
 ## Where it stands
 
