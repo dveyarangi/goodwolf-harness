@@ -11,8 +11,9 @@
 # the same top level. The interpreter is the one the link step recorded in this clone's common Git
 # directory, a worktree's own record read first: a bare `python` may be the Windows Store stub, and `uv` is one machine's habit.
 #
-# The host branches never fail the host. The `pre-push` branch is the one that refuses by design:
-# a push that carries a broken record of the method is stopped, and the checks say why.
+# The host branches never fail the host, and a refusal is not a failure. Two branches refuse by
+# design: `before-tool`, through the store's hook, a commit that names no paths (S5); `pre-push`,
+# a push that carries a broken record of the method, which is stopped, and the checks say why.
 
 host="$1"
 
