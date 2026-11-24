@@ -4,6 +4,7 @@
 - **part of** q-2hilby
 - **state** open
 - **rung** self-improvement: the method, development: load-bearing
+- **lean** 2026-11-24, the agent's proposal agreed to by the person: the path, the children of each question on it in a short line, and what must be acted on; the rest on request; not built
 - **opened** 2026-11-24T17:36:48Z
 - **struck** 0, last 2026-11-24T17:36Z
 
