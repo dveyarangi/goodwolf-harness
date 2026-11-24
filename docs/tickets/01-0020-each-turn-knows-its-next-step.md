@@ -2,7 +2,7 @@
 
 - **record of** what it intends to become
 - **Status:** Partial (aligned 2026-11-25)
-- **Type:** AFK
+- **Type:** HITL
 - **Minted:** 2026-09-06
 - **Answers:** [q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md)
 - **Outcome:** A turn runs to the person's next decision, and a session that ends mid-ring is
@@ -20,20 +20,24 @@ Nothing is left to write: each part of a turn's next step and a session's resume
 own, and the question names them
 ([its decision 1](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md#decisions)).
 A turn chains steps until the first decision at or above its ladder's dial, and a resumed session
-reads the question it stands on and the unit it holds from the store's window. What is left is to
-see a resume happen on them, because the parts were each built for a purpose of their own. One was
-read, from before units were held
-([the judge's reading](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md#evidence--a-judges-reading-of-resumed-sessions-2026-11-25)).
+reads the question it stands on and the unit it holds from the store's window. That the
+parts carry a resume together is tried elsewhere (*Out of scope*); one resume was read, from before
+units were held ([the judge's reading](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md#evidence--a-judges-reading-of-resumed-sessions-2026-11-25)).
 
 ## Acceptance criteria
 
 - [x] `docs/process.md` and the glossary's proposed *Unit of work* are gone. 2026-11-22.
-- [ ] A session that ended mid-ring is resumed at its step without the person restating where
-      things stood, read from its transcript by a judge who did not build it.
 - [ ] `/verify` has been run on this ticket against its ticket, RFC, and governing docs.
 
 ## Out of scope
 
+A session that ended mid-ring resumed by the next one at its step, without the person restating where
+things stood, read by a judge who did not build it: set aside by the user, 2026-11-25, "Yes, move and
+close", for the trial of
+[q-mvd4pi](../questions/q-mvd4pi-how-does-a-session-take-on-a-standing-role-learn-it-and-hand-it-on-so-the-role-outlives-any-one-chat.md).
+It leaves unconfirmed that a resume happens on today's parts, units being held among them.
+How a reply reports by its dial — the child
+[01-0020.0020](./01-0020.0020-a-reply-reports-by-its-dial.md), live on criteria of its own.
 How the loop's granularity and ceremony become switchable —
 [q-p2tgdv](../questions/q-p2tgdv-how-does-the-method-lighten-for-small-work-and-weigh-more-for-large.md).
 The order of work —

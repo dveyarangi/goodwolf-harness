@@ -32,4 +32,5 @@ uniform ceremony in every reader's reasons, and two asked for a lighter profile 
 is suggested and enforced as a straw dog, and a tree with a process of its own meets it at `/align`
 step by step, under
 [01-0010.0150-harness-meets-a-tree-with-a-method](../tickets/01-0010.0150-harness-meets-a-tree-with-a-method.md)'s flow. It also
-touches which artifact levels can be omitted, held among the pacer's leftovers in q-p4mcme.
+touches which artifact levels can be omitted at a given project stage, open on the pacer's page when
+the page was removed (3b383b07) and kept since nowhere but here.
