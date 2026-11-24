@@ -117,6 +117,14 @@ At the end the session goes over itself for what has none of the three — the s
 with — and then ends. A session record is written only for reasoning that found no home. So the
 refusal of `/conclude` to a session with a role goes.
 
+**Counted before and after.** The user, 2026-11-24, to the keeper, sent here by it: "я думаю что мы
+решаем ту же задачу  - или как минимум улучшаем исполняемость правил - ролями и короткими сессиями -
+текущая задача хранилища. однако хорошо было бы как то установить бейзлайн неиспользования навыков
+а потом сравнить с тем что получилось после работы хранилища." The count is the keeper's, at
+[q-b4um7c](q-b4um7c-do-sessions-load-the-skill-their-act-needs-counted-from-the-hosts-transcripts-before-and-after-a-change.md); it is taken before anything of this is built. The keeper's reading with it: the
+host carries a loaded skill across compactions, and both its slips of the register's entry 76 were
+made on a load of `/skill-up` nine days and a dozen compactions old; a short session has none.
+
 ## Decisions
 
 1. **Every role has a mechanism of its own** — the user, 2026-11-16: "да, у каждой роли свой
