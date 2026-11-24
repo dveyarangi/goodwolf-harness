@@ -32,7 +32,7 @@ question's body holds what has nowhere to land yet, and the session record the a
 <straw-dog question="q-huss2x">
 **The seam between the record and delivery.** What is generic in a unit of work — an outcome,
 observable criteria, slicing with dependencies, the impact of a split, the question it answers, its
-states from minted to closed, evidence at close, a place in an order — is this mechanism's. What is
+states from minted to closed, evidence at close — is this mechanism's. What is
 the ring's — the paired RFC, the ring's step names, Type HITL or AFK, and the names *ticket* and
 *RFC* — stands here on one specimen and moves to the delivery mechanism when a second method
 manifests a unit of its own *(the user, 2026-10-20; delivery its home, 2026-11-16)*.

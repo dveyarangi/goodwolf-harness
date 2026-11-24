@@ -140,8 +140,7 @@ for decision-bearing work, after its align.
   stays in the entry.
 - **At resolution:** the ticket is minted, or rewritten in place, at feature
   altitude ([TICKET-FORMAT.md](./TICKET-FORMAT.md)); open a new question for
-  separately-scoped residue. Keep its place in the order unless the resolved
-  dependencies require moving it.
+  separately-scoped residue.
 - **If the resolved feature is too coarse for one RFC:** mint it as the
   parent's end-state and decompose it through `/ticket`.
 - **If alignment eliminates the feature:** no ticket is minted; the question
