@@ -228,3 +228,14 @@ full path instead of that tree's own form. Q1's text, in `questions.rules.md`; n
    hand-over** — the agent's wording above, agreed by the user, 2026-11-25: "хорошо, дело, хвосты и
    правила по своим местам пока". *For now* is the person's, and it is read again when the test of
    a fresh session has run.
+5. **The window's bound is 20 % and 50 %, shown by a mechanism and stopping nobody**: at 20 % the
+   session is told to finish the piece and let go, at 50 % to hand over now; the person's word to go
+   on is followed. One piece of work is advised, not held — the agent's proposal, agreed by the user,
+   2026-11-25: "хорошо, то есть 20%-50% сохраняются по выводам твоей проверки?", answered: kept, with
+   what the check does and does not show. It shows 50 % holding nine stretches in ten and 20 % a
+   little over half, so 20 % is a reminder and no line; that the model works better under either it
+   does not show.
+6. **Six of the host's tools are off in this tree, on trial** — the user, 2026-11-25: "отключай
+   инструменты на пробу". `Artifact`, `ScheduleWakeup`, `SearchPlugins`, `SuggestPluginInstall`,
+   `SuggestSkills` and `ReportFindings`, denied by bare name in this clone's own
+   `.claude/settings.local.json`, which no commit carries.
