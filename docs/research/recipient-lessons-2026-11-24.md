@@ -99,3 +99,33 @@ needed.
 | lesson | holder in this tree | told |
 |---|---|---|
 | 11, a rule's override does not reach the script that carries it out | the keeper: how projects share one method and keep their own conventions | — |
+
+## A third message, 2026-11-25 — as sent
+
+From DriftSense, a suggestion of the user's for core: self-monitoring also covers friction, not
+only rule failures.
+
+The user's words, to the Audit and security session here, 2026-11-25 (read in its transcript,
+2026-11-24T22:11Z): "everywhere there is a friction - agents takes long time to find something
+that would be frequently user - we should also fix those. actually, the later sentence should go
+as suggestion to the keeper, not just about audit, but as general extension of self-monitoring."
+
+What the sessions read of core at ed0f4e1d, not the user's: Self-improvement registers a rule that
+failed and a slip no rule covers; the harness skill's "Friction goes upstream" covers a run of
+that skill. Neither reaches work that succeeds slowly and will be repeated.
+
+Cases met here, as that session reports them: the interpreter's full path is found again by every
+session, since bare `python` does not run; a shell `cd` outlasts its call and moved the working
+folder twice; a search that reached node_modules ran past two minutes; a process document names
+the board's title column in a way its SQL refuses (met here too, today); the list of endpoints was
+drawn from the code by hand twice in a day; whether an endpoint can be tested took reading several
+files.
+One of mine: a docs guard that lists files through Git reads a record moved to done/ as missing
+until the move is committed, so a close cannot be checked before its commit.
+
+The shape, and whether it is taken, are yours and the user's. No answer is needed until core
+carries it or refuses it.
+
+| lesson | holder in this tree | told |
+|---|---|---|
+| 12, friction beside a rule's failure | the keeper: the entry file's *Self-improvement*; the person's words read at their source, and a question opened for it | — |
