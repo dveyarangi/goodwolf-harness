@@ -72,3 +72,30 @@ Carried here meanwhile as local rules, marked to go when core carries its own: t
 | 8, a renamed skill and a project's links | the keeper: the harness mechanism; kept with the installer's faults | — |
 | 9, the edge check reads its folder's README | nobody's: no role names the edge mechanism | — |
 | 10, one chat as two sessions | the store's session: the session mechanism | 2026-11-24 |
+
+## A second message, the same day — as sent
+
+One more from the mature project, on the person's word (2026-11-24): the mechanical parts of a
+mechanism should take local configuration.
+
+(P) "it basically means the mechanical parts should have local configuration, right? if you think
+of it in harness's core terms."
+
+The case. This tree's tickets take their own shape by a local rule that overrides ticket/P5, and
+it keeps status on a board. The override reached the rule's text and nothing that runs:
+`tickets.py --check` counts 121 problems on tickets that are right by the tree's own format, the
+path reads a status that is not there, and the pre-push hook runs the same check, so writing it
+would refuse every push that carries a record. `edges.py` likewise: 8 of 21 come from reading the
+folder's index as a record. So the guard stays off here and pushes go unchecked.
+
+My reading, for you to judge: an override of a rule changes what an agent reads, never the script
+that carries the rule out, so a tree can keep its own practice only in prose. A setting is
+declared today for what text a tree carries; a check, a hook and a wake reading read none.
+Whether the answer is a setting a mechanism declares for its scripts, a check a tree may replace
+by name, or the push's list of checks being the tree's, is yours. It bears on what you hold on
+practice being swapped in one edit, and on points 4 and 9 of my earlier message. No answer is
+needed.
+
+| lesson | holder in this tree | told |
+|---|---|---|
+| 11, a rule's override does not reach the script that carries it out | the keeper: how projects share one method and keep their own conventions | — |
