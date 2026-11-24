@@ -19,6 +19,18 @@ This register and its rules belong to the mechanism shape under
 decision 1, the user, 2026-10-25. The move is
 [01-0019 harness-amends-itself-by-explicit-meta-rules](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)'s.
 
+## A script every session's hook runs was edited in place half made, and failed for all of them — 2026-11-25
+
+**Source, no case yet:**
+
+- Claude Code · claude-opus-5-5 · 2026-11-24T22:46Z — chat `93035cf8-48af-476e-bdfd-ede52295255c`, the store's
+  session, about a minute between the two edits; seen in its own next window, "questions hook:
+  Store.__init__() missing 1 required positional argument".
+
+**The slip:** a class of `questions.py` took a new field in one edit and its one constructor in the
+next command, so every message to every session of this checkout ran the script between them. No rule
+in play: the checkout is shared and its scripts run as they stand.
+
 ## A session's own proposal was handed on as the person's word, and a plan, a doc and a question to the person carried it — 2026-11-22
 
 **Source, no case yet:**

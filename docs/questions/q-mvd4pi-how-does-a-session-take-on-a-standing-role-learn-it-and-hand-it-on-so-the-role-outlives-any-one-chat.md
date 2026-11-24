@@ -205,6 +205,39 @@ leftovers going to their homes instead of being built. To be put with the whole,
 bare `questions.py`, no interpreter beside them, and the sessions of a recipient tree ran them by a
 full path instead of that tree's own form. Q1's text, in `questions.rules.md`; nothing is drafted.
 
+**The bound set on it.** The user, 2026-11-25, to "Спящей сессии не писать, а класть слова в запись
+дела?": "Да, не будить"; then, the work on it begun: "то есть не будить если мы в режиме коротких
+сессий. им мы передаем письма если они активны и касаются их. вопрос остается открытым, что если
+приходит вопрос на который нет открытой сессии и эта роль не выбирается, а вопрос важный. я думаю это
+задача рекола - предлагать взять роли на которых висят задачи". So S10 is not amended ahead of the
+roles, as the agent proposed; it changes with them.
+
+**The text, drafted through `/skill-up` and tried on one fresh reader with ten cases, not landed.** In
+S10, after "before your session falls quiet": "A session your window shows not seen within the hour
+sleeps, and is woken only by the person's words for its area or a question your work stops without:
+all else, an answer included, you leave in the record of the work it bears on, or in a question you
+open where it bears on none. Woken, read what the question you stand on and the unit you hold were
+given meanwhile." In S9, after "Write nothing into its question or records": "save what is left there
+for it while it sleeps". The shelf `MESSAGES.md`, *Whom*, says a sleeping role is written to, and goes
+with it. What the reader found:
+
+- The sleep clause against each *at once* and against S9's telling: nothing says which wins. Its one
+  change: "this over every 'at once' and over S9's telling", and what is left "a dated line signed
+  with your session, added to, never altering, the record".
+- A deadlock: the asker waits asleep and the answer lies beside it; the next step of an order is the
+  sleeper's and nobody takes it. The reader would tell the person; the person's way is the recall's.
+- What is left for a role that holds nothing is read by nobody.
+- "Not seen within the hour" may be a session deep in one run.
+
+**How the wake sees what hangs on a role, the agent's proposal, not decided.** The store marks a
+question that asks the person, and the wake shows every one. The mark takes an addressee, the person
+or a role: what is left for a role is left on a question, marked, and the wake lists the roles with
+something waiting, how many, the oldest, and whether a unit of it is held by nobody; `/recall` offers
+to take one, weighed by `/pathfinder` where several wait. An active session of that role sees it in its
+window. It is one mark with
+[q-2ng6nb](q-2ng6nb-which-session-puts-a-question-that-asks-the-person-and-how-is-it-known-that-it-was-put.md)'s, which waits to be built: *who puts a question that asks the person* and
+*who takes what asks a role* are the same shape.
+
 ## Decisions
 
 1. **Every role has a mechanism of its own** — the user, 2026-11-16: "да, у каждой роли свой
@@ -239,3 +272,10 @@ full path instead of that tree's own form. Q1's text, in `questions.rules.md`; n
    инструменты на пробу". `Artifact`, `ScheduleWakeup`, `SearchPlugins`, `SuggestPluginInstall`,
    `SuggestSkills` and `ReportFindings`, denied by bare name in this clone's own
    `.claude/settings.local.json`, which no commit carries.
+7. **In the mode of short sessions a letter goes to a session that is active and that it concerns, and
+   a sleeping one is not woken** — the user, 2026-11-25: "то есть не будить если мы в режиме коротких
+   сессий. им мы передаем письма если они активны и касаются их". Where sessions stand, S10 stays as it
+   is. What is left for the rest is in the record of the work, as the proposal the user's "Да, не
+   будить" answered has it.
+8. **`/recall` offers to take the roles on which tasks hang** — the user, 2026-11-25: "я думаю это
+   задача рекола - предлагать взять роли на которых висят задачи". How it sees them is open.
