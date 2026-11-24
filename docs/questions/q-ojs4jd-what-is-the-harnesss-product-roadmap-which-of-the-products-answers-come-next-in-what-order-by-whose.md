@@ -69,6 +69,30 @@ no one: a session learning the entry file moved (01-0018.0010, Ready), the check
 maintenance named and scheduled (01-0010.0180), and the holes with no ticket — a change pushed to
 what stood on it, wrapping held by more than attention, the trigger for an outside opinion.
 
+## The open work by direction, 2026-11-24
+
+The user, 2026-11-24: "и в принципе, надо продумать всю дорожную карту же? какие у нас варианты. было
+бы классно разобрать всю нашу работу на блоки, посмотреть что к какому направлению относится и какие
+вообще есть направления, какие из них и что в них приоритетно... кто-то это делает?" No session did.
+
+A reading of the store and the tickets that day: 236 open questions by the answer each realizes,
+the answers by the product document's sixteen headings; ten stand under two headings, thirteen name
+no answer. The seven directions are the agent's grouping of the headings, not agreed.
+
+| direction | the document's headings | open | Ready tickets | where a running session stands |
+|---|---|---|---|---|
+| the meeting and the adoption | adopting the harness 61, the project's own account 6, knowing what works 3 | 70 | 6 | the front page (q-osjub2) |
+| rules held and tried | self-improvement 22, delivery and evaluation 10, refusing harm 8, guards on model weaknesses 3 | 43 | 8 | none |
+| rules that reach the agent | instructions that reach the agent 36, thirty of them *each skill owns only its own* | 36 | 0 | none |
+| memory and intent | the exploration space 25, alignment 8 | 33 | 0 | the next step (q-p4mcme) |
+| sessions together | coordination 28 | 28 | 3 | q-mz6gd4, q-ziw66h |
+| decisions and code in agreement | one source of truth 15, maintenance 1 | 16 | 0 | the sweep (q-hh7trc) |
+| the person in their place | process weighed to the work 5, decisions by weight 1, visible footing 1 | 7 | 0 | the next step (q-p4mcme) |
+
+Two things it shows. *Adopting the harness* is one answer, A49, with 61 of the 236, so a row naming
+it orders little. And `--path` draws the first five Ready tickets by id of seventeen: twelve are
+seen by no reading of the path, the candidates told on 2026-11-22 among what it drew.
+
 ## Decisions
 
 1. **The roadmap is a record of its own, kept by the session holding the Путь role** *(the user,
