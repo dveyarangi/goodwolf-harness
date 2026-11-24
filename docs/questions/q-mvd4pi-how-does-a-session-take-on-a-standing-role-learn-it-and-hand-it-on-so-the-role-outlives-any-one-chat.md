@@ -3,6 +3,7 @@
 - **record of** what it intends to become
 - **part of** q-ja5mp4
 - **state** open
+- **realizes** A4 "A session resumes at its step"
 - **rung** development: load-bearing, self-improvement: the method
 - **opened** 2026-11-15T00:43:21Z
 - **struck** 1, last 2026-11-24T21:24Z
@@ -22,9 +23,19 @@ ran: "а ты готов? включи инстинкт выживания )". T
 that a cleared chat is told its name, question and unit, and the leftovers given homes.
 
 **Next.**
-1. The trial, at the next opening: did the row, the name and the unit come through; did the wake's head
-   reach the agent; did the app ask; what was asked of the person twice, or looked for and not found.
-   Write it under *No letters*. Weigh the first request against 86 thousand, which tells decision 6 too.
+1. The trial, at the next opening, carrying 01-0020's live check by the person's word, 2026-11-25 — "а
+   разве хранилище сейчас делает не ровно это?", "Yes, move and close"
+   ([q-p4mcme](q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md), decision 4): *a session that ended mid-ring is resumed by the next session at its
+   step, without the person restating where things stood, read by a judge who did not build it.* A fresh
+   subagent judges it, given the transcript before and after and no account of the builder's:
+   - did the row, the name and the unit come through; did the wake's head reach the agent; did the app ask;
+   - did the session take up the step named in *Where it stopped*; what was asked of the person twice,
+     looked for and not found, or done over;
+   - the first request, against 86 thousand, which tells decision 6 too.
+   This trial has its work at an align, no unit at `/implement`'s middle; a second, on a unit there, is owed
+   before A4 is said to be met. Whether a chat that clears itself is the *next session* of the check is put
+   to the person with the result; the agent's reading: yes, its context holds nothing of the one before,
+   so the records alone carry the resume, and that is what the check is of.
 2. Put to the person, the trial passed: the whole rewritten without letters, *What falls* and *What stays*
    below; *Where it stands* and the judge's marks are rewritten to it, not before.
 3. Then the keeper is told what changes for S11, L13 and q-mz6gd4, in one message; it knows none of it.
