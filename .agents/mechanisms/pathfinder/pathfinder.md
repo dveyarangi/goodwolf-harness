@@ -36,6 +36,7 @@ person first orders the work; a tree with none has no order yet.
 | `owner core` | settled by the session that declared it, 2026-11-21, the user not asked |
 | candidates weighed by how they lead toward the product's answers | the user's idea, 2026-11-22; the text the agent's, agreed |
 | a question waiting on the person that no work under way holds is a candidate | the user's words to another session, 2026-11-22; the text the agent's, landed on them |
+| such a question goes first to the session it belongs to | the user's words to another session, 2026-11-24; the text the agent's, landed on them |
 
 ## Moments
 
