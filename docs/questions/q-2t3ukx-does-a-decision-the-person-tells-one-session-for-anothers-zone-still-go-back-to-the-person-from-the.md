@@ -29,3 +29,13 @@ Further texts on the same decision, found by the pass with no person of 2026-11-
 3. Both stand as two cases with no cross-reference. Nothing changes, and the disagreement stays silent.
 
 **Recommendation.** Option 1. L13 is the newer word of the person and was written for exactly this hand-over. The cost S9 guards against, a session acting on something nobody asked it, does not arise when the words are the person's own. The amendment lands in Хранилище's zone (session.rules.md, MESSAGES.md), on the person's word. The further texts of 2026-11-24 take the same option: L13 gains the names of the rules it overrides (R7), and S10's two clauses their exception for a landing on relayed words; the entry file's own lines are its keeper's.
+
+## Decisions
+
+1. **The receiver acts on the person's words at once, quoted word for word** *(the user, 2026-11-24,
+   to the store's session: "(а) по цитате")* — asked with two ways put to them: (а) the receiver
+   does it at once, since the person said it, with the agent's condition that the message holds
+   their words verbatim, in quotes; (б) the receiver first asks the person whether they said it, as
+   the messages shelf has it. Option 1 of those above for this tree: L13 gains the condition and
+   the names of the rules it overrides, the keeper's to write. The shelf stays as it is for other
+   trees — the agent's advice in the question before it, not spoken to by the person.

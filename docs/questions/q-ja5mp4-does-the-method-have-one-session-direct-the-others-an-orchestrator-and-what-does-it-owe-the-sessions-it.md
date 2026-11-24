@@ -6,7 +6,7 @@
 - **owner** [01-0090](../tickets/01-0090-standing-sessions-each-answer-for-an-area.md)
 - **rung** development: load-bearing, self-improvement: the method
 - **opened** 2026-11-15T00:05:13Z
-- **struck** 1, last 2026-11-18T04:28Z
+- **struck** 2, last 2026-11-24T19:23Z
 
 The user, 2026-11-15: ask the orchestrator session of game-delta how it works with agents and
 sessions, which problems arose and were solved and which were not, and have it ask the sessions it
