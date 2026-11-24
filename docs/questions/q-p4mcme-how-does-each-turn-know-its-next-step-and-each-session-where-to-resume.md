@@ -4,7 +4,7 @@
 - **part of** q-fjlob4
 - **state** open
 - **owner** [01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md)
-- **realizes** A4 "A session resumes at its step", A44 "A turn runs to the person's next decision"
+- **realizes** A44 "A turn runs to the person's next decision"
 - **rung** development: load-bearing, self-improvement: the method
 - **lean** 2026-11-25: the live check is q-mvd4pi trial by the person word; 01-0020 closes on its verification, which found the accepted account overstated in three parts; the correction put to the person
 - **opened** 2026-10-03T11:36:26Z
