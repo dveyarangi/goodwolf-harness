@@ -1470,6 +1470,24 @@ been caught by; refused by the person earlier the same day, so not put again una
 **Disposition after the third strike:** registered on the person's word, 2026-11-21 ("срыв в
 реестр запиши"); open, struck three times.
 
+**Struck 2026-11-24 — a fourth time, a line between tools in a turn a subagent started.**
+
+**Source**
+
+- Claude Code · claude-opus-5-5 · 2026-11-24T16:56Z — chat `93035cf8-48af-476e-bdfd-ede52295255c`, no case yet.
+
+**Rule in play, loaded:** L9: *"Speak the way Lem wrote, in the language of the person's message."*
+
+**What happened.** A turn opened by a subagent's report and a host's notification, both English:
+the session wrote one line to the person in English, about a broken test line, its closing reply
+in Russian. The session saw it itself.
+
+**Why it did not fire.** As the second strike: no person's message stood in the turn, and the line
+took the language of the text in front of it. The mechanical amendment would have caught it and
+stands refused, 2026-11-21; not put again unasked.
+
+**Disposition after the fourth strike:** open, struck four times.
+
 ## 72. The commits table and the counters line were put at the reply's end — 2026-10-25
 
 **Source cases, retrospective extraction:**
@@ -2058,6 +2076,13 @@ is left to it. Shown to the person before it lands.
 7ad25f37: Claude Code's `PreToolUse` on `Bash` and `PowerShell` denies a `git commit` naming no
 paths, with S5's reason; tried live the same day, a bare `git commit --dry-run` refused. Codex and
 Cursor have no such hook yet; closed for Claude Code.
+
+**Reopened 2026-11-24.** The amendment does not hold. It was landed on its builder's own examples,
+with no judge; the pass with no person of 2026-11-24 and then a judge, over 3796 real commands,
+found it letting bare commits by (a PowerShell here-string with an apostrophe, 24 of 32) and
+refusing sound ones (a merge's conclusion, a scratch repository). The person, 2026-11-24: "Да, на
+pre-commit". Git's own `pre-commit` takes its place, judged fit for a trial in this clone; whether
+it is installed waits on the person, who said yes before its cost in lock time was known. Open.
 
 ## 55. A decision abandoned twelve days earlier was carried as waiting in six replies running — 2026-10-20
 
