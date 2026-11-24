@@ -90,8 +90,8 @@ no answer. The seven directions are the agent's grouping of the headings, not ag
 | the person in their place | process weighed to the work 5, decisions by weight 1, visible footing 1 | 7 | 0 | the next step (q-p4mcme) |
 
 Two things it shows. *Adopting the harness* is one answer, A49, with 61 of the 236, so a row naming
-it orders little. And `--path` draws the first five Ready tickets by id of seventeen: twelve are
-seen by no reading of the path, the candidates told on 2026-11-22 among what it drew.
+it orders little. And `--path` draws the first five Ready tickets by id of seventeen; the
+candidates told on 2026-11-22 as weighed anew were two of those five and three from elsewhere.
 
 ## Decisions
 
