@@ -19,6 +19,23 @@ This register and its rules belong to the mechanism shape under
 decision 1, the user, 2026-10-25. The move is
 [01-0019 harness-amends-itself-by-explicit-meta-rules](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)'s.
 
+## A drawing was put to the person that its maker had never seen — 2026-11-24
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-opus-5-5 · 2026-11-24T22:29Z — the Путь session.
+
+**Rules in play:** `/pathfinder`, "judge it by its output; show what the person will see before it is
+built"; the entry file's *The builder does not judge*.
+
+**What happened.** A map of the open work was drawn in the chat by its source alone and called
+readable; it opened with everything but one card dimmed, so no card bore its legend's colour. The
+person: "что я вообще на ней вижу, на первой? и ничего не раскрашено в цвета легенды".
+
+**Amendment, proposed:** the drawing's own instructions hold two steps, the maker sees it rendered and
+a fresh reader says what it shows ([q-p7qw6i](questions/q-p7qw6i-what-does-a-drawing-of-the-work-show-its-groups-their-subgroups-and-which-pulls-which-and-by-what.md), 7 and 8); they land in `/pathfinder`
+with the rest once the person takes the drawing.
+
 ## A script every session's hook runs was edited in place half made, and failed for all of them — 2026-11-25
 
 **Source, no case yet:**

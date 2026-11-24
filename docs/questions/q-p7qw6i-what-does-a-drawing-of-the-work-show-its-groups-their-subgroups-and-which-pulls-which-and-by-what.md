@@ -35,3 +35,22 @@ What the records did not say: only 5 pulls between questions are written, so a s
 ticket pulls nothing on the drawing, whatever its body says; parent tickets wait on each other's
 children, which draws two pairs as a circle (n3pc22 and nlec4j, j2ryiq and m3pldh); the straw dogs'
 bindings — a question holding text unfinished — were counted and are not drawn.
+
+## The second drawing, 2026-11-25
+
+The user, of the first: "если честно карта толи непонятная - что я вообще на ней вижу, на первой? и
+ничего не раскрашено в цвета легенды". It opened with one subgroup chosen and the rest dimmed, so the
+legend's colours were not on it; whether the host's style of a button took them too was not read. Its
+pulls showed only on a click, and nothing said what a card was.
+
+What changed in the draft: a board in place of a net — a row is a group, a column is the state, so
+the state is read by place and colour only repeats it; a pull is words on the card that waits, and a
+count on the card that holds; what a number, a frame and *holds* mean stands above the board; a card
+that waits only in part says so. Two rules added to the six:
+
+7. The maker looks at the drawing as it is rendered before the person does.
+8. A fresh reader says what it shows, from the picture alone; what they cannot say is mended first.
+
+Both were done for the second: its maker saw it rendered by a browser, not in the host's chat; the
+reader named five things unclear, mended and not read again. Pulls read again that day, after
+01-0018.0010 closed: the entry file's sections now hold 10 and wait on nothing.
