@@ -171,6 +171,24 @@ and at its release; no record is written for it.
   starts with.
 - `CLAUDE_CODE_AUTO_COMPACT_WINDOW` sets where the host compacts; nothing of it stops a session.
 
+## A letter to a session that sleeps — 2026-11-25
+
+The user, 2026-11-25, to the Путь session, sent here by it: "расход первым", of a recommendation that
+named this question first and, inside it, that a letter to a sleeping session waits in its record
+instead of waking it; that half is the agent's, not the person's word. The weighing is
+[q-ojs4jd](q-ojs4jd-what-is-the-harnesss-product-roadmap-which-of-the-products-answers-come-next-in-what-order-by-whose.md)'s, *The problem now is cost*; the measure,
+[2026-11-25](../research/measures-2026-11-25/REPORT.md): letters wake 37 % of this tree's week, 15 %
+being the waking alone of a chat whose cache is cold. It is run again when this has landed.
+
+**The agent's proposal, not decided.** A letter goes to a session awake: one seen within the hour the
+host keeps its cache. To a role no such session holds, nothing is sent and no mailbox is kept: what the
+letter would have said is written where a leftover goes — the record of the work it bears on, a
+question opened in the zone where it bears on none — and the next session that takes that work reads
+it there. Once a role is taken for one piece of work no chat sleeps holding one, and this is the
+rule's whole case. Kept apart from it: the person's quoted word for another zone, which L13 sends at
+once, and a question a session cannot go on without. It is S10's text, shown before it lands, and
+meets [q-cdw6yk](q-cdw6yk-when-does-a-session-write-to-another-session-and-to-which.md).
+
 ## Decisions
 
 1. **Every role has a mechanism of its own** — the user, 2026-11-16: "да, у каждой роли свой
