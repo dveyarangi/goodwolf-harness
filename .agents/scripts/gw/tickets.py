@@ -46,8 +46,8 @@ STATUSES = ("Done", "In progress", "Ready", "Partial", "Planned", "Blocked")
 TYPES = ("HITL", "AFK")
 ORDERED = ("Status", "Type", "Minted", "Plan", "Depends on", "Blocks", "Answers", "Hazard", "Outcome")
 REQUIRED = ("Status", "Type", "Minted", "Answers", "Outcome")
-# TODO q-an5uw2: a hazard the person set aside is the only ticket with no question behind it.
-# Its field says who set it aside, the day and its reach, and stands in the place of `Answers`.
+# A hazard the person set aside is the only ticket with no question behind it (the user,
+# 2026-11-25). Its field says who set it aside, the day and its reach, in the place of `Answers`.
 HAZARD = "Hazard"
 # The day the format narrowed to the named sections, the stage gone (the user, 2026-10-11): a
 # ticket minted before it is held to the required sections and the /verify box alone.

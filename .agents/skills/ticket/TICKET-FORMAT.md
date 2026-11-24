@@ -59,7 +59,7 @@ Artifacts predating this keep their names.
 
 A ticket is a unit of agreed work. Whatever holds one states its outcome — one sentence of
 observable behaviour; <straw-dog question="q-hih5yp">the question it
-answers</straw-dog> or, <straw-dog question="q-an5uw2">for a hazard the person set aside,</straw-dog>
+answers</straw-dog> or, for a hazard the person set aside,
 who set it aside, when, and its reach; what to build; its acceptance criteria, each observably true
 when done and one of them verification; its parent, where it was carved from one; and its status. It is done when
 every criterion holds, verification included.
@@ -126,7 +126,7 @@ one-off field anywhere before `Outcome`, `Outcome` last:
 | `Depends on` | optional | every link resolves | only what this work will use and does not exist yet, the parenthetical naming that thing — a decision, a format, a command — never the other ticket's state; that a ticket is still open, or that two touch one file, is no dependency |
 | `Blocks` | optional | every link resolves | only when the blocking relation is itself an argument; carries its `— why` |
 | `Answers` | required, save where `Hazard` stands | one link to an entry of the question store whose `owner` is this ticket | the question the ticket's goal answers — its *what for*; its open questions sit under that entry, and a child ticket's question under its parent's |
-| `Hazard` | <straw-dog question="q-an5uw2">only on a hazard the person set aside</straw-dog> | `set aside by`, who, a day, its reach | how far the harm goes, as counted in the code |
+| `Hazard` | only on a hazard the person set aside | `set aside by`, who, a day, its reach | how far the harm goes, as counted in the code |
 | one-off fields | optional | every link resolves | `Trigger`, `Related`, `Owning decision` and the like, when the ticket carries that fact |
 | `Outcome` | required, last | one sentence | observable behavior, never code shape |
 

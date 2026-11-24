@@ -1,8 +1,9 @@
 # q-an5uw2 Which work has a ticket and no question behind it?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-ukkw6z
-- **state** open
+- **state** closed:decided
+- **answer** [the ticket format](../../.agents/skills/ticket/TICKET-FORMAT.md#the-header) — the user, 2026-11-25
 - **rung** self-improvement: a rule
 - **lean** hazards alone, until a second kind comes up; a ticket without a question held by itself; both waiting on the person
 - **opened** 2026-11-24T23:13:06Z
@@ -10,9 +11,10 @@
 
 ## Where it stands
 
-A hazard the person set aside is a ticket with no question behind it (decision 1). Not decided: what
-else may stand so, and what a session holds when it takes such a ticket into work, since a unit is
-held by the question it answers.
+A hazard the person set aside is a ticket with no question behind it, and nothing else is (decisions
+1 and 2). What a session holds when it takes one into work is
+[q-ixlyj2](q-ixlyj2-how-does-a-session-hold-a-ticket-with-no-question-behind-it.md)'s; what brings one
+back is `/pathfinder`'s.
 
 ## The person, 2026-11-25
 
@@ -29,24 +31,17 @@ read by this session in that session's transcript, 23:09Z on 2026-11-24: "отл
    words with no showing first (L13).
    → [the ticket format](../../.agents/skills/ticket/TICKET-FORMAT.md#the-header). Not: `Answers`
    optional — a ticket with neither would be read as finished.
-
-## What the words leave open
-
-- **What else.** (a) hazards alone; (b) any work whose form is already known, with nothing to explore.
-  Recommended: (a) until a second kind comes up. The question is where a ticket reads what it is for,
-  and the store's window, the path and the product's reading of what realizes an answer all go by
-  it; a hazard serves no answer, so it loses none of that.
-- **Taken into work.** `sessions.py --hold` takes a question; a ticket without one cannot be held, so
-  two sessions could take it unseen. (a) a question is opened when it is taken; (b) the ticket itself
-  is held. Recommended: (b), on the person's words; the script is the session mechanism's.
-- **A fork met later** in such a ticket: the format homes a ticket's open questions under its
-  `Answers` question, and there is none.
-- **What brings it back** after the day or event it was set aside to: nothing reads that; the
-  weighing is `/pathfinder`'s.
+2. **Nothing else stands without a question** — the user, 2026-11-25, to the agent's recommendation:
+   "Yes, hazards only". A ticket reads what it is for in its question, and the window, the path and
+   the product's reading of what realizes an answer go by it; a hazard serves no answer, so it loses
+   none of that. The agent's: a fork met later in such a ticket is a question opened where Q1 places it.
+   → [the ticket format](../../.agents/skills/ticket/TICKET-FORMAT.md#the-header). Not: any work whose
+   form is already known.
 
 ## Evidence — one fresh reader, 2026-11-25
 
 Given a made-up hazard, "not now, after the release", and the three files, it minted the ticket with
 its `Hazard` field, no question and no stop. It met the approval of a split against *at once* and
-took the second; the text now says which. It guessed at the last two points above, and at a small
+took the second; the text now says which. It guessed at where a fork met later
+is kept, at what brings the hazard back, and at a small
 task "for later" that is no hazard: a question now, a ticket when taken up, though no line says so.
