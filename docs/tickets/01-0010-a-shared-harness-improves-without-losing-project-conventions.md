@@ -893,6 +893,10 @@ whether an uninstalled skill belongs in the entry file at all, or which ticket i
 here with `/conclude`, `/recall`, `/review-architecture` and `/setup-devops` — the selected commands
 [01-0010.0100](./01-0010.0100-the-remaining-named-corpus-arrives.md) does not cover.
 
+**2026-11-25:** `/dream` was installed 2026-09-07 (530f6a44), and its adaptation is with
+[01-0010.0105, the backlog five arrive with their adaptations](./01-0010.0105-the-backlog-five-arrive-with-their-adaptations.md).
+The entry file has not named it since v17, 2026-09-27 (ad5649b9).
+
 The autonomy/repair policy, mechanism concept, current/history separation and mechanical maintenance principle are agreed. Queue design (items 4–5) and the concrete maintenance design remain open. The spec as a whole and any implementation RFC remain unapproved; accepted decisions and command names are recorded above.
 
 ## Idea — pacer

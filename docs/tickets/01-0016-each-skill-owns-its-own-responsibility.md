@@ -109,11 +109,13 @@ left unhosted.
   straw dogs?", which this pass answers. Nothing owns the concept end to end, and
   three mechanisms each hold a piece. The elected owner is this pass's to settle; `/verify`'s
   wrapper retires with the answer.
-- A live instance to settle: on 2026-09-06 `/verify`'s skill body lost its opening line — "`/verify`
+- ~~A live instance to settle: on 2026-09-06 `/verify`'s skill body lost its opening line — "`/verify`
   is the verification of landed work, not only documentation or shape review" — while
   the process (removed 2026-11-22, eadd0b64) still said it. The skill and its governing document now
   differ in emphasis, and nothing decided that. Whichever way it resolves, one of them stops
-  saying it.
+  saying it.~~
+  **Settled 2026-11-22:** the page that still said it is removed
+  ([q-p4mcme, decision 2](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md#decisions)).
 
 ## Already landed
 

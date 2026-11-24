@@ -87,3 +87,27 @@ held there. Failed:
 
 Lesser: the mechanism-shape repair worded L14 wider than its words; counts in its commit and
 reply off by two levels; the holder of this unit not told that the sweep stayed unmarked.
+
+## The night run of 2026-11-24: told to this unit, waiting
+
+The pass of 2026-11-24 (session `local_b768c4ba`, the sweep marked through `26dd3dba`) told the
+session holding this unit what follows, at its lines of `26dd3dba`. None of it was checked or
+repaired as of 2026-11-25, and no judge has read that run.
+
+1. [maintain.md](../../.agents/mechanisms/maintain/maintain.md):85 dates G1–G4 without G2's
+   amendment of 2026-11-17 and G3's of 2026-11-21; :44-53 lacks G3's third cause and the row's end;
+   :149-151 omits what is told.
+2. The RFC's G2 and G3 (:144-146, :150-154), already waiting for `/verify`, and the same at :41-43
+   and :104-114.
+3. The ticket :32-36 says "another running session's work"; its criteria (:40-47) name neither
+   told-as-swept, nor G3's third cause, nor the end of the row.
+4. This question's lean and :17-20, and q-3n54ky's lean and :62-71, trail the two judged runs.
+5. q-mhwbg3:52-55 lacks `b5b5deaa`'s narrowing and L14.
+6. The host task's description, outside the tree, is older than its body.
+
+Beside them, met 2026-11-25 by the subagent that mended the tickets' leftovers: maintain.md:114
+says the entry file says *may* of picking up a dream; the entry file has not named `/dream` since
+`ad5649b9`, 2026-09-27.
+
+What of these describes G3 waits with G3 itself: two checks in `maintain.py` and its new text were
+put to the person 2026-11-23.
