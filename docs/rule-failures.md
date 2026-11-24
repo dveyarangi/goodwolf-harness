@@ -477,8 +477,11 @@ this: the pass would see whose the decision is and that it is not its own to put
 the entry notice, under a question the path's session stood on and in the zone of the keeper,
 whose session had started the notice's builder. The keeper wrote to the path's session "put none
 of it from yours" and put the question to the person in the same turn; the message was queued
-behind that session's turn, in which it had already put the question itself. The keeper
-withdrew. The record the second strike asks for would have shown either of them the other.
+behind that session's turn, in which it had already put the question itself. That session took
+it off its table and left it with the keeper. It had put it on the person's word, passed to it
+by the store's session, that a waiting question belonging to no running work is its to raise,
+and had read an opener that has ended as no running work. The record the second strike asks for
+would have shown either of them the other.
 
 **Source, no case yet:**
 
