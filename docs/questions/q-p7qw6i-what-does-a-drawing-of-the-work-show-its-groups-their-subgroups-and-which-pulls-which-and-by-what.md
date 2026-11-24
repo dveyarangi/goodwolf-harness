@@ -51,6 +51,7 @@ that waits only in part says so. Two rules added to the six:
 7. The maker looks at the drawing as it is rendered before the person does.
 8. A fresh reader says what it shows, from the picture alone; what they cannot say is mended first.
 
-Both were done for the second: its maker saw it rendered by a browser, not in the host's chat; the
-reader named five things unclear, mended and not read again. Pulls read again that day, after
+For the second, its maker and the reader saw a draft of it rendered by a browser; the reader named
+five things unclear. The mended form went to the person before its maker saw it, and was rendered
+after, in a light scheme only; nobody read it again, nor saw it in the host's chat. Pulls read again that day, after
 01-0018.0010 closed: the entry file's sections now hold 10 and wait on nothing.
