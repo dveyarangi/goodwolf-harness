@@ -33,7 +33,7 @@ person first orders the work; a tree with none has no order yet.
 | the method's records do not cross a mechanism that works without it | the user, 2026-10-25 |
 | the skill's rules, drawn from the person's corrections | the user, 2026-11-21 |
 | the mechanism declared | the user, 2026-11-21 |
-| `owner core` | settled by the session that declared it, 2026-11-21, the user not asked |
+| `owner core` | settled by the session that declared it, 2026-11-21, the user not asked then; the user, 2026-11-24 |
 | candidates weighed by how they lead toward the product's answers | the user's idea, 2026-11-22; the text the agent's, agreed |
 | a question waiting on the person that no work under way holds is a candidate | the user's words to another session, 2026-11-22; the text the agent's, landed on them |
 | such a question goes first to the session it belongs to | the user's words to another session, 2026-11-24; the text the agent's, landed on them |

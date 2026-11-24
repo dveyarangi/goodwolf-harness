@@ -18,3 +18,5 @@ that the keeper's and the store's sessions held as theirs (q-d7zsba, q-twh5re), 
 twice. The user, to the store's session: "вопрос снова поднявшийся в не своей зоны, должен быть
 передан правильному адресату." Of a question that belongs to no session they said nothing then;
 the rule of 2026-11-22 stands for it. Tried on no reader.
+
+`owner core` confirmed by the user, 2026-11-24, asked in the path's session: "да, в ядро".
