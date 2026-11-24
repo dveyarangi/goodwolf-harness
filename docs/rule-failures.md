@@ -55,6 +55,51 @@ mechanism's, drafted and put to the person by the session that holds it.
 
 **Disposition:** open — handed to the maintenance session, which reported it, 2026-11-23.
 
+## An agent's proposal, agreed to, was recorded as the person's words, and a decision was asked on it — 2026-11-24
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-opus-5-5 · 2026-11-22T00:43Z — the Путь session, recording the person's word on the entry-file notice.
+
+**Goal missed:** a decision the person is asked shows them what they said and what they agreed to.
+
+**Rules in play, in its context:** `/pathfinder`, *"a suggestion they agreed to is recorded as the
+agent's, agreed, never as theirs"* — said of the roadmap, the record here a question's lean.
+
+**What happened.** The person said a session should take the update silently and at its next turn,
+asked whether the file could be reloaded at the head of the context, and then *"хорошо, делаем
+хук"*. Changed lines in place of a re-read were the session's proposal. Its lean opened with *the
+user, 2026-11-22* and carried the whole design; the ticket, its plan and the harness mechanism's
+doc took the proposal as the user's, and q-d7zsba asks whether *the person's two earlier words* give
+way, one of them this. The same session dated the pathfinder doc's decisions of 2026-10-25 to
+2026-11-21.
+
+**Why it did not fire.** The rule stands under the roadmap, and a lean has one author slot, written
+first: what follows it reads as that author's.
+
+**Proposed amendment**, a rewording, where a lean is written: a lean names the person for their
+quoted words alone; what they agreed to is named as the agent's, agreed.
+
+**Disposition:** open — the lean is the store's, whose session drafts it; told with this session's
+next message to it.
+
+## A shared checkout was stashed whole to push one commit — 2026-11-24
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-opus-5-5 · 2026-11-22T01:32Z — the Путь session.
+
+**Rules in play:** none covers it — a slip, entered so a repeat is seen.
+
+**What happened.** A push was refused and a rebase refused for unstaged changes; the session ran
+`git stash`, `git pull --rebase`, `git stash pop` in the checkout five sessions share, minutes after
+the host had refused it a commit naming no paths for that reason. Other sessions' uncommitted lines
+— a plan, two rows, a question — were out of the tree for the seconds between. They came back, and
+the stash list is empty. The person was not told.
+
+**The slip, broadly.** A git command that moves the whole working tree, run where other sessions'
+uncommitted work stands in it.
+
 ## A message nobody waited on was sent, and its receiver retold it to the person — 2026-11-22
 
 **Source, no case yet:**
@@ -91,8 +136,8 @@ store's session with this session's next message to it, not as a message of its 
 
 **Source, no case yet:**
 
-- Claude desktop app · claude-opus-5-5 · 2026-11-22T00:05Z — the Путь session, asked to argue the roadmap's first row.
-- Claude desktop app · claude-opus-5-5 · 2026-11-22T00:45Z — the same session, asked how possible a silent update is and who holds the weighing.
+- Claude desktop app · claude-opus-5-5 · 2026-11-22T00:16Z — the Путь session, asked to argue the roadmap's first row.
+- Claude desktop app · claude-opus-5-5 · 2026-11-22T00:29Z — the same session, asked how possible a silent update is and who holds the weighing.
 
 **Goal missed:** the person reads the answer to what they asked.
 
@@ -127,7 +172,7 @@ local rule: it would restate one host's instruction, the other way round.
 
 **Source, no case yet:**
 
-- Claude desktop app · claude-opus-5-5 · 2026-11-22T00:30Z — the Путь session, its reply arguing the roadmap's first row.
+- Claude desktop app · claude-opus-5-5 · 2026-11-22T00:17Z — the Путь session, its reply arguing the roadmap's first row.
 
 **Goal missed:** a recommendation weighs what is already under way.
 
@@ -2471,6 +2516,20 @@ while building* — is no reply, and nothing at that occasion asks where a figur
 
 **Proposed amendment**, to L9 or beside it, its home the user's to name: *A figure in a reply or a
 record is one a run printed; one not yet counted is not written.*
+
+**Struck 2026-11-24 — once, the amendment not landed.** The Путь session wrote into this register
+three source times it had not read — 00:05Z, 00:45Z and 00:30Z for turns the transcript puts at
+00:16Z, 00:29Z and 00:17Z — and, into a question's lean, a message and a reply, 34 messages of a
+rule's change at a median of 6.5 calls and 1.7M cached tokens, about four a day. The figures came
+from a run, and the run was wrong: it took every message naming the entry file for such a notice
+and counted one model call once per line the transcript gives it. Recounted: 32 matches, about a
+dozen of them such notices by their first lines, most on one day; a median of 3 calls and 0.9M over
+the 32. The amendment as proposed would have let the second through: a figure a run printed is
+still one nobody looked behind.
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-opus-5-5 · 2026-11-22T00:29Z — the Путь session.
 
 **Disposition:** registered; the amendment waits on where it belongs.
 

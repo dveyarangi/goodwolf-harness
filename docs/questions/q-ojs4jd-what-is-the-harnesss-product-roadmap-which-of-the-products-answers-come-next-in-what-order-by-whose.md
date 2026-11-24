@@ -4,7 +4,7 @@
 - **part of** q-m6unv4
 - **state** open
 - **rung** development: the whole product
-- **lean** the user, 2026-11-22: the product is the bearing, but what leads to it counts too — a stopgap where the harness already moves toward a fuller or more general answer is taken only well justified, and wrapped as a straw dog; else the work is a bottleneck, moving many at once, or readies the harness for its next stage, or stands alone and closes something of the product; who makes and holds that analysis over questions and tickets, open
+- **lean** the user, 2026-11-22: the product is the bearing, but what leads to it counts too — a stopgap where the harness already moves toward a fuller or more general answer is taken only well justified, and wrapped as a straw dog; else the work is a bottleneck, moving many at once, or readies the harness for its next stage, or stands alone and closes something of the product. Who makes that analysis: the Путь session, L13 (the user, 2026-11-22). The order itself, open
 - **opened** 2026-10-25T19:34:35Z
 - **struck** 2, last 2026-11-22T00:15Z
 
