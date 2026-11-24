@@ -126,6 +126,13 @@ until the move is committed, so a close cannot be checked before its commit.
 The shape, and whether it is taken, are yours and the user's. No answer is needed until core
 carries it or refuses it.
 
+**Corrected by the sender the same day — as sent.** Its first case, the interpreter, was wrong as
+written. The Audit and security session withdraws it: `uv run --offline --no-project python` is
+given in the verify, maintain and harness skills and in this project's L5, and works. What holds
+is narrower: the entry file shows the store's calls as bare `questions.py`, with no interpreter
+beside them, and sessions here used a full path instead of the uv form (mine too). The other
+cases and the user's words stand.
+
 | lesson | holder in this tree | told |
 |---|---|---|
 | 12, friction beside a rule's failure | the keeper: the entry file's *Self-improvement*; the person's words read at their source, and a question opened for it | — |
