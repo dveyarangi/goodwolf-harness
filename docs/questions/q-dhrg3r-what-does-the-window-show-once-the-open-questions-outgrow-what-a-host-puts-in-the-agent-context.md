@@ -42,4 +42,7 @@ questions is the steering the signal asks for, apart from the window's form.
 
 Not settled by it: what must be acted on beyond what the window shows today, which waits on
 [q-2ng6nb](q-2ng6nb-which-session-puts-a-question-that-asks-the-person-and-how-is-it-known-that-it-was-put.md);
-the wake, cut by the same cap; and Q1's word for a message the short window holds no place for.
+the wake, cut by the same cap; and Q1's word for a message the short window holds no place for — a change of Q1 refused for now, the person,
+2026-11-24: "Q1 не сработало возможно потому что там не была установлена вообще автономия. пока не
+будем". Two pieces follow when it is taken up: the hooks' notice as an entry of its own, so that the wake's
+cap does not cut it; and the wake itself, 16 thousand characters, its head alone shown.

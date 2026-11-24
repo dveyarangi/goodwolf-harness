@@ -12,7 +12,41 @@ new id. What a session reads to take a role on, where the role's own brief lives
 so in a skill or a rules file, never in a document alone — and how one session hands it to the
 next. Bears on [q-p4sdnv](q-p4sdnv-what-is-an-agent-role-and-which-mechanism-keeps-roles.md).
 
+## Where it stopped — 2026-11-25
+
+Read this first on taking the work up; it is gone with the question's close. The session is Хранилище
+(L13), standing here and holding q-ziw66h, the plan of `/pack`, which waits on this.
+
+**What the person said last.** Asked to clear this chat as the first trial: "Да, очищай", then, before it
+ran: "а ты готов? включи инстинкт выживания )". The readiness is this section, the wake's head changed so
+that a cleared chat is told its name, question and unit, and the leftovers given homes.
+
+**Next.**
+1. The trial, at the next opening: did the row, the name and the unit come through; did the wake's head
+   reach the agent; did the app ask; what was asked of the person twice, or looked for and not found.
+   Write it under *No letters*. Weigh the first request against 86 thousand, which tells decision 6 too.
+2. Put to the person, the trial passed: the whole rewritten without letters, *What falls* and *What stays*
+   below; *Where it stands* and the judge's marks are rewritten to it, not before.
+3. Then the keeper is told what changes for S11, L13 and q-mz6gd4, in one message; it knows none of it.
+4. Then a plan and a build, the keeper's base counted first (q-b4um7c): the bound's line at 20 and 50 %; what
+   a closing does; the recall's offer. Nothing is built of it yet.
+
+**Waiting on the person.** The trial's go; after it the whole; the line of
+[q-cn7gef](q-cn7gef-which-kinds-of-record-are-written-through-the-server-and-which-travel-with-the-code.md) and the register's place; [q-ixlyj2](q-ixlyj2-how-does-a-session-hold-a-ticket-with-no-question-behind-it.md),
+no hurry, no such ticket exists.
+
+**Not for now, and whose.** *How the wake sees what hangs on a role*: the mark with an addressee was
+dropped for the folder, and the folder by the person's last thought; [q-2ng6nb](q-2ng6nb-which-session-puts-a-question-that-asks-the-person-and-how-is-it-known-that-it-was-put.md) builds its
+`put` for the person alone. The host's archive of old chats: off until chats clear themselves.
+From the eight leftovers above: homes given 2026-11-25 to S5's `git add -N`, 2026-12-08, the notice's entry,
+Q1's refusal and `/pack`'s place before 01-0010.0250.0110; still here alone, for a reading by a subagent
+when the mechanism is next opened: two of S10's items missing from `MESSAGES.md`, and stale docstrings in
+`sessions.py` and `questions.py`, their list lost at a compaction.
+
 ## Where it stands
+
+*In doubt since the same day: the person's last thought drops the letters and the folder, if a chat can
+clear itself — *No letters*, below. Read it as accepted before that thought, and rewrite it after the trial.*
 
 Accepted by the user, 2026-11-25: "по ролям все верно", of this whole retold to them in ten points, the
 new ones named as new. A number is the decision below that a part stands on; *new* is a part no decision

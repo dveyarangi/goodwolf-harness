@@ -2156,6 +2156,8 @@ it is installed waits on the person, who said yes before its cost in lock time w
 refusal is taken out and Git's `pre-commit` written by hand in this clone, calling
 `.agents/scripts/gw/pre_commit.sh`. It closes, or is refused, on what the trial shows: a bare commit
 of an agent's that got by, a sound commit it stopped, an add of another session's that met the lock.
+It is looked at on 2026-12-08, the agent's day, told to the person. S5's text owes a sentence with it,
+shown before it lands: a new file is declared with `git add -N`, or the pathed commit does not see it.
 Open.
 
 ## 55. A decision abandoned twelve days earlier was carried as waiting in six replies running — 2026-10-20
