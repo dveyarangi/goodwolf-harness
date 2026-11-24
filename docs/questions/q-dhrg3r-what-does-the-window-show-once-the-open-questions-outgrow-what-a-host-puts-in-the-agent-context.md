@@ -46,3 +46,8 @@ the wake, cut by the same cap; and Q1's word for a message the short window hold
 2026-11-24: "Q1 не сработало возможно потому что там не была установлена вообще автономия. пока не
 будем". Two pieces follow when it is taken up: the hooks' notice as an entry of its own, so that the wake's
 cap does not cut it; and the wake itself, 16 thousand characters, its head alone shown.
+
+**What the short window costs, 2026-11-25.** Read from one chat since its last compaction: 32 windows, 186 KB,
+some 55 thousand of its 457 thousand tokens of messages, about 1.8 thousand each, beside 334 KB of
+command output and the 170 thousand tokens the model wrote, its thinking and its calls counted. It is drawn
+whole at nearly every message, since any entry's bytes move its fingerprint.

@@ -191,7 +191,7 @@ what of it needs judgement:
 |---|---|---|
 | seen with the eyes of a cleared chat: what its start and first message would show it | hand, and found three holes | code, with its test: the wake opens with the session's name, question and unit, the window shows its name |
 | what lives in this chat alone: each promise to the person, each refusal and order of theirs, each thing noticed and set aside, each script or text made, sought in the tree | judgement | a rule, the sweep `/conclude` opens with, which names promises, decisions, own changes and drift, and not the person's refusals and orders |
-| the same, by someone else | nobody; the builder judged itself | a subagent given the person's words and the replies alone, drawn from the transcript by a script, and the tree: what is in the first and not in the second |
+| the same, by someone else | nobody; the builder judged itself | not a step: the judge the trial owes reads the chat before and after the clearing and finds what was lost, nobody waiting. A reader before each closing was weighed, 0.36 M units and near three minutes with the tree to search, 0.1 M and under half a minute without, neither run; the person, 2026-11-25: "я в любом случае, 3 минуты это много" |
 | each put in its home | judgement | decision 4 |
 | *Where it stopped*, at the head of the unit's record: the person's last words, the next steps, what waits on the person, what is not for now and whose | hand, its four slots made up | a form, and a check that the unit's record bears one newer than the session's last clearing |
 | what is in doubt marked at its place, so that the next does not build it | judgement | the form's fifth slot |
