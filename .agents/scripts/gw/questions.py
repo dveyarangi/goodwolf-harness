@@ -1369,7 +1369,9 @@ def _drawn(store: Store, held: sessions.Session) -> str:
         return _without_position(store, held)
     path = store.path(held.current)
     return "\n".join(
-        [f"session: {held.tag}", f"current: {held.current}"]
+        [f"session: {held.tag}"]
+        + _name_lines(held)
+        + [f"current: {held.current}"]
         + _own_unit_lines(store, held)
         + [""]
         + _path_lines(path)
@@ -1402,14 +1404,21 @@ def wake(root: Path, now: datetime, tag: str | None = None) -> str:
 
 
 def _wake_read(root: Path, held: sessions.Session, header: str, now: datetime) -> str:
-    """What keeps coming back, who else is running and where, what waits to be re-read, and this
-    session's window. An ended session is nobody's business at a wake."""
+    """Where this session itself stands, what keeps coming back, who else is running and where, what
+    waits to be re-read, and this session's window. An ended session is nobody's business at a wake.
+
+    Its own name, question and unit come first: a host may show an agent the read's head alone, and a
+    chat cleared or compacted knows none of them."""
     store = read_store(root)
     live = sorted((read for read in store.index.values() if not read.archived), key=_order)
     others = [other for other in store.sessions if other.running and other.tag != held.tag]
     deferred = [read for read in live if read.kind == "deferred" and "answer" in read.parts]
     return "\n".join(
-        [header, ""]
+        [header]
+        + _name_lines(held)
+        + [f"current: {_position(store, held.current)}"]
+        + _own_unit_lines(store, held)
+        + [""]
         + _section("most struck, open:", [f"  {_line(read)}" for read in _most_struck(live)])
         + _asking_section(store, live, others)
         + _section("sessions:", [f"  {sessions.state(other)}{_holding(store, other)}" for other in others])
@@ -2030,6 +2039,11 @@ def _holding(store: Store, held: sessions.Session) -> str:
     return f", holding {unit}" if unit else ""
 
 
+def _name_lines(held: sessions.Session) -> list[str]:
+    """The name of a session that holds a role, which its context loses when it is cleared."""
+    return [f"name: {held.name}"] if held.name else []
+
+
 def _own_unit_lines(store: Store, held: sessions.Session) -> list[str]:
     """The unit this session holds, or the mark of one another session took over from it."""
     unit = _held_unit(store, held)
@@ -2059,7 +2073,9 @@ def _elsewhere_lines(store: Store, held: sessions.Session) -> list[str]:
 def _without_position(store: Store, held: sessions.Session) -> str:
     """A session that has not placed itself yet: the roots to place it among, and who is where."""
     return "\n".join(
-        [f"session: {held.tag}", "current: none yet — the first `at` call places it"]
+        [f"session: {held.tag}"]
+        + _name_lines(held)
+        + ["current: none yet — the first `at` call places it"]
         + _own_unit_lines(store, held)
         + [""]
         + _section("roots:", [f"  {_line(read)}" for read in store.roots])

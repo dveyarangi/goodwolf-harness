@@ -145,6 +145,17 @@ class TheWake(Rendered):
         self.assertEqual(before + f"{tag} running 2026-09-29T12:00Z -\n", session_lines(self.root))
         self.assertIn("registered now", text.splitlines()[0])
 
+    def test_a_wake_opens_with_the_sessions_own_name_question_and_unit(self) -> None:
+        sessions.take_name(self.root, "s-alpha", "Хранилище", NOW)
+
+        _, text = self.said("--wake", "--session", "s-alpha")
+
+        self.assertEqual(
+            ["session: s-alpha, already registered", "name: Хранилище", "current: q-0004 Which parts are optional?"],
+            text.splitlines()[:3],
+            "a cleared chat knows neither, and a host may show it the read's head alone",
+        )
+
     def test_two_wakes_register_two_sessions(self) -> None:
         _, first = self.said("--wake")
         _, second = self.said("--wake")
