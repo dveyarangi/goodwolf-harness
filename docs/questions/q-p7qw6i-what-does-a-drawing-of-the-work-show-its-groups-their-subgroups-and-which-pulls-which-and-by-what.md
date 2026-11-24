@@ -57,3 +57,13 @@ after, in a light scheme only; nobody read it again, nor saw it in the host's ch
 01-0018.0010 closed: the entry file's sections now hold 10 and wait on nothing.
 
 The user, 2026-11-25, of the second: "ммм ну пока пусть будет такая доска." Taken for now, not for good.
+
+The board's instructions were proposed to the person on 2026-11-25 as a shelf of `/pathfinder`,
+`BOARD.md`, with a line of the body and a use case of the description; their yes or no waits. The
+shelf: a card is a subgroup, a subtree under a head the maker names, each open question falling to its
+nearest head; a row is a group of cards; a column is the state, read from the units of work and the
+running sessions, colour repeating it; a pull is written, never read from prose, said on the card that
+waits and counted on the card that holds; what the person put first is framed and said in a word;
+names are the person's, with no id, the legend above and what the records could not say below; the
+records are read anew for each drawing; the maker sees the form to be shown, rendered, and a fresh
+reader says what it shows, before the person does.
