@@ -128,8 +128,9 @@ Whatever comes back wrong is what GoodWolf is for.
   the project was asked, and did it change anything?*
 
 Plain Markdown and standard-library Python, MIT-licensed, in Claude Code, Codex and Cursor. Its
-scripts refuse rather than guess, and leave nothing behind when they refuse; a Git hook stops a push
-whose records fail those checks before it leaves.
+scripts refuse rather than guess, and leave nothing behind when they refuse; where no other hook
+stands in its place, a Git hook stops a push
+whose records fail the harness's checks before it leaves.
 
 The study asks these of your project and answers them in numbers from your own repository — run it
 before you decide.
@@ -209,7 +210,7 @@ messages under the open question it belongs to. On 5 October, new sessions kept 
 under questions that only sounded similar. Each time, the miss was logged and the rule tightened —
 four times that day — until it said: file a message under the narrowest question that actually
 covers it, never under one that merely looks alike. The sessions after that got it right. The
-harness has been built with itself since September; 79 of its sessions are on record.
+harness has been built with itself since September; 81 of its sessions are on record.
 
 To override a shipped rule, add a section naming it.
 
