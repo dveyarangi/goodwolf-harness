@@ -1279,6 +1279,29 @@ person: *did you use skill-up?* What a session reads of a rule that moved after 
 
 - [Claude Code · claude-opus-5-5 · 2026-10-25T09:40:50.732Z](cases/rf-rules-were-proposed-in-a-reply-w-a7ada13a87/case.json).
 
+**Struck 2026-11-24 — a second time.** The keeper drew the 🧩 frame twice without reading
+`/skill-up`: the rule of roles' last paragraph, landed 2026-11-22, three lines grown to eight;
+and on 2026-11-24 one sentence of the entry file's rule on straw dogs put to the person with a
+second sentence beside it, thirty words where twenty-four stood, its reason written into it. The
+person: "ты так лихо удвоил размер правила, не использовал скил-ап наверное или пропустил
+инструкции? в частности по размером и написания правил для умной модели". Read then, the skill
+gave three words for the thirty.
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-fable-5-2 · 2026-11-24T18:25Z — the keeper's chat `1981de0e-7693-4931-aeab-4881f9fa0065`; the instant is that of the commit nearest the reply, 4dc821b2, and the model is the one the session reported itself running on.
+
+**Why it did not fire.** The keeper's reading, no model-internal cause established: the skill's
+text had been in the session's context since an earlier turn, and the frame was drawn from the
+memory of having read it; nothing between a draft and its frame asks whether the skill was read
+in this turn.
+
+**Proposed amendment**, mechanical, as a second strike takes, not built and not yet put to the
+person: where a host's hook reads a reply before it ends, a reply holding a 🧩 header in a turn
+that did not load `/skill-up` goes back to the agent.
+
+**Disposition:** open again.
+
 ## 75. Two sessions numbered one version of the entry contract — 2026-10-25
 
 **Source cases, retrospective extraction:**
