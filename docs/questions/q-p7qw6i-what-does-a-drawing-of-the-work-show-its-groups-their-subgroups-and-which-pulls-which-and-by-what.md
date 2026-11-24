@@ -59,11 +59,24 @@ after, in a light scheme only; nobody read it again, nor saw it in the host's ch
 The user, 2026-11-25, of the second: "ммм ну пока пусть будет такая доска." Taken for now, not for good.
 
 The board's instructions were proposed to the person on 2026-11-25 as a shelf of `/pathfinder`,
-`BOARD.md`, with a line of the body and a use case of the description; their yes or no waits. The
-shelf: a card is a subgroup, a subtree under a head the maker names, each open question falling to its
+`BOARD.md`, with a line of the body and a use case of the description. The shelf: a card is a subgroup, a subtree under a head the maker names, each open question falling to its
 nearest head; a row is a group of cards; a column is the state, read from the units of work and the
 running sessions, colour repeating it; a pull is written, never read from prose, said on the card that
 waits and counted on the card that holds; what the person put first is framed and said in a word;
 names are the person's, with no id, the legend above and what the records could not say below; the
 records are read anew for each drawing; the maker sees the form to be shown, rendered, and a fresh
 reader says what it shows, before the person does.
+
+## Tried on a fresh reader, 2026-11-25
+
+A reader of the skill and the shelf alone named every step in order and what stands on the board. Two
+things it found the text leaves to the maker, and two makers would part: how the heads are chosen, so
+two boards do not compare and a map cannot be updated from its last; and where a hazard stands on the
+board, none of the four columns holding it apart. What it asked of the medium, the palette and the
+language is left to the maker on purpose.
+
+## Decisions
+
+1. **The board's rules are a shelf of the pathfinder skill**, for as long as the board is the drawing
+   taken — the agent's text, accepted by the user, 2026-11-25: "принимаю правила".
+   → [BOARD.md](../../.agents/skills/pathfinder/BOARD.md)

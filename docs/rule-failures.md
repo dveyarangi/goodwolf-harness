@@ -32,9 +32,9 @@ built"; the entry file's *The builder does not judge*.
 readable; it opened with everything but one card dimmed, so no card bore its legend's colour. The
 person: "что я вообще на ней вижу, на первой? и ничего не раскрашено в цвета легенды".
 
-**Amendment, proposed:** the drawing's own instructions hold two steps, the maker sees it rendered and
-a fresh reader says what it shows ([q-p7qw6i](questions/q-p7qw6i-what-does-a-drawing-of-the-work-show-its-groups-their-subgroups-and-which-pulls-which-and-by-what.md), 7 and 8); they land in `/pathfinder`
-with the rest once the person takes the drawing.
+**Amendment, landed 2026-11-25, closed:** the drawing's own instructions hold two steps, the maker
+sees it rendered and a fresh reader says what it shows ([q-p7qw6i](questions/q-p7qw6i-what-does-a-drawing-of-the-work-show-its-groups-their-subgroups-and-which-pulls-which-and-by-what.md), 7 and 8), in `/pathfinder`'s
+[BOARD.md](../.agents/skills/pathfinder/BOARD.md); accepted by the user, 2026-11-25.
 
 ## A script every session's hook runs was edited in place half made, and failed for all of them — 2026-11-25
 

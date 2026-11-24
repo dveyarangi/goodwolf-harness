@@ -27,3 +27,6 @@ The hazard rule was added on 2026-11-25, the agent's text on the user's word
 The same day two texts followed the user's words: one set aside is a unit of work at once (decision 2
 there, in place of the agent's proposal of a question), and a roadmap row may name a pain ("дорожная
 карта конечно может называть боль"). Neither was tried on a reader.
+
+The board's rules were added on 2026-11-25, the agent's text accepted ("принимаю правила"), drawn from
+the first two drawings ([q-p7qw6i](../questions/q-p7qw6i-what-does-a-drawing-of-the-work-show-its-groups-their-subgroups-and-which-pulls-which-and-by-what.md)).

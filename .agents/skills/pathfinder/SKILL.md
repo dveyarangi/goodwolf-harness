@@ -1,6 +1,6 @@
 ---
 name: pathfinder
-description: Choose what the project works on next and keep the order it is chosen by. Use when a candidate is recommended or the person orders the work, when an idea arrives that would change what comes next, when the product roadmap is made or amended, or when a part that orders the work is to be added or removed.
+description: Choose what the project works on next and keep the order it is chosen by. Use when a candidate is recommended or the person orders the work, when the person asks to see the work as a whole, when an idea arrives that would change what comes next, when the product roadmap is made or amended, or when a part that orders the work is to be added or removed.
 ---
 
 Mechanism: pathfinder
@@ -37,6 +37,10 @@ Mechanism: pathfinder
   by its output; show what the person will see before it is built. Before removing a part, say
   what reads it.
 - A detour from the session's thread is named as one, with the way back.
+<straw-dog question="q-p7qw6i">
+- The person asking to see the work, and an order that changed, are answered with the board:
+  [BOARD.md](BOARD.md).
+</straw-dog>
 
 ## The roadmap
 
