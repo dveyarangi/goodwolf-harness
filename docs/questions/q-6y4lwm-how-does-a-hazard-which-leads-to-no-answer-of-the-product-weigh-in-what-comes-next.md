@@ -1,8 +1,9 @@
 # q-6y4lwm How does a hazard, which leads to no answer of the product, weigh in what comes next?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-huss2x
-- **state** open
+- **state** closed:decided
+- **answer** [the pathfinder skill](../../.agents/skills/pathfinder/SKILL.md) — the user, 2026-11-25
 - **rung** self-improvement: the method, development: a product slice
 - **opened** 2026-11-24T18:26:06Z
 - **struck** 0, last 2026-11-24T18:26Z
@@ -32,4 +33,10 @@ orders nothing by itself; nor a risk list beside the store — the list is what 
    user's word of that day: "правило об опасностях надо добавить срочно, оно само опасность )".
    → [the pathfinder skill](../../.agents/skills/pathfinder/SKILL.md). Tried on one fresh reader, by a made-up case: it put the two hazards first and said
    it would count their reach in the code. It did not know where one set aside is recorded, since a
-   roadmap row names an answer. That is open, put to the person as a home: the hazard's own question.
+   roadmap row names an answer.
+2. **One set aside is a unit of work at once** — the user, 2026-11-25, to the agent's proposal of the
+   hazard's own question: "отложеная опасность это не вопрос, это сразу тикет. вопросы нужны чтобы
+   исследовать дерево идей, не записывать важные задачи, разве не та?" The rule says *unit of work*,
+   since it works in a tree with no tickets. A ticket's required `Answers` refuses one that answers no
+   question; the words went to the session whose zone the tickets are.
+   → [the pathfinder skill](../../.agents/skills/pathfinder/SKILL.md)

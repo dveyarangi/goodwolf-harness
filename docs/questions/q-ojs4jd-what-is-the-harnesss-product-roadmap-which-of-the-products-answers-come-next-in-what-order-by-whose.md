@@ -116,7 +116,8 @@ after it, since that is what is left in the trees where sessions do not write to
 
 The user, 2026-11-25, of that: "расход первым, но я хочу как-то увидеть работу лучше, все же." The
 order is cost first. No product answer says that the work costs little — A39 counts it, A45 weighs
-work to its shape — so a row has nothing to name; whether a row may name a pain is put to the person.
+work to its shape — so a row had nothing to name. A row may name a pain: "дорожная карта конечно может называть боль"
+(the user, 2026-11-25), and the first row is `pain 2`.
 
 ## Decisions
 

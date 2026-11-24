@@ -55,3 +55,5 @@ For the second, its maker and the reader saw a draft of it rendered by a browser
 five things unclear. The mended form went to the person before its maker saw it, and was rendered
 after, in a light scheme only; nobody read it again, nor saw it in the host's chat. Pulls read again that day, after
 01-0018.0010 closed: the entry file's sections now hold 10 and wait on nothing.
+
+The user, 2026-11-25, of the second: "ммм ну пока пусть будет такая доска." Taken for now, not for good.

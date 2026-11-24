@@ -15,8 +15,8 @@ Mechanism: pathfinder
   that answer.
 - A hazard — what can harm those the project serves or their data, or stop it running — leads to
   no answer and is put before the candidates, its reach counted in the code and not taken from
-  its record. The order stays the person's: one set aside is recorded as theirs, with its reach,
-  dated.
+  its record. The order stays the person's: one set aside is a unit of work at once, marked as set
+  aside by them, with its reach, dated.
 - Weigh questions, not the method's records. A unit of work is whatever the installed method
   materialises a question into; where no method is installed, the questions are the work.
 - A new idea is placed under its question and weighed against the purpose and the guesses already
@@ -42,8 +42,8 @@ Mechanism: pathfinder
 
 `docs/roadmap.md`, one file, written when the person first orders the work. A row is one place in
 the order: `order`, an integer from 1 with no gaps; `what`, a product answer's bare reference,
-such as `A3` — a hole behind a front-page promise enters by the answer it rests on; the person's
-words; the date. Tier 2: read when a candidate is recommended or the work is ordered.
+such as `A3`, or a pain's, such as `pain 2`, where no one answer relieves it — a hole behind a
+front-page promise enters by the answer it rests on; the person's words; the date. Tier 2: read when a candidate is recommended or the work is ordered.
 <straw-dog question="q-ojs4jd">What removes a row: not yet.</straw-dog>
 
 ## What the person hears

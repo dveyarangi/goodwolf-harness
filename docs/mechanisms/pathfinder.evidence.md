@@ -23,3 +23,7 @@ the rule of 2026-11-22 stands for it. Tried on no reader.
 
 The hazard rule was added on 2026-11-25, the agent's text on the user's word
 ([q-6y4lwm](../questions/q-6y4lwm-how-does-a-hazard-which-leads-to-no-answer-of-the-product-weigh-in-what-comes-next.md), decision 1); tried on one fresh reader.
+
+The same day two texts followed the user's words: one set aside is a unit of work at once (decision 2
+there, in place of the agent's proposal of a question), and a roadmap row may name a pain ("дорожная
+карта конечно может называть боль"). Neither was tried on a reader.
