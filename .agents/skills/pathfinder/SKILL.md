@@ -13,6 +13,10 @@ Mechanism: pathfinder
   harness for its next stage. A stopgap where a fuller or more general answer is already under
   way is taken only where the need justifies it, wrapped as a straw dog bound to the question of
   that answer.
+- A hazard — what can harm those the project serves or their data, or stop it running — leads to
+  no answer and is put before the candidates, its reach counted in the code and not taken from
+  its record. The order stays the person's: one set aside is recorded as theirs, with its reach,
+  dated.
 - Weigh questions, not the method's records. A unit of work is whatever the installed method
   materialises a question into; where no method is installed, the questions are the work.
 - A new idea is placed under its question and weighed against the purpose and the guesses already

@@ -20,3 +20,6 @@ twice. The user, to the store's session: "вопрос снова поднявш
 the rule of 2026-11-22 stands for it. Tried on no reader.
 
 `owner core` confirmed by the user, 2026-11-24, asked in the path's session: "да, в ядро".
+
+The hazard rule was added on 2026-11-25, the agent's text on the user's word
+([q-6y4lwm](../questions/q-6y4lwm-how-does-a-hazard-which-leads-to-no-answer-of-the-product-weigh-in-what-comes-next.md), decision 1); tried on one fresh reader.
