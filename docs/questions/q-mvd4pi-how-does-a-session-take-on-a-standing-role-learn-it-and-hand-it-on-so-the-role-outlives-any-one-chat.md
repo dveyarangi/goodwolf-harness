@@ -84,6 +84,39 @@ well the model works; the most expensive single act of a standing session is bei
 letter to a sleeping chat also does. Not measured: whether the work at 20 % is better than at 50 %,
 which is the user's account of the models.
 
+## What a session leaves behind — read from this one, 2026-11-25
+
+The user, 2026-11-24: "вопрос о передаче роли остается открытым - что именно сессия роли оставляет
+после себя?"
+
+- A session that holds a role writes no session record, since `/conclude` stops at it
+  ([q-g6lj7m](q-g6lj7m-who-ends-the-session-of-a-role-if-not-its-conclude.md), decision 1): the last is 0079, 2026-10-29, and none stands among the 350
+  commits since 2026-11-15, when the standing sessions began.
+- What this session, compacted, carried of undone work in its host's summary and nowhere else was
+  looked for in the tree by its words, by the session itself, fifteen items. Seven stand: the
+  `put` record, the wake cut by the host, the lock's judgement, the roles' review that waits for
+  `/pack`, the lean's wording, the path by the roadmap's order, the trial of the `pre-commit`. Eight
+  do not: that S5 is to say a new file is declared with `git add -N`; 2026-12-08 as the day the
+  trial is looked at; the notice as a hook entry of its own; two of S10's items missing from the
+  messages shelf; docstrings a subagent found stale in the two scripts; the person's refusal of a
+  Q1 amendment, "пока не будем"; that `/pack` goes before 01-0010.0250.0110; a test proposed for
+  roles, one role on three real tasks by a fresh session with the tree alone.
+- The larger decisions all stood. Lost were small leftovers of other work, refusals and order.
+
+**The agent's proposal, not decided.** Nothing of the role itself is left, and no note of hand-over:
+it would be a second copy of the records, and stale by the next decision. Left are three things,
+each in the home it has today:
+
+1. in the record of the work: what is decided, where it stopped, the next step, what is asked of the
+   person;
+2. each thing met on the way and not done, a refusal or an order of the person's included: in its
+   question, its register entry or its ticket — a home opened for one that has none;
+3. what was learned of how to work in the zone: in the rule or the skill of the mechanism it is of.
+
+At the end the session goes over itself for what has none of the three — the sweep `/conclude` opens
+with — and then ends. A session record is written only for reasoning that found no home. So the
+refusal of `/conclude` to a session with a role goes.
+
 ## Decisions
 
 1. **Every role has a mechanism of its own** — the user, 2026-11-16: "да, у каждой роли свой
@@ -92,3 +125,12 @@ which is the user's account of the models.
    apart from the mechanisms is not kept. What is kept apart is which session holds which —
    [q-jz3mlm](q-jz3mlm-how-does-a-project-cut-its-work-into-standing-sessions-and-how-does-the-cut-change-as-the-project-grows.md),
    decision 4.
+2. **A role is understood from the task** — the user, 2026-11-24: "пользователь не будет всегда
+   помнить как называются его роли. роль надо понимать по задаче." How: the
+   agent's reading, not put as a decision — the question the task is placed on is in a zone, and
+   the zone's role is the session's; a task in no zone is worked with no role.
+3. **A role is taken for one piece of work** — the agent's wording, agreed by the user, 2026-11-24:
+   "согласен с ролью на одно дело, но вопрос хотим ли мы это жестко енфорсить или рекоммендовать".
+   Held or advised is open. It overturns, with the whole's re-acceptance, that a role's session is
+   never concluded ([q-g6lj7m](q-g6lj7m-who-ends-the-session-of-a-role-if-not-its-conclude.md), decisions 1 and 2) and that its row outlives its sleep
+   ([q-q5i2um](q-q5i2um-how-does-the-row-of-a-session-that-holds-a-role-outlive-its-sleep-and-when-does-it-end.md)); the person was told of both with the proposal.
