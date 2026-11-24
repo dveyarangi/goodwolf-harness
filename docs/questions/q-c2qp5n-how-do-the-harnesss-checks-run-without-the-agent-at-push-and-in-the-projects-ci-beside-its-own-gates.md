@@ -5,7 +5,7 @@
 - **state** open
 - **owner** [01-0010.0240](../tickets/01-0010.0240-the-checks-run-without-the-agent.md)
 - **rung** development: load-bearing, self-improvement: the method
-- **lean** the user, 2026-10-29, narrowed 2026-11-22 by q-7ebz2f decision 19, the person: Where it stands accepted 2026-10-26; the hook at pre-push (7), the push checked in a copy of what it sends until the store leaves the code's branches with 01-0010.0250.0110, then the code's push reading only its own references into the store (8), all eight on a push of the method's files (8), the hook written only inside the project (9); all nine in CI until then, a recipient's CI then reading the questions from the fetched store branch, a workflow file of core's own, the hook told and the file asked at install
+- **lean** the user, 2026-10-29: Where it stands accepted 2026-10-26; the hook at pre-push (7), the push checked in a copy of what it sends, all eight on a push of the method's files (8), the hook written only inside the project (9); all nine in CI, a workflow file of core's own, the hook told and the file asked at install; narrowed 2026-11-22 by q-7ebz2f decision 19, the agent's wording agreed to by the person: from 01-0010.0250.0110 on no code push carries the store and the code's push reads only its own references into it
 - **opened** 2026-10-25T21:00:48Z
 - **struck** 1, last 2026-10-29T23:50Z
 
@@ -19,7 +19,11 @@ records the method keeps in the tree, never the project's code.
 `maintain.py`, `inject_rules.py`, `mechanisms.py` and `harness.py <tree> --check`. A push whose
 commits carry a file under the method's roots — `docs/`, `.agents/`, the entry file, its host stub
 and the local rules file — runs the eight local checks; a push that carries none runs nothing;
-`harness.py --check` clones the source and runs in CI alone. In CI all nine run on every run. The
+`harness.py --check` clones the source and runs in CI alone. In CI all nine run on every run. So
+it holds until the store leaves the code's branches with
+[01-0010.0250.0110](../tickets/01-0010.0250.0110-the-questions-live-on-a-branch-of-their-own.md);
+from then on no code push carries the store, and CI reads the questions from the fetched store
+branch (1, as narrowed 2026-11-22). The
 roots stand in the launcher until each mechanism's table of its records, decided in
 [q-5jcptm](q-5jcptm-which-skill-must-be-read-before-a-file-is-edited-or-a-rule-proposed-and-how-does-the-host-refuse-the.md)'s
 decision 2, carries them. Core's tests stay with the tree that develops the harness.
@@ -29,7 +33,10 @@ push of code starts no interpreter and pays only the listing of its files — an
 out what the push sends into a temporary copy, runs the checks there side by side and removes the
 copy, about 6.5 s here with ten sessions running, holding no lock another session's `git add` or
 `git commit` waits on. Any finding in the copy refuses the push: what is checked is what is sent,
-and no other session's unfinished write is in it. A refused push leaves its commits in the clone,
+and no other session's unfinished write is in it. From 01-0010.0250.0110 on the store's entries
+are not among what the copy holds: the store's own push needs no check, a broken entry being
+refused before its commit, and the code's push reads only the code's own references into the
+store, against the committed `gw/questions` branch (8, as narrowed 2026-11-22). A refused push leaves its commits in the clone,
 mended by the next. `harness.py . --links` writes the clone's one-line
 `pre-push` where Git names it, only inside the project — its Git directory, or a hooks folder of its
 own work tree — and only where none or core's stands; beside another hook, in husky's folder, or
@@ -139,12 +146,14 @@ through `mechanisms.py` and `inject_rules.py`.
    [q-7ebz2f](q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md)
    decision 19 (option (b) of
    [q-4jh6qr](q-4jh6qr-what-do-the-store-decisions-derived-anew-on-2026-11-09-leave-unsaid-of-the-earlier-decisions-they-meet.md)
-   item 5), the person:* what stood here — all nine in CI on every run, the questions among them
+   item 5; the agent's wording, agreed to by the person, "по правкам согласен"):* what stood here — all nine in CI on every run, the questions among them
    read from the tree — holds until the store leaves the code's branches with 01-0010.0250.0110; from then on no code push carries the
    store; a broken entry is refused before its commit, so the store's push needs no check; the
    code's pre-push check reads only the code's own references into the store, against the committed
-   `gw/questions` branch. CI reading the questions from the fetched store branch (q-7ebz2f
-   decision 13) applies to recipients only.
+   `gw/questions` branch. CI then reads the questions from the fetched store branch
+   (q-7ebz2f decision 13). That the push check reads the branch as committed is the plan of
+   01-0010.0250.0110's; until 2026-11-24 this note also credited the person with CI's reading
+   applying to recipients only, which was never put to them.
 2. **At commit the checks read the working tree, and the commit fails only on a finding in a file
    it carries** *(the user, 2026-10-26)*: the files of the commit are read from the index the hook
    is handed, so a commit named by paths fails on its own files alone; a finding in any other file
@@ -231,7 +240,7 @@ through `mechanisms.py` and `inject_rules.py`.
    [q-7ebz2f](q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md)
    decision 19 (option (b) of
    [q-4jh6qr](q-4jh6qr-what-do-the-store-decisions-derived-anew-on-2026-11-09-leave-unsaid-of-the-earlier-decisions-they-meet.md)
-   item 5), the person:* what stood here — the push checked in a copy of what it sends, the
+   item 5; the agent's wording, agreed to by the person, "по правкам согласен"):* what stood here — the push checked in a copy of what it sends, the
    store's entries among it — holds until the store leaves the code's branches with 01-0010.0250.0110; from then on no code push
    carries the store, and the store's own push needs no check, a broken entry being refused
    before its commit; the code's pre-push check reads only the code's own references into the

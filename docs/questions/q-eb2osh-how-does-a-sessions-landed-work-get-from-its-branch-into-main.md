@@ -32,6 +32,9 @@ Related: the mechanical part — ids minted apart, store merges — in
 lean, and the id-collision risk deferred in
 [q-f5ixy2](q-f5ixy2-how-does-the-store-remember-every-id-it-has-given-so-none-is-given-twice.md).
 Here rather than under q-37xc3y: the case arises with one person, not only a team.
+2026-11-24: q-f5ixy2 is closed moot since 2026-11-22, an id being random and never changing
+([q-7ebz2f](q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md#decisions)
+decision 6).
 
 The align, 2026-10-12, read the two publishing cases in git's logs. The worktree branch was cut
 from local main at `ae968bf`, seven commits ahead of origin; `git worktree add -b` takes HEAD, and
@@ -56,4 +59,11 @@ The PR as the unit of verified work, the guard session's candidate, waits with s
   git, never before it — the user, 2026-10-12; nothing leaves git now, probably the whole store
   later —
   [q-ziqx5n](q-ziqx5n-how-do-sessions-on-separate-branches-share-one-question-store-that-does-not-travel-through-git.md),
-  deferred → [architecture.md](../architecture.md), a straw dog bound there
+  deferred → [architecture.md](../architecture.md), a straw dog bound there. 2026-11-24: q-ziqx5n
+  is superseded by
+  [q-7ebz2f](q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md#decisions),
+  to which the straw dog is bound; its decision 2 has the questions on a branch of their own of
+  the project's repository, carried by no code branch, and the architecture's sentence is
+  rewritten as [01-0010.0250.0110](../tickets/01-0010.0250.0110-the-questions-live-on-a-branch-of-their-own.md) lands
+  ([q-4jh6qr](q-4jh6qr-what-do-the-store-decisions-derived-anew-on-2026-11-09-leave-unsaid-of-the-earlier-decisions-they-meet.md)
+  item 2)
