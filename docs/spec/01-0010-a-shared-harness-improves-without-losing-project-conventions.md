@@ -3,7 +3,7 @@
 **Status:** Draft for alignment — not an approved implementation specification.
 **Owning work:** [Shared-harness ticket](../tickets/01-0010-a-shared-harness-improves-without-losing-project-conventions.md).
 
-This draft gathers agreed requirements and exposes unresolved behavior. The ticket owns deliberation and decisions; the process, now held by [the entry file's Autonomy section](../../AGENTS.md#autonomy) and [the ticket format](../../.agents/skills/ticket/TICKET-FORMAT.md), owns the current working rules. Recommendations below are labelled separately from agreed requirements.
+This draft gathers agreed requirements and exposes unresolved behavior. The ticket owns deliberation and decisions; the [entry file](../../AGENTS.md), the skills and the [local rules](../../local.rules.md) own the current working rules. Recommendations below are labelled separately from agreed requirements.
 
 ## Problem Statement
 

@@ -31,9 +31,9 @@ got with paired close" are the same sentence often enough that the file re-mixes
 **The development process is core, not a document.** The loop and its steps are read while doing the
 work, so they belong in the mechanisms and rules under `.agents/` — the harness's process happening
 also to be its own self-development process changes nothing about where it lives.
-The process is now held by [the entry file's Autonomy section](../../AGENTS.md#autonomy) and
-[the ticket format](../../.agents/skills/ticket/TICKET-FORMAT.md); `docs/process.md` (removed 2026-11-22, eadd0b64)
-held it with several chunks with no home yet, a straw dog bound to [q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md), and what survives it is the
+`docs/process.md` held that process and several chunks with no home until it was removed on
+2026-11-22 (eadd0b64): no rule lived there alone, and the home of each part is named at
+[q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md), decision 2. What survives it is the
 *architecture* of the process, in `docs/architecture.md`, not the process itself.
 
 For this repository the two halves collide: its product *is* the method, so `docs/architecture.md` is
