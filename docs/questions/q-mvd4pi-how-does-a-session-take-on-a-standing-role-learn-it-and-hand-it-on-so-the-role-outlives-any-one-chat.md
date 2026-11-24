@@ -290,6 +290,48 @@ it still, to no effect; 01-0010.0125.0010 and 01-0010.0240.0020 are *Ready*, hel
 holders' rows gone. Nothing at a wake says a piece of work was begun and let go: such a letter, left at
 the closing, would.
 
+## A letter read, a session always reached, and the host's old chats — 2026-11-25
+
+The user, 2026-11-25: "да, папка роли, письмо если в отдельный файл - как убедимся что прочитано? насчет
+сессия закрывается - согласен, но - в первых все же можно создать бесконечную сессию которую мы все таки
+будим - это редкий режим сессии оркестратора например - надо чтобы всегда к нему можно было обратиться,
+чтобы он мог как минимум срочные задачи роли без сессии (а на самом деле это еще один рычажок
+мультиагентной настройки) запускать новой сессией - и желательно не подагентом а полноценной в руте,
+например. тогда оператору чисто визуально будет видно какая работа сделана. остается вопрос по вычищению
+старых сессий из хоста. воможно мы можем полагаться на хост?"
+
+**How a letter is known read, the agent's proposal, not decided.** Reading is not shown by anything; being
+taken is. The script prints the role's letters whole when a session takes the role, so they are
+delivered and not left to be gone and read. A letter is removed by one call that names where what it
+said stands — an entry, a commit, a question — or that it was refused and why; git keeps both. What is
+not removed is counted at every wake with its age, and the maintenance pass shows one that has aged. The
+writer is told nothing: the letter gone from the folder is the answer.
+
+**A session always reached.** The agent's reading: the orchestrator is a role as any other, whose chat
+does not close for going quiet, and clears itself at the window's bound as the rest do — so it keeps
+its place and its address and costs the first request of a fresh chat to wake, not six hundred
+thousand. It is no second kind of session; it is who is written to when an urgent letter stands in the
+folder of a role nobody holds. Urgent: the sender's work stops without it, or a break stands. What the
+host allows, read from its tools' own descriptions, not tried:
+
+- A session woken by another's letter may not start a session: the app refuses, and it may only propose
+  one, a card the person presses. Told by the person in words, it may start one.
+- A started session nests under its starter in the list; a call moves it to the top level.
+- A scheduled task's run is a top-level session of its own, and is started by the clock or by the
+  person's word.
+
+So at this host an orchestrator starts an urgent role's session on the person's one press. Who starts a
+session — the person, the orchestrator's card, the orchestrator — is the lever the person names: how far
+it goes is a dial's place, and is open with the autonomy of a pass with no person.
+
+**The host's old chats, the agent's proposal, not decided.** Left to the host. Its setting archives a
+local session with no activity for so many days, off today ("Archive inactive sessions", 0 of 0 to
+365); an archived chat is brought back, and its transcript stays — this machine's reach back to
+2026-07-25, 4.8 GB. Nothing of the method reads the list of chats; the rows end and go by their own
+rule. Two things it meets: while sessions stand, a role quiet longer than the limit is archived too, and
+a letter would find it gone; and the nightly passes, three a day on this machine, are what piles up now.
+The role's chat that clears itself leaves one chat where each piece of work would leave one.
+
 ## Decisions
 
 1. **Every role has a mechanism of its own** — the user, 2026-11-16: "да, у каждой роли свой
@@ -331,3 +373,11 @@ the closing, would.
    будить" answered has it.
 8. **`/recall` offers to take the roles on which tasks hang** — the user, 2026-11-25: "я думаю это
    задача рекола - предлагать взять роли на которых висят задачи". How it sees them is open.
+9. **A hand-over and a letter stand in the role's own folder, a file to a letter** — the agent's wording,
+   agreed by the user, 2026-11-25: "да, папка роли". How a letter is known read is open.
+10. **A session closes** when its piece of work is done, when the talk moves to another zone, at the
+    window's bound (decision 5), and before it goes quiet with nothing waiting on it, over some 120
+    thousand tokens — the agent's wording, agreed by the user, 2026-11-25: "насчет сессия закрывается -
+    согласен, но - в первых все же можно создать бесконечную сессию которую мы все таки будим - это
+    редкий режим сессии оркестратора например". The exception is the user's: one session, rarely, is
+    always reached, and woken.
