@@ -2087,6 +2087,12 @@ refusing sound ones (a merge's conclusion, a scratch repository). The person, 20
 pre-commit". Git's own `pre-commit` takes its place, judged fit for a trial in this clone; whether
 it is installed waits on the person, who said yes before its cost in lock time was known. Open.
 
+**On trial from 2026-11-24.** The person, told the cost: "хук pre-commit принимаю". The host's
+refusal is taken out and Git's `pre-commit` written by hand in this clone, calling
+`.agents/scripts/gw/pre_commit.sh`. It closes, or is refused, on what the trial shows: a bare commit
+of an agent's that got by, a sound commit it stopped, an add of another session's that met the lock.
+Open.
+
 ## 55. A decision abandoned twelve days earlier was carried as waiting in six replies running — 2026-10-20
 
 **Source cases, retrospective extraction:**

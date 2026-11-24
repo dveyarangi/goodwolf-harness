@@ -1741,19 +1741,10 @@ class Host:
     quiet: str
     # A message event whose answer reaches no agent: the session is only marked seen.
     signs_of_life: str | None = None
-    # The event before a tool runs, and how the host is told to refuse it.
-    tool_uses: str | None = None
-    refuse: Callable[[str, str], str] | None = None
 
 
 def _hook_specific(event: str, context: str, tag: str) -> str:
     return json.dumps({"hookSpecificOutput": {"hookEventName": event, "additionalContext": context}})
-
-
-def _deny(event: str, reason: str) -> str:
-    return json.dumps({"hookSpecificOutput": {
-        "hookEventName": event, "permissionDecision": "deny", "permissionDecisionReason": reason,
-    }})
 
 
 def _cursor_answer(event: str, context: str, tag: str) -> str:
@@ -1774,8 +1765,7 @@ HOSTS = {
     # rollback 2026-10-09, a reopening 2026-10-10) and keeps its own id for the conversation in
     # every process it starts; the terminal keeps the session id on resume, and sets no such id.
     "claude-code": Host(
-        "session_id", "CLAUDE_CODE_HOST_SESSION_ID", "SessionStart", "UserPromptSubmit", (), _hook_specific, "",
-        tool_uses="PreToolUse", refuse=_deny,
+        "session_id", "CLAUDE_CODE_HOST_SESSION_ID", "SessionStart", "UserPromptSubmit", (), _hook_specific, ""
     ),
     "codex": Host("session_id", None, "SessionStart", "UserPromptSubmit", ("PostCompact",), _hook_specific, ""),
     # Cursor's prompt hook can only allow or block, so its agent draws the window by the rule, and
@@ -1827,8 +1817,6 @@ def hook(root: Path, host_name: str, payload: str, now: datetime) -> str:
         if not event:
             # A host row leaves an event it lacks as None, so a payload naming none would match it.
             return ""
-        if event == host.tool_uses:
-            return _before_a_tool(host, event, sent)
         tag = _tag(host, sent)
         if event in host.compactions:
             sessions.forget_window(root, tag)
@@ -1909,15 +1897,6 @@ def _refuse_a_store_cut_short(root: Path) -> None:
         f"store. Clone into a shorter folder, or turn long paths on in Windows (`LongPathsEnabled`) and in Git "
         f"(`git config --global core.longpaths true`) and clone again."
     )
-
-
-def _before_a_tool(host: Host, event: str, sent: dict) -> str:
-    """A shell command that commits without naming its paths is refused, with S5's reason; any
-    other tool, or command, passes with nothing said and nothing written."""
-    command = (sent.get("tool_input") or {}).get("command")
-    if host.refuse and isinstance(command, str) and sessions.bare_commit(command):
-        return host.refuse(event, sessions.COMMIT_REFUSAL)
-    return ""
 
 
 def _noticed(context: str) -> str:

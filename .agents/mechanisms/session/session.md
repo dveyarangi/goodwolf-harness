@@ -22,8 +22,9 @@ of a session that holds a role. A file per session keeps one write from undoing 
 2026-10-13)*; the mechanism manages every session from any one of them, so any session writes
 any row through the session script *(the user, 2026-10-25)*.
 Besides its own session's, a row is written by a wake ending a silent session, the id migration
-rewriting the old ids it names, a takeover, which moves a held unit and leaves the mark of it,
-and a chat taking a name another row bears, which ends that row. A store from before kept the rows under the question store, and before that every
+rewriting the old ids it names, a takeover, which moves a held unit and leaves the mark of it, a
+hold, which marks an ended row still naming the unit, and a chat taking a name another row bears,
+which ends that row. A store from before kept the rows under the question store, and before that every
 row in one file; each is carried into the folder at the first write, by links that never overwrite,
 and read until then. The row's form and lifetime are declared beside `/conclude`.
 
@@ -37,8 +38,8 @@ silence ends that row and no wake removes it. A chat that takes the name takes t
 row's position and hold, letting go a unit of its own for it, and the row it leaves ends
 nameless; the name does not pass from a running row seen in the last three hours *(the user,
 2026-11-16)*. A role's session is not concluded: it lives until the person or a re-cut ends it,
-the person by telling it to drop its role, the session script's `--drop-name`, after which it
-concludes as any session *(the user, 2026-11-18 and 2026-11-20)*. The conclude writes the session
+the person by telling it to drop its role, on which the session script's `--drop-name` wipes the
+name from its row and it concludes as any session *(the user, 2026-11-18 and 2026-11-20)*. The conclude writes the session
 record under `docs/sessions/` and ends the row, its position kept, so a chat the host reopens finds
 where it stopped. A row bearing no name that reads ended for seven days is removed by a wake, since a reopen rarely
 comes later *(the user, 2026-10-22)*; the wake's read lists running sessions only.
@@ -52,8 +53,9 @@ stay *(the user, 2026-10-24 and 2026-10-25)*. A row holds its unit while it runs
 question is open: a silent row ended by a wake holds nothing until its session returns, a closed
 question holds nobody, and neither needs a write. A session takes over a held unit by the
 person's word, and the holder's row keeps the mark of who took it *(the user, 2026-10-25)*,
-which the holder's window shows until its next hold, release or end; a hold of a unit an ended row
-still names marks that row too, so the chat, reopened, does not hold it beside its new holder.
+which the holder's window shows until it next holds or takes over a unit, takes one with a name,
+releases or ends; a hold or a takeover of a unit an ended row still names marks that row too, so
+the chat, reopened, does not hold it beside its new holder.
 Nothing locks a hold; one unit taken by two sessions at once is the check's finding. A step that
 would act on a unit another running session holds stops, reading the holds off the window, and
 the person chooses: take it over, or cut a sub-task. Where the window does not reach the agent, a hold shows only when the agent draws its window,
@@ -67,8 +69,8 @@ user, 2026-10-25)*.
 messages between sessions stand in for that place, each unreliable, and nothing relies on them
 beyond what they are used for below.</straw-dog>
 
-**Sessions see each other** through the rows alone: the window names the other running sessions
-and their positions, and the wake's read lists them. <straw-dog question="q-2gw24v">A host may let one session message another; the method uses it to tell a holder its unit was taken, a session what another found or opened in the subtree of the question it stands on or in the unit it holds *(the user, 2026-10-25)*, and a session a question or what it must act on or would go wrong without, as S10 lists them, a session that holds a role written to asleep *(the user, 2026-11-16)*. It relies on it for nothing.</straw-dog> One folder in
+**Sessions see each other** through the rows alone: the window and the wake's read name the other
+running sessions, their positions and the unit each holds. <straw-dog question="q-2gw24v">A host may let one session message another; the method uses it to tell a holder its unit was taken, a session what another found or opened in the subtree of the question it stands on or in the unit it holds *(the user, 2026-10-25)*, and a session a question or what it must act on or would go wrong without, as S10 lists them, a session that holds a role written to asleep *(the user, 2026-11-16)*. It relies on it for nothing.</straw-dog> One folder in
 the working tree is how they see each other, so sessions that do not share the directory do not.
 
 **Free unless locked.** A session is not of one method: the question it stands on names its root,
@@ -99,7 +101,7 @@ for this mechanism.
 | a step stops before a unit another running session holds | `AGENTS.md` | |
 | a session writes to another what it must act on, and nothing it need not | `AGENTS.md` | |
 | a session concludes: its record written, its leans, its row ended | `.agents/skills/conclude/SKILL.md` | |
-| a session that holds a role is not concluded; it drops its role on the person's word | `.agents/skills/conclude/SKILL.md` | |
+| a session that holds a role is not concluded; on the person's word to drop its role, its name is wiped from its row | `.agents/skills/conclude/SKILL.md` | |
 | a session wakes and reads where the work stands | `.agents/skills/recall/SKILL.md` | |
 | a session that holds a role writes its own name on its row, at its wake | `.agents/skills/recall/SKILL.md` | |
 | a conversation starts with its recall, and one the host resumes under a new id is the same session | `AGENTS.md` | |
@@ -109,7 +111,7 @@ for this mechanism.
 | a reply shows the sessions it runs beside, under debug | `AGENTS.md` | |
 | a recall re-ranks nothing another running session is on | `.agents/skills/recall/SKILL.md` | |
 | a commit holds one session's work alone | `.agents/skills/commit/SKILL.md` | |
-| a shell command that commits naming no paths is refused before it runs, through the store's hook, where the host's row names that event | `.agents/scripts/gw/sessions.py` | |
+| an agent's commit that names no paths is stopped by Git, in a clone whose `pre-commit` calls the script | `.agents/scripts/gw/pre_commit.sh` | |
 | checking the rows | `.agents/scripts/gw/sessions.py` | |
 | a chat resumed under a new id its host does not keep steady | — | <straw-dog question="q-ou6kps">not yet</straw-dog> |
 | sessions reaching each other beyond one working directory | — | <straw-dog question="q-2gw24v">not yet</straw-dog> |
@@ -127,6 +129,8 @@ for this mechanism.
 | its rules file | `.agents/mechanisms/session/session.rules.md` |
 | the rows' script | `.agents/scripts/gw/sessions.py` |
 | its tests | `.agents/scripts/gw/test/test_sessions.py` |
+| the commit that names no paths, stopped by Git | `.agents/scripts/gw/pre_commit.sh` |
+| its tests | `.agents/scripts/gw/test/test_pre_commit.py` |
 
 ## Relies on, and does not own
 
@@ -137,10 +141,10 @@ for this mechanism.
 | the shelf of Codex's hook wiring | `.agents/skills/questions/hooks/.codex/hooks.json` | `questions` |
 | the shelf of Cursor's hook wiring | `.agents/skills/questions/hooks/.cursor/hooks.json` | `questions` |
 | the hooks' wrapper — a host's hooks launched by a Git alias, Git's `pre-push` by the clone's hook file | `.agents/scripts/gw/hook.sh` | `mechanism-shape` |
-| the mover | `.agents/scripts/gw/move_doc.py` | `ticket` |
 | the shape check | `.agents/scripts/gw/mechanisms.py` | `mechanism-shape` |
 | the installer | `.agents/scripts/gw/inject_rules.py` | `mechanism-shape` |
 | test harness | `.agents/scripts/gw/test/repository.py` | `mechanism-shape` |
+| its tests' fixtures | `.agents/scripts/gw/test/test_questions.py` | `questions` |
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |
 
 ## What it produces, and who reads it
@@ -153,17 +157,21 @@ for this mechanism.
 - **The wake's lines on sessions** — *what exists* — read by the agent at session start, through
   the hook or `/recall`, for who else is where and which unit each holds; the window carries the
   same of the other running sessions, and of its own.
-- **The sign of life**, outside the tree — *what exists* — read by the script alone, to tell a
-  silent session from a quiet one; a compaction empties it and keeps its time.
+- **The sign of life**, outside the tree — *what exists* — its time read by the rows' script alone, to
+  tell a silent session from a quiet one; a start or a compaction empties it, itself a sign of
+  life. Its file holds the question script's window fingerprint, and where it stands, `memory`, is
+  read by that script, by the id migration and by the harness mechanism's hook line, which keeps a
+  memory of its own beside it.
 - **The check's report** — *what exists* — read by `/maintain` at its pass, by `/verify` through
   the verification set and by the pre-push check, `harness.py --pre-push`, at a push that carries a file of the method.
 - **The rules file** — *what must always hold* — read by the installer alone. Its blocks sit in
   `/recall` (S1, S11), `/conclude` (S2), `/maintain` (S3), the entry file's general rules (S4, S6, S9, S10),
   `/commit` (S5), and `/plan` and `/implement` (S7).
-- **The refusal of a bare commit** — *what must always hold* — read by the agent, from the host,
-  when a shell command runs `git commit` naming no paths: S5 held where the command passes the
-  host, which a rule in `/commit` alone did not hold (the register, entry 56); `bare_commit` in
-  the rows' script, answered through the store's hook, a host with a `tool_uses` event in its row.
+- **The refusal of a bare commit**, `pre_commit.sh` — *what must always hold* — read by the agent,
+  from Git, at a commit that names no paths: S5 held where the commit is made, which a rule in
+  `/commit` alone did not hold (the register, *A directory-wide add committed another session's
+  work in progress*, 2026-10-20). Only a clone whose `pre-commit` calls it is held; no install
+  writes that hook, and its text is the one the script's tests run.
 
 ## Not yet at the shape
 
@@ -184,8 +192,9 @@ then the row is the host's.
 
 ## What would show it working, graded by someone who did not build it
 
-Five yes-or-no tests, the first four pre-registered at the align that incepted it, the fifth when
-a role's session stopped being concluded:
+Five yes-or-no tests, the first four pre-registered at the align that incepted it, the second and
+third narrowed to a chat that bears no name once a row could bear one, the fifth added when a
+role's session stopped being concluded:
 
 1. Open a chat, conclude it, reopen it the next day: does the wake say *already registered* and
    draw the window at its last position?

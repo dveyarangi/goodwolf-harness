@@ -11,9 +11,8 @@
 # the same top level. The interpreter is the one the link step recorded in this clone's common Git
 # directory, a worktree's own record read first: a bare `python` may be the Windows Store stub, and `uv` is one machine's habit.
 #
-# The host branches never fail the host, and a refusal is not a failure. Two branches refuse by
-# design: `before-tool`, through the store's hook, a commit that names no paths (S5); `pre-push`,
-# a push that carries a broken record of the method, which is stopped, and the checks say why.
+# The host branches never fail the host. The `pre-push` branch is the one that refuses by design:
+# a push that carries a broken record of the method is stopped, and the checks say why.
 
 host="$1"
 
@@ -32,17 +31,6 @@ interpreter() {
     done
     return 1
 }
-
-if [ "$2" = "before-tool" ]; then
-    # A host calls this before every shell command it runs, so only a command that names
-    # `commit` starts the interpreter, where the store's hook refuses a commit that names no
-    # paths (S5); any other passes at once. Nothing else here may refuse it.
-    payload=$(cat)
-    case "$payload" in *commit*) ;; *) exit 0 ;; esac
-    python=$(interpreter) || exit 0
-    printf '%s' "$payload" | "$python" .agents/scripts/gw/questions.py --hook "$host"
-    exit 0
-fi
 
 if [ "$host" = "pre-push" ]; then
     # Git hands one line per ref: <local ref> <local sha> <remote ref> <remote sha>. No lines is

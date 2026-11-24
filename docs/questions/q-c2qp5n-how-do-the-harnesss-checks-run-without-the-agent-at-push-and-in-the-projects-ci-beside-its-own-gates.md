@@ -217,7 +217,10 @@ through `mechanisms.py` and `inject_rules.py`.
    leaves its commits in the clone, mended by the next commit. Decisions 2, 3, 4 and 6 read *push*
    for *commit* from this day; their reasons stand. Not: the commit hook with its 3 s accepted —
    every running session's adds and commits fail meanwhile; nor only the quick checks at commit —
-   the lock is held for whatever runs, and the slow ones are where records break.
+   the lock is held for whatever runs, and the slow ones are where records break. *Opened for one
+   hook, the person, 2026-11-24 — "хук pre-commit принимаю" — told its cost, the lock held about
+   0.09 s longer at a commit naming its paths: a `pre-commit` on trial in this tree's clone alone,
+   stopping an agent's commit that names no paths (S5), no check of the records in it.*
 8. **The push is checked in a copy of what it sends, all eight checks on a push of the method's
    files** *(the user, 2026-10-29)*, on new evidence from the RFC's second validation and from this
    session's own push: the checks read the working tree, and what a push sends is not the working

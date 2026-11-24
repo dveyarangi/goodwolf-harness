@@ -1,10 +1,10 @@
 # q-twh5re Does the refusal of a bare commit, answered by the store's hook, narrow the decision that the edit guard is not the store's hook, or change it?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-qd74xu
-- **state** open
+- **state** closed:moot
+- **answer** the store's hook refuses nothing since 2026-11-24: its refusal of a bare commit is taken out, Git's own pre-commit on trial in its place - the person, 2026-11-24, "хук pre-commit принимаю"; q-qd74xu decision 1 and the architecture stand as they were
 - **rung** development: load-bearing, self-improvement: the method
-- **asks** the person, 2026-11-24
 - **opened** 2026-11-24T04:24:37Z
 - **struck** 0, last 2026-11-24T04:24Z
 

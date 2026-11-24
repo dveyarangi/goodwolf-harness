@@ -6,15 +6,11 @@
 - The skills through the loader link `.claude/skills` → `../.agents/skills`.
 - The hooks in `.claude/settings.json`, merged from the shelf
   `.agents/skills/questions/hooks/.claude/settings.json`: `SessionStart` and `UserPromptSubmit`,
-  each launching `.agents/scripts/gw/hook.sh` as `gw-hook claude-code`; `PreToolUse` on `Bash`
-  and `PowerShell` as `gw-hook claude-code before-tool`, where only a command naming `commit`
-  starts the interpreter and the store's hook denies a `git commit` that names no paths (S5) —
-  0.5 s a command, 1.7 s a commit, measured 2026-11-22 on Windows.
+  each launching `.agents/scripts/gw/hook.sh` as `gw-hook claude-code`.
 - The host's row `claude-code` in `HOSTS`, `.agents/scripts/gw/questions.py`: `session_id`, and
   the desktop app's `CLAUDE_CODE_HOST_SESSION_ID`, read first where it is set, since the app gives
   a resumed conversation a new `session_id` and keeps its own id; the terminal keeps the
-  `session_id` on resume, a new one only under `--fork-session`; its tool event is `PreToolUse`,
-  and `_deny` writes its refusal.
+  `session_id` on resume, a new one only under `--fork-session`.
 - Its hook cases in `.agents/scripts/gw/test/test_sessions.py`, its merge in
   `.agents/scripts/gw/test/test_harness.py`.
 - A project `settings.json` written mid-session is read without a restart; nothing to approve.

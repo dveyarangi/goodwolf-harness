@@ -65,11 +65,9 @@ nothing loaded, and its edit is refused.
   the environment variable naming the conversation more steadily if the host sets one, the start
   event, the message event if the host's answer reaches
   the agent, its compaction events, the function that writes its answer, its quiet answer, the
-  message event whose answer reaches no agent, if it has one, and, where the host is told to
-  refuse a tool, the event before a tool runs and the function that writes the refusal;
+  message event whose answer reaches no agent, if it has one;
 - its hook file's shelf under `.agents/skills/questions/hooks/`, at the path the host reads it
-  from, each entry launching `.agents/scripts/gw/hook.sh` as `gw-hook <host>`, the tool event's as
-  `gw-hook <host> before-tool` — the install merges every shelf it finds there into the recipient's
+  from, each entry launching `.agents/scripts/gw/hook.sh` as `gw-hook <host>` — the install merges every shelf it finds there into the recipient's
   file of the same path, with no list to amend;
 - a loader link in `LINKS`, `.agents/scripts/gw/harness.py`, unless the host reads `.agents/skills`
   natively, and a stub like `CLAUDE.md` unless it reads `AGENTS.md` natively;

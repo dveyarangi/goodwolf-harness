@@ -102,7 +102,6 @@ roles, is an open question of the store.
 | re-parenting, merging or pruning by hand | `.agents/skills/questions/SKILL.md` | |
 | drawing the window | `.agents/scripts/gw/questions.py` | |
 | delivering a session's window through a host's hook | `.agents/scripts/gw/questions.py` | |
-| answering a host's call before a tool with the session mechanism's refusal, where the host's row names that event | `.agents/scripts/gw/questions.py` | |
 | writing entries and the position from a call | `.agents/scripts/gw/questions.py` | |
 | writing a question's argument, the body after its parts, by hand | `.agents/skills/questions/QUESTION-FORMAT.md` | |
 | landing a decision an align makes, and holding one with nowhere to land yet | `.agents/skills/align/SKILL.md` | |
@@ -150,7 +149,7 @@ roles, is an open question of the store.
 | the installer | `.agents/scripts/gw/inject_rules.py` | `mechanism-shape` |
 | the hooks' wrapper — a host's hooks launched by a Git alias, Git's `pre-push` by the clone's hook file — which runs the store's hook and hands it what the other mechanisms' hook lines print: the installer's, the harness mechanism's | `.agents/scripts/gw/hook.sh` | `mechanism-shape` |
 | the interpreter record the wrapper reads, made by the link step | `.agents/scripts/gw/harness.py` | `harness` |
-| the rows' script, for each session's row, and for whether a command commits bare and the reason it is refused with, `bare_commit` and `COMMIT_REFUSAL` | `.agents/scripts/gw/sessions.py` | `session` |
+| the rows' script, for each session's row | `.agents/scripts/gw/sessions.py` | `session` |
 | the ticket maintainer, for the live tickets the counters count and the path reads | `.agents/scripts/gw/tickets.py` | `ticket` |
 | the product document's reader, for how much of each answer is built, which the path shows | `.agents/scripts/gw/product.py` | `product` |
 | the mover, which the migration moves the entries with | `.agents/scripts/gw/move_doc.py` | `ticket` |
@@ -175,8 +174,7 @@ roles, is an open question of the store.
 - **The hook wiring** — *what must always hold* — read by the installer, which merges each shelf
   file into the host file at its own path beside the project's hooks, and by each host from there.
 - **The hook's answers** — *what exists* — read by the host, which places them in the agent's
-  context, led by the lines the hooks' wrapper hands over as `GW_NOTICE`, or, before a tool,
-  refuses the command with the session mechanism's reason.
+  context, led by the lines the hooks' wrapper hands over as `GW_NOTICE`.
 - **The reading of a hook's payload**, `hook_input` and `session_of` — *what exists* — read by the
   harness mechanism's hook line, `entry_notice.py`: the payload as the host wrote it, and the host,
   the event and the session it speaks for.

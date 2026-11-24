@@ -2353,19 +2353,6 @@ class TheWrapper(RepositoryCase):
         self.assertEqual("noticed '' handed {\"hook_event_name\": \"UserPromptSubmit\"}", messaged.stdout.strip())
         self.assertNotIn("the line broke", messaged.stderr)
 
-    def test_a_hosts_call_before_a_tool_runs_no_harness_line(self) -> None:
-        self.record(sys.executable)
-        self.write(".agents/scripts/gw/entry_notice.py", "from pathlib import Path\nPath('line-ran').write_text('')\n")
-
-        done = subprocess.run(
-            f"{HOOK_COMMAND} claude-code before-tool", shell=True, cwd=self.root / "sub",
-            input='{"hook_event_name": "PreToolUse", "tool_input": {"command": "git commit -m x"}}',
-            capture_output=True, encoding="utf-8",
-        )
-
-        self.assertEqual(0, done.returncode, done.stderr)
-        self.assertFalse((self.root / "line-ran").exists())
-
     def test_without_a_record_it_names_the_step_in_the_hosts_form_and_holds_nothing_back(self) -> None:
         for host, gone in (("claude-code", None), ("cursor", "C:/gone/python.exe")):
             with self.subTest(host=host):
