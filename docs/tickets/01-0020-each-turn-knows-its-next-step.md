@@ -21,8 +21,9 @@ own, and the question names them
 ([its decision 1](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md#decisions)).
 A turn chains steps until the first decision at or above its ladder's dial, and a resumed session
 reads the question it stands on and the unit it holds from the store's window. What is left is to
-see a resume happen: the parts were each built for a purpose of their own, and no record holds one
-observed.
+see a resume happen on them, because the parts were each built for a purpose of their own. One was
+read, from before units were held
+([the judge's reading](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md#evidence--a-judges-reading-of-resumed-sessions-2026-11-25)).
 
 ## Acceptance criteria
 

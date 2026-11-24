@@ -135,3 +135,24 @@ re-ranked mechanically when delivery state moves; it changes by the user's decis
 priorities or product requirements change, when the order is found inconsistent, or when a HITL
 ticket's resolution meets unpredicted complexity or a split that forces a reordering. The written
 queue is since withdrawn and the order of work is `/pathfinder`'s.
+
+## Evidence — a judge's reading of resumed sessions, 2026-11-25
+
+A fresh reader, given 01-0020's criterion and the transcripts and not the builder's view, this
+session excluded as a case. Its verdict: met as worded, on one case of a conversation that ended
+and another that took its unit up; none of that kind since units are held (2026-10-24).
+
+- **The case.** 01-0011.0110.0055, conversation `e5a0f888`, concluded 2026-10-12T14:20Z mid-`/implement`;
+  taken up by `b46a6e3c` on 2026-10-13, two sessions concluded between. The person's first words:
+  «привет волчара». The recall named the unit and what of it remained, as its record did; the
+  person then named the ticket and asked what to do; nothing was redone. The commits: 44352beb,
+  b4f69c02, e3d471ac. It ran before unit holds, and part of the work ran in another tree.
+- **The same conversation, resumed** after its host stopped it, twice, at the right step
+  (2026-11-10, 2026-11-16): its context was intact, so it does not show the records carrying the
+  resume.
+- **Against it.** Units whose holder ended and nobody resumed: 01-0010.0125.0010, 01-0010.0240.0020,
+  and 01-0018.0010, its holder's conversation deleted with the unit held. No resume was found
+  redoing finished work or asking the person where things stood; not every host restart was read.
+- **The wording.** The ticket said until 2026-11-25 *resumed by the next session*; the accepted
+  `Where it stands` and the rewritten criterion leave the last four words out, and a conversation
+  resumed by its host would pass without them.
