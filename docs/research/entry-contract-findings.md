@@ -15,6 +15,15 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v143 — 2026-11-25
+
+**The decisions table is shown where such a turn changed it** — v142's sentence gains "save the ⚖️
+table where the turn changed what waits on the user". The person, the same day, on reading v142:
+"а, если ответ меняет список решений - показываем рамку решений, наверное? или всегда ее
+показываем?"; put as changed-only, always being the reprinting v142 removed, and accepted: "Да,
+вноси". Drafted through `/skill-up`; not tried on a fresh reader, the sentence it joins having
+been tried the same day and the clause landing as the person read it.
+
 ## v142 — 2026-11-25
 
 **A reply to another session's message carries no table and no frame** — in *A paragraph shows
