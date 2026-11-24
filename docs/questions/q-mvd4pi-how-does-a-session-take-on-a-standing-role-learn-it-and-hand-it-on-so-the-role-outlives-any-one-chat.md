@@ -17,7 +17,9 @@ next. Bears on [q-p4sdnv](q-p4sdnv-what-is-an-agent-role-and-which-mechanism-kee
 Accepted by the user, 2026-11-25: "по ролям все верно", of this whole retold to them in ten points, the
 new ones named as new. A number is the decision below that a part stands on; *new* is a part no decision
 held before, the agent's wording, accepted with the whole. One part changed at the acceptance: a letter is
-written through the server (decision 11).
+written through the server (decision 11); that it stands beside the questions is the agent's, with
+[q-cn7gef](q-cn7gef-which-kinds-of-record-are-written-through-the-server-and-which-travel-with-the-code.md). A judge that did not write it read it the same day; what it changed is marked *judge*
+and waits on the person, the rest in *The judge's findings* below.
 
 **The problem.** A standing chat is costly and grows dull: it is read whole at each request, waking it
 cold costs twenty of its requests, and what its host compacts away is lost by no rule. The role must
@@ -25,16 +27,20 @@ outlive the chat, and what the chat knows must not.
 
 **One life.** A chat is a line of sessions. Each is opened by the recall and ended by the closing, where
 the host would compact; what the host does by its own summary, the role does by its own homes. Standing
-and short sessions are not two modes; they differ in how often a chat closes. *(the user's words,
-2026-11-25)*
+and short sessions are one thing *(the user, 2026-11-25)*: they differ in how often a chat closes, the
+agent's reading.
 
 **Taking a role.**
-- The person names the task, never the role. The question the task is placed on lies in a zone, and the
-  zone's role is taken and named to the person in one line; a task in no zone has no role (2).
+- The person names the task, never the role (2). *Judge:* the zone is read from the paths the task will
+  write, since a zone is paths and a question is no part of one; of two zones, the one the result lands
+  in, the other's part asked of its role; what no zone names is the role's that holds the harness, or
+  whoever works in it where the tree's own rule says so. The role is named to the person in one line.
 - It is taken for one piece of work; that is advised, and nothing enforces it (3, 5).
 - *New:* the session's row bears the role it took, so a session is found by its role and a letter is
   written to the role; what S11 says, that a row bears the session's own name and never a role's, gives
-  way. A role has one holder at a time, as a name has today.
+  way. A role has one holder at a time, by the guard a name has today: seen within three hours,
+  it does not pass. *Judge:* a second session that would take it is told who holds it, and works
+  nothing of its zone without the person's word.
 - The recall offers the roles on which something hangs, however the person opened the chat (8).
 
 **Working.** Decisions and leftovers go to their homes as they are made. The window says when it passed
@@ -42,14 +48,19 @@ and short sessions are not two modes; they differ in how often a chat closes. *(
 
 **Closing** (10): the piece is done; the talk moved to another zone; the bound; or it goes quiet with
 nothing waiting on it, over some 120 thousand tokens. The closing goes over the session for what is
-undone and puts each in its home: the work in its record, a leftover in its question, register entry or
-ticket, a lesson in the rule or skill it is of (4). It writes one letter to its own role, saying where
-the work stands, the next step and what waits on the person, and lets the role go. No session record is
+undone and puts each in its home, for now (4): the work in its record, a leftover in its question, register
+entry or ticket, a lesson in the rule or skill it is of. *Judge:* nothing of its own is left uncommitted or
+unpushed, whatever the host clears; the unit is let go, and the row ends or, where the chat clears itself,
+bears no role. It writes one letter to its own role, pointing
+at the work, its next step and what waits on the person, each written in the work's record, and lets the
+role go. No session record is
 written, save for reasoning that found no home. *New:* where the host lets a session clear its own chat,
 it does, and the chat stays in its place.
 
-**Letters** (7, 9). To a role somebody holds and is awake, a message as now. To one nobody holds, a letter:
-a file of its own in the role's folder, a pointer or a word and never state.
+**Letters** (7, 9, 11: 9 puts in the folder what 7 left in the record of the work). To a role held by a
+session awake, a message as now. *Judge:* awake is seen within the hour; to a role held by one that is
+not, as to one nobody holds, a letter, shown to the holder at its next message. A letter is a file of its
+own in the role's folder, a pointer or a word and never state.
 - *New.* Two calls carry them, and no session touches the folder: one leaves a letter for a role; one
   takes a letter off, naming where what it said stands or that it was refused and why. They are the
   server's, as every write of the store is, and the letters stand as files on the store's branch beside
@@ -57,15 +68,18 @@ a file of its own in the role's folder, a pointer or a word and never state.
   ([q-7ebz2f](q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md) 17), and the folder moves with the questions when the branch is built
   (01-0010.0250.0110), no rule changing.
 - *New.* They are delivered by the call that takes the role, whose output prints them whole: an agent's
-  command shows 30 thousand characters, where a hook's shows 10, and 2 where it is longer. The hook at a
+  command shows some 30 thousand characters, where a hook's shows 10, each 2 where it is longer, so the
+  call prints what fits and says how many wait. The hook at a
   start carries one line of counts, first in the wake, which is cut today: role, how many, the oldest.
-- *New.* Who takes one off is the session that took the role, in the commit that lands what it said. One
-  that dies between leaves the letter, and the next reads it again. A letter to a role the tree has no
+- *New.* Who takes one off is the session that took the role, *judge:* once what it said has landed, by a
+  write of the store after it and never in the same commit. One
+  that dies between leaves the letter, and the next reads it again. *Judge:* a re-cut that ends a role moves its
+  letters to the role that takes the zone. A letter to a role the tree has no
   longer, or one that has aged, is reported by the rows' check and the maintenance pass. Nobody else
   removes one.
 
-**A session always reached** (10). *New:* a role as any other, whose chat does not close for going quiet
-and clears itself at the bound; it is written to when an urgent letter stands for a role nobody holds.
+**A session always reached** (10). *New:* a role as any other, whose chat closes on nothing
+and clears itself at the bound with its role kept (*judge*); it is written to when an urgent letter stands for a role nobody holds.
 It starts a session on the person's word, or shows a card where a letter woke it, which is as far as
 the host goes. How far it may go by itself is open.
 
@@ -73,12 +87,15 @@ the host goes. How far it may go by itself is open.
 *New.*
 
 **What it overturns.** A role's session is never concluded, and a role's row outlives its sleep
-([q-g6lj7m](q-g6lj7m-who-ends-the-session-of-a-role-if-not-its-conclude.md) 1 and 2; [q-q5i2um](q-q5i2um-how-does-the-row-of-a-session-that-holds-a-role-outlive-its-sleep-and-when-does-it-end.md) 2 and 3). In the whole accepted 2026-11-17
+([q-g6lj7m](q-g6lj7m-who-ends-the-session-of-a-role-if-not-its-conclude.md) 1 to 3; [q-q5i2um](q-q5i2um-how-does-the-row-of-a-session-that-holds-a-role-outlive-its-sleep-and-when-does-it-end.md) 2 and 3). In the whole accepted 2026-11-17
 ([q-ja5mp4](q-ja5mp4-does-the-method-have-one-session-direct-the-others-an-orchestrator-and-what-does-it-owe-the-sessions-it.md)): *Who holds which* from "A standing session writes the name" to its end,
 and that the table names a session at all — it holds roles and what each holds, the session stands on its
 row; *The roles core ships*, the default session offered at install; and, in *Its moments*, *A session
-takes a role*. S10 as to whom, S9's "Write nothing into its question", S11, S2 and what `/conclude` says
-of a role's session; the shelf of messages, *Whom*. L13 is the keeper's.
+takes a role*. S10 as to whom, S11, S2, S6's "its context holds the recall it ran" and what `/conclude` says
+of a role's session; the shelf of messages, *Whom*. L13 is the keeper's. *Judge:* [q-jz3mlm](q-jz3mlm-how-does-a-project-cut-its-work-into-standing-sessions-and-how-does-the-cut-change-as-the-project-grows.md) 5 and 7, [q-mz6gd4](q-mz6gd4-where-does-a-session-of-this-tree-read-each-roles-zone-and-brief-and-which-session-holds-it.md) 5 and
+[q-cdw6yk](q-cdw6yk-when-does-a-session-write-to-another-session-and-to-which.md) 2 by which a session bears its own name and sleeps under it; decision 4's "no note of
+hand-over" reads as no state in one; session.md, *A session's life* and its fifth test; architecture.md
+142–146. Kept: [q-7ebz2f](q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md) 10 and 17 — the store's coordinating is a role's work, taken as a piece as any.
 
 **Open, and not in the way.** How far an orchestrator starts sessions by itself; the split between the
 task in hand and improvements, as a role's setting ([q-jn54hg](q-jn54hg-how-does-a-session-split-its-effort-between-the-task-in-hand-and-improvements-for-later-and-where-is.md)); tools by role, which the
@@ -99,6 +116,25 @@ host's app has no switch for; which role eats its window fastest, read by `/pack
    37 % and 15 %.
 5. The register's strikes and skills unread, against the base.
 6. Does a chat that clears itself keep its row and its unit?
+
+## The judge's findings — 2026-11-25
+
+A fresh subagent given the whole, the decisions, the records it meets and the rules it would change, and
+not the builder's view. Sixteen findings and five scenarios of its own; the marked parts above are its
+remedies. Not remedied, and so open:
+
+- What a session reads on taking a role beside its letters and the work's record; the 2026-11-17 text said
+  the skill and the zone and is overturned with nothing in its place. The question's "learn it" and
+  [q-sxrf66](q-sxrf66-what-does-a-session-read-again-after-its-context-is-compacted.md) stand on it.
+- "Resume previous session" brings back a context that believes it holds a role since taken; the bound in
+  a talk past 50 %; the words for *urgent*, and for an aged letter, which test 3 needs a number for.
+- What the host does at a clear — its call, its approval, the row's tag — is read from a description; a
+  session started into the root, as the user asked, has two ways there (a call that moves it, a scheduled
+  run) and neither is tried.
+- 01-0010.0250.0110 covers no letters.
+
+It found sound: the advice and no hold, the bound's figures, the letter's end recorded, the recall's
+offer, and that a fresh session is tried before anything is built.
 
 ## A role's skill, and so its mechanism — 2026-11-16
 
