@@ -1,10 +1,10 @@
 # q-2t3ukx Does a decision the person tells one session for another's zone still go back to the person from the receiving session, as S9 says, or land on their words, as L13 says?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-psa5ha
-- **state** open
+- **state** closed:decided
+- **answer** [L13](../../local.rules.md#l13--this-trees-standing-sessions) — the user, 2026-11-24, "(а) по цитате"
 - **rung** development: load-bearing, self-improvement: the method
-- **asks** the person, 2026-11-23
 - **opened** 2026-11-23T04:14:48Z
 - **struck** 0, last 2026-11-23T04:14Z
 
@@ -39,3 +39,4 @@ Further texts on the same decision, found by the pass with no person of 2026-11-
    the messages shelf has it. Option 1 of those above for this tree: L13 gains the condition and
    the names of the rules it overrides, the keeper's to write. The shelf stays as it is for other
    trees — the agent's advice in the question before it, not spoken to by the person.
+   → [L13](../../local.rules.md#l13--this-trees-standing-sessions)
