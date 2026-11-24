@@ -124,7 +124,9 @@ refusal of `/conclude` to a session with a role goes.
    zone, and who reads what it produces are its seams. A record of the roles' maps and briefs
    apart from the mechanisms is not kept. What is kept apart is which session holds which —
    [q-jz3mlm](q-jz3mlm-how-does-a-project-cut-its-work-into-standing-sessions-and-how-does-the-cut-change-as-the-project-grows.md),
-   decision 4.
+   decision 4. *(Overturned 2026-11-21: a role is the mechanisms a session holds, and none is written
+   for a role — [the plan](../rfc/01-0090.0020-the-cut-is-read-against-the-work.md#decided-by-the-person),
+   "Decided by the person".)*
 2. **A role is understood from the task** — the user, 2026-11-24: "пользователь не будет всегда
    помнить как называются его роли. роль надо понимать по задаче." How: the
    agent's reading, not put as a decision — the question the task is placed on is in a zone, and
