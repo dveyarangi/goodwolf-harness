@@ -136,7 +136,7 @@ said.* Read from the 25 core skills' bodies:
 | the talk is the work | align, advise, discover, review-architecture, celebrate | the body, throughout: the interview, the advice, the material handed over in the turn |
 | speaks at its own moment | recall, harness, maintain | a `What the person hears` section |
 | speaks at its own moment, no section | ticket (the breakdown put to the person), conclude, questions (a decision settled and reported, an uncharted question asked), tdd (which behaviours matter) | scattered in the body |
-| works; the turn's reply reports it | plan, implement, verify, impact, improve-comments, product, setup-devops, commit, skill-up, edge, mechanism, debugging, dream | nothing of its own; the reply's general form |
+| works; the turn's reply reports it | plan, implement, verify, impact, improve-comments, product, devops, commit, skill-up, edge, mechanism, debugging, dream | nothing of its own; the reply's general form |
 
 What a speaking skill says at its moment is that moment's — *where the work stands* is `/recall`'s,
 *what was out of agreement* is `/maintain`'s — and only the skill knows its moment. What every reply
