@@ -238,6 +238,52 @@ window. It is one mark with
 [q-2ng6nb](q-2ng6nb-which-session-puts-a-question-that-asks-the-person-and-how-is-it-known-that-it-was-put.md)'s, which waits to be built: *who puts a question that asks the person* and
 *who takes what asks a role* are the same shape.
 
+## One life, closed and opened by the role — 2026-11-25
+
+The user, 2026-11-25, of the mark with an addressee: "ммм да. ну или как мы будем писать саму передачу от
+сессии к спящей роли или сессии? мы сказали что мы будем дописывать туда а не писать ее передачу - это
+где? вопрос - если это отдельный файл под роль, может лучше писать туда и читать оттуда?" And: "еще я
+вдруг понял что наши длинные сессии и короткие по сути одно и тоже - мы просто хотим вместа генерной
+компактизации сделать ролевую (с нашим закрытием, передачей хвостов и так далее и открытием через
+рекол) + наши правила когда это делать".
+
+**What follows, the agent's reading.** There are not two modes: a chat is a line of sessions, each
+opened by the recall and ended by the closing, where the host would have compacted it. The mode that
+decision 7 speaks of falls away: what is closed has nothing to wake, its role's letters waiting for
+whoever opens it next; what is open is written to.
+
+**What the host gives it, read and not tried.** The app has a call by which a session clears its own
+chat once its turn ends — the chat stays in its place, its folder, model and permissions kept, the
+earlier talk brought back by the person's "Resume previous session"; the app may ask the person to
+approve each. The hook's start handler answers every start but a compaction's with the whole wake, so
+a cleared chat opens as a new one does. Not known: whether the row's tag and the unit it holds come
+through a clear; whether another host has the like. A cleared chat a letter wakes pays the first request
+of a fresh one, 86 thousand, where the seven woken the evening of 2026-11-24 paid for 307 to 724.
+
+**Where a hand-over stands, the agent's proposal, not decided.** In the role's own folder, a file to a
+letter: `docs/roles/<role>/`, written by the script, named by its time and its writer, removed by the
+session that took it once what it says stands in its home. It replaces the mark with an addressee: the
+folder is what hangs on the role, so the wake counts it, and the store's mark stays the person's
+alone. Three shapes were weighed:
+
+| where | what it costs |
+|---|---|
+| on the record of the work, with a mark | another session writes in the record of work not its own, which S9 forbids; its lines lie beside the holder's uncommitted ones; a letter that bears on no work has no place |
+| one file to a role | one place to write and read; sessions of one checkout commit each other's lines, which the register has |
+| a folder to a role, a file to a letter | the same one place, no shared file; a folder the more |
+
+A letter is a pointer or a word, never state: from one's own closing, "q-… stands at …, next …, waits
+on the person for …"; from another, what would have been sent. State and decisions stay in their homes
+(decision 4), and a letter that outlives its home's content is stale and dropped. It keeps no order:
+which is taken is the path's, so it is no written queue of work again. It is the mailbox of the
+reading the person answered "yes, you are on point", 2026-11-22
+([q-p4sdnv](q-p4sdnv-what-is-an-agent-role-and-which-mechanism-keeps-roles.md)).
+
+**When to close, the agent's proposal, not decided.** The piece of work is done; the person's message
+moves to another zone's work; 50 % of the window, a reminder at 20 % (decision 5); and before going
+quiet with nothing waiting on it, over some 120 thousand tokens: past its cache's hour a chat that
+size costs more to wake than one to open.
+
 ## Decisions
 
 1. **Every role has a mechanism of its own** — the user, 2026-11-16: "да, у каждой роли свой
