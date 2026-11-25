@@ -42,7 +42,7 @@ written for every one of them, so the format's check is met by all. This is the 
 until a condition, and says that one waiting its turn or another's answer stays open, `depend` holding what it
 waits on.
 
-**Disposition:** open; the proposal withdrawn the same day, the 17 left open.
+**Disposition:** open; the proposal withdrawn the same day, the 17 left open; the amendment waits on [q-7g3y6j](questions/q-7g3y6j-when-does-an-open-question-close-with-nobody-taking-it-up-and-who-finds-the-ones-already-answered.md).
 
 ## A form the trial had not tried was recommended on the trial — 2026-11-25
 

@@ -1,7 +1,7 @@
 # q-242vqe How is an open question that nobody reaches kept from sinking unseen?
 
 - **record of** what it intends to become
-- **part of** q-dmvmf2
+- **part of** q-huss2x
 - **state** open
 - **realizes** A8 "No question left to sink"
 - **rung** development: a feature, self-improvement: a rule
@@ -17,15 +17,13 @@ Seeing it is the pathfinder's, the user, 2026-11-25: an open question stays open
 waits on has not come, and the pathfinder holds every open question ([q-huss2x](q-huss2x-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three.md)). What it shows today is
 counted below, *What the path shows of the open questions*; handed to Путь with the person's words.
 
-What stays `/maintain`'s, proposed: an open question that a decision in force already answers, or whose ground
-one removed, is drift, put to the person with the place. The wider rule shown first is withdrawn.
+What stays `/maintain`'s, and what closes a question nobody took up, is [q-7g3y6j](q-7g3y6j-when-does-an-open-question-close-with-nobody-taking-it-up-and-who-finds-the-ones-already-answered.md)'s.
 
 Read for relevance on the person's word: [the pass](../research/open-questions-2026-11-25/REPORT.md). Of the 47
 not kept, on the words "отвеченые и отпавшие закрывай" and "принимаю решения по вопросам": 14 closed answered
 or moot, 4 of them by the sessions whose they were; 8 merged, one pruned, one more closed, two reworded; q-4leela
 merged by Продукт. Left open, told: q-7ld3wt, its ticket Partial; q-6kx3m2 and q-3hjxcn. The 17 proposed to be
-put off stay open, the proposal withdrawn. Waiting on the person: the narrow rule for `/maintain`, and the
-closing rule's *parked*.
+put off stay open, the proposal withdrawn.
 
 ## Before the pass — 2026-10-10
 
