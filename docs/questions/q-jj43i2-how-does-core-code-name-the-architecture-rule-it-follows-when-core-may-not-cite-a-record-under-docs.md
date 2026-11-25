@@ -1,8 +1,9 @@
 # q-jj43i2 How does core code name the architecture rule it follows, when core may not cite a record under docs/?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-qmq6ty
-- **state** open
+- **state** closed:decided
+- **answer** [the painted door](../../.agents/glossary.md): core may name the file a mechanism declares, and [does](../../.agents/scripts/gw/questions.py) — closed on the user's word, 2026-11-25
 - **rung** development: load-bearing, self-improvement: a rule
 - **opened** 2026-10-13T08:51:57Z
 - **struck** 0, last 2026-10-13T08:50Z

@@ -1,8 +1,9 @@
 # q-2xfkzf Does the number of straw dogs bound to a question, weighted by their tier, rank it beside its strikes?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-dmvmf2
-- **state** open
+- **state** closed:decided
+- **answer** [the path](../../.agents/scripts/gw/questions.py) shows the count beside the strikes and ranks nothing, [the order being the person's](../../.agents/skills/pathfinder/SKILL.md) — closed on the user's word, 2026-11-25
 - **rung** self-improvement: a rule, development: a feature
 - **lean** the user, 2026-10-11: dogs measure how much provisional text stands on an answer, strikes how often it returns; weight by tier, count by size not blocks; unweighed
 - **opened** 2026-10-13T14:38:29Z

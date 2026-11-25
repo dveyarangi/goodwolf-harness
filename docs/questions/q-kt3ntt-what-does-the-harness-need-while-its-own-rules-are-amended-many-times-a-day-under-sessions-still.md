@@ -1,8 +1,9 @@
 # q-kt3ntt What does the harness need while its own rules are amended many times a day, under sessions still running?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-tt733j
-- **state** open
+- **state** closed:decided
+- **answer** [a running session is shown what changed in the entry file](../../.agents/mechanisms/harness/harness.md), the one need named, q-hah6zp — closed on the user's word, 2026-11-25
 - **rung** development: a feature, self-improvement: the method
 - **lean** the user, 2026-10-12: a regime of the tree that develops the harness, not regular harness work; q-hah6zp and its ticket 01-0018.0010 placed here; 2026-11-24: the notice that the entry file moved ships to every tree all the same, the rest of the regime stays this tree alone
 - **opened** 2026-10-12T14:56:13Z

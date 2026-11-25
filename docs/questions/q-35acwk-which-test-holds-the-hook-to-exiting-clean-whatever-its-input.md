@@ -1,8 +1,9 @@
 # q-35acwk Which test holds the hook to exiting clean whatever its input?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-453b5j
-- **state** open
+- **state** closed:decided
+- **answer** [the store's hook](../../.agents/scripts/gw/test/test_sessions.py) on unreadable input and an unknown host, and [the wrapper](../../.agents/scripts/gw/test/test_harness.py) on a line that fails, each asserted to exit clean — closed on the user's word, 2026-11-25
 - **rung** development: code, self-improvement: a script
 - **lean** the hosts record marks it unguarded; when a test holds it, the mark becomes its validated-by
 - **opened** 2026-10-10T14:04:10Z

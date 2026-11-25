@@ -1,9 +1,10 @@
 # q-2hilby How is each turn steered from the store?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-dmvmf2
-- **state** open
+- **state** closed:decided
 - **owner** [01-0011.0100.0040](../tickets/done/01-0011.0100.0040-the-turn-is-steered-from-the-store.md)
+- **answer** [Q1](../../.agents/mechanisms/questions/questions.rules.md) and the window, by [01-0011.0100.0040](../tickets/done/01-0011.0100.0040-the-turn-is-steered-from-the-store.md), Done; the judge is q-epk7c6 and the window's size q-dhrg3r — closed on the user's word, 2026-11-25
 - **realizes** A2 "The store handed over every message"
 - **rung** self-improvement: the method, development: load-bearing
 - **lean** the rule landed 2026-10-05 and its ticket closed 2026-10-07, every box graded; what stays open is the judge, q-epk7c6
