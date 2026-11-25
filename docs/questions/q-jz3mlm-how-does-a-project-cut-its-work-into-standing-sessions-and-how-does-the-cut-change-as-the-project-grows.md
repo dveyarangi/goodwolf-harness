@@ -5,7 +5,7 @@
 - **state** open
 - **rung** development: load-bearing, self-improvement: the method
 - **opened** 2026-11-15T00:43:20Z
-- **struck** 3, last 2026-11-17T18:43Z
+- **struck** 4, last 2026-11-25T10:17Z
 
 What a standing session is cut along — a domain of the product, a layer of the code, a process such as
 merging — differs between projects and changes as a project grows: game-delta cut nine sessions by
@@ -139,3 +139,38 @@ no rule though it took a role's session out of reach. Words offered for that tre
 rule until then: "A zone's session is concluded or archived only on the person's word naming
 that session. A row of a zone's session that reads ended says it sleeps: write to it, and give
 its zone to no other chat."
+
+## A case from a recipient: a mature product asks how to cut its roles — 2026-11-25
+
+A recipient's harness session, on its person's word as it relays it, asked core's keeper how to
+organise its roles. As it stands there: two roles, each cut by a kind of work and not by paths,
+their rows bearing the role's title; several more sessions with no role, each on one task; the
+harness's own upkeep in a session whose row has no name; one person; the code built in another
+host, so its sessions meet mostly in the records. It asked what earns a standing role against a
+question or one task's session, and what ends or merges one; by what the other trees cut theirs
+and what collided; which roles it should have; whether the harness's upkeep is a role and what it
+decides; whether domain work is a role's; who takes what falls in no zone or in two; and what its
+local rule on roles becomes under core.
+
+The keeper answered from the decisions above, those of
+[q-ja5mp4](q-ja5mp4-does-the-method-have-one-session-direct-the-others-an-orchestrator-and-what-does-it-owe-the-sessions-it.md)
+and the whole of
+[q-mvd4pi](q-mvd4pi-how-does-a-session-take-on-a-standing-role-learn-it-and-hand-it-on-so-the-role-outlives-any-one-chat.md),
+each with its date, and marked its own view apart: keep the harness's session and the two roles
+it has, open no role for a question or a task, add a domain's role only on a repeated collision
+or a window that fills from one area, keep its rule local and build nothing of core's unbuilt
+part. Nothing is decided by it in either tree.
+
+What the case shows that no decision here says:
+
+- **A role cut by a kind of work holds no paths of its own.** The rule has a zone be paths at the
+  domain's seams; an audit or a refactoring crosses every zone. Whether such a long body of work
+  is a role, or a unit that closes when it is done, is unsaid. This tree's own such roles hold
+  mechanisms, which a recipient has none of.
+- **The entry rules lag the accepted decision.** The recipient's rows bore a role's title while
+  the session mechanism's rule on a row's name forbids it; the whole accepted on 2026-11-25 lets
+  a row bear the role, and the rule is not yet rewritten.
+- **What a recipient writes locally while core's part on roles is unbuilt** is asked a second
+  time; [the journal](../research/standing-sessions-journal.md), step 16, holds the first.
+
+Material for the roles' review.
