@@ -7,7 +7,7 @@
 - **rung** development: the whole product
 - **lean** the user, 2026-10-25: no self-deprecation — a hole that matters is closed, not listed, and what does not work yet stays in the tree's records; the meeting agent brought to a full check of its own project by suggestions through the page, each asking how reliably that thing works there; everything that matters on the page, each with why, and the offer to check one's own project; the strengths first, as outside reviews count them (the user, 2026-10-24); graded by a fresh session in xuanxue-cabinet
 - **opened** 2026-10-11T19:36:30Z
-- **struck** 6, last 2026-11-20T18:09Z
+- **struck** 7, last 2026-11-25T08:01Z
 
 Opened 2026-10-08 when the user asked for the front page to be rethought: the page of 2026-09-26
 called the harness *an institutional memory in the repository*, and the tree had since gained the
@@ -319,3 +319,27 @@ far they reach, should have come to you? And where is the line written that woul
 then what GoodWolf does: the person sets that line once, on a ladder ordered by reach; below it the
 agent acts, at it shows first, above it the person decides. The wording is the page's, told by
 [01-0040.0070 The root README is told from the product document](../tickets/01-0040.0070-the-root-readme-is-told-from-the-product-document.md).
+
+## What the installing agent says, from q-4leela — merged 2026-11-25
+
+Carried from [q-4leela](q-4leela-how-do-the-installing-agents-words-to-a-person-meeting-the-harness-come-from-the-product-account-the.md), merged here on the person's word, "принимаю решения по вопросам": how
+the installing agent's words to a person come from the product account, each step it asks of them
+said by what it gives. Its lean, the user, 2026-10-11, stands as this question's: no second text —
+the install ships the front page beside the harness skill, which it does, and the agent introduces
+from it. Not yet done: its grading by a first install.
+
+What the first installs into `research-harness` showed, 2026-10-11:
+
+- Asked *shouldn't you have explained what you are for me?*, the agent listed mechanisms, not what
+  the person gains. The user: *still mechanistic, no word of what this gives*; *technical detail
+  where a product one is needed*; *not to be settled ad hoc per remark — tie it to the product
+  process*.
+- It asked for two loader links with no word of what they give, the Cursor one of a person working
+  in Claude Code; it asked the person to run `--links`, which it can run, and did; it explained
+  every switch and the verification set by its mechanics.
+- Its report: 13 sentences of what it did, 0 of what the person gets, 8 asks. Asked to introduce the
+  harness *from the person's side, naming no skill, file, command or mechanism*, it wrote five
+  paragraphs in their terms: the agent can speak from the pains when its prompt points there. Its
+  earlier person-side phrases came from the README it had read before installing.
+- A lead: the person meeting the harness is a consumer at an edge, and what is said to them may be a
+  text derived from the product account and shipped in core.

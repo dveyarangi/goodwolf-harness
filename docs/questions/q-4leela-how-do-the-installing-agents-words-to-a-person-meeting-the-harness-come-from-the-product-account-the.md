@@ -1,8 +1,9 @@
 # q-4leela How do the installing agent's words to a person meeting the harness come from the product account the front page is derived from, each step it asks of them said by what it gives them?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-osjub2
-- **state** open
+- **state** closed:merged
+- **answer** q-osjub2
 - **rung** development: a feature, self-improvement: a rule
 - **lean** the user, 2026-10-11: no second text — the install ships the front page itself, README.md with its picture, beside the harness skill as it ships the license; the installing agent introduces from it, choosing what the person gains; each step said by what it gives, in the skill's own words; graded by the next first install
 - **opened** 2026-10-11T09:52:55Z
