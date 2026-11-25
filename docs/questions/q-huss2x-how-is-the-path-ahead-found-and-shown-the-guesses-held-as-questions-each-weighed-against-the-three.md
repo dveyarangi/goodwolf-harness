@@ -49,7 +49,11 @@ cap and what the cap held back; the candidates at the next boundary with each on
 answer it serves, how much of it is built, what waits on it, what it unlocks; and the three roots'
 balance, 158 open under *how it is built* and seven under the other two with no ticket on
 2026-10-20. Its unit of output is a question and its unit of work as the installed method names it,
-`/ticket` here, installed into the pathfinder by the method, not looked up.
+`/ticket` here, installed into the pathfinder by the method, not looked up. A hazard is put before the
+candidates and is no question: set aside it is its unit of work, by
+[q-6y4lwm](q-6y4lwm-how-does-a-hazard-which-leads-to-no-answer-of-the-product-weigh-in-what-comes-next.md) decision 2
+and [q-zu24yh](q-zu24yh-what-brings-a-hazard-the-person-set-aside-back-before-them-and-is-it-put-first-again-at-every.md)
+decision 1, the user, 2026-11-25.
 
 **Not the pacer.** The pacer dissolved: the ring's rules are delivery's; a driver
 that runs the ring with judges outside the working agent is q-kjd6ej; which
@@ -58,7 +62,9 @@ work comes next is this question's.
 **Open here.** The weighing itself — value, leverage, evidence under the person's weights — after
 the cap and the cadence have been watched; the picture, which needs a time axis the store lacks,
 now, next, later; the ring mark, deferred until the cap counts wrongly; the unit of work across
-methods, a seam marked in the ticket mechanism's doc until a second method manifests its unit.
+methods, a seam marked in the ticket mechanism's doc until a second method manifests its unit; and
+what a hazard set aside is in a tree with no method, where the questions are the work — the agent
+recommends a question there, waiting on the person since 2026-11-25.
 
 ## Decisions
 

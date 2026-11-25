@@ -30,3 +30,10 @@ there, in place of the agent's proposal of a question), and a roadmap row may na
 
 The board's rules were added on 2026-11-25, the agent's text accepted ("принимаю правила"), drawn from
 the first two drawings ([q-p7qw6i](../questions/q-p7qw6i-what-does-a-drawing-of-the-work-show-its-groups-their-subgroups-and-which-pulls-which-and-by-what.md)).
+
+The cards are derived and no list of them is kept, the user's word of 2026-11-25
+([q-p7qw6i](../questions/q-p7qw6i-what-does-a-drawing-of-the-work-show-its-groups-their-subgroups-and-which-pulls-which-and-by-what.md), decision 2); tried on no reader.
+
+A hazard set aside stays before the candidates, the agent's text of 2026-11-25; that the strip stands
+only on the board of the session that took hazards is the user's word of that day
+([q-zu24yh](../questions/q-zu24yh-what-brings-a-hazard-the-person-set-aside-back-before-them-and-is-it-put-first-again-at-every.md), decision 1); tried on no reader.

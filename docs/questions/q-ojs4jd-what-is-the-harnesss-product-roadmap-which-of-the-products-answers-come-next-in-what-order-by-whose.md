@@ -4,7 +4,7 @@
 - **part of** q-m6unv4
 - **state** open
 - **rung** development: the whole product
-- **lean** the user, 2026-11-22: the product is the bearing, but what leads to it counts too — a stopgap where the harness already moves toward a fuller or more general answer is taken only well justified, and wrapped as a straw dog; else the work is a bottleneck, moving many at once, or readies the harness for its next stage, or stands alone and closes something of the product. Who makes that analysis: the Путь session, L13 (the user, 2026-11-22). The order itself, open; the user, 2026-11-25: "сейчас проблема для меня это перерасход токенов"
+- **lean** the user, 2026-11-22: the product is the bearing, but what leads to it counts too — a stopgap where the harness already moves toward a fuller or more general answer is taken only well justified, and wrapped as a straw dog; else the work is a bottleneck, moving many at once, or readies the harness for its next stage, or stands alone and closes something of the product. Who makes that analysis: the Путь session, L13 (the user, 2026-11-22). The order: its first row is pain 2, cost, the user, 2026-11-25: "расход первым"; what follows it, open
 - **opened** 2026-10-25T19:34:35Z
 - **struck** 3, last 2026-11-24T22:08Z
 
@@ -99,7 +99,7 @@ The user: "встреча и установка у нас постоянно п�
 сейчас с проектами дрифтсенс. если надо, можешь обратиться к его сессии за инфой. сейчас проблема
 для меня это перерасход токенов )". It answers the agent's recommendation to take the meeting
 first, which is withdrawn: the meeting goes on by itself and its cases arrive. No product answer was
-named, so the roadmap holds no row for it.
+named, so the roadmap held no row for it until a row could name a pain, below.
 
 Weighed by [the week's measure](../research/measures-2026-11-25/REPORT.md), shares of this tree,
 which overlap and are ceilings:
@@ -128,4 +128,7 @@ work to its shape — so a row had nothing to name. A row may name a pain: "до
    records, and names the product document's rows without restating them. Not: the written queue
    again — an order of tickets; nor an order kept in the product document — the product session's
    record, which carries no order; nor the order left unwritten, as it stood from 2026-10-25, each
-   session recommending from nothing → [the roadmap](../roadmap.md).
+   session recommending from nothing → [the roadmap](../roadmap.md). Widened by decision 2.
+2. **A row may name a pain, where no one answer relieves it** *(the user, 2026-11-25: "дорожная карта
+   конечно может называть боль")* — decision 1's *answers and holes* with a third thing beside them
+   → [the roadmap](../roadmap.md).

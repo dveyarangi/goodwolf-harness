@@ -36,13 +36,13 @@ person first orders the work; a tree with none has no order yet.
 | `owner core` | settled by the session that declared it, 2026-11-21, the user not asked then; the user, 2026-11-24 |
 | candidates weighed by how they lead toward the product's answers | the user's idea, 2026-11-22; the text the agent's, agreed |
 | a question waiting on the person that no work under way holds is a candidate | the user's words to another session, 2026-11-22; the text the agent's, landed on them |
+| such a question goes first to the session it belongs to | the user's words to another session, 2026-11-24; the text the agent's, landed on them |
 | a hazard is put before the candidates, its reach counted in the code | the agent's text, landed on the user's word, 2026-11-25 |
 | a hazard set aside is a unit of work at once, not a question | the user, 2026-11-25; the text the agent's |
 | a roadmap row may name a pain | the agent's text, agreed by the user, 2026-11-25 |
 | a hazard set aside stays before the candidates; the strip only on the board of the session that took hazards | the user, 2026-11-25; the text the agent's |
 | the board's cards derived, no list of them kept | the user, 2026-11-25; the text the agent's, accepted |
 | the work drawn as a board, its rules | the user asked for the drawing and took it for now, 2026-11-25; the text the agent's, accepted |
-| such a question goes first to the session it belongs to | the user's words to another session, 2026-11-24; the text the agent's, landed on them |
 
 ## Moments
 
@@ -71,7 +71,8 @@ person first orders the work; a tree with none has no order yet.
 | part | where | owner |
 |---|---|---|
 | the path, the store's reading of the candidates | `.agents/scripts/gw/questions.py` | `questions` |
-| the product document's answers the roadmap orders | `.agents/skills/product/SKILL.md` | `product` |
+| the product document's answers and pains the roadmap orders | `.agents/skills/product/SKILL.md` | `product` |
+| the running sessions the board reads, what each holds and where it stands | `.agents/scripts/gw/sessions.py` | `session` |
 | the wake that shows the path | `.agents/skills/recall/SKILL.md` | `session` |
 | the installer, which writes the voice into its skill | `.agents/scripts/gw/inject_rules.py` | `mechanism-shape` |
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |
@@ -80,8 +81,11 @@ person first orders the work; a tree with none has no order yet.
 
 - **The roadmap** — *what it intends to become* — read by whoever recommends what comes next,
   and by the person ordering the work.
+- <straw-dog question="q-p7qw6i">**The board** — *what exists* — drawn for the person who asks to see
+  the work or after an order changed, read by them; kept nowhere, drawn anew from the records each
+  time.</straw-dog>
 
-Nothing else: no rules file, no index.
+Nothing else kept: no rules file, no index.
 
 ## Not yet at the shape
 
