@@ -72,3 +72,9 @@ so the record's first pass has them to take.
   recipient's existing code is untouched, and its next `/implement` and `/verify` apply the rule.
   A comment pointing loosely — a date, a paragraph with no bold lead — is brought to the rule when
   next touched.
+
+## Carried from [q-b7kiy7](q-b7kiy7-are-the-edge-records-rows-written-by-hand-or-appended-by-a-script.md) — 2026-11-25
+
+It asked whether the record's rows are written by hand or a script appends them. The align settled that
+they are written at the occasion, not what writes them.
+Merged here on the user's word, 2026-11-25: "принимаю решения по вопросам".

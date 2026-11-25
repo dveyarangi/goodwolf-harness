@@ -487,3 +487,10 @@ their method's, and core is what the three methods share without owning any root
 outside pass, filed above, found the same gap from the other side: the three roots are not peers,
 only the structure root got a ring. A tree that adds a method adds a root — study's *what the user
 has learned*.
+
+## Carried from [q-w5ijmk](q-w5ijmk-which-root-a-research-or-study-method-asks-in-place-of-how-is-this-project-built-and-whether-the.md) — 2026-11-25
+
+It asked which root a research or study method asks in place of *How is this project built?*, and whether
+the structure root is the method's to word. Its lean: the method's to word, research asking how this is known,
+study how this is learned.
+Merged here on the user's word, 2026-11-25: "принимаю решения по вопросам".

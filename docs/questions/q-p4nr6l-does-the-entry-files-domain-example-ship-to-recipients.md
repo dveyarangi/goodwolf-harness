@@ -1,9 +1,10 @@
 # q-p4nr6l Does the entry file's domain example ship to recipients?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-qmq6ty
-- **state** open
+- **state** closed:merged
 - **owner** [01-0017.0020](../tickets/01-0017.0020-practice-swaps-in-one-edit.md)
+- **answer** q-hrfk7l
 - **rung** self-improvement: a wording
 - **opened** 2026-10-03T11:36:21Z
 - **struck** 0, last 2026-10-03T10:17Z

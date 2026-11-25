@@ -1,8 +1,9 @@
 # q-uo7kbk How is a landed amendment noticed when a later rewrite silently undoes it?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-j5s7gp
-- **state** open
+- **state** closed:merged
+- **answer** q-b6pwxy
 - **rung** self-improvement: the method
 - **lean** opened 2026-10-09 from the rule-failure register read entry by entry; evidence in the body and in the inventory, section F
 - **opened** 2026-10-09T13:59:00Z

@@ -1,4 +1,4 @@
-# q-kfoy62 What does an entry-contract version cover?
+# q-kfoy62 Which changes of the entry file move its version: its own sections alone, or the blocks installed in it too?
 
 - **record of** what it intends to become
 - **part of** q-tt733j

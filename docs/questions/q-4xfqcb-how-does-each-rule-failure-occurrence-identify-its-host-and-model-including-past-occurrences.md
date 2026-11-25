@@ -1,4 +1,4 @@
-# q-4xfqcb How does each rule-failure occurrence identify its host and model, including past occurrences?
+# q-4xfqcb When does the check of the register's hosts and models join the verification set, so that it runs unasked?
 
 - **record of** what it intends to become
 - **part of** q-tt733j

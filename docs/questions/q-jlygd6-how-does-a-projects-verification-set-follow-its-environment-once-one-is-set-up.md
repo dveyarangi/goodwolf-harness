@@ -1,8 +1,9 @@
 # q-jlygd6 How does a project's verification set follow its environment once one is set up?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-t3p7na
-- **state** open
+- **state** closed:merged
+- **answer** q-z6agzf
 - **rung** development: a feature, self-improvement: a rule
 - **lean** 2026-10-14: opened from 01-0010.0170's re-read — devops, then named setup-devops, writes docs/cicd.md and leaves the set behind; the trial's installing agent wrapped its own L3 as a straw dog for the same reason
 - **opened** 2026-10-14T14:46:45Z

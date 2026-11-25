@@ -84,3 +84,10 @@ harness, the name kept.
 measure wherever a measurement in the reader's own project is what tells whether the harness
 benefits it — not only where this tree has not measured. A check in place of a caveat is one case
 of it, not its whole.
+
+## Carried from [q-5prhbl](q-5prhbl-which-text-a-hosts-user-meets-is-derived-from-the-hosts-edge-record-and-what-holds-it-a-subset-of-the.md) — 2026-11-25
+
+It asked which text a host's user meets is derived from the hosts edge record, and what holds it a subset
+of the record; it realized A34 "A contract per edge". As of its opening no text was derived from that record;
+the README's list of hosts and the harness skill's install section were the candidates.
+Merged here on the user's word, 2026-11-25: "принимаю решения по вопросам".
