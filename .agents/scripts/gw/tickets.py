@@ -6,9 +6,9 @@
 
 `--list` prints the live tickets as their headers say them, a markdown table in id order: the
 ticket by id and slug, its status word, its type, its title, and the question it answers by id and
-slug or, for a hazard set aside, the day it was. It is the ticket list, rendered on request and
-never committed (the user, 2026-10-10); it judges nothing, so a field a header lacks prints a dash,
-and a ticket it cannot read is named under the table and fails the run.
+slug. It is the ticket list, rendered on request and never committed (the user, 2026-10-10); it
+judges nothing, so a field a header lacks prints a dash, and a ticket it cannot read is named under
+the table and fails the run.
 
 The shape is the ticket format shelf's, `TICKET-FORMAT.md`, under *The record*: the mark of what
 the ticket is a record of, the header's fields and their order, the sections a stage admits, the
@@ -44,11 +44,8 @@ RFCS = "docs/rfc"
 README = "README.md"
 STATUSES = ("Done", "In progress", "Ready", "Partial", "Planned", "Blocked")
 TYPES = ("HITL", "AFK")
-ORDERED = ("Status", "Type", "Minted", "Plan", "Depends on", "Blocks", "Answers", "Hazard", "Outcome")
+ORDERED = ("Status", "Type", "Minted", "Plan", "Depends on", "Blocks", "Answers", "Outcome")
 REQUIRED = ("Status", "Type", "Minted", "Answers", "Outcome")
-# A hazard the person set aside is the only ticket with no question behind it (the user,
-# 2026-11-25). Its field says who set it aside, the day and its reach, in the place of `Answers`.
-HAZARD = "Hazard"
 # The day the format narrowed to the named sections, the stage gone (the user, 2026-10-11): a
 # ticket minted before it is held to the required sections and the /verify box alone.
 # TODO q-q6xwpv: the older shape goes once no live ticket was minted before it.
@@ -56,8 +53,8 @@ FORMAT_MOVED = "2026-10-11"
 RETIRED = ("Kind", "Legacy id", "RFC", "Parent PRD", "User stories addressed")
 # `Parent scope addressed` left with the spec whose stories it counted (the user, 2026-10-15).
 NAMED_SECTIONS = ("Parent", "What to build", "Acceptance criteria", "Out of scope")
-# A ticket's open questions are entries of the store, each holding its own argument, so a section
-# listing them is a second home (the user, 2026-10-03).
+# A ticket's open questions are entries of the store under its `Answers` question, each holding
+# its own argument, so a section listing them is a second home (the user, 2026-10-03).
 RETIRED_SECTIONS = ("Open issues",)
 REQUIRED_SECTIONS = ("What to build", "Acceptance criteria")
 # A live ticket is a record of what it intends to become, as the ticket format declares; it
@@ -75,7 +72,6 @@ _MARK = re.compile(rf"^- \*\*({MARK}|{FORMER_MARK})\*\* ?(.*)$")
 _BARE = re.compile(r"^\*\*([^*]+?):\*\* ?(.*)$")
 _CONTINUATION = re.compile(r"^\s+\S")
 _STATUS = re.compile(r"^(Done|In progress|Ready|Partial|Planned|Blocked)(?: \(([^()]*)\))?$")
-_SET_ASIDE = re.compile(r"^set aside by \S.*?, (\d{4}-\d{2}-\d{2}); \S")
 _DONE_DATED = re.compile(r"^\d{4}-\d{2}-\d{2}(?:, .+)?$")
 _DAY = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 _BOUNDARY = re.compile(r"[.!?]\s+[A-Z`]")
@@ -268,11 +264,7 @@ def _status_word(status: str | None) -> str:
 
 
 def _question(root: Path, read: Ticket, entries: dict[str, "questions.Entry"]) -> str:
-    """The entry `Answers` links, as a named link; for a hazard with none, the day it was set
-    aside; a dash where the header says neither."""
-    aside = _set_aside(read.fields.get(HAZARD, ""))
-    if aside and "Answers" not in read.fields:
-        return f"hazard, set aside {aside}"
+    """The entry `Answers` links, as a named link; a dash unless it links exactly one entry."""
     written = citations(read.fields.get("Answers", ""))
     if len(written) != 1:
         return _DASH
@@ -403,7 +395,7 @@ def _field_problems(read: Ticket) -> list[Diagnostic]:
     fields = read.fields
     first = read.header[0].line if read.header else 1
     for name in REQUIRED:
-        if name not in fields and not (name == "Answers" and HAZARD in fields):
+        if name not in fields:
             notes.append(Diagnostic(read.record, first, f"the header has no {name} bullet"))
     for found in read.header:
         if found.name in RETIRED:
@@ -424,26 +416,9 @@ def _field_problems(read: Ticket) -> list[Diagnostic]:
             notes.append(
                 Diagnostic(read.record, found.line, f"Minted is `{found.value}`, not a day written YYYY-MM-DD")
             )
-        elif found.name == HAZARD and _set_aside(found.value) is None:
-            notes.append(
-                Diagnostic(
-                    read.record,
-                    found.line,
-                    f"{HAZARD} is `{found.value}`, not `set aside by <who>, YYYY-MM-DD; <its reach>`",
-                )
-            )
         elif found.name == "Outcome" and _BOUNDARY.search(found.value):
             notes.append(Diagnostic(read.record, found.line, "Outcome is more than one sentence"))
     return notes + _order_problems(read)
-
-
-def _set_aside(value: str) -> str | None:
-    """The day a hazard was set aside, `None` where the value is in another form."""
-    said = _SET_ASIDE.match(value)
-    try:
-        return date.fromisoformat(said.group(1)).isoformat() if said else None
-    except ValueError:
-        return None
 
 
 def _status_problems(record: str, found: Field) -> list[Diagnostic]:
