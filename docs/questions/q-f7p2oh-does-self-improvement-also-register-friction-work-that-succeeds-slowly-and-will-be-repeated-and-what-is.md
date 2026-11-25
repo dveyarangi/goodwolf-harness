@@ -30,3 +30,9 @@ suggestion to the keeper, not just about audit, but as general extension of self
 
 The cases the recipient's sessions met, as sent:
 [the recipient's lessons, a third message](../research/recipient-lessons-2026-11-24.md#a-third-message-2026-11-25--as-sent).
+
+## A first case met in this tree, 2026-11-25
+
+A role born in four exchanges with the person and without its mechanism, the person naming it
+friction on a main path: the register's entry of that name and day holds what happened and their
+words. Evidence; no shape proposed.

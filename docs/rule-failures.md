@@ -19,6 +19,35 @@ This register and its rules belong to the mechanism shape under
 decision 1, the user, 2026-10-25. The move is
 [01-0019 harness-amends-itself-by-explicit-meta-rules](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)'s.
 
+## A role was born in four exchanges with the person, and without its mechanism — 2026-11-25
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-fable-5-2 · 2026-11-25T00:10Z — the keeper's chat `1981de0e-7693-4931-aeab-4881f9fa0065`; the instant is that of the commit that landed the role, 4eb21a6f, and the model is the one the session reported itself running on.
+
+**Rules in play:** none that covers it. The rule of roles lists the roles and says who writes a
+zone's rules; nothing says what a role is born with or how many times the person is asked.
+
+**What happened.** The person's thought of a role for the voice and the look reached the keeper,
+sent on word for word. The keeper filed it as a thought for the roles' review and opened nothing;
+the person asked whether the message had arrived. Asked then whether to open it, the person said
+yes; the keeper showed the role's line and asked again, the line carrying a sentence that let the
+role edit the keeper's files, a patch for the voice having no mechanism of its own; the person
+refused the sentence. The keeper landed the line, started the session and put the patch in its
+brief; the mechanism was not made. The keeper had also told the person the role had no work,
+which the missing mechanism was. The person: "это вживую мы наблюдали сейчас фрикшн при рождении
+новой роли по нашим правилам. сначала ты видимо решил что у тебя мало работы и решил не создавать
+сессию, затем она не получила сразу недостающий механизм. а ведь это основной путь, и возможно
+частый в новых проектах или при перестройке ролей".
+
+**What it is.** A slip no rule covers: a main path of the method — a role cut off, its session
+opened, its mechanism in hand — walked with no rule under it, the person carrying it step by
+step. A repeat is any role born with the person asked more than once, or without the mechanism
+its zone needs. How a role is born is the cut's, the store's session's; the person's words went
+there the same hour.
+
+**Disposition:** registered 2026-11-25; no rule proposed.
+
 ## A drawing was put to the person that its maker had never seen — 2026-11-24
 
 **Source, no case yet:**
