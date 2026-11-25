@@ -8,7 +8,7 @@
 - **rung** self-improvement: the method, development: a product slice
 - **lean** the user, 2026-10-23: Where it stands accepted; 01-0060 minted as its end-state, 01-0060.0010 the first slice, what the path shows at every recall; the weighing and the picture wait on the cap and the cadence being watched
 - **opened** 2026-10-19T23:37:39Z
-- **struck** 3, last 2026-10-24T23:51Z
+- **struck** 4, last 2026-11-25T06:45Z
 
 ## Where it stands
 
@@ -63,8 +63,13 @@ work comes next is this question's.
 the cap and the cadence have been watched; the picture, which needs a time axis the store lacks,
 now, next, later; the ring mark, deferred until the cap counts wrongly; the unit of work across
 methods, a seam marked in the ticket mechanism's doc until a second method manifests its unit; and
-what a hazard set aside is in a tree with no method, where the questions are the work — the agent
-recommends a question there, waiting on the person since 2026-11-25.
+what a hazard is, asked for a tree with no method, where the questions are the work. The user,
+2026-11-25: "если в одном месте это вопрос то в остальных тоже должен быть вопрос. наверное так лучше,
+потому что тогда не надо изобретать отдельные правила для тикетов опасности- будем их ловить через
+вопросы?" It would take back
+[q-6y4lwm](q-6y4lwm-how-does-a-hazard-which-leads-to-no-answer-of-the-product-weigh-in-what-comes-next.md) decision 2.
+The agent: yes, an open question that asks the person, since the wake shows one until it closes; set
+aside, it keeps asking or is deferred until their condition. Waiting on the person's yes to the text.
 
 ## Decisions
 
