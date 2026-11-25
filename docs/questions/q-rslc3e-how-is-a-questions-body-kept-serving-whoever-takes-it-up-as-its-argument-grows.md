@@ -27,7 +27,12 @@ thousand tokens, against 24 on the mean with the file beside; right alike.
 
 Decided: 1 below. It is not landed: the shelf's text is drafted and shown to the person before it is written,
 and with it the store's script passes over the folder of evidence, the mechanisms' check knows it, and the
-mechanism's doc names it. Entries already written move as each is next rewritten, 108 of 414 holding
+mechanism's doc names it. Asked by the person, 2026-11-25, whether `/maintain` will help, the agent proposes
+two more: `questions.py --check`, which the pass runs, finds an entry that links its evidence and has grown a
+section besides the three, stands out of their order, or links a file that is missing, entries not yet moved
+left alone; and `maintain.py`'s sweep of what landed, whose homes of decisions take in `docs/questions` whole,
+passes over the folder. The pass moves nothing by itself: a move with the head left as it was changed
+nothing in the trial, and what a whole says is its holder's. Entries already written move as each is next rewritten, 108 of 414 holding
 something besides the three parts and 92 links standing into such headings; q-mvd4pi's first, once its whole
 is rewritten.
 
