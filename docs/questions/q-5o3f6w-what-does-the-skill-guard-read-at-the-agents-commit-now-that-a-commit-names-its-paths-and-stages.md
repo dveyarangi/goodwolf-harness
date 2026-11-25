@@ -1,14 +1,27 @@
 # q-5o3f6w What does the skill guard read at the agent's commit, now that a commit names its paths and stages nothing?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-5jcptm
-- **state** open
+- **state** closed:deferred
+- **answer** until the second reading of q-b4um7c shows the new system of roles not to hold, meanwhile no guard is built and the rule alone asks for the skill - the user, 2026-11-25
 - **rung** development: load-bearing, self-improvement: the method
-- **asks** the person, 2026-11-24
 - **opened** 2026-11-24T22:57:38Z
 - **struck** 0, last 2026-11-24T22:57Z
 
-## Why it is open, 2026-11-25
+## Where it stands
+
+Deferred on the person's word: the guard is a strengthening, taken up if the new system of roles does
+not hold. What is read at the commit is decided then, with the options below.
+
+## The person, 2026-11-25
+
+To the Аудит и обслуживание session, of this question as it was put to them there with option 1
+recommended; read in its transcript by the session of the tickets: "это решение - усиление если не
+сработает новая система ролей." The whole guard waits on it, the agent's reading: they were told the
+guard is not built, and on 2026-11-24 said of its act at an edit that roles and short sessions answer
+the same need ([q-b4um7c](q-b4um7c-do-sessions-load-the-skill-their-act-needs-counted-from-the-hosts-transcripts-before-and-after-a-change.md)). That reading's second measure is what shows whether the roles held.
+
+## Why it was open, 2026-11-25
 
 Found by the pass with no person of 2026-11-24, handed on by the session of the tickets, read again
 at `71389a6b`.
