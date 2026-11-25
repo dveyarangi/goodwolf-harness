@@ -154,3 +154,24 @@ that a reply to another session's message print no head, decisions or frames aga
 новая сессия или роль по голосу и виду". A thought, not a decision; it waits for the roles'
 review. That held until the same day: the person then said "Да, открывай", and the session is cut
 off for it — decision 8; how the person is spoken to is Голос's, no longer the keeper's.
+
+## The person, 2026-11-25: do the roles name skills or mechanisms
+
+To the audit's session, for the keeper, found in that chat by the keeper: "спроси хранителя,
+прописаны ли в определении ролей скилы или механизмы. понятно ли из описания какие скилы должна
+всегда использовать роль, и какие - ютилитиз которые ей нужно использовать при случае".
+
+What the records answer, 2026-11-25:
+
+- **L13 names areas in words.** Three bullets name a mechanism — debugging, product, the path's
+  own — and one names skills, the practice's "skills of the delivery ring". The others name
+  neither.
+- **The table decided 2026-11-21 names mechanisms**: a session by its name and the mechanisms it
+  holds. A skill belongs to one mechanism, so the table gives the skills a role writes, never the
+  ones it uses.
+- **Which skills a role always uses, and which on occasion, no record says.** Each skill's
+  description names its own occasion, the same for every role. The lean of
+  [q-p4sdnv](q-p4sdnv-what-is-an-agent-role-and-which-mechanism-keeps-roles.md) gives a role "its
+  skill set" and nothing defines it.
+
+It waits for the roles' review with the rest; no shape proposed.

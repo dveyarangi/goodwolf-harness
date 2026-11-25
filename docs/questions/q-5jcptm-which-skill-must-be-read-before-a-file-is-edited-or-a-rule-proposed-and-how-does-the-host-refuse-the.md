@@ -220,3 +220,14 @@ Asked in the keeper's chat whether to start the tracer's ticket now: "я дум�
 задача хранилища." The ticket keeps its place in the order. The count the person asked for beside
 it, before and after that work:
 [q-b4um7c](q-b4um7c-do-sessions-load-the-skill-their-act-needs-counted-from-the-hosts-transcripts-before-and-after-a-change.md).
+
+## The person on when the guard is built, 2026-11-25
+
+Twice that day. To the keeper, of the guard on rule files: "я думаю что мы решаем ту же задачу -
+или как минимум улучшаем исполняемость правил - ролями и короткими сессиями". To the audit's
+session, of what the guard reads at a commit: "это решение - усиление если не сработает новая
+система ролей". So what is held above stands decided and is not built yet: it is the
+reinforcement, taken up if the roles and the short sessions leave the skills unread. What tells
+is the second reading of
+[q-b4um7c](q-b4um7c-do-sessions-load-the-skill-their-act-needs-counted-from-the-hosts-transcripts-before-and-after-a-change.md),
+against its base of 2026-11-25, once the roles' cut is built.
