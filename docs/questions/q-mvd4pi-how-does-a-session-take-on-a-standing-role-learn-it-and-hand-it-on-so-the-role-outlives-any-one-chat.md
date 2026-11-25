@@ -31,8 +31,10 @@ the chat is cleared when the turn ends.
 
 **The first trial did not run, 2026-11-25.** The next message, 00:10Z, was "привет кажется весь контекст
 вернулся после кнопки восстановления": the chat was brought back by the app's restore before anything was
-written in it cleared, so no session opened from the records. Whether the button was pressed on purpose the
-person has not said. What was seen on the way:
+written in it cleared, so no session opened from the records. The button was pressed for want of the word
+that one simply writes: "а,  блин, надобылописать а не нажимать кнопку?" — the session had named the button
+as a way back and, at the last, "напиши сюда что угодно"; a closing says which of the two opens the next.
+What was seen on the way:
 - No transcript but `93035cf8` is written for this chat, and the host's start came to the hook as a
   *resume*; its answer, 15.7 thousand characters, was cut to its first 2, and its head bore the name, the
   question and the unit (1262601d). The row was as before.
