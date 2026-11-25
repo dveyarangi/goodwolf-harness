@@ -1423,7 +1423,9 @@ in this turn.
 [q-5jcptm](questions/q-5jcptm-which-skill-must-be-read-before-a-file-is-edited-or-a-rule-proposed-and-how-does-the-host-refuse-the.md)
 and stands unbuilt as tickets: an edit to an instruction file waits for `/skill-up`,
 [01-0010.0125.0010 an-edit-waits-for-the-skill-that-keeps-its-file](tickets/01-0010.0125.0010-an-edit-waits-for-the-skill-that-keeps-its-file.md),
-Ready; a reply proposing such text, and the commit,
+Blocked since 2026-11-25 on the second reading of the skills' use, on the person's word that
+the guard is the reinforcement if the roles leave the skills unread; a reply proposing such text,
+and the commit,
 [01-0010.0125.0030 a-proposed-text-and-a-commit-wait-like-an-edit](tickets/01-0010.0125.0030-a-proposed-text-and-a-commit-wait-like-an-edit.md),
 Planned. The keeper first wrote here a hook on the reply as a proposal of its own and put it to
 the person as new, the line above that names q-5jcptm unread. The person answered with two points

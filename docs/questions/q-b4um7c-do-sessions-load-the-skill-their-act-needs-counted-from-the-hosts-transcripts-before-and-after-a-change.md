@@ -13,7 +13,10 @@ Asked by the person: a count of how often a session acts without the skill its a
 before the cut into roles and short sessions is built and again after it. The first reading is
 taken, on the person's word of 2026-11-25, "снимай исходную точку", and judged twice:
 [the reading of 2026-11-25](../research/skill-use-2026-11-25/REPORT.md). The second reading waits
-for that cut to be built.
+for that cut to be built. The guard's tickets,
+[01-0010.0125 the-host-blocks-what-a-rule-forbids](../tickets/01-0010.0125-the-host-blocks-what-a-rule-forbids.md)
+and its first child, are Blocked on
+it since 2026-11-25: whoever takes the reading tells the tickets' session what it shows.
 
 ## The person, 2026-11-24
 
