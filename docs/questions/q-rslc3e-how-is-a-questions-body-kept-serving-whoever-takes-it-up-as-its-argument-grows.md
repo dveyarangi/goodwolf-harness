@@ -25,10 +25,16 @@ passed over; the answers to the questions were right in all three. The head rewr
 the same file was then tried too, on the person's word, 2026-11-25: every reader read it whole at once, 29
 thousand tokens, against 24 on the mean with the file beside; right alike.
 
-Open, for the person, the whole rewritten when a decision lands and the stop holding the next step and what
-waits alone in either: (a) the evidence in the same entry, after the decisions; (b) the evidence in a file
-beside the entry, as a mechanism's is. The agent first recommended (a), a form the trial had not tried, and
-withdrew it when the person asked, 2026-11-25. It recommends (b), by the measure set before the fourth form was
-read, met narrowly: five thousand tokens an opening, a host's read taking a file whole. Its price: a second
-file where there is evidence to put in it, its name outside the pattern of the entries' own, and the links
-into the evidence of an entry already written.
+Decided: 1 below. It is not landed: the shelf's text is drafted and shown to the person before it is written,
+and with it the store's script passes over the folder of evidence, the mechanisms' check knows it, and the
+mechanism's doc names it. Entries already written move as each is next rewritten, 108 of 414 holding
+something besides the three parts and 92 links standing into such headings; q-mvd4pi's first, once its whole
+is rewritten.
+
+## Decisions
+
+1. **A question's evidence stands in a file beside its entry, the whole rewritten at each decision and the
+   stop holding the next step and what waits alone** — the user, 2026-11-25: "Да, выносим", to the agent's
+   proposal; the trial's third round, on their word "Доиспытай четвёртый". Not: in the same entry after the
+   decisions, read whole by all four of its readers, 29 thousand tokens against 24, right alike; the old
+   entry's evidence moved with the head left as it was, which changed nothing.
