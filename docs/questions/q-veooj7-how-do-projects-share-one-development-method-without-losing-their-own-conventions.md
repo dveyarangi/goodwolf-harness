@@ -6,7 +6,7 @@
 - **owner** [01-0010](../tickets/01-0010-a-shared-harness-improves-without-losing-project-conventions.md)
 - **realizes** A49 "Installs and updates without losing the project's own rules"
 - **rung** development: a product slice, self-improvement: the method
-- **lean** the user, 2026-10-11: research-harness, the first recipient with a method of its own, stands on five things open here — q-dsxyi5, 01-0020, 01-0017.0020, mechanisms from a second repository (no question yet), q-6ezmbo; its architecture read as this queue's order, the reordering the user's. Since: 01-0020 closed 2026-11-25, on the person's word; the practice swapped in one edit, which it stood for here, is q-p2tgdv's
+- **lean** the user, 2026-10-11: research-harness, the first recipient with a method of its own, stands on five things open here — q-dsxyi5, 01-0020, 01-0017.0020, mechanisms from a second repository (no question yet), q-6ezmbo; its architecture read as this queue's order, the reordering the user's. Since: 01-0020 closed 2026-11-25, on the person's word; the loop's switchability, which it stood for here, is q-p2tgdv's; the practice swapped in one edit stays 01-0017.0020's
 - **opened** 2026-10-03T10:07:55Z
 - **struck** 3, last 2026-11-16T15:27Z
 

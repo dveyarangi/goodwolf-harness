@@ -75,3 +75,7 @@ name there, the check guards the path alone.
   репозиторию раз в ночь - да": the pass with no person runs `--all`, L14 of the local rules.
 - **2026-11-22, the list filled**: the address and the home folder's name by the keeper, the
   name by the session that had scrubbed it; the whole tree read against the four lines, clean.
+  On the person's word of that day, to the keeper's "Вписать адрес и имя в список — твоё
+  действие; без него проверка охраняет только путь": "да, я разве еще не сказал?" — read by the
+  keeper as leave to write them. The mechanism shape's doc says only the person fills the list;
+  which of the two stands is put to the person, 2026-11-25.

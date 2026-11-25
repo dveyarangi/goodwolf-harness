@@ -146,7 +146,8 @@ the file again while the passages fit — the old text stays in the context, and
 keeps what a re-read would replace *(proposed in session and agreed by the user, 2026-11-22;
 the user's own words asked only that a session take the change silently, at its next turn)*. Past its budget the notice asks for
 the read. A context that took the file in anew, and a session whose start no hook saw, are shown
-nothing. The line never fails the host and never speaks of its own trouble.
+nothing. The line never fails the host and never speaks of its own trouble. It ships as core, to
+every tree *(the user, 2026-11-24: "хук во всех проектах")*.
 
 It is **installed**; a tree without it holds no core at all. The repository's root `README.md`
 is not a part: it ships as the front page beside the harness skill, and a recipient's root has
@@ -235,8 +236,7 @@ would otherwise fail the shape check for the same absence the report already nam
   including the recipient's own copy at its own `--check`; and by a person or a fork asking where
   this tree's core comes from, or pointing it somewhere else.
 - **Each host's hook file, core's entries merged in** — *what exists* — read by that host at session
-  start, before each message and, where the host's file names that event, before a shell command;
-  and by `--check`, which compares core's entries alone.
+  start and before each message, and by `--check`, which compares core's entries alone.
 <straw-dog question="q-t3p7na">
 - **The clone's `pre-push`** — *what exists* — in its Git directory or a hooks folder of the
   project's own work tree, run by Git at each push, which it refuses on any finding in a copy of

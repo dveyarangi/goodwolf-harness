@@ -41,6 +41,14 @@
    анализируешь и выбираешь работу, выравниваешь роадмап, ну и корректируешь вопросы или
    тикеты - но не сам запускаешь работу, только открываешь и передаешь"; of the line as shown:
    "принимаю")*. Written in L13, fe401b0b.
+8. **An eighth role, on a seventh session: Голос** — how the person is spoken to: the voice, a
+   reply's form, and the debugging mechanism, cut from the keeper's zone *(the user, 2026-11-25:
+   "это возможно новая сессия или роль по голосу и виду", then "Да, открывай")*. Written in L13,
+   4eb21a6f, until the cut's own record holds it; the cut is read with it: eight roles on seven
+   sessions. It changes the cut of decision 1, where reading 9 gives the mechanism `debugging` to
+   the method's role on the keeper's session: debugging and a reply's form leave the keeper's
+   zone. The first of the two words, and how it reached the keeper: the section of 2026-11-25
+   below.
 
 A tension left standing, found by the pass with no person of 2026-11-23: L13 still titles a
 session `🐺 <role> — <its area>`, while decision 5 and the session mechanism's rule on a row's
@@ -144,4 +152,5 @@ Records that do not name the decision of 2026-11-21:
 To the store's session, sent on to the keeper word for word and read at its source, after asking
 that a reply to another session's message print no head, decisions or frames again: "это возможно
 новая сессия или роль по голосу и виду". A thought, not a decision; it waits for the roles'
-review. Until a session is cut off for it, how the person is spoken to is the keeper's.
+review. That held until the same day: the person then said "Да, открывай", and the session is cut
+off for it — decision 8; how the person is spoken to is Голос's, no longer the keeper's.

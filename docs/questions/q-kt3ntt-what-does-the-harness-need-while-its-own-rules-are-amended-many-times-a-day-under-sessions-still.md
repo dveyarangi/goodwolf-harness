@@ -13,7 +13,10 @@ amends its entry file many times a day while several sessions run under it — 2
 10 to 12 October, v60 to v84, about ten an evening. A recipient's rules seldom move mid-session.
 What this regime asks — that a running session learn the rules moved, q-hah6zp — is a
 requirement of high-frequency self-amendment, and is weighed as one rather than as a need of every
-tree the harness reaches.
+tree the harness reaches — save the notice that the entry file moved, which ships as core, to
+every tree *(the user, 2026-11-24 —
+[q-d7zsba](q-d7zsba-where-the-entry-file-notice-asks-for-a-read-past-its-budget-and-ships-as-core-do-the-persons-two.md),
+decision 1)*; what else the regime asks stays this tree's.
 
 Evidence: [rule failure 34](../rule-failures.md), its occurrence struck 2026-10-11 — a session
 reasoned from v71 while others moved the file to v79, and decided alone under a rule already

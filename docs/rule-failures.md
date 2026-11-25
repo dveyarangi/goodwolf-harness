@@ -109,7 +109,9 @@ what was said. Nothing between a relay and a record reads the person's own messa
 session has before the person, on whether a receiver acts on relayed words or reads them where
 they were said; sent there.
 
-**Disposition:** open — with that question.
+**Disposition:** closed 2026-11-24 — the person answered that question "(а) по цитате", and it
+landed in the rule of roles: what the person tells one session for another's zone goes on quoted
+word for word, and a holder without a quote asks for one.
 
 ## A scrub changed bytes whose digests other records hold, and went past the files it was allowed — 2026-11-20
 
