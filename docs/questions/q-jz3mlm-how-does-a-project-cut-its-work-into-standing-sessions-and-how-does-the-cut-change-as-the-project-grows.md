@@ -173,4 +173,35 @@ What the case shows that no decision here says:
 - **What a recipient writes locally while core's part on roles is unbuilt** is asked a second
   time; [the journal](../research/standing-sessions-journal.md), step 16, holds the first.
 
+**What its person decided, the same day** - as that tree's harness session relays it, not read at
+its source: five roles. The three above, and two the person gave directly, against the keeper's
+view that neither earns a role yet: one for release and the running system, one for a single body
+of the product's work. The harness's role alone writes the local rules, finds a home for what no
+zone names and recommends on roles, the person deciding; work in two zones goes where the result
+lands; a row bears the role's title, over the session mechanism's rule on a row's name. Its rules
+on roles are marked to go when core carries its own.
+
+**What a fresh agent found in core's text there**, tried on eleven cases at ed0f4e1d. The first
+three the keeper read again in today's `sessions.py` and the conclude skill, and they hold:
+
+- A role is not handed over the same day while its holder lives: a name passes only from a row
+  silent three hours, and dropping the name frees it at once and leaves the position and the held
+  unit on the old row, so "takes, with the name, the question its predecessor stood on and the
+  work it held" has no path.
+- The conclude refuses a role's session and runs nothing below, so the chat that ends leaves no
+  record for its successor, and no rule names one to write or to read.
+- A named row reads running through any silence, so "where no session holds the role" hardly
+  ever holds.
+- Reported and not read further by either session: the entry file's *Self-improvement* has the
+  finder land the amendment, against one role writing the rules; the rule on drift has whoever
+  meets it in nobody's work repair it, and names no zone; "the person's word" in the rule on
+  another session's unit does not say whether a standing leave counts; the rule on messages and
+  its shelf name no kind for a finding in another's zone.
+
+The whole accepted on 2026-11-25 in
+[q-mvd4pi](q-mvd4pi-how-does-a-session-take-on-a-standing-role-learn-it-and-hand-it-on-so-the-role-outlives-any-one-chat.md)
+answers the first three in words - a role is taken for a piece of work and let go at its closing -
+and none of it is built. The limit on who writes the rules is, by the whole of 2026-11-17, written
+in a recipient's own rules, never in core's.
+
 Material for the roles' review.
