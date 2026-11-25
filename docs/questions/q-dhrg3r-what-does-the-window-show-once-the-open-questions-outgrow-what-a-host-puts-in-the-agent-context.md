@@ -4,7 +4,7 @@
 - **part of** q-2hilby
 - **state** open
 - **rung** self-improvement: the method, development: load-bearing
-- **lean** 2026-11-24, the agent's proposal agreed to by the person: the path, the children of each question on it in a short line, and what must be acted on; the rest on request; not built
+- **lean** 2026-11-24, the agent's proposal agreed to by the person and built (9e37df11): the path, the children of each question on it in a short line, and what must be acted on; the rest by --tree; open: the wake, cut by the same cap, and the window the wake remembers as drawn
 - **opened** 2026-11-24T17:36:48Z
 - **struck** 0, last 2026-11-24T17:36Z
 
@@ -24,10 +24,10 @@ Decisions 26, 29 and 33 of
 said to be bounded by attention; and "open questions outgrowing the window is a steering signal, not
 a search failure". Decision 28 refused a candidate search over the glossary's terms.
 
-## The agent's proposal, not decided
+## The agent's proposal
 
 The path; the children of each question on it, a line each without its lean; what must be acted on
-now, first; the rest by `--window --full`. No search. Why one root holds over two hundred open
+now, first; the rest on request. No search. Why one root holds over two hundred open
 questions is the steering the signal asks for, apart from the window's form.
 
 ## Decisions
@@ -38,12 +38,14 @@ questions is the steering the signal asks for, apart from the window's form.
    under the current root. Not: a search, withdrawn by the agent against decisions 28 and 29; nor the
    2 KB the agent named as the room: a host shows whole what stays under its cap, 10,000 characters
    on Claude Code, and this tree's window without the root's list and the children's leans is 6,326
-   of 60,741, measured the same day.
+   of 60,741, measured the same day. → [questions.md, Delivery](../../.agents/mechanisms/questions/questions.md)
+   (9e37df11), the rest by `--tree q-N`.
 
 Seen at the first chat that cleared itself, 2026-11-25: the first message's hook said "window unchanged
 since your last one" to a context that held only the wake's cut head, since the window remembers by the
-session's tag and the clearing kept the tag. Named to the person before the clearing, and not built; the
-agent read the saved file, which nothing told it to.
+wake, which draws this session's window whole and remembers it as drawn, however much of it the host shows
+the agent. Named to the person before the clearing, and not mended; the agent read the saved file, which
+nothing told it to.
 
 Not settled by it: what must be acted on beyond what the window shows today, which waits on
 [q-2ng6nb](q-2ng6nb-which-session-puts-a-question-that-asks-the-person-and-how-is-it-known-that-it-was-put.md);

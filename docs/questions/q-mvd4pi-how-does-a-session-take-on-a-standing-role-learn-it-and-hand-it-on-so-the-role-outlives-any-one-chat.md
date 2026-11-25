@@ -58,7 +58,7 @@ idle, a full reader that one case could not justify.
 
 **Next.**
 1. The trial ran; its verdict is below. Waiting on the person: whether a chat that clears itself is the
-   check's *next session* ([q-p4mcme](q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md), decision 4), the agent's reading yes; a second trial, on a unit
+   check's *next session* (decision 13), the agent's reading yes; a second trial, on a unit
    at `/implement`'s middle, is owed before A4 is said to be met.
 2. Put to the person, the trial passed: the whole rewritten without letters, *What falls* and *What stays*
    below; *Where it stands* and the judge's marks are rewritten to it, not before.
@@ -75,6 +75,25 @@ person's words of 2026-11-25; how fast a role eats its window, [q-ziw66h](q-ziw6
 **Waiting on the person.** After the trial the whole; the line of
 [q-cn7gef](q-cn7gef-which-kinds-of-record-are-written-through-the-server-and-which-travel-with-the-code.md) and the register's place; [q-ixlyj2](q-ixlyj2-how-does-a-session-hold-a-ticket-with-no-question-behind-it.md),
 no hurry, no such ticket exists.
+
+**For the rewrite of the whole**, read off by the maintenance pass of 2026-11-25 (sweep 26dd3dba..2490febf),
+none of it mended. *What it overturns* does not name: q-zxnc6y decisions 1 and 4; q-7ebz2f 10's clause on
+the session record, listed there as kept; `.agents/glossary.md`:152; session.md:1, 11, 42, 104, 155;
+`/conclude`:19; `sessions.py`:12-14; the 01-0090.0020 plan's *Decided by the person* (:167, :174); the
+tickets 01-0090.0010 (:50, :82), 01-0090.0020 (:28, :64), 01-0090.0030 (:37). Some narrow earlier words of
+the person and go to them. q-g6lj7m is marked overturned in decisions 1 and 2 where the whole says 1 to 3,
+its accepted *Where it stands* unmarked. The default session at install, overturned here, is marked at
+q-ja5mp4:216 only, and not at its :101, :235, :291, nor in 01-0090 (:48, :65), the 01-0090.0020 ticket
+(:103) and plan (:289), and the 01-0090.0010 plan (:270). L13's Голос trails in the cut's plan, :221, "seven
+roles on six sessions". The private wording q-ja5mp4:522-525 stays near to is to be read beside
+[q-p4sdnv](q-p4sdnv-what-is-an-agent-role-and-which-mechanism-keeps-roles.md)'s paraphrase.
+
+**Due, not mended, for the mechanism's next opening:** the questions skill's call table without `rung`, its
+"drawn before every message" against Cursor, `MESSAGES.md`'s two missing items of S10, its 🧭 row "in every
+reply" against v143 (told to Хранитель); the tickets' decisions 26 and 33 of 01-0011.0100, which Практика
+holds; the bare-commit refusal in session.md:114 and :170, a trial stated as a rule, read 2026-12-08;
+questions.evidence.md, whose window test has no rerun found after 0271f182 and 1262601d; RFC
+01-0010.0250.0110:223 against q-c2qp5n decision 1.
 
 **Not for now, and whose.** *How the wake sees what hangs on a role*: the mark with an addressee was
 dropped for the folder, and the folder by the person's last thought; [q-2ng6nb](q-2ng6nb-which-session-puts-a-question-that-asks-the-person-and-how-is-it-known-that-it-was-put.md) builds its
@@ -258,8 +277,8 @@ what of it needs judgement:
 | *Where it stopped*, at the head of the unit's record: the person's last words, the next steps, what waits on the person, what is not for now and whose | hand, its four slots made up | a form, and a check that the unit's record bears one newer than the session's last clearing |
 | what is in doubt marked at its place, so that the next does not build it | judgement | the form's fifth slot |
 | nothing own uncommitted, nothing of its own running | hand | a rule; a script cannot tell whose a changed file is |
-| cleared | the app's call | untried |
-| on opening, the stop read first, and what was missing written | untried | the recall's rule |
+| cleared | the app's call | tried 2026-11-25, *The first trial's verdict* |
+| on opening, the stop read first, and what was missing written | tried the same day, by the position on the row, nothing in `/recall` leading there | the recall's rule |
 
 The text of it, in `/conclude` and `/recall`, is drafted through `/skill-up` after the trial shows what of this
 is missing or idle, and the stop's form is declared with it. The journal of the way of working is the
@@ -638,7 +657,7 @@ The role's chat that clears itself leaves one chat where each piece of work woul
    the zone's role is the session's; a task in no zone is worked with no role.
 3. **A role is taken for one piece of work** — the agent's wording, agreed by the user, 2026-11-24:
    "согласен с ролью на одно дело, но вопрос хотим ли мы это жестко енфорсить или рекоммендовать".
-   Held or advised is open. It overturns, with the whole's re-acceptance, that a role's session is
+   Held or advised: decision 5. It overturns, with the whole's re-acceptance, that a role's session is
    never concluded ([q-g6lj7m](q-g6lj7m-who-ends-the-session-of-a-role-if-not-its-conclude.md), decisions 1 and 2) and that its row outlives its sleep
    ([q-q5i2um](q-q5i2um-how-does-the-row-of-a-session-that-holds-a-role-outlive-its-sleep-and-when-does-it-end.md)); the person was told of both with the proposal.
 4. **What a session leaves: the work, the leftovers and the rules, each in its own home; no note of
