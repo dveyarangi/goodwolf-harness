@@ -55,7 +55,7 @@ person first orders the work; a tree with none has no order yet.
 | drawing the work for the person | `.agents/skills/pathfinder/BOARD.md` | |
 | adding or removing a part that orders the work | `.agents/skills/pathfinder/SKILL.md` | |
 | showing the path at a wake | — | elsewhere — the wake is the session mechanism's, `.agents/skills/recall/SKILL.md` |
-| the path standing its candidates by the roadmap's order | — | <straw-dog question="q-huss2x">not yet</straw-dog> |
+| the path printing the roadmap's rows before its candidates | — | <straw-dog question="q-huss2x">elsewhere — `questions.py`, until this mechanism draws the path itself</straw-dog> |
 | installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
 | removing this mechanism from a tree | — | <straw-dog question="q-qzeuf3">not yet</straw-dog> |
 
@@ -90,8 +90,8 @@ Nothing else kept: no rules file, no index.
 
 ## Not yet at the shape
 
-**Two `not yet` rows**: the path standing its candidates by the roadmap, bound to the path's
-question; removal, bound to the harness's removal question.
+**One `not yet` row**: removal, bound to the harness's removal question. <straw-dog question="q-huss2x">The
+path is drawn by the question store's script, not by this mechanism.</straw-dog>
 
 ## What retires this
 
