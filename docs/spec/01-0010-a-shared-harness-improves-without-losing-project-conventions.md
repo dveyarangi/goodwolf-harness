@@ -3,7 +3,7 @@
 **Status:** Draft for alignment — not an approved implementation specification.
 **Owning work:** [Shared-harness ticket](../tickets/01-0010-a-shared-harness-improves-without-losing-project-conventions.md).
 
-This draft gathers agreed requirements and exposes unresolved behavior. The ticket owns deliberation and decisions; the [process](../process.md) owns the current working rules. Recommendations below are labelled separately from agreed requirements.
+This draft gathers agreed requirements and exposes unresolved behavior. The ticket owns deliberation and decisions; the [entry file](../../AGENTS.md), the skills and the [local rules](../../local.rules.md) own the current working rules. Recommendations below are labelled separately from agreed requirements.
 
 ## Problem Statement
 
@@ -92,7 +92,7 @@ routing are that mechanism's, and `/align` keeps the unresolved decisions)*. Do 
 
 At any downstream stage, a newly exposed missing agreement returns to its owning spec or architecture decision; an overlarge ticket returns to decomposition. Preserve the originating issue and valid work, mark the dependent work as waiting, and resume it after resolution. The same stage may continue if the finding only concerns an implementation-local choice.
 
-A HITL ticket may capture work before its shape is understood; investigation can reveal a spec with multiple delivery tickets. Preserve the originating issue and decision history when its work changes shape. HITL, decomposition maturity and artifact role must not be treated as the same state. The exact ticket-to-spec transition and general spec gate remain open; architecture change alone is a candidate to assess with `/impact`, not an adopted automatic trigger. The [pacer idea](../pacer.md) owns the proposed unit-of-work definition and live step-size hypothesis.
+A HITL ticket may capture work before its shape is understood; investigation can reveal a spec with multiple delivery tickets. Preserve the originating issue and decision history when its work changes shape. HITL, decomposition maturity and artifact role must not be treated as the same state. The exact ticket-to-spec transition and general spec gate remain open; architecture change alone is a candidate to assess with `/impact`, not an adopted automatic trigger. The pacer's step-size hypothesis is carried in [q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md#evidence--what-the-pacer-held-carried-from-docspacermd-2026-11-22); the proposed unit-of-work definition was removed 2026-11-22 (its decision 3).
 
 Natural-language capture triggers belong in the chosen entry skill's Tier 1 description and routing contract; detailed selection lives in Tier 2. Verify discovery and representative paraphrases on each supported host. A description containing the right phrase is not proof that the host delivered it or that an agent routed the request correctly. No new `/step` or `/decompose` skill is selected: additional names require a distinct responsibility and concrete examples that existing boundaries cannot serve.
 
@@ -129,7 +129,7 @@ What comes next is the path's reading, shown at every `/recall`. Bootstrap suite
 
 ## Delivery-ring breakdown — 2026-09-06
 
-Parent of this `/ticket` pass: the agreed loop-completion requirement (story 11 and [Harness loop on itself](#harness-loop-on-itself--agreed-2026-09-06)), not the unaccepted rest of this draft. [01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md) is a different contract. **Minted 2026-09-06.**
+Parent of this `/ticket` pass: the agreed loop-completion requirement (story 11 and [Harness loop on itself](#harness-loop-on-itself--agreed-2026-09-06)), not the unaccepted rest of this draft. [01-0020](../tickets/done/01-0020-each-turn-knows-its-next-step.md) is a different contract. **Minted 2026-09-06.**
 
 ### Impact
 
@@ -137,7 +137,7 @@ Parent of this `/ticket` pass: the agreed loop-completion requirement (story 11 
 
 **Hidden edges.** `/maintain` has no source file (denoise + sync-arch plus the `<temporary>` enumerator); composition is still open on 0010. `/implement` and `/verify` still name `/tdd`, `/improve-comments`, `/review-impl`, `/sync-arch`; adapt per slice. The rest of this draft (principles, distribution, local overrides) is not accepted and is not sliced here.
 
-**Leave alone.** [01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md), `/edge`, `/recall`, the remaining selected corpus, spec acceptance.
+**Leave alone.** [01-0020](../tickets/done/01-0020-each-turn-knows-its-next-step.md), `/edge`, `/recall`, the remaining selected corpus, spec acceptance.
 
 **Recommendation.** Proceed, narrowed to the four ring skills.
 

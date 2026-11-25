@@ -6,10 +6,7 @@
 - The skills through the loader link `.claude/skills` → `../.agents/skills`.
 - The hooks in `.claude/settings.json`, merged from the shelf
   `.agents/skills/questions/hooks/.claude/settings.json`: `SessionStart` and `UserPromptSubmit`,
-  each launching `.agents/scripts/gw/hook.sh` as `gw-hook claude-code`; `PreToolUse` on `Bash`
-  and `PowerShell` as `gw-hook claude-code before-tool`, where only a command naming `commit`
-  starts the interpreter and the store's hook denies a `git commit` that names no paths (S5) —
-  0.5 s a command, 1.7 s a commit, measured 2026-11-22 on Windows.
+  each launching `.agents/scripts/gw/hook.sh` as `gw-hook claude-code`.
 - The host's row `claude-code` in `HOSTS`, `.agents/scripts/gw/questions.py`: `session_id`, and
   the desktop app's `CLAUDE_CODE_HOST_SESSION_ID`, read first where it is set, since the app gives
   a resumed conversation a new `session_id` and keeps its own id; the terminal keeps the
@@ -73,7 +70,14 @@
   filled from the most recent, so an older skill can be dropped; `PreCompact`, `PostCompact` and
   `SessionStart` with source `compact` carry `session_id`
   ([skills](https://code.claude.com/docs/en/skills), quotes checked, 2026-10-24).
-- **Entry notice** — unobserved. Documented, read 2026-11-22: `CLAUDE.md` is loaded at launch and
+- **Entry notice** — observed 2026-11-24, desktop app, session `1981de0e`, which did not build
+  it: two hand edits of the entry file at 19:26:28Z came eight seconds later with the next
+  message, another session's, as two passages, each as it was and as it is now, both exact; the
+  installer rewrote a block of the file at 19:27:07Z, and the person's next message, at 21:27Z,
+  carried that one passage, exact; the three messages after it carried none. The host compacted
+  the context on that same message, after the hook had run, so a change made before a compaction
+  was shown at it. Not seen: a fresh chat's first message, and a notice cut short.
+  Documented, read 2026-11-22: `CLAUDE.md` is loaded at launch and
   after a compaction *re-injected from disk*, which the line takes as the context holding the file
   as it stands ([context window](https://code.claude.com/docs/en/context-window.md),
   [memory](https://code.claude.com/docs/en/memory.md)); a hook's output past 10,000 characters is

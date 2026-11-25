@@ -191,6 +191,9 @@ class Entry:
     # it neither open, deferred nor suspect, and none of them depended on by a question held open.
     # Set by the reader over the whole store; a closed question stays where it is.
     archived: bool = False
+    # The lines among the parts that no part holds, each with its number: writing the entry would
+    # drop them, so a call that would is refused.
+    unheld: tuple[tuple[int, str], ...] = ()
 
     @property
     def state(self) -> re.Match[str] | None:
@@ -555,6 +558,7 @@ def _read(name: str, text: str) -> tuple[Entry, list[Diagnostic]]:
     parts: dict[str, Part] = {}
     last: str | None = None
     body = ""
+    unheld: list[tuple[int, str]] = []
     carries_former_mark = False
     for number, line in enumerate(lines[1:], start=2):
         if last is not None and not line.strip():
@@ -570,8 +574,10 @@ def _read(name: str, text: str) -> tuple[Entry, list[Diagnostic]]:
                 )
             elif last not in PARTS:
                 problems.append(Diagnostic(name, number, f"`{last}` is not a part of an entry"))
+                unheld.append((number, line))
             elif last in parts:
                 problems.append(Diagnostic(name, number, f"`{last}` is written twice"))
+                unheld.append((number, line))
             else:
                 parts[last] = Part(bullet.group(2).strip(), number)
         elif last in parts and _CONTINUATION.match(line):
@@ -579,7 +585,8 @@ def _read(name: str, text: str) -> tuple[Entry, list[Diagnostic]]:
             parts[last] = Part(f"{joined.value} {line.strip()}", joined.line)
         elif line.strip():
             problems.append(Diagnostic(name, number, "holds a line that is not one of its parts"))
-    read = Entry(name, title.group(1) if title else None, title.group(2) if title else "", parts, body)
+            unheld.append((number, line))
+    read = Entry(name, title.group(1) if title else None, title.group(2) if title else "", parts, body, unheld=tuple(unheld))
     return read, (
         problems
         + _state_problems(read)
@@ -1089,6 +1096,7 @@ class Store:
     it. Ids still resolve over every entry, finished ones included.
     """
 
+    root: Path
     index: dict[str, Entry]
     children: dict[str, list[Entry]]
     roots: list[Entry]
@@ -1154,7 +1162,7 @@ def read_store(root: Path, seen: dict[str, bytes] | None = None) -> Store:
             children.setdefault(read.parent, []).append(read)
     index = {read.identity: read for read in entries if read.identity}
     roots = [read for read in live if read.parent is None or read.parent not in index]
-    return Store(index, children, roots, rows)
+    return Store(root, index, children, roots, rows)
 
 
 def due(root: Path, read: Entry) -> bool:
@@ -1193,14 +1201,16 @@ def successor(index: dict[str, Entry], read: Entry) -> Entry | None:
 def window(root: Path, tag: str, full: bool = False) -> str:
     """What the agent reads before placing a message: the session's position and what is near it.
 
-    It prints position, never relevance — it has no idea what the message says. The rendering is
-    the one the window test in the mechanism's evidence measured, with each line's state and lean
-    added; a change to it reruns that test.
+    It prints position, never relevance — it has no idea what the message says. It holds the path,
+    the children of each question on it and what must be acted on, and no more, since a host shows
+    the agent whole only what stays under its cap; what stands deeper is `--tree`'s, drawn under the
+    one question a message leads to. The rendering is measured by the window test in the
+    mechanism's evidence; a change to it reruns it.
 
     Every window drawn stays in the conversation, so one is drawn only when something moved: when
     neither this session's position nor any entry changed since the last one, a single line says
     so (parent decision 44). Another session's position alone is not a change; a unit held, or
-    taken from this session, is.
+    taken from this session, is. `full` draws it all the same.
 
     Either form ends with the counters, since a ticket or a straw dog moves while no entry does.
     """
@@ -1359,7 +1369,9 @@ def _drawn(store: Store, held: sessions.Session) -> str:
         return _without_position(store, held)
     path = store.path(held.current)
     return "\n".join(
-        [f"session: {held.tag}", f"current: {held.current}"]
+        [f"session: {held.tag}"]
+        + _name_lines(held)
+        + [f"current: {held.current}"]
         + _own_unit_lines(store, held)
         + [""]
         + _path_lines(path)
@@ -1392,14 +1404,21 @@ def wake(root: Path, now: datetime, tag: str | None = None) -> str:
 
 
 def _wake_read(root: Path, held: sessions.Session, header: str, now: datetime) -> str:
-    """What keeps coming back, who else is running and where, what waits to be re-read, and this
-    session's window drawn whole. An ended session is nobody's business at a wake."""
+    """Where this session itself stands, what keeps coming back, who else is running and where, what
+    waits to be re-read, and this session's window. An ended session is nobody's business at a wake.
+
+    Its own name, question and unit come first: a host may show an agent the read's head alone, and a
+    chat cleared or compacted knows none of them."""
     store = read_store(root)
     live = sorted((read for read in store.index.values() if not read.archived), key=_order)
     others = [other for other in store.sessions if other.running and other.tag != held.tag]
     deferred = [read for read in live if read.kind == "deferred" and "answer" in read.parts]
     return "\n".join(
-        [header, ""]
+        [header]
+        + _name_lines(held)
+        + [f"current: {_position(store, held.current)}"]
+        + _own_unit_lines(store, held)
+        + [""]
         + _section("most struck, open:", [f"  {_line(read)}" for read in _most_struck(live)])
         + _asking_section(store, live, others)
         + _section("sessions:", [f"  {sessions.state(other)}{_holding(store, other)}" for other in others])
@@ -1430,10 +1449,10 @@ def _asking_section(store: Store, live: list[Entry], others: list[sessions.Sessi
 
 def _whose(store: Store, read: Entry, others: list[sessions.Session]) -> str:
     """The running session whose work holds the question — it stands on it or above it, or holds
-    it or a question above it — or nothing."""
+    it or a question above it, the unit open — or nothing."""
     above = {each.identity for each in _ancestry(store.index, read.identity or "")}
     for other in others:
-        if other.current in above or (other.holds and other.holds in above):
+        if other.current in above or (other.holds in above and store.index[other.holds].open):
             return f" — in {other.tag}'s work"
     return ""
 
@@ -1456,10 +1475,11 @@ def _most_struck(live: list[Entry]) -> list[Entry]:
 
 # --- the path -----------------------------------------------------------------------------------
 
-# TODO q-huss2x: the path is the pathfinder's, drawn here while that mechanism is undeclared.
+# TODO q-huss2x: the path is the pathfinder's, drawn here until its mechanism draws it.
 AHEAD_READY = 5
 AHEAD_STRUCK = 3
 AHEAD_LATELY = 5
+NO_STATUS = "unread — no ticket here carries a status"
 _TICKET_ID = re.compile(r"^(\d\d-\d{4}(?:\.\d{4})*)-")
 _FIRST_ID = re.compile(_ID)
 
@@ -1467,11 +1487,11 @@ _FIRST_ID = re.compile(_ID)
 def path_ahead(root: Path, now: datetime) -> str:
     """The path read from the records as they are, for the agent to tell the person: the work in
     hand, the questions touched lately with no ticket, the candidates at the next boundary each
-    with its reasons, and how the roots balance. A reading, written nowhere, so two sessions read
+    with its reasons and the running sessions beside it, and how the roots balance. A reading, written nowhere, so two sessions read
     one path; it ranks nothing, no order among the candidates being written yet, and compares
     no count with the project's limit on work in hand, which the agent reads from the entry file.
     """
-    # TODO q-ojs4jd: the order, once the product roadmap gives one.
+    # TODO q-huss2x: the order, once the roadmap's rows hold one.
     if not (root / STORE).is_dir():
         return "path: no question store here"
     return "\n".join(["path:", *_ahead_lines(root, now)])
@@ -1484,12 +1504,18 @@ def _ahead_lines(root: Path, now: datetime) -> list[str]:
         *ahead.in_work(),
         *ahead.touched_lately_lines(lately),
         "  ready, in id order, none ranked above another:",
-        *_or_none(line for ticket in ahead.ready()[:AHEAD_READY] for line in ahead.ticket_lines(ticket)),
+        *ahead.ready_lines(),
         "  most struck, no ticket, past those touched lately:",
         *_or_none(line for read in ahead.most_struck(lately)[:AHEAD_STRUCK] for line in ahead.question_lines(read)),
+        *_left_out(len(ahead.most_struck(lately)), AHEAD_STRUCK),
         "  roots:",
         *ahead.roots(),
     ]
+
+
+def _left_out(found: int, shown: int) -> list[str]:
+    """A list cut short says how many it left out, so a part is never read as the whole."""
+    return [f"    and {found - shown} more"] if found > shown else []
 
 
 def _or_none(lines) -> list[str]:
@@ -1528,6 +1554,8 @@ class _Ahead:
         """The tickets In progress with none under them In progress: a parent is in progress
         because a child is, and is counted once, through the child."""
         # TODO q-b3myg2: sessions in the ring count too once the store can tell them.
+        if self._status_kept_elsewhere():
+            return [f"  in work: {NO_STATUS}"]
         going = [ticket for ticket in self.tickets if _status_of(ticket) == "In progress"]
         ids = [_ticket_id(ticket) for ticket in going]
         leaves = [ticket for ticket in going if not any(other.startswith(f"{_ticket_id(ticket)}.") for other in ids)]
@@ -1549,16 +1577,26 @@ class _Ahead:
             f"    {read.question} — {read.identity} (struck {read.strike.count}, {read.strike.last:%Y-%m-%d})"
             for read in lately[:AHEAD_LATELY]
         ]
-        more = [f"    and {len(lately) - AHEAD_LATELY} more"] if len(lately) > AHEAD_LATELY else []
-        return [f"  touched lately, no ticket: {len(lately)}", *shown, *more]
+        return [f"  touched lately, no ticket: {len(lately)}", *shown, *_left_out(len(lately), AHEAD_LATELY)]
 
     # --- the candidates ---
 
     def ready(self) -> list:
         """The Ready tickets, in id order: none stands above another until the product's roadmap
         orders them."""
-        # TODO q-ojs4jd: stand them by the product roadmap once it exists.
+        # TODO q-huss2x: stand them by the roadmap's order, docs/roadmap.md, once its rows hold one.
         return [ticket for ticket in self.tickets if _status_of(ticket) == "Ready"]
+
+    def ready_lines(self) -> list[str]:
+        if self._status_kept_elsewhere():
+            return [f"    {NO_STATUS}"]
+        ready = self.ready()
+        shown = _or_none(line for ticket in ready[:AHEAD_READY] for line in self.ticket_lines(ticket))
+        return [*shown, *_left_out(len(ready), AHEAD_READY)]
+
+    def _status_kept_elsewhere(self) -> bool:
+        """Tickets there are, and none says its status: a board keeps it, and none is not a count."""
+        return bool(self.tickets) and not any(_status_of(ticket) for ticket in self.tickets)
 
     def open_work(self) -> "collections.Counter[str]":
         """How many open questions below a root reach each answer, through their own trace link or
@@ -1593,7 +1631,9 @@ class _Ahead:
         name where it bears one. A position on a root is over everything and says nothing."""
         found = []
         for held in self.running:
-            where = [self._relation(at, identity) for at in (held.current, held.holds) if at]
+            # A closed unit holds nobody, as the window's line of another session says.
+            unit = held.holds if held.holds in self.index and self.index[held.holds].open else None
+            where = [self._relation(at, identity) for at in (held.current, unit) if at]
             where = [relation for relation in where if relation]
             if where:
                 found.append(f"{held.name or held.tag} ({min(where, key=('on', 'under', 'over').index)})")
@@ -1711,19 +1751,10 @@ class Host:
     quiet: str
     # A message event whose answer reaches no agent: the session is only marked seen.
     signs_of_life: str | None = None
-    # The event before a tool runs, and how the host is told to refuse it.
-    tool_uses: str | None = None
-    refuse: Callable[[str, str], str] | None = None
 
 
 def _hook_specific(event: str, context: str, tag: str) -> str:
     return json.dumps({"hookSpecificOutput": {"hookEventName": event, "additionalContext": context}})
-
-
-def _deny(event: str, reason: str) -> str:
-    return json.dumps({"hookSpecificOutput": {
-        "hookEventName": event, "permissionDecision": "deny", "permissionDecisionReason": reason,
-    }})
 
 
 def _cursor_answer(event: str, context: str, tag: str) -> str:
@@ -1744,8 +1775,7 @@ HOSTS = {
     # rollback 2026-10-09, a reopening 2026-10-10) and keeps its own id for the conversation in
     # every process it starts; the terminal keeps the session id on resume, and sets no such id.
     "claude-code": Host(
-        "session_id", "CLAUDE_CODE_HOST_SESSION_ID", "SessionStart", "UserPromptSubmit", (), _hook_specific, "",
-        tool_uses="PreToolUse", refuse=_deny,
+        "session_id", "CLAUDE_CODE_HOST_SESSION_ID", "SessionStart", "UserPromptSubmit", (), _hook_specific, ""
     ),
     "codex": Host("session_id", None, "SessionStart", "UserPromptSubmit", ("PostCompact",), _hook_specific, ""),
     # Cursor's prompt hook can only allow or block, so its agent draws the window by the rule, and
@@ -1797,8 +1827,6 @@ def hook(root: Path, host_name: str, payload: str, now: datetime) -> str:
         if not event:
             # A host row leaves an event it lacks as None, so a payload naming none would match it.
             return ""
-        if event == host.tool_uses:
-            return _before_a_tool(host, event, sent)
         tag = _tag(host, sent)
         if event in host.compactions:
             sessions.forget_window(root, tag)
@@ -1879,15 +1907,6 @@ def _refuse_a_store_cut_short(root: Path) -> None:
         f"store. Clone into a shorter folder, or turn long paths on in Windows (`LongPathsEnabled`) and in Git "
         f"(`git config --global core.longpaths true`) and clone again."
     )
-
-
-def _before_a_tool(host: Host, event: str, sent: dict) -> str:
-    """A shell command that commits without naming its paths is refused, with S5's reason; any
-    other tool, or command, passes with nothing said and nothing written."""
-    command = (sent.get("tool_input") or {}).get("command")
-    if host.refuse and isinstance(command, str) and sessions.bare_commit(command):
-        return host.refuse(event, sessions.COMMIT_REFUSAL)
-    return ""
 
 
 def _noticed(context: str) -> str:
@@ -1980,7 +1999,7 @@ def _frontier_lines(store: Store, path: list[Entry]) -> list[str]:
     """Every child of every question on the path. A closed one is shown with its kind, so that a
     question asked again is seen as a reopening, and a deferral can be told from drift."""
     frontier = [
-        f"  under {read.identity}: {_line(child)}"
+        f"  under {read.identity}: {_short_line(child)}"
         for read in path
         for child in store.children.get(read.identity or "", [])
         if child not in path
@@ -1989,20 +2008,14 @@ def _frontier_lines(store: Store, path: list[Entry]) -> list[str]:
 
 
 def _root_lines(store: Store, path: list[Entry]) -> list[str]:
-    """The open questions of the current root, and its suspect entries wherever they sit in it:
-    open questions are bounded by attention within a root, closed ones are not."""
+    """How many questions are open under the current root, which the tree draws, and its suspect
+    entries wherever they sit in it."""
     root = path[0]
     below = store.under(root.identity or "")
     shown = path + [child for read in path for child in store.children.get(read.identity or "", [])]
+    opened = sum(1 for read in below if read.open)
     return (
-        _section(
-            f"open questions under this root ({root.identity}), with their parent:",
-            [
-                f"  {read.identity} (parent {read.parent}) {read.question}{_count(read)}{_lean(read)}"
-                for read in below
-                if read.open
-            ],
-        )
+        [f"open under this root ({root.identity}): {opened}; `--tree q-N` draws what stands under one", ""]
         + _section(
             "suspect under this root:",
             [f"  {_line(read)}" for read in below if read.suspect and read not in shown],
@@ -2026,6 +2039,11 @@ def _holding(store: Store, held: sessions.Session) -> str:
     return f", holding {unit}" if unit else ""
 
 
+def _name_lines(held: sessions.Session) -> list[str]:
+    """The name of a session that holds a role, which its context loses when it is cleared."""
+    return [f"name: {held.name}"] if held.name else []
+
+
 def _own_unit_lines(store: Store, held: sessions.Session) -> list[str]:
     """The unit this session holds, or the mark of one another session took over from it."""
     unit = _held_unit(store, held)
@@ -2043,7 +2061,7 @@ def _held_unit(store: Store, held: sessions.Session) -> str | None:
 
 def _elsewhere_lines(store: Store, held: sessions.Session) -> list[str]:
     others = [
-        f"  {other.tag} at {_position(store, other.current)} (last wrote {sessions.stamp(other.wrote)}){_holding(store, other)}"
+        f"  {other.tag} at {_position(store, other.current)} (last seen {sessions.stamp(sessions.last_seen(store.root, other))}){_holding(store, other)}"
         for other in store.sessions
         if other.running and other.tag != held.tag
     ]
@@ -2055,7 +2073,9 @@ def _elsewhere_lines(store: Store, held: sessions.Session) -> list[str]:
 def _without_position(store: Store, held: sessions.Session) -> str:
     """A session that has not placed itself yet: the roots to place it among, and who is where."""
     return "\n".join(
-        [f"session: {held.tag}", "current: none yet — the first `at` call places it"]
+        [f"session: {held.tag}"]
+        + _name_lines(held)
+        + ["current: none yet — the first `at` call places it"]
         + _own_unit_lines(store, held)
         + [""]
         + _section("roots:", [f"  {_line(read)}" for read in store.roots])
@@ -2064,7 +2084,11 @@ def _without_position(store: Store, held: sessions.Session) -> str:
 
 
 def _line(read: Entry) -> str:
-    return f"{read.identity} [{read.parts['state'].value}] {read.question}{_count(read)}{_lean(read)}"
+    return f"{_short_line(read)}{_lean(read)}"
+
+
+def _short_line(read: Entry) -> str:
+    return f"{read.identity} [{read.parts['state'].value}] {read.question}{_count(read)}"
 
 
 def _count(read: Entry) -> str:
@@ -2620,14 +2644,16 @@ class _Draft:
             self.changed.append(read.identity or "")
 
     def recheck(self, seen: dict[str, bytes]) -> None:
-        """Every entry the clauses change is as it was read, and every id they open is still free —
-        under any slug, since another session names its question in its own words."""
+        """Every entry the clauses change is as it was read and can be written whole, and every id
+        they open is still free — under any slug, since another session names its question in its
+        own words."""
         for identity in self.changed:
             if identity in self.new and _files_holding(self.root, identity):
                 raise Taken(f"{identity} was written by another session since this call read the store")
             if identity in self.new:
                 continue
             record = self.index[identity].record
+            refuse_a_loss(self.index[identity])
             now = (self.root / record).read_bytes() if (self.root / record).is_file() else None
             if now != seen.get(record):
                 raise Refused(f"{record} changed since this call read it; call it again")
@@ -2667,6 +2693,16 @@ def _files_holding(root: Path, identity: str) -> list[Path]:
         if folder.is_dir()
         for path in (*folder.glob(f"{identity}.md"), *folder.glob(f"{identity}-*.md"))
     ]
+
+
+def refuse_a_loss(read: Entry) -> None:
+    """An entry is written from its parts and its body, so a line among the parts that no part
+    holds would be dropped: the first one refuses the write, named."""
+    for number, line in read.unheld:
+        raise Refused(
+            f"{read.record}:{number} holds `{line.strip()}`, which no part of an entry holds and "
+            "writing the entry would drop; move it into the body or take it out, and call again"
+        )
 
 
 def _with(read: Entry, **changes: str | None) -> Entry:

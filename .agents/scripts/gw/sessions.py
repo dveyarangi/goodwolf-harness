@@ -564,14 +564,16 @@ def release(root: Path, tag: str, now: datetime) -> Session:
 
 
 def take_name(root: Path, tag: str, name: str, now: datetime) -> tuple[Session, str | None, str | None, str | None]:
-    """The session writes the name of the role it holds on its row; one name stands on one row, and
-    a name it bore before is dropped. A name another row bears passes to this chat with that row's
+    """The session writes its own name on its row, the one the person gave it, never a role's (S11);
+    one name stands on one row, and a name it bore before is dropped. A name another row bears
+    passes to this chat with that row's
     position and hold, a resume under a new id being the same conversation (S6): a unit this chat
     held is let go for it, where that row held one, and a mark of one taken from that row stays
     with the row it leaves, which ends nameless and holding nothing. Says from whom the name was
     taken, the unit let go and the name dropped. Bearing it already writes nothing. Refused,
     writing nothing: a name out of the row's form, and a name on a running row seen within
-    `SILENT_AFTER`, so two live chats never share one role (the user, 2026-11-16, q-q5i2um)."""
+    `SILENT_AFTER`, so two live chats never share one name (the user, 2026-11-16, q-q5i2um; the
+    session's own name, the user, 2026-11-21)."""
     if not re.fullmatch(_NAME, name):
         _refuse(f"{name!r} is not a name a row can bear: words of letters, digits, hyphens and underscores, one space between each two")
     held_row = held(root, tag)
@@ -636,41 +638,6 @@ def _refuse_unless_a_unit(root: Path, index: dict, unit: str) -> None:
         _refuse(f"{unit} is closed, and a closed question is no unit")
     if "owner" not in entry.parts:
         _refuse(f"{unit} has no owner, so it is no unit: a unit is an open question the record of its work answers")
-
-
-# --- a commit names its paths (S5) ---------------------------------------------------------------
-
-COMMIT_REFUSAL = (
-    "S5: in a tree where other sessions run, the index is shared, and a commit that names no paths "
-    "takes whatever it holds. Commit with the paths named, `git commit -- <file>…`, each one this "
-    "session wrote or moved, and stage nothing ahead of it."
-)
-_QUOTED = re.compile(r"'[^']*'|\"(?:\\.|[^\"\\])*\"")
-_BETWEEN_COMMANDS = re.compile(r"&&|\|\||[;|\n{}()]")
-_SETTING = re.compile(r"^\w+=")
-_GIT_TAKES_A_VALUE = frozenset({"-c", "-C", "--git-dir", "--work-tree", "--namespace", "--exec-path"})
-
-
-def bare_commit(command: str) -> bool:
-    """Whether a shell command runs a `git commit` that names no paths after `--` — S5's refusal,
-    held where the agent's command passes the host. Quoted text is no command, so a message holding
-    ` -- ` or `git commit` counts for nothing; a command is one only where it starts a segment."""
-    unquoted = _QUOTED.sub("''", command)
-    return any(_commits_bare(segment.split()) for segment in _BETWEEN_COMMANDS.split(unquoted))
-
-
-def _commits_bare(words: list[str]) -> bool:
-    while words and _SETTING.match(words[0]):
-        words = words[1:]
-    if not words or words[0].rsplit("/", 1)[-1].rsplit("\\", 1)[-1].lower() not in ("git", "git.exe"):
-        return False
-    rest = words[1:]
-    while rest and rest[0].startswith("-"):
-        rest = rest[2:] if rest[0] in _GIT_TAKES_A_VALUE else rest[1:]
-    if not rest or rest[0] != "commit":
-        return False
-    after = rest[1:]
-    return "--" not in after or after.index("--") == len(after) - 1
 
 
 def _refuse(reason: str) -> None:

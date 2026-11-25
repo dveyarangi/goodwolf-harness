@@ -6,7 +6,7 @@ carries; the entry file's rule says when one is written.
 ## Whom
 
 The id its row gives, while the row reads running: the row decides, not how long the session
-has been silent. The row of a session that holds a role bears its name and reads running
+has been silent. The row of a session that holds a role bears its own name and reads running
 while the session sleeps, so it is written to asleep. A session whose row reads ended, named or
 not, is not written to: read what it left, then take the matter to the person.
 

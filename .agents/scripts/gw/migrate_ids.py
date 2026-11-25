@@ -117,6 +117,8 @@ def migrate(
     dotted = [read for read in entries if read.identity and _DOTTED.match(read.identity)]
     if not dotted:
         return None
+    for read in dotted:
+        questions.refuse_a_loss(read)
     table = _table_for(root, entries, dotted)
     pairs = [(read.record, _named(root, table[read.identity or ""], read.question)) for read in dotted]
     touched = _touched(root, pairs, table, left_alone)

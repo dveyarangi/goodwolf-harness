@@ -64,10 +64,11 @@ nothing loaded, and its edit is refused.
 - a row in `HOSTS`, `.agents/scripts/gw/questions.py`: the input field carrying the session id,
   the environment variable naming the conversation more steadily if the host sets one, the start
   event, the message event if the host's answer reaches
-  the agent, its compaction events, the function that writes its answer, and its quiet answer;
+  the agent, its compaction events, the function that writes its answer, its quiet answer, the
+  message event whose answer reaches no agent, if it has one;
 - its hook file's shelf under `.agents/skills/questions/hooks/`, at the path the host reads it
-  from, each entry launching `.agents/scripts/gw/hook.sh` as `gw-hook <host>` — the install merges
-  every shelf it finds there into the recipient's file of the same path, with no list to amend;
+  from, each entry launching `.agents/scripts/gw/hook.sh` as `gw-hook <host>` — the install merges every shelf it finds there into the recipient's
+  file of the same path, with no list to amend;
 - a loader link in `LINKS`, `.agents/scripts/gw/harness.py`, unless the host reads `.agents/skills`
   natively, and a stub like `CLAUDE.md` unless it reads `AGENTS.md` natively;
 - its hook cases in `.agents/scripts/gw/test/test_sessions.py`, and its merge in

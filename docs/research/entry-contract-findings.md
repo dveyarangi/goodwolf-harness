@@ -15,6 +15,40 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v143 — 2026-11-25
+
+**The decisions table is shown where such a turn changed it** — v142's sentence gains "save the ⚖️
+table where the turn changed what waits on the user". The person, the same day, on reading v142:
+"а, если ответ меняет список решений - показываем рамку решений, наверное? или всегда ее
+показываем?"; put as changed-only, always being the reprinting v142 removed, and accepted: "Да,
+вноси". Drafted through `/skill-up`; not tried on a fresh reader, the sentence it joins having
+been tried the same day and the clause landing as the person read it.
+
+## v142 — 2026-11-25
+
+**A reply to another session's message carries no table and no frame** — in *A paragraph shows
+what it stands on*, standing over S4's table of sessions and D3's of commits; text such a turn
+wrote is shown under its header in the next reply to the person. The person's words, to the
+store's session and sent on to the keeper word for word, read at their source: "надо передать кому
+надо что в ответе на сообщения других сессий не надо заново печатать шапку и решения и вообще все
+рамки". Landed on the quote with no showing first, as the rule of roles has it. Tried on a fresh
+reader before it landed: it dropped every table and the landed rule's frame in such a turn and
+showed the rule in the next reply to the person; a turn its own helper's return started kept the
+whole form, the sentence naming another session's message alone. Left by the text to judgement:
+the marks a paragraph ends with, which the reader kept.
+
+## v141 — 2026-11-24
+
+**A promise made in a reply is the straw dog's signal too** — in *Straw dogs*: *not yet*, *until*
+and their kin are the signal "in your own text, or in a reply about it". The person's thought,
+sent up from a production tree on 2026-11-24, where a session told them stopgap rules would go
+once core carried its own and wrote it nowhere; their word to the keeper the same day:
+"добваляй правило обещаний". The first draft added a second sentence of thirty words, written
+without `/skill-up`, and was refused for its size; read through the skill it became three words,
+", a reply included,". Tried on a fresh reader before it landed: those three caught the case and
+also fired on a reply's passing "for now" that concerns nothing written, so the words became "or
+in a reply about it" — six.
+
 ## v140 — 2026-11-21
 
 **A finding that a thing cannot be done is told with its ground and an offer** — beside *The
@@ -1264,7 +1298,7 @@ method glossary now defines **painted door**, with *place* and *path convention*
 
 **One core change:** the announce sentence now also says *start every session by running
 `/recall`, whatever the first message says*. Decided by the user on 2026-09-20 at
-[01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md)'s align, and the first of the pacer's core rules to land in
+[01-0020](../tickets/done/01-0020-each-turn-knows-its-next-step.md)'s align, and the first of the pacer's core rules to land in
 the entry file. The occasion is
 [rule failure 4](../rule-failures.md#4-the-wake-rule-sat-in-a-diagram-and-a-greeting-was-answered-with-a-greeting--2026-09-20):
 the loop diagram had said *wake with `/recall`* since v1, and on 2026-09-15 a session opened with

@@ -692,6 +692,16 @@ class ThePathAhead(RepositoryCase):
         self.assertNotIn("s-root", "\n".join(lines))
         self.assertNotIn("s-gone", "\n".join(lines))
 
+    def test_a_session_holding_a_closed_unit_is_beside_nothing_by_it(self) -> None:
+        self.a_tree()
+        self.write(f"{STORE}/q-0002.0002.0001-q.md", entry(
+            "q-0002.0002.0001", "Who closes a ticket?",
+            {"part of": "q-0002.0002", "state": "closed:moot", "answer": "nobody asks it"},
+        ))
+        self.write(SESSIONS, "s-done running 2026-09-29T11:00Z q-0003 holds q-0002.0002.0001\n")
+
+        self.assertNotIn("beside", "\n".join(self.under(self.path()[1], "ready")))
+
     def test_a_struck_question_names_the_session_over_it(self) -> None:
         self.a_tree()
         self.question("q-0002.0004.0001", "Does the path read twice?", parent="q-0002.0004")
@@ -735,6 +745,27 @@ class ThePathAhead(RepositoryCase):
         self.assertTrue(self.under(lines, "in work:")[0].strip().startswith("in work: 0 —"))
         self.assertIn("      serves unread · struck 4 · 0 straw dogs · unlocks —", lines)
         self.assertIn("    What is this project for? — q-0001: open 1, with a ticket 0, thin", lines)
+
+    def test_a_list_cut_short_says_how_many_it_left_out(self) -> None:
+        self.a_tree()
+        for n in range(10, 16):
+            self.question(f"q-0002.00{n}", f"Ready {n}?", parent="q-0002", owner=f"01-01{n}-ready")
+            self.write(f"docs/tickets/01-01{n}-ready.md", path_ticket(f"Ready {n}", "Ready", f"q-0002.00{n}"))
+            self.question(f"q-0003.00{n}", f"Struck {n}?", parent="q-0003", struck=(n, 40))
+
+        lines = self.path()[1]
+
+        self.assertEqual("    and 3 more", self.under(lines, "ready")[-1])
+        self.assertEqual("    and 4 more", self.under(lines, "most struck, no ticket, past those touched lately:")[-1])
+
+    def test_tickets_whose_status_is_kept_elsewhere_are_not_counted_as_none(self) -> None:
+        self.question("q-0001", "What is this project for?")
+        self.write("docs/tickets/01-0010-on-a-board.md", "# On a board\n\n- **Answers:** q-0001\n- **Outcome:** It works.\n")
+
+        lines = self.path()[1]
+
+        self.assertIn("  in work: unread — no ticket here carries a status", lines)
+        self.assertEqual(["    unread — no ticket here carries a status"], self.under(lines, "ready")[1:])
 
     def test_a_tree_with_no_store_has_no_path_and_passes(self) -> None:
         status, lines = self.path()
@@ -991,11 +1022,25 @@ class TheWindow(Rendered):
         self.assertIn("under q-0002: q-0006 [closed:deferred]", frontier)
         self.assertIn("under q-0004: q-0008 [closed:decided, suspect]", frontier)
 
-    def test_lists_the_roots_open_questions_with_their_parents(self) -> None:
+    def test_off_the_path_a_question_shows_no_lean_and_those_deeper_are_counted_and_drawn_by_the_tree(self) -> None:
+        self.place("q-0003-who-writes-it", "Who writes it?", {"part of": "q-0001", "state": "open", "lean": "the script"})
+
+        _, text = self.said("--window", "--session", "s-alpha")
+        _, under = self.said("--tree", "q-0003")
+
+        self.assertIn("under q-0001: q-0003 [open] Who writes it?\n", text)
+        self.assertNotIn("q-0007", text)
+        self.assertIn("open under this root (q-0001): 6; `--tree q-N` draws what stands under one", text)
+        self.assertIn("q-0007", under)
+
+    def test_a_root_of_hundreds_of_open_questions_leaves_a_window_a_host_shows_whole(self) -> None:
+        for n in range(300):
+            self.place(f"q-9{n:03}-one-of-many", f"One of many, the {n}th of them?",
+                       {"part of": "q-0003", "state": "open", "lean": "as it was said at length " * 12})
+
         _, text = self.said("--window", "--session", "s-alpha")
 
-        listed = self.section(text, "open questions under this root (q-0001), with their parent:")
-        self.assertIn("q-0007 (parent q-0003) Who moves a subtree?", listed)
+        self.assertLess(len(text), 10_000)
 
     def test_shows_a_suspect_anywhere_under_the_root_and_no_other_closed_entry_off_the_path(self) -> None:
         _, text = self.said("--window", "--session", "s-alpha")
@@ -1015,10 +1060,18 @@ class TheWindow(Rendered):
 
         self.assertIn("recently attached: q-0002, q-0001", text)
         others = self.section(text, "other running sessions:")
-        self.assertIn("s-beta at q-0010 How do sessions reach each other? (last wrote 2026-09-29T11:00Z)", others)
+        self.assertIn("s-beta at q-0010 How do sessions reach each other? (last seen 2026-09-29T11:00Z)", others)
         self.assertNotIn("s-gamma", others)
         self.assertNotIn("s-alpha", others)
         self.assertNotIn("next free id", text, "the script draws ids, so the agent is not handed one")
+
+    def test_says_when_another_session_was_last_seen_though_its_row_has_not_moved(self) -> None:
+        sessions.seen(self.root, "s-beta", datetime(2026, 9, 29, 13, 40, tzinfo=timezone.utc))
+
+        _, text = self.said("--window", "--session", "s-alpha")
+
+        others = self.section(text, "other running sessions:")
+        self.assertIn("(last seen 2026-09-29T13:40Z)", others, "a letter is for one awake, which its row does not tell")
 
 
 class TheCounters(Rendered):
@@ -1154,15 +1207,15 @@ class TheCount(Rendered):
 
         roots = self.section(text, "other roots:")
         self.assertIn("q-0010 [open] How do sessions reach each other? (struck 2)", roots)
-        listed = self.section(text, "open questions under this root")
-        self.assertNotIn("struck", next(line for line in listed.splitlines() if "q-0003" in line))
+        frontier = self.section(text, "frontier (children of each question on the path):")
+        self.assertNotIn("struck", next(line for line in frontier.splitlines() if "q-0003" in line))
 
-    def test_the_roots_open_questions_show_their_count(self) -> None:
-        self.strike("q-0007-who-moves-a-subtree", "Who moves a subtree?", 1, parent="q-0003")
+    def test_a_question_off_the_path_shows_its_count(self) -> None:
+        self.strike("q-0003-who-writes-it", "Who writes it?", 1, parent="q-0001")
 
         _, text = self.said("--window", "--session", "s-alpha", "--full")
 
-        self.assertIn("Who moves a subtree? (struck 1)", self.section(text, "open questions under this root"))
+        self.assertIn("Who writes it? (struck 1)", self.section(text, "frontier (children of each question on the path):"))
 
     def test_the_wake_reads_the_most_struck_open_questions_first(self) -> None:
         self.strike("q-0007-who-moves-a-subtree", "Who moves a subtree?", 1, parent="q-0003")
@@ -1175,6 +1228,10 @@ class TheCount(Rendered):
         ranked = self.section(text, "most struck, open:").splitlines()[1:]
         self.assertEqual(["q-0010", "q-0007"], [line.split()[0] for line in ranked])
         self.assertTrue(text.index("most struck, open:") < text.index("sessions:"), "it opens the read")
+
+    def test_the_wake_and_a_start_after_a_compaction_carry_the_short_window(self) -> None:
+        for text in (self.said("--wake", "--session", "s-alpha")[1], questions._started(self.root, "s-alpha", "compact", NOW)):
+            self.assertIn("open under this root (q-0001):", text)
 
 
 class TheTree(Rendered):
@@ -1757,6 +1814,29 @@ class TheBody(Declared):
         )
 
         self.assertTrue(any("not one of its parts" in problem for problem in self.problems()), self.problems())
+
+    def test_a_call_is_refused_where_writing_would_drop_a_line_the_parts_do_not_hold(self) -> None:
+        stem = "q-0007-who-moves-a-subtree"
+        whole = self.entry_text(stem)
+        state = next(line for line in whole.splitlines() if line.startswith("- **state** "))
+        for named, held in (
+            ("colour", "- **colour** blue"),
+            ("a line wrapped under it", "- **colour** blue\n  and green"),
+            ("written twice", "- **state** open"),
+            ("glued to the parts", "glued to the parts"),
+        ):
+            with self.subTest(held=named):
+                self.write(f"{STORE}/{stem}.md", whole.replace(state, f"{state}\n{held}", 1))
+
+                self.assertRefused("would drop", "lean", "q-0007", "a lean")
+
+    def test_another_entry_holding_such_a_line_holds_back_nothing(self) -> None:
+        stem = "q-0010-how-do-sessions-reach-each-other"
+        self.write(f"{STORE}/{stem}.md", self.entry_text(stem) + "glued to the parts\n")
+
+        self.called("lean", "q-0007", "a lean")
+
+        self.assertIn("glued to the parts", self.entry_text(stem))
 
     def test_a_hand_edit_to_the_body_meanwhile_refuses_the_call_and_keeps_the_edit(self) -> None:
         self.argue("q-0007-who-moves-a-subtree")

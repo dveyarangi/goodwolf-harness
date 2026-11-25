@@ -79,6 +79,6 @@ Recorded on the question, both impacts in its body.
 
 ## Next
 
-[01-0018.0010](../tickets/01-0018.0010-a-session-learns-the-entry-file-moved.md), Ready, AFK — a
+[01-0018.0010](../tickets/done/01-0018.0010-a-session-learns-the-entry-file-moved.md), Ready, AFK — a
 running session learns the entry file moved; then
 [01-0017.0040](../tickets/01-0017.0040-the-entry-file-has-a-section-per-owner.md), the sections.

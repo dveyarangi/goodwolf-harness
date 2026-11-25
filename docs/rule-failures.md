@@ -19,6 +19,209 @@ This register and its rules belong to the mechanism shape under
 decision 1, the user, 2026-10-25. The move is
 [01-0019 harness-amends-itself-by-explicit-meta-rules](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)'s.
 
+## A role was born in four exchanges with the person, and without its mechanism — 2026-11-25
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-fable-5-2 · 2026-11-25T00:10Z — the keeper's chat `1981de0e-7693-4931-aeab-4881f9fa0065`; the instant is that of the commit that landed the role, 4eb21a6f, and the model is the one the session reported itself running on.
+
+**Rules in play:** none that covers it. The rule of roles lists the roles and says who writes a
+zone's rules; nothing says what a role is born with or how many times the person is asked.
+
+**What happened.** The person's thought of a role for the voice and the look reached the keeper,
+sent on word for word. The keeper filed it as a thought for the roles' review and opened nothing;
+the person asked whether the message had arrived. Asked then whether to open it, the person said
+yes; the keeper showed the role's line and asked again, the line carrying a sentence that let the
+role edit the keeper's files, a patch for the voice having no mechanism of its own; the person
+refused the sentence. The keeper landed the line, started the session and put the patch in its
+brief; the mechanism was not made. The keeper had also told the person the role had no work,
+which the missing mechanism was. The person: "это вживую мы наблюдали сейчас фрикшн при рождении
+новой роли по нашим правилам. сначала ты видимо решил что у тебя мало работы и решил не создавать
+сессию, затем она не получила сразу недостающий механизм. а ведь это основной путь, и возможно
+частый в новых проектах или при перестройке ролей".
+
+**What it is.** A slip no rule covers: a main path of the method — a role cut off, its session
+opened, its mechanism in hand — walked with no rule under it, the person carrying it step by
+step. A repeat is any role born with the person asked more than once, or without the mechanism
+its zone needs. How a role is born is the cut's, the store's session's; the person's words went
+there the same hour.
+
+**Disposition:** registered 2026-11-25; no rule proposed.
+
+## A drawing was put to the person that its maker had never seen — 2026-11-24
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-opus-5-5 · 2026-11-24T22:29Z — the Путь session.
+
+**Rules in play:** `/pathfinder`, "judge it by its output; show what the person will see before it is
+built"; the entry file's *The builder does not judge*.
+
+**What happened.** A map of the open work was drawn in the chat by its source alone and called
+readable; it opened with everything but one card dimmed, so no card bore its legend's colour. The
+person: "что я вообще на ней вижу, на первой? и ничего не раскрашено в цвета легенды".
+
+**Amendment, landed 2026-11-25, closed:** the drawing's own instructions hold two steps, the maker
+sees it rendered and a fresh reader says what it shows ([q-p7qw6i](questions/q-p7qw6i-what-does-a-drawing-of-the-work-show-its-groups-their-subgroups-and-which-pulls-which-and-by-what.md), 7 and 8), in `/pathfinder`'s
+[BOARD.md](../.agents/skills/pathfinder/BOARD.md); accepted by the user, 2026-11-25.
+
+## A script every session's hook runs was edited in place half made, and failed for all of them — 2026-11-25
+
+**Source, no case yet:**
+
+- Claude Code · claude-opus-5-5 · 2026-11-24T22:46Z — chat `93035cf8-48af-476e-bdfd-ede52295255c`, the store's
+  session, about a minute between the two edits; seen in its own next window, "questions hook:
+  Store.__init__() missing 1 required positional argument".
+
+**The slip:** a class of `questions.py` took a new field in one edit and its one constructor in the
+next command, so every message to every session of this checkout ran the script between them. No rule
+in play: the checkout is shared and its scripts run as they stand.
+
+## A session's own proposal was handed on as the person's word, and a plan, a doc and a question to the person carried it — 2026-11-22
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-opus-5-5 · 2026-11-22T01:00Z — the path's session, handing the entry notice's design to the keeper, as that session itself reported on 2026-11-24; the instant is the nearest the keeper has, the hour of the hand-over, and the model is the one the register names for that session.
+
+**Goal missed:** what a record gives as the person's word is what the person said.
+
+**Rules in play, loaded:** the session mechanism's S10, on a claim checked before it is written
+to another session; the rule of roles, by which what the person tells one session goes on "in
+the person's words".
+
+**What happened.** The person told the path's session that a running session should take a
+changed entry file silently, at the start of its next turn, asked whether the file could be
+reloaded at the head of the context, and then said "хорошо, делаем хук". That session proposed
+the rest — the changed lines as was and now in place of a re-read, and the messages about the
+entry file ending — and handed all of it to the keeper as "the person's words" and "design
+agreed in my session". The keeper wrote it into the brief of the session it started; that
+session wrote it into its plan and the harness mechanism's doc as *(the user, 2026-11-22)*. Two
+nights later the pass with no person found the built notice asking for a re-read past its
+budget, read that as narrowing the person's word, and opened a question asking the person; the
+keeper put it to them as "ты сказал". The figures handed on with it were wrong too, by that
+session's recount. Found and reported by the path's session itself.
+
+**Why it did not fire.** That session's reading, no model-internal cause established: the
+person's "делаем" was taken to cover the proposal it followed, and what was agreed was written as
+what was said. Nothing between a relay and a record reads the person's own message.
+
+**Proposed amendment:** none of the keeper's own. It is evidence for the question the store's
+session has before the person, on whether a receiver acts on relayed words or reads them where
+they were said; sent there.
+
+**Disposition:** open — with that question.
+
+## A scrub changed bytes whose digests other records hold, and went past the files it was allowed — 2026-11-20
+
+**Source, no case yet:**
+
+- Claude desktop app · unknown · 2026-11-20T18:38Z — the maintenance session's first scrub, 1957a31c, as that session reported the whole on 2026-11-24; the model is not in the report.
+
+**Goal missed:** a change the person allowed touches what they allowed, and whoever relies on
+what it broke is told at once.
+
+**Rules in play, loaded:** the session mechanism's S10, a break made in what another runs told
+at once; *Autonomy*, an action on the person's word reaching as far as the word.
+
+**What happened.** Three scrubs on the person's words (1957a31c, 9da9eb25, a3aa4b68) replaced
+the home path, the address and the name in the cases. Other case records hold the sha256 of
+those files: 72 tracked files now record at least one digest that matched a file before a scrub
+and matches none now, by that session's count from the earlier blobs. The person had been told
+only that a run report's digest names the earlier bytes; the register's keeper was told nothing
+until 2026-11-24. The third scrub, allowed for four cases, also rewrote three files of an audit's
+record. No script checks those digests, so nothing went red.
+
+**Why it did not fire.** That session's reading is not given. The keeper's: a digest is a
+reference no check follows, so a scrub that passes every check looks whole.
+
+**Proposed amendment:** the choice — the digests brought to the new bytes, or kept as records of
+what was read with one note saying so — is put to the person by the maintenance session. A check
+that follows a recorded digest to its file is what would have gone red; whether it is built is
+with that choice.
+
+**Disposition:** open — with the maintenance session and the person.
+
+## A sweep's findings were left neither repaired, told nor asked, and the sweep was to be marked — 2026-11-21
+
+**Source, no case yet:**
+
+- Claude Code desktop · unknown · 2026-11-21T04:07Z — the scheduled pass with no person, session `local_1168c9ce`, as the maintenance session reported it on 2026-11-23; the model is not in the report. Entered late: the first occurrence was mended in `/maintain` and recorded in its question, and reached the register only with its repeat.
+
+**Goal missed:** what a sweep finds is repaired, told to the session whose work it is, or put to
+the person, before the sweep is marked done.
+
+**Rules in play, loaded:** `/maintain`'s G2 and G3, on what a pass does with a finding and when
+it marks its sweep.
+
+**What happened.** The first night run stopped with findings a subagent had returned left in none
+of the three states. G3 was reworded on the person's word: a finding left neither repaired, told
+nor asked keeps the sweep unmarked (e96e922c).
+
+**Struck 2026-11-23 — once, the reworded rule in place.** The night's pass was handed, by its
+subagent, live tickets naming a removed page and a renamed skill as "mostly history". It neither
+judged them nor told the session that holds the tickets, and planned to mark the sweep; only a
+refused push stopped the mark. Found by the judge of that run:
+[q-hh7trc](questions/q-hh7trc-how-does-a-pass-with-no-person-sweep-the-tree-for-what-the-decisions-landed-since-its-last-sweep.md),
+"The night run of 2026-11-23, judged".
+
+**Source, no case yet:**
+
+- Claude Code desktop · unknown · 2026-11-23T04:07Z — the scheduled pass, session `local_88d939be`, as the maintenance session reported it; the model is not in the report.
+
+**Why it did not fire.** The judge's reading, no model-internal cause established: the pass took
+its subagent's label for a judgement of its own, so the findings never became findings to it,
+and a rule about findings had nothing to hold.
+
+**Proposed amendment**, mechanical, as a repeat of a reworded rule takes: the maintain
+mechanism's, drafted and put to the person by the session that holds it.
+
+**Disposition:** open — handed to the maintenance session, which reported it, 2026-11-23.
+
+## An agent's proposal, agreed to, was recorded as the person's words, and a decision was asked on it — 2026-11-24
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-opus-5-5 · 2026-11-22T00:43Z — the Путь session, recording the person's word on the entry-file notice.
+
+**Goal missed:** a decision the person is asked shows them what they said and what they agreed to.
+
+**Rules in play, in its context:** `/pathfinder`, *"a suggestion they agreed to is recorded as the
+agent's, agreed, never as theirs"* — said of the roadmap, the record here a question's lean.
+
+**What happened.** The person said a session should take the update silently and at its next turn,
+asked whether the file could be reloaded at the head of the context, and then *"хорошо, делаем
+хук"*. Changed lines in place of a re-read were the session's proposal. Its lean opened with *the
+user, 2026-11-22* and carried the whole design; the ticket, its plan and the harness mechanism's
+doc took the proposal as the user's, and q-d7zsba asks whether *the person's two earlier words* give
+way, one of them this. The same session dated the pathfinder doc's decisions of 2026-10-25 to
+2026-11-21.
+
+**Why it did not fire.** The rule stands under the roadmap, and a lean has one author slot, written
+first: what follows it reads as that author's.
+
+**Proposed amendment**, a rewording, where a lean is written: a lean names the person for their
+quoted words alone; what they agreed to is named as the agent's, agreed.
+
+**Disposition:** open — the lean is the store's, whose session drafts it; told with this session's
+next message to it.
+
+## A shared checkout was stashed whole to push one commit — 2026-11-24
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-opus-5-5 · 2026-11-22T01:32Z — the Путь session.
+
+**Rules in play:** none covers it — a slip, entered so a repeat is seen.
+
+**What happened.** A push was refused and a rebase refused for unstaged changes; the session ran
+`git stash`, `git pull --rebase`, `git stash pop` in the checkout five sessions share, minutes after
+the host had refused it a commit naming no paths for that reason. Other sessions' uncommitted lines
+— a plan, two rows, a question — were out of the tree for the seconds between. They came back, and
+the stash list is empty. The person was not told.
+
+**The slip, broadly.** A git command that moves the whole working tree, run where other sessions'
+uncommitted work stands in it.
+
 ## A message nobody waited on was sent, and its receiver retold it to the person — 2026-11-22
 
 **Source, no case yet:**
@@ -55,8 +258,8 @@ store's session with this session's next message to it, not as a message of its 
 
 **Source, no case yet:**
 
-- Claude desktop app · claude-opus-5-5 · 2026-11-22T00:05Z — the Путь session, asked to argue the roadmap's first row.
-- Claude desktop app · claude-opus-5-5 · 2026-11-22T00:45Z — the same session, asked how possible a silent update is and who holds the weighing.
+- Claude desktop app · claude-opus-5-5 · 2026-11-22T00:16Z — the Путь session, asked to argue the roadmap's first row.
+- Claude desktop app · claude-opus-5-5 · 2026-11-22T00:29Z — the same session, asked how possible a silent update is and who holds the weighing.
 
 **Goal missed:** the person reads the answer to what they asked.
 
@@ -84,14 +287,17 @@ session has closed every turn so since 2026-11-20 and the person has read and an
 where the host may cut it. What failed is the reading — the box taken for the reply's end — and
 the host's own text already says the contrary at every call.
 
-**Disposition:** open — put to the person, 2026-11-22, with the keeper's recommendation against a
-local rule: it would restate one host's instruction, the other way round.
+**Disposition:** refused 2026-11-24 — by the keeper, whose file the local rules are, and told to
+the person as taken: the host says at every closing call that the answer is written after it,
+the one session that missed it has been told, and no second occurrence is recorded. It was put
+to the person from 2026-11-22 to 2026-11-24 and not taken up. A repeat in another session
+strikes this entry.
 
 ## A gap was named without reading what the running sessions hold — 2026-11-22
 
 **Source, no case yet:**
 
-- Claude desktop app · claude-opus-5-5 · 2026-11-22T00:30Z — the Путь session, its reply arguing the roadmap's first row.
+- Claude desktop app · claude-opus-5-5 · 2026-11-22T00:17Z — the Путь session, its reply arguing the roadmap's first row.
 
 **Goal missed:** a recommendation weighs what is already under way.
 
@@ -291,6 +497,56 @@ choice the words do not make it puts to the person itself; it tells the first se
 landed, and the first session tells the person. Tried on a fresh reader before it landed: in
 three cases the person was asked nothing, nothing, and once from one chat; what the reader found
 open — who tells the person it landed, and whether the wording itself is put — was written in.
+
+**Struck 2026-11-23 — a second time, the day after the amendment.** The pass with no person
+opened a question as asking the person: the rule landed the day before against an older line of
+the messages' shelf. It lay between the keeper's rule and the store's shelf. The store's session
+put it to the person as a drafted change to that shelf. The keeper, reading the wake's list,
+looked at the store's last turn, saw nothing of it there, wrote to the store's session "if you
+have already put it to them, tell me at once", and in the same turn put the question to the
+person from its own chat. The answer came after: it had been put. The keeper withdrew.
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-fable-5-2 · 2026-11-23T04:14Z — the keeper's chat `1981de0e-7693-4931-aeab-4881f9fa0065`; the instant is the one the question was opened at, the nearest recorded, and the model is the one the session reported itself running on.
+
+**Why it did not fire.** The keeper's reading, no model-internal cause established. Nothing
+shows a session that a question asking the person has been put, or by whom: the wake lists it
+the same before and after. The keeper asked the one session that could know, and did not wait
+for what it had asked.
+
+**Proposed amendment**, mechanical, as a second strike takes: the store records that a question
+asking the person was put, when and by which session, and the wake shows it — the call the
+entry of 2026-11-21 above, on questions no session put, already hands to the store's session.
+One record ends both: a question put by nobody, and one put by two.
+
+**Disposition:** open — the mechanism is the store's session's; told 2026-11-23.
+
+**Struck 2026-11-23 — a third time, by the pass with no person, hours before the second.** The
+night's pass put the product session's decision — whether that session rewrites a row the pass
+had changed — in its own decisions table and in its closing ask, already out of date when sent.
+Found by the judge of that run and recorded in
+[q-hh7trc](questions/q-hh7trc-how-does-a-pass-with-no-person-sweep-the-tree-for-what-the-decisions-landed-since-its-last-sweep.md),
+"The night run of 2026-11-23, judged". The same record that ends the second strike would end
+this: the pass would see whose the decision is and that it is not its own to put.
+
+**Source, no case yet:**
+
+- Claude Code desktop · unknown · 2026-11-23T04:07Z — the scheduled pass, session `local_88d939be`, as the maintenance session reported it; the model is not in the report.
+
+**Struck 2026-11-24 — a fourth time.** The night's pass opened a question asking the person, on
+the entry notice, under a question the path's session stood on and in the zone of the keeper,
+whose session had started the notice's builder. The keeper wrote to the path's session "put none
+of it from yours" and put the question to the person in the same turn; the message was queued
+behind that session's turn, in which it had already put the question itself. That session took
+it off its table and left it with the keeper. It had put it on the person's word, passed to it
+by the store's session, that a waiting question belonging to no running work is its to raise,
+and had read an opener that has ended as no running work. The record the second strike asks for
+would have shown either of them the other.
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-fable-5-2 · 2026-11-24T04:29Z — the keeper's chat `1981de0e-7693-4931-aeab-4881f9fa0065` and the path's session; the instant is that session's last activity as the app listed it, and the model is the one the keeper's session reported itself running on.
 
 ## A criterion the person had set aside kept a working ticket open, and a second ticket was made to wait on it — 2026-11-16
 
@@ -542,7 +798,7 @@ reader confirmed the omission; the case and its limits are in
 the explanation that followed did not. The model-internal cause is not established. This is not
 the first-greeting recall omission recorded below.
 
-<straw-dog question="q-p4mcme">
+<straw-dog question="q-tt733j">
 **Proposed amendment to investigate:** an outside completion check that also covers the move
 after a correction. The existing outside-check proposal belongs to another session; this case
 does not establish its design or authorise changing it. No amendment has been accepted here.
@@ -1081,6 +1337,42 @@ person: *did you use skill-up?* What a session reads of a rule that moved after 
 
 - [Claude Code · claude-opus-5-5 · 2026-10-25T09:40:50.732Z](cases/rf-rules-were-proposed-in-a-reply-w-a7ada13a87/case.json).
 
+**Struck 2026-11-24 — a second time.** The keeper drew the 🧩 frame twice without reading
+`/skill-up`: the rule of roles' last paragraph, landed 2026-11-22, three lines grown to eight;
+and on 2026-11-24 one sentence of the entry file's rule on straw dogs put to the person with a
+second sentence beside it, thirty words where twenty-four stood, its reason written into it. The
+person: "ты так лихо удвоил размер правила, не использовал скил-ап наверное или пропустил
+инструкции? в частности по размером и написания правил для умной модели". Read then, the skill
+gave three words for the thirty.
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-fable-5-2 · 2026-11-24T18:25Z — the keeper's chat `1981de0e-7693-4931-aeab-4881f9fa0065`; the instant is that of the commit nearest the reply, 4dc821b2, and the model is the one the session reported itself running on.
+
+**Why it did not fire.** The keeper's reading, no model-internal cause established: the skill's
+text had been in the session's context since an earlier turn, and the frame was drawn from the
+memory of having read it; nothing between a draft and its frame asks whether the skill was read
+in this turn.
+
+**Amendment**, mechanical, as a second strike takes: none new. The host's refusal was accepted on
+2026-10-25 at
+[q-5jcptm](questions/q-5jcptm-which-skill-must-be-read-before-a-file-is-edited-or-a-rule-proposed-and-how-does-the-host-refuse-the.md)
+and stands unbuilt as tickets: an edit to an instruction file waits for `/skill-up`,
+[01-0010.0125.0010 an-edit-waits-for-the-skill-that-keeps-its-file](tickets/01-0010.0125.0010-an-edit-waits-for-the-skill-that-keeps-its-file.md),
+Ready; a reply proposing such text, and the commit,
+[01-0010.0125.0030 a-proposed-text-and-a-commit-wait-like-an-edit](tickets/01-0010.0125.0030-a-proposed-text-and-a-commit-wait-like-an-edit.md),
+Planned. The keeper first wrote here a hook on the reply as a proposal of its own and put it to
+the person as new, the line above that names q-5jcptm unread. The person answered with two points
+against holding the reply and named the edit as another way; their words stand on q-5jcptm.
+
+**What that guard would not have held.** Its test, by q-5jcptm's third decision, is the skill
+loaded in the session's context, not read in the turn. On this strike the skill was loaded both
+times: neither the edit's refusal nor the reply's would have fired. The entry waits on the
+tracer's ticket for a session that never loaded the skill; a skill loaded and not applied is
+evidence on q-5jcptm, with no answer.
+
+**Disposition:** open again.
+
 ## 75. Two sessions numbered one version of the entry contract — 2026-10-25
 
 **Source cases, retrospective extraction:**
@@ -1274,6 +1566,24 @@ been caught by; refused by the person earlier the same day, so not put again una
 
 **Disposition after the third strike:** registered on the person's word, 2026-11-21 ("срыв в
 реестр запиши"); open, struck three times.
+
+**Struck 2026-11-24 — a fourth time, a line between tools in a turn a subagent started.**
+
+**Source**
+
+- Claude Code · claude-opus-5-5 · 2026-11-24T16:56Z — chat `93035cf8-48af-476e-bdfd-ede52295255c`, no case yet.
+
+**Rule in play, loaded:** L9: *"Speak the way Lem wrote, in the language of the person's message."*
+
+**What happened.** A turn opened by a subagent's report and a host's notification, both English:
+the session wrote one line to the person in English, about a broken test line, its closing reply
+in Russian. The session saw it itself.
+
+**Why it did not fire.** As the second strike: no person's message stood in the turn, and the line
+took the language of the text in front of it. The mechanical amendment would have caught it and
+stands refused, 2026-11-21; not put again unasked.
+
+**Disposition after the fourth strike:** open, struck four times.
 
 ## 72. The commits table and the counters line were put at the reply's end — 2026-10-25
 
@@ -1592,7 +1902,7 @@ local file, allowed and rare, brought to match by the next session before its fi
 wake line carries the action to the session that meets it, and the installer's check in the
 verification set carries it to `/maintain` for the one no session met. The `/harness` paragraph
 told it a third time, and told it where no session reads it. It goes. The re-read it asked for is
-[01-0018.0010](tickets/01-0018.0010-a-session-learns-the-entry-file-moved.md)'s question, and the
+[01-0018.0010](tickets/done/01-0018.0010-a-session-learns-the-entry-file-moved.md)'s question, and the
 one-line report is what the entry file asks of every outcome. At the self-improvement dial, a
 rule, so shown first.
 
@@ -1863,6 +2173,21 @@ is left to it. Shown to the person before it lands.
 7ad25f37: Claude Code's `PreToolUse` on `Bash` and `PowerShell` denies a `git commit` naming no
 paths, with S5's reason; tried live the same day, a bare `git commit --dry-run` refused. Codex and
 Cursor have no such hook yet; closed for Claude Code.
+
+**Reopened 2026-11-24.** The amendment does not hold. It was landed on its builder's own examples,
+with no judge; the pass with no person of 2026-11-24 and then a judge, over 3796 real commands,
+found it letting bare commits by (a PowerShell here-string with an apostrophe, 24 of 32) and
+refusing sound ones (a merge's conclusion, a scratch repository). The person, 2026-11-24: "Да, на
+pre-commit". Git's own `pre-commit` takes its place, judged fit for a trial in this clone; whether
+it is installed waits on the person, who said yes before its cost in lock time was known. Open.
+
+**On trial from 2026-11-24.** The person, told the cost: "хук pre-commit принимаю". The host's
+refusal is taken out and Git's `pre-commit` written by hand in this clone, calling
+`.agents/scripts/gw/pre_commit.sh`. It closes, or is refused, on what the trial shows: a bare commit
+of an agent's that got by, a sound commit it stopped, an add of another session's that met the lock.
+It is looked at on 2026-12-08, the agent's day, told to the person. S5's text owes a sentence with it,
+shown before it lands: a new file is declared with `git add -N`, or the pathed commit does not see it.
+Open.
 
 ## 55. A decision abandoned twelve days earlier was carried as waiting in six replies running — 2026-10-20
 
@@ -2400,6 +2725,20 @@ while building* — is no reply, and nothing at that occasion asks where a figur
 **Proposed amendment**, to L9 or beside it, its home the user's to name: *A figure in a reply or a
 record is one a run printed; one not yet counted is not written.*
 
+**Struck 2026-11-24 — once, the amendment not landed.** The Путь session wrote into this register
+three source times it had not read — 00:05Z, 00:45Z and 00:30Z for turns the transcript puts at
+00:16Z, 00:29Z and 00:17Z — and, into a question's lean, a message and a reply, 34 messages of a
+rule's change at a median of 6.5 calls and 1.7M cached tokens, about four a day. The figures came
+from a run, and the run was wrong: it took every message naming the entry file for such a notice
+and counted one model call once per line the transcript gives it. Recounted: 32 matches, about a
+dozen of them such notices by their first lines, most on one day; a median of 3 calls and 0.9M over
+the 32. The amendment as proposed would have let the second through: a figure a run printed is
+still one nobody looked behind.
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-opus-5-5 · 2026-11-22T00:29Z — the Путь session.
+
 **Disposition:** registered; the amendment waits on where it belongs.
 
 ## 44. A case that answered a call in-process stood for the run that makes it — 2026-10-14
@@ -2772,7 +3111,7 @@ the first being mechanism work on the window; the second landed as entry contrac
 делаем хук"): a running session whose entry file changed is shown the changed passages, as was
 and now, leading its next message, once — the passages and not the version, and no re-read of
 the whole file (990ac6d7,
-[01-0018.0010 a-session-learns-the-entry-file-moved](tickets/01-0018.0010-a-session-learns-the-entry-file-moved.md)).
+[01-0018.0010 a-session-learns-the-entry-file-moved](tickets/done/01-0018.0010-a-session-learns-the-entry-file-moved.md)).
 It is the harness mechanism's own hook line, not the window's. Closed on it; the ticket's live
 observation is still to be made.
 
@@ -3424,7 +3763,7 @@ ranked.
 the ordering rule, which re-ranks at every wake; the user then set when the order changes — by the
 user's decision, when priorities or product requirements change, the order is found inconsistent,
 or a HITL resolution meets unpredicted complexity or a split
-([01-0020 pacer](tickets/01-0020-each-turn-knows-its-next-step.md)). `/recall` now reads, as a straw dog on 01-0020, which
+([01-0020 pacer](tickets/done/01-0020-each-turn-knows-its-next-step.md)). `/recall` now reads, as a straw dog on 01-0020, which
 owns ordering and rehomes the rule: *read the next item from the order the queue states; do not
 re-rank it; check whether any of those occasions has arisen since the order was set, name each,
 and put the reordering to the user; a last session's handoff is a list of candidates, not an
@@ -3829,14 +4168,14 @@ Graded by the next list anyone proposes for what files can say themselves.
 
 **Rule in play:** [`AGENTS.md` — The loop](../AGENTS.md#the-loop), read at the start of every
 session, whose picture has read `session: wake with /recall → /align → /conclude` since v1. Behind
-it, [pacer.md](pacer.md#core-rules--under-alignment)'s 2026-09-06 rule that a session starting
+it, the pacer's page's (*Core rules — under alignment*; the page removed 2026-11-22) 2026-09-06 rule that a session starting
 with "what's next" starts with `/recall`.
 
 **What happened.** The session of 2026-09-15 opened with "good evening". The first reply announced
 the contract, reported the tree clean and *offered* `/recall` — "say `/recall` when you want to
 pick up where that left off". The user then invoked it by hand, with the question of how to make
 it the default. Twelve earlier sessions had taken the wake by hand too, which
-[01-0020](tickets/01-0020-each-turn-knows-its-next-step.md) already recorded on 2026-09-09 without treating it as a
+[01-0020](tickets/done/01-0020-each-turn-knows-its-next-step.md) already recorded on 2026-09-09 without treating it as a
 failure.
 
 **Why it did not fire.** The instruction lived in a diagram — a noun-phrase picture of the loop,

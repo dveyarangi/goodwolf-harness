@@ -7,7 +7,7 @@
 - **rung** development: the whole product
 - **lean** the user, 2026-10-25: no self-deprecation — a hole that matters is closed, not listed, and what does not work yet stays in the tree's records; the meeting agent brought to a full check of its own project by suggestions through the page, each asking how reliably that thing works there; everything that matters on the page, each with why, and the offer to check one's own project; the strengths first, as outside reviews count them (the user, 2026-10-24); graded by a fresh session in xuanxue-cabinet
 - **opened** 2026-10-11T19:36:30Z
-- **struck** 5, last 2026-10-25T12:28Z
+- **struck** 6, last 2026-11-20T18:09Z
 
 Opened 2026-10-08 when the user asked for the front page to be rethought: the page of 2026-09-26
 called the harness *an institutional memory in the repository*, and the tree had since gained the

@@ -12,7 +12,7 @@ First live use closed the [01-0010.0040](../tickets/done/01-0010.0040-install-pl
 ## Settled decisions and their owners
 
 - A **shape** sits between an idea and a thing, and being one says nothing about being load-bearing → [glossary](../glossary.md), Tier 1 line in [AGENTS.md](../../AGENTS.md), coherence owned by [01-0012](../tickets/done/01-0012-hierarchy-coherent.md).
-- **Hierarchy** is from what heights we look at things; it and **scope** each get a consolidation ticket, and **responsibility** and **reachability** are two more → [01-0012](../tickets/done/01-0012-hierarchy-coherent.md), [01-0014](../tickets/01-0014-scope-reads-the-same-everywhere.md), [01-0016](../tickets/01-0016-each-skill-owns-its-own-responsibility.md), [01-0018](../tickets/01-0018-rules-reach-the-occasion-they-are-for.md). The four refactors run before [the pacer](../tickets/01-0020-each-turn-knows-its-next-step.md).
+- **Hierarchy** is from what heights we look at things; it and **scope** each get a consolidation ticket, and **responsibility** and **reachability** are two more → [01-0012](../tickets/done/01-0012-hierarchy-coherent.md), [01-0014](../tickets/01-0014-scope-reads-the-same-everywhere.md), [01-0016](../tickets/01-0016-each-skill-owns-its-own-responsibility.md), [01-0018](../tickets/01-0018-rules-reach-the-occasion-they-are-for.md). The four refactors run before [the pacer](../tickets/done/01-0020-each-turn-knows-its-next-step.md).
 - Repair-and-report **moves inside the skill**; the consequence for three calling skills is 01-0016's → [01-0016](../tickets/01-0016-each-skill-owns-its-own-responsibility.md).
 - Decomposing during an `/align` runs `/ticket` → `/impact` and presents a suggestion without minting → landed in [`/align`](../../.agents/skills/align/SKILL.md).
 - `/discover` is not experimental here; `/impact` is pass 1 and reads the corpus, `/discover` is pass 2 and must not → [the skill](../../.agents/skills/discover/SKILL.md), standing owned by [01-0010.0090](../tickets/done/01-0010.0090-install-discover.md).
@@ -21,7 +21,7 @@ First live use closed the [01-0010.0040](../tickets/done/01-0010.0040-install-pl
 ## Open, with owners
 
 - Fresh-session discovery of `/maintain`, the only unchecked criterion on [01-0010.0070](../tickets/done/01-0010.0070-install-maintain.md).
-- `docs/glossary.md`'s pacer link resolves nowhere → [01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md).
+- `docs/glossary.md`'s pacer link resolves nowhere → [01-0020](../tickets/done/01-0020-each-turn-knows-its-next-step.md).
 - `/dream`'s standing, and whether an uninstalled skill belongs in the entry file → [the parent](../tickets/01-0010-a-shared-harness-improves-without-losing-project-conventions.md#adoption-shortlist--recommendations-awaiting-alignment).
 - `/verify`'s body lost a line that [the process](../process.md#verification) still carries → [01-0016](../tickets/01-0016-each-skill-owns-its-own-responsibility.md).
 - `/maintain`'s Edge-record and concern-index checks name documents this project does not have → [01-0010.0100](../tickets/01-0010.0100-the-remaining-named-corpus-arrives.md).

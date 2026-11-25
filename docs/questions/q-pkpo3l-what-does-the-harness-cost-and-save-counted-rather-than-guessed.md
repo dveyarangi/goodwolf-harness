@@ -51,3 +51,8 @@ reader to recover the project's state on a fixed sample; rules read per session,
 per PR, checklist items, PR body length, ADRs per merged PR — in a form the same tasks can be
 counted in again after migration. Specimen:
 [cold-quiz-xuanxue-cabinet](../research/cold-quiz-xuanxue-cabinet.md), its appendix.
+
+**What wakes a session, 2026-11-24**: over a week, 37 % of this tree's cost is turns another
+session's letter woke against 28 % the person's, and 4 % and 10 % in two other trees:
+[the measure](../research/measures-2026-11-25/REPORT.md), its script beside it, to be run again
+after the work on sessions lands.

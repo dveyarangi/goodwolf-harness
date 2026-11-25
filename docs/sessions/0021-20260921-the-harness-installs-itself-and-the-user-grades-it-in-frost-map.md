@@ -77,7 +77,7 @@ Details are on the records named; the mechanism's evidence holds what was refute
 - **`.0150`'s `/plan`** is the queue's candidate; first by the ordering rule, since it hands every
   later install into an existing estate its flow. `next-cycle=ask`.
 - **Whether the pacer still waits behind the four coherence refactors** —
-  [01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md)'s, and the first thing to decide after the nod.
+  [01-0020](../tickets/done/01-0020-each-turn-knows-its-next-step.md)'s, and the first thing to decide after the nod.
 - **01-0018 owes the tiering rule a rules file and an owner**, and carries the `/maintain` skill
   pass — holding bodies to `/skill-up`'s rules and descriptions to the tiering rule — as a handed
   input no mechanism instructs yet.

@@ -111,6 +111,9 @@ methods, a seam marked in the ticket mechanism's doc until a second method manif
    queue's prose as the order — an agent's proposal agreed to, every time; nor the queue beside the
    path as a second source — the live read of 2026-10-25 gave one question two answers, the report
    from the path and the reply asked *where to go* from the queue.
+   *(Noted 2026-11-24: the order read from strikes, and the candidates left unordered, are
+   superseded — by q-s2nyhd's decision 3, closed 2026-10-25, the path standing its work by the
+   product roadmap, and by q-ojs4jd's decision 1, 2026-11-21, the roadmap a record of its own.)*
 
 ## Impact of the split, 2026-10-23
 
@@ -135,7 +138,9 @@ so slice 1 counts tickets In progress alone and says so. A recipient without run
 a product document gets a thinner picture; the script names what it cannot read. The pathfinder
 is not a declared mechanism: slice 1 builds into the store's script and the recall skill, and the
 mechanism's declaration — its rules file, what it installs into `/recall` — is a later slice or the
-practice mechanism's, bound here as a straw dog. Slices 4 and 5 are decision-bearing and need
+practice mechanism's, bound here as a straw dog. *(Noted 2026-11-24: declared in 4bcbae52,
+2026-11-21, a mechanism of its own with no rules file →
+[pathfinder](../../.agents/mechanisms/pathfinder/pathfinder.md).)* Slices 4 and 5 are decision-bearing and need
 aligns of their own; 4 stands on q-2xfkzf, whether straw dogs rank a question.
 
 **Leave alone.** The queue's order, the person's. The dials, L2. The store's grammar and the

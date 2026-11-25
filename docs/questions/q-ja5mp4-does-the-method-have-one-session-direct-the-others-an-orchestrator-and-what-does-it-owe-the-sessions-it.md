@@ -6,7 +6,7 @@
 - **owner** [01-0090](../tickets/01-0090-standing-sessions-each-answer-for-an-area.md)
 - **rung** development: load-bearing, self-improvement: the method
 - **opened** 2026-11-15T00:05:13Z
-- **struck** 1, last 2026-11-18T04:28Z
+- **struck** 2, last 2026-11-24T19:23Z
 
 The user, 2026-11-15: ask the orchestrator session of game-delta how it works with agents and
 sessions, which problems arose and were solved and which were not, and have it ask the sessions it
@@ -119,6 +119,14 @@ Neighbours: [q-psa5ha](q-psa5ha-how-do-sessions-hand-work-to-each-other-a-verifi
    [q-dyc63i](q-dyc63i-which-standing-roles-does-this-tree-have-where-every-session-develops-the-harness-itself.md)'s
    decision 1 says, and what the sweep finds goes to the owner of the mechanism it falls in
    once a record of the roles can say who that is.
+8. **A session may take a role** — the agent's wording, agreed by the user, 2026-11-24: "да, мне
+   нравится твой совет сессия может брать роль, но надо понять как это происходит". The question
+   put was whether a role lives without a chat, so that any fresh session takes it and goes on
+   from the tree alone. How it is taken, and when it is let go, is
+   [q-mvd4pi](q-mvd4pi-how-does-a-session-take-on-a-standing-role-learn-it-and-hand-it-on-so-the-role-outlives-any-one-chat.md)'s and open; nothing is built or rewritten on this line before the whole below is
+   accepted anew. It meets the whole's *Who holds which*, and what it overturns there is named
+   with that answer: that a role's session is never concluded
+   ([q-g6lj7m](q-g6lj7m-who-ends-the-session-of-a-role-if-not-its-conclude.md), decisions 1 and 2), and that its row outlives its sleep ([q-q5i2um](q-q5i2um-how-does-the-row-of-a-session-that-holds-a-role-outlive-its-sleep-and-when-does-it-end.md)).
 
 ## Where it stands
 
@@ -170,6 +178,7 @@ Zones are chosen and shifted by paths and the domain's seams, the same in every 
 which of the harness's mechanisms they touch; a role's own mechanism is where the zone, once cut,
 is written, so a shift is decided in paths and recorded there.
 
+*(Overturned 2026-11-25 as to the session: a role is taken for one piece of work, its holder stands on the row, and the chat closes — [q-mvd4pi](q-mvd4pi-how-does-a-session-take-on-a-standing-role-learn-it-and-hand-it-on-so-the-role-outlives-any-one-chat.md), *Where it stands*, accepted by the user.)*
 **Who holds which.** Which session holds which role is the tree's own setting: a table in its
 local rules file, installed into the entry file, where every session reads it. A session is
 named there by its name, never by a chat's id. What the table does not name is held by the
@@ -204,7 +213,7 @@ store, and in a tree that installed the harness and took this part, by the sessi
 the harness. That role is carried by this part of the session mechanism until the part leaves as
 a mechanism of its own.
 
-**The roles core ships.** To a tree with more than one standing session, two: the one that holds
+**The roles core ships.** *(The default session offered at install overturned 2026-11-25, [q-mvd4pi](q-mvd4pi-how-does-a-session-take-on-a-standing-role-learn-it-and-hand-it-on-so-the-role-outlives-any-one-chat.md).)* To a tree with more than one standing session, two: the one that holds
 the harness, offered at install as the default session, and the lander, folded into the first in
 a small tree. A project composes the rest by this cut. Judges, discovery and audits are
 subagents; the maintenance sweep is a session the host's schedule starts, and no standing one.
@@ -225,7 +234,7 @@ subagents; the maintenance sweep is a session the host's schedule starts, and no
   another.
 - *A tree is installed.* The harness offers to start the default session; it is offered, never
   required, and a tree with one session needs no roles.
-- *A session takes a role.* It writes its name on its row, reads the role's skill, and reads the
+- *A session takes a role.* *(Overturned 2026-11-25, [q-mvd4pi](q-mvd4pi-how-does-a-session-take-on-a-standing-role-learn-it-and-hand-it-on-so-the-role-outlives-any-one-chat.md).)* It writes its name on its row, reads the role's skill, and reads the
   tree by the role's zone: its own whole, the rest through what is shared and the contracts
   between zones, without loading it.
 
@@ -516,3 +525,24 @@ stand for the role. Their words and the reading they agreed with:
 [q-p4sdnv](q-p4sdnv-what-is-an-agent-role-and-which-mechanism-keeps-roles.md#the-person-2026-11-22-the-role-lasts-the-session-does-not).
 It touches this whole's premise — that a role is held by a session that stands — and nothing
 here is changed by it until the person decides.
+
+## The person, 2026-11-24 — a central chat, later
+
+"в будущем мы сделаем центральный хаб-чат, в котором пользователь сможет общаться и передавать
+работу любому агенту." Said in answer to whom a question that comes up outside its zone goes to.
+Nothing here is changed by it until the person decides.
+
+**The same day, modes of work.** "в q-ja5mp4 что возможно центральный оркестратор это режим работы -
+другие режимы это постоянные сессии или просто ручные по необходимости - как у нас было до этого
+(пользователь решает, но минимальная кооперация нужна, вероятно, все равно)"; and, asked whether
+`/pack` is built on roles or on standing sessions: "я снова думаю что постоянные сессии vs роли на
+коротких сессиях это режим. надо подумать как их совместить без плождения сущностей."
+
+*The agent's thought, put to the person 2026-11-24, not decided:* the three differ in who starts a
+session and when it ends, and in nothing the cut holds. So the role alone is written — its name and
+what it holds — and which session holds it now stands on that session's row, as a held unit does:
+one for months, one for an hour, or none. No mode is then declared or read by a rule. What every
+mode needs is what the rows give already — who stands where, one holder of a unit, a commit of one's
+own files. Two things would have to give: S11, by which a row bears the session's own name and
+never a role's (the person, 2026-11-21), and a message, which is written to a session and would be
+written to a role, kept where nobody holds it.

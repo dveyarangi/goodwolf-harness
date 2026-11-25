@@ -29,6 +29,11 @@ by writing and insertion cost — flat files with a parent line — and never by
 reads the store. The window as drawn adds each line's state and lean, the other sessions and the
 next free id to the rendering measured; a change to its format reruns the test.
 
+[Run again on 2026-11-24](../research/window-test-2026-11-24.md) over this tree's store, for a
+window that no longer lists the root's open questions: of fourteen, the 2,000 characters a host had
+been showing placed six, the whole window thirteen, the short one with the tree under what it shows
+eleven and twelve.
+
 ## What was refuted
 
 - **Candidate search over glossary terms** (decision 28): an *Avoid* list is a reservation of a few

@@ -40,3 +40,6 @@ host gives.
 Decision 3's `/conclude` amended by the user, 2026-11-18: a role's session is not concluded, and
 the person or the harness at a re-cut ends it —
 [q-g6lj7m](q-g6lj7m-who-ends-the-session-of-a-role-if-not-its-conclude.md).
+
+Decisions 2 and 3 overturned by the user, 2026-11-25: a row holds its role while the session does, no longer
+([q-mvd4pi](q-mvd4pi-how-does-a-session-take-on-a-standing-role-learn-it-and-hand-it-on-so-the-role-outlives-any-one-chat.md), *Where it stands*). Not yet carried into the script.

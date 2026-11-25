@@ -4,9 +4,9 @@
 - **part of** q-m6unv4
 - **state** open
 - **rung** development: the whole product
-- **lean** the user, 2026-11-22: the product is the bearing, but what leads to it counts too — a stopgap where the harness already moves toward a fuller or more general answer is taken only well justified, and wrapped as a straw dog; else the work is a bottleneck, moving many at once, or readies the harness for its next stage, or stands alone and closes something of the product; who makes and holds that analysis over questions and tickets, open
+- **lean** the user, 2026-11-22: the product is the bearing, but what leads to it counts too — a stopgap where the harness already moves toward a fuller or more general answer is taken only well justified, and wrapped as a straw dog; else the work is a bottleneck, moving many at once, or readies the harness for its next stage, or stands alone and closes something of the product. Who makes that analysis: the Путь session, L13 (the user, 2026-11-22). The order itself, open; the user, 2026-11-25: "сейчас проблема для меня это перерасход токенов"
 - **opened** 2026-10-25T19:34:35Z
-- **struck** 2, last 2026-11-22T00:15Z
+- **struck** 3, last 2026-11-24T22:08Z
 
 ## The written queue, as it stood when withdrawn, 2026-10-25
 
@@ -23,10 +23,10 @@ dates, is evidence for the roadmap; the numbers were its order, which nothing re
 7. [01-0010.0150 harness-meets-a-tree-with-a-method](../tickets/01-0010.0150-harness-meets-a-tree-with-a-method.md) — [01-0010.0150.0010](../tickets/01-0010.0150.0010-the-harness-reads-a-tree-with-a-method-and-reports.md) in progress, then [01-0010.0150.0020](../tickets/01-0010.0150.0020-the-two-modes-of-taking-a-trees-method-in.md) and [01-0010.0150.0030](../tickets/01-0010.0150.0030-the-migration-as-open-work.md); product work *(the user, 2026-10-24)*
 8. The releases, the meeting after the first: [01-0010.0185](../tickets/01-0010.0185-an-edge-change-writes-its-line.md) → [01-0010.0190](../tickets/01-0010.0190-core-is-published-as-a-release.md) → [01-0010.0195](../tickets/01-0010.0195-a-recipient-reads-before-it-takes.md), under [01-0010.0160](../tickets/01-0010.0160-harness-edge-changes-reach-an-update.md); product work *(the user, 2026-10-25)*
 9. The dial's other slices: [01-0020.0020](../tickets/01-0020.0020-a-reply-reports-by-its-dial.md), [01-0010.0210](../tickets/01-0010.0210-a-recipients-switches-become-its-dial.md), [01-0019.0010](../tickets/01-0019.0010-self-improvement-follows-its-dial.md) *(the user, 2026-10-15)*
-10. Coherence: [01-0011.0100.0050](../tickets/01-0011.0100.0050-a-question-branches-before-it-is-answered.md) → [01-0014](../tickets/01-0014-scope-reads-the-same-everywhere.md) → [01-0017](../tickets/01-0017-every-skill-and-document-has-named-producers-and-consumers.md) → [01-0010.0080](../tickets/01-0010.0080-impact-recommends-the-works-shape.md) → [01-0016](../tickets/01-0016-each-skill-owns-its-own-responsibility.md) → [01-0010.0120](../tickets/01-0010.0120-what-each-host-says-without-being-asked.md) → [01-0018](../tickets/01-0018-rules-reach-the-occasion-they-are-for.md) → [01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md) *(the user, 2026-09-27, 2026-09-29)*
+10. Coherence: [01-0011.0100.0050](../tickets/01-0011.0100.0050-a-question-branches-before-it-is-answered.md) → [01-0014](../tickets/01-0014-scope-reads-the-same-everywhere.md) → [01-0017](../tickets/01-0017-every-skill-and-document-has-named-producers-and-consumers.md) → [01-0010.0080](../tickets/01-0010.0080-impact-recommends-the-works-shape.md) → [01-0016](../tickets/01-0016-each-skill-owns-its-own-responsibility.md) → [01-0010.0120](../tickets/01-0010.0120-what-each-host-says-without-being-asked.md) → [01-0018](../tickets/01-0018-rules-reach-the-occasion-they-are-for.md) → [01-0020](../tickets/done/01-0020-each-turn-knows-its-next-step.md) *(the user, 2026-09-27, 2026-09-29)*
 11. Existing recipients: [01-0010.0200](../tickets/01-0010.0200-a-project-can-remove-the-harness.md) *(the user, 2026-09-27)*
 
-[01-0018.0010](../tickets/01-0018.0010-a-session-learns-the-entry-file-moved.md) waits with [q-kt3ntt](q-kt3ntt-what-does-the-harness-need-while-its-own-rules-are-amended-many-times-a-day-under-sessions-still.md) *(the user, 2026-10-12)*. Team memory comes after coherence, under [q-37xc3y](q-37xc3y-how-does-the-harness-serve-several-people-steering-agents-in-one-project.md) *(the user, 2026-09-27)*.
+[01-0018.0010](../tickets/done/01-0018.0010-a-session-learns-the-entry-file-moved.md) waits with [q-kt3ntt](q-kt3ntt-what-does-the-harness-need-while-its-own-rules-are-amended-many-times-a-day-under-sessions-still.md) *(the user, 2026-10-12)*. Team memory comes after coherence, under [q-37xc3y](q-37xc3y-how-does-the-harness-serve-several-people-steering-agents-in-one-project.md) *(the user, 2026-09-27)*.
 
 ## Another reading of the order, 2026-10-25
 
@@ -68,6 +68,56 @@ no one: a session learning the entry file moved (01-0018.0010, Ready), the check
 (01-0010.0240.0020), the cost measured (01-0010.0168), the reply by its dial (01-0020.0020), the
 maintenance named and scheduled (01-0010.0180), and the holes with no ticket — a change pushed to
 what stood on it, wrapping held by more than attention, the trigger for an outside opinion.
+
+## The open work by direction, 2026-11-24
+
+The user, 2026-11-24: "и в принципе, надо продумать всю дорожную карту же? какие у нас варианты. было
+бы классно разобрать всю нашу работу на блоки, посмотреть что к какому направлению относится и какие
+вообще есть направления, какие из них и что в них приоритетно... кто-то это делает?" No session did.
+
+A reading of the store and the tickets that day: 236 open questions by the answer each realizes,
+the answers by the product document's sixteen headings; ten stand under two headings, thirteen name
+no answer. The seven directions are the agent's grouping of the headings, not agreed.
+
+| direction | the document's headings | open | Ready tickets | where a running session stands |
+|---|---|---|---|---|
+| the meeting and the adoption | adopting the harness 61, the project's own account 6, knowing what works 3 | 70 | 6 | the front page (q-osjub2) |
+| rules held and tried | self-improvement 22, delivery and evaluation 10, refusing harm 8, guards on model weaknesses 3 | 43 | 8 | none |
+| rules that reach the agent | instructions that reach the agent 36, thirty of them *each skill owns only its own* | 36 | 0 | none |
+| memory and intent | the exploration space 25, alignment 8 | 33 | 0 | the next step (q-p4mcme) |
+| sessions together | coordination 28 | 28 | 3 | q-mz6gd4, q-ziw66h |
+| decisions and code in agreement | one source of truth 15, maintenance 1 | 16 | 0 | the sweep (q-hh7trc) |
+| the person in their place | process weighed to the work 5, decisions by weight 1, visible footing 1 | 7 | 0 | the next step (q-p4mcme) |
+
+Two things it shows. *Adopting the harness* is one answer, A49, with 61 of the 236, so a row naming
+it orders little. And `--path` draws the first five Ready tickets by id of seventeen; the
+candidates told on 2026-11-22 as weighed anew were two of those five and three from elsewhere.
+
+## The problem now is cost — 2026-11-25
+
+The user: "встреча и установка у нас постоянно происходит, мы накапливаем настоящие случаи, вот
+сейчас с проектами дрифтсенс. если надо, можешь обратиться к его сессии за инфой. сейчас проблема
+для меня это перерасход токенов )". It answers the agent's recommendation to take the meeting
+first, which is withdrawn: the meeting goes on by itself and its cases arrive. No product answer was
+named, so the roadmap holds no row for it.
+
+Weighed by [the week's measure](../research/measures-2026-11-25/REPORT.md), shares of this tree,
+which overlap and are ceilings:
+
+| candidate | what it can save | weighs as |
+|---|---|---|
+| a session taken for one piece of work and ended ([q-mvd4pi](q-mvd4pi-how-does-a-session-take-on-a-standing-role-learn-it-and-hand-it-on-so-the-role-outlives-any-one-chat.md), under way) | waking a long chat 18 %, re-reading above 200 thousand 15 % | moves many at once, and is the general answer |
+| a letter to a sleeping session waits in its record instead of waking it | within the 37 % letters cost, 15 % being the waking itself | falls out of the first; alone it is a stopgap |
+| subagents by the weight of the work ([q-p2tgdv](q-p2tgdv-how-does-the-method-lighten-for-small-work-and-weigh-more-for-large.md)) | within 25 % here, 34 % in fimonitor | stands alone |
+| the host's tools, some 37 thousand of a request's fixed 66 | not measured as a share | the person's setting, no work of the harness |
+
+The agent's recommendation, not decided: the first, with the second taken inside it, and the third
+after it, since that is what is left in the trees where sessions do not write to each other.
+
+The user, 2026-11-25, of that: "расход первым, но я хочу как-то увидеть работу лучше, все же." The
+order is cost first. No product answer says that the work costs little — A39 counts it, A45 weighs
+work to its shape — so a row had nothing to name. A row may name a pain: "дорожная карта конечно может называть боль"
+(the user, 2026-11-25), and the first row is `pain 2`.
 
 ## Decisions
 

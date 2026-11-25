@@ -12,6 +12,12 @@ The place q-2gw24v decided on — one, read by a fast script at every step, for 
 session's messages and the others' positions, by ways a network carries — needs a substrate.
 What goes into it is q-7ebz2f's, which waits on this one.
 
+— 2026-11-24: q-7ebz2f waits on it no longer. The substrate is settled there, by its decisions 1,
+10 and 17 as its list, derived anew, stands today, and decisions 1 to 3 below are withdrawn *(the
+person, 2026-11-22,
+[q-4jh6qr](q-4jh6qr-what-do-the-store-decisions-derived-anew-on-2026-11-09-leave-unsaid-of-the-earlier-decisions-they-meet.md)
+item 1)*; this entry closes superseded once those land in the architecture.
+
 ## What bounds it, 2026-10-25
 
 - **Every step**: the hook runs at every message within a 30-second timeout; the window must not
@@ -42,13 +48,20 @@ What goes into it is q-7ebz2f's, which waits on this one.
 
 1. **Two machines per project, a local mode first** *(the user, 2026-10-25)*: sessions of one
    project will run on two machines; the place starts in a local mode and grows into the
-   networked one.
+   networked one. *Withdrawn 2026-11-22, superseded by
+   [q-7ebz2f](q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md#decisions)'s
+   decisions 1, 10 and 17.*
 2. **Not a folder outside the tree, not SQLite, not a server** *(the user, 2026-10-25)*: neither
-   of the first two fits; a server is too heavy.
+   of the first two fits; a server is too heavy. *Withdrawn 2026-11-22, superseded by
+   [q-7ebz2f](q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md#decisions)'s
+   decisions 1, 10 and 17.*
 3. **A git ref carries it, to begin with** *(the user, 2026-10-25)*: the place is a namespace of
    refs outside `refs/heads/` — in the local mode read and written through the clone's Git
    directory, which its worktrees share; between clones and machines carried by a push and a
    fetch of that namespace. Taken to start with; the networked mode is thought over further later.
+   *Withdrawn 2026-11-22, superseded by
+   [q-7ebz2f](q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md#decisions)'s
+   decisions 1, 10 and 17.*
 4. **In the branch-per-session mode the coordinator's server carries the place** *(the user,
    2026-10-26, through q-7ebz2f decision 4; for every session since its decision 17;
    superseded by its decision 30, the rows in `gw.sqlite` by q-pl3fwk)*: positions,

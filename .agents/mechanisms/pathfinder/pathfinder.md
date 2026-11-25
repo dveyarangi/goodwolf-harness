@@ -1,6 +1,6 @@
 # pathfinder — chooses what the project works on next by what it is for, and keeps the order the person gives
 
-- **instruction** `.agents/skills/pathfinder/SKILL.md` — the act: weighing the candidates, putting them to the person, keeping the roadmap
+- **instruction** `.agents/skills/pathfinder/SKILL.md` — the act: weighing the candidates, putting them to the person, keeping the roadmap; the board's drawing in `BOARD.md` beside it
 - **state** installed
 - **record of** what must always hold
 - **owner** core
@@ -9,9 +9,9 @@
 
 What comes next is derived, never written as a list of work. The candidates are the question
 store's reading of the path; their order is the **roadmap**'s — the order the person gives the
-product document's answers, each row in their words and dated. A piece of work takes the place of
-the answer it serves. A proxy such as how much stays unfinished orders nothing *(the user,
-2026-11-21)*.
+product document's answers and pains, each row in their words and dated. A piece of work takes the place of
+the answer or the pain it serves. A proxy such as how much stays unfinished orders nothing *(the user,
+2026-10-25)*.
 
 The mechanism weighs questions, never the method's records: a unit of work is whatever the
 installed method materialises a question into, so it works in a tree with no method installed.
@@ -27,12 +27,22 @@ person first orders the work; a tree with none has no order yet.
 
 | rule | decided by |
 |---|---|
-| the path is ordered by the product roadmap, not by how much stays unfinished | the user, 2026-11-21 |
-| no written queue: what comes next is a reading | the user, 2026-11-21 |
+| the path is ordered by the product roadmap, not by how much stays unfinished | the user, 2026-10-25 |
+| no written queue: what comes next is a reading | the user, 2026-10-25 |
 | the roadmap is a record of its own | the user, 2026-11-21 |
-| the method's records do not cross a mechanism that works without it | the user, 2026-11-21 |
+| the method's records do not cross a mechanism that works without it | the user, 2026-10-25 |
 | the skill's rules, drawn from the person's corrections | the user, 2026-11-21 |
 | the mechanism declared | the user, 2026-11-21 |
+| `owner core` | settled by the session that declared it, 2026-11-21, the user not asked then; the user, 2026-11-24 |
+| candidates weighed by how they lead toward the product's answers | the user's idea, 2026-11-22; the text the agent's, agreed |
+| a question waiting on the person that no work under way holds is a candidate | the user's words to another session, 2026-11-22; the text the agent's, landed on them |
+| a hazard is put before the candidates, its reach counted in the code | the agent's text, landed on the user's word, 2026-11-25 |
+| a hazard set aside is a unit of work at once, not a question | the user, 2026-11-25; the text the agent's |
+| a roadmap row may name a pain | the agent's text, agreed by the user, 2026-11-25 |
+| a hazard set aside stays before the candidates; the strip only on the board of the session that took hazards | the user, 2026-11-25; the text the agent's |
+| the board's cards derived, no list of them kept | the user, 2026-11-25; the text the agent's, accepted |
+| the work drawn as a board, its rules | the user asked for the drawing and took it for now, 2026-11-25; the text the agent's, accepted |
+| such a question goes first to the session it belongs to | the user's words to another session, 2026-11-24; the text the agent's, landed on them |
 
 ## Moments
 
@@ -41,6 +51,7 @@ person first orders the work; a tree with none has no order yet.
 | recommending what comes next, and the person ordering the work | `.agents/skills/pathfinder/SKILL.md` | |
 | an idea arriving that would change what comes next | `.agents/skills/pathfinder/SKILL.md` | |
 | making or amending the roadmap | `.agents/skills/pathfinder/SKILL.md` | |
+| drawing the work for the person | `.agents/skills/pathfinder/BOARD.md` | |
 | adding or removing a part that orders the work | `.agents/skills/pathfinder/SKILL.md` | |
 | showing the path at a wake | — | elsewhere — the wake is the session mechanism's, `.agents/skills/recall/SKILL.md` |
 | the path standing its candidates by the roadmap's order | — | <straw-dog question="q-huss2x">not yet</straw-dog> |
@@ -52,6 +63,7 @@ person first orders the work; a tree with none has no order yet.
 | part | where |
 |---|---|
 | instruction file | `.agents/skills/pathfinder/SKILL.md` |
+| the board's rules | `.agents/skills/pathfinder/BOARD.md` |
 | this doc | `.agents/mechanisms/pathfinder/pathfinder.md` |
 
 ## Relies on, and does not own

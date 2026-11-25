@@ -25,18 +25,18 @@ Consolidate the existing dev skill family into the requested canonical home, aft
 - **2026-09-05, user:** agrees overall with project-originated shared improvements being proposed to core and recipients pulling accepted changes. Detailed update policy remains open. Requests smaller, sequential alignment on the development loop, specs, mechanisms, document separation and queue machinery before further design adoption.
 - **2026-09-05, user:** accepts a spec for substantial work, including this harness, with the clarification that `/align` remains the common entry/reentry and human-decision procedure across the entire loop: spec inception, resuming any stage and HITL escalations. It is not specialized to specs. The user identifies ticket splitting, commits and moving to the next loop cycle as existing human checkpoints whose treatment needs alignment.
 - **2026-09-05, user:** autonomy is dynamic. Early work needs human control over setup, core code shapes, modules, approach and governing principles. As those principles become established, more work can proceed autonomously within them. Gaps, inconsistencies, violations and changes that do not fit architectural constraints should trigger HITL, potentially through `/impact`. This supersedes the assistant's proposed fixed one-ticket/one-cycle authorization default; the exact escalation threshold remains to be aligned.
-- **2026-09-05, user:** accepts repair-and-report for clear repairs within authorized work that restore an explicit architectural rule while preserving agreed contracts. Requests a well-defined policy. The current rule, reporting requirements and escalation conditions are recorded once in [the process](../process.md#autonomy-and-repair); architectural ambiguity and changes to principles still require `/align`.
+- **2026-09-05, user:** accepts repair-and-report for clear repairs within authorized work that restore an explicit architectural rule while preserving agreed contracts. Requests a well-defined policy. The current rule, reporting requirements and escalation conditions are recorded once in the process (removed 2026-11-22, eadd0b64); architectural ambiguity and changes to principles still require `/align`.
 - **2026-09-05, user:** agrees that a skill is the instruction part of a mechanism, with maintenance covering the whole mechanism, including consumers, checks and records. Recorded in [the glossary](../../.agents/glossary.md), which owns **Mechanism** and **Skill**. This adopts the concept, not Life's implementation wholesale.
 - **2026-09-05, user:** adopts one evidence/evolution record per mechanism, created when needed, with current behavior in core docs/skills and change decisions retained in their tickets/RFCs. Recorded in [the process](../../.agents/skills/mechanism/SKILL.md#three-homes-and-the-chain). Also directs attention to Life's existing `/mechanism` and `/maintain` rules for derived work becoming stale after its governing skill changes; this is part of the design, not merely prose cleanup.
 - **2026-09-05, user:** anything that can be done mechanically should be fixed mechanically, including history. Maintainers can write maintenance scripts, and mechanisms must encourage mechanical derivation and fixes from inception. This supersedes the assistant's proposed blanket exemption for frozen historical records and does not adopt Life's archive exemption. The current rule is in [mechanical maintenance](../../.agents/skills/mechanism/SKILL.md#mechanical-by-construction).
 - **2026-09-05, user:** spec first; review the existing skills before proceeding. This reaffirms the earlier spec decision and makes spec development the next step, ahead of further queue design. Source review: Meteoscape and Forecast Collector `/to-spec` explicitly cover substantial inception before ticket decomposition and do not queue the spec itself; `/to-tickets` also accepts bounded discussed work without a spec; `/plan-impl` requires an owning ticket for an RFC. The current workspace's older `/to-tickets` assumes a spec, while its `/to-spec` has conflicting output paths. The existing research/alignment tickets remain valid; implementation decomposition follows the harness spec.
 - **2026-09-05, user:** accepted the first bootstrap slice as proposed and decided the root: the harness is the git repository `D:\Dev\AI\agents`, with the installed corpus under `.agents/skills`. `/align` and `/impact` are installed from Meteoscape with the accepted deltas; nothing else is installed or renamed yet.
 - **2026-09-06, user:** mint Install `/spec`. Spec-first and loop completion do not contradict: install `/spec`, use it to develop the spec for completing the delivery ring on this harness, then take the natural course. `/plan` is planned by reading `/plan`. A ticket whose criteria are met moves to `done/` as part of that close. Ring-skill tickets are not pre-minted.
-- **2026-09-06, user:** the pacer is not a child of this ticket. It is [01-0020](./01-0020-each-turn-knows-its-next-step.md), parented on the pacer's page, removed 2026-11-22, what it held carried in [q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md).
+- **2026-09-06, user:** the pacer is not a child of this ticket. It is [01-0020](./done/01-0020-each-turn-knows-its-next-step.md), parented on the pacer's page, removed 2026-11-22, what it held carried in [q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md).
 - **2026-09-06, user:** do not close a ticket until `/verify` has been run on it; reviewing is an acceptance criterion. 0020, 0030 and 0035 were reopened; they stay `Partial` until that box is checked.
 - **2026-09-06, user:** 0050 installs the implementation mechanism — `/implement`, `/tdd` (with its files), `/improve-comments` — not the `/implement` skill alone. `/verify` and `/maintain` stay later ring mechanisms.
-- **2026-09-06, user:** `/verify` is the verification of landed work, not only documentation or shape review. `/implement`'s typecheck/suite line is generalized and links the [verification set](../process.md#verification); commands are not inlined in the skill.
-- **2026-09-09, user, binding on the install script:** the host loader link **is a symlink, or the install stops and escalates**. No junction, no copy, no substitute of any kind when the platform refuses — a refusal is a human decision (Developer Mode, an elevated prompt, or a host that reads `.agents/skills` natively). Decided after I hit a privilege error during [the frost_map probe](../research/separation-probe-frost-map.md) and quietly substituted a junction, which is the move [the repair policy](../process.md#autonomy-and-repair) forbids. The mechanism is in [ADR-0003](../adr/0003-one-physical-home-for-skills-reached-by-link.md): nothing sees through a junction — `is_symlink()` is false, `rglob` walks in, and `git ls-files` lists everything beneath it twice, so the corpus every script shares double-counts. This holds whether or not the link is tracked.
+- **2026-09-06, user:** `/verify` is the verification of landed work, not only documentation or shape review. `/implement`'s typecheck/suite line is generalized and links the verification set (removed 2026-11-22, eadd0b64); commands are not inlined in the skill.
+- **2026-09-09, user, binding on the install script:** the host loader link **is a symlink, or the install stops and escalates**. No junction, no copy, no substitute of any kind when the platform refuses — a refusal is a human decision (Developer Mode, an elevated prompt, or a host that reads `.agents/skills` natively). Decided after I hit a privilege error during [the frost_map probe](../research/separation-probe-frost-map.md) and quietly substituted a junction, which is the move the repair policy (removed 2026-11-22, eadd0b64) forbids. The mechanism is in [ADR-0003](../adr/0003-one-physical-home-for-skills-reached-by-link.md): nothing sees through a junction — `is_symlink()` is false, `rglob` walks in, and `git ls-files` lists everything beneath it twice, so the corpus every script shares double-counts. This holds whether or not the link is tracked.
 - **2026-09-09, user: the tests move into `.agents/scripts/gw/test/` and ship with core.** Moving them off the root makes core a directory — `.agents/` plus two line-level parts in `AGENTS.md` — so a content hash over `.agents/` is very nearly the core revision the install script needs, which was impossible while half the declared parts lived at the root. They ship because they are declared parts, because a recipient cannot contribute a script change it cannot verify, and because [the probe](../research/separation-probe-frost-map.md) supplied the decisive case: 216 tests passing in frost_map is the only reason anyone knows the scripts survived the trip, so a recipient's first run of them is its arrival check. Whether they stay in a recipient's default verification set, given ~70s per `/verify`, is not settled here.
 - **2026-09-09, the install script owns the loader links, and verifies what the host will load** — not only what it wrote. Evidence: [the probe](../research/separation-probe-frost-map.md).
 - **2026-09-09, the probe's constraints on the install script**, from [the findings](../research/separation-probe-frost-map.md): core is not a directory (declared parts span `.agents/`, the tests, and two lines inside `AGENTS.md`); a parts-derived manifest would ship 3 skills of 22, so [.0050](./done/01-0011.0050-shape-checked.md)'s allowlist gates it; a commit tag cannot be the core revision because one commit touches both halves, so the identity is a content hash over the manifest and a tag is a label for it; a recipient needs a recorded pointer back to canonical source, because a script maintains only the tree it lives in; and the installer must localise `<project-local>` blocks, which today protect nothing because nothing replaces them.
@@ -47,7 +47,7 @@ Consolidate the existing dev skill family into the requested canonical home, aft
 ## Decisions this ticket's align owns
 
 - Spec lifecycle: enduring decisions move to maintained governing documents, specs eventually become history. ~~Who owns maintenance and archiving?~~ **2026-09-05, user: `/maintain` owns all tree maintenance, all `/denoise` and `/sync-arch` responsibilities, and archiving.** It checks all mechanisms against their actual rules and can run at whole-tree, project or RFC scope. Current policy: [tree maintenance](../../.agents/mechanisms/maintain/maintain.md). Exact lifecycle state and implementation design remain open.
-- Issue capture, routing, decomposition and pace: define Tier 1 natural-language triggers, an owner for initially unowned issues, and feedback to earlier stages. The user's `/step` and `/decompose` examples are alternatives to assess, not selected new skills. **2026-09-06, user:** the loop's sequence and the scoping of work are the pacer's concern; [`docs/process.md`](../process.md) is marked preliminary and the pacer is expected to own it; each step's rules move into the step's skill as it is installed. The pacer's core rules are Tier 1: they say what the agent does after `/recall` and what one turn's reply is scoped to. Their content is under alignment in [pacer.md](../pacer.md); the ticket is [01-0020](./01-0020-each-turn-knows-its-next-step.md).
+- Issue capture, routing, decomposition and pace: define Tier 1 natural-language triggers, an owner for initially unowned issues, and feedback to earlier stages. The user's `/step` and `/decompose` examples are alternatives to assess, not selected new skills. **2026-09-06, user:** the loop's sequence and the scoping of work are the pacer's concern; `docs/process.md` (removed 2026-11-22, eadd0b64) is marked preliminary and the pacer is expected to own it; each step's rules move into the step's skill as it is installed. The pacer's core rules are Tier 1: they say what the agent does after `/recall` and what one turn's reply is scoped to. Their content was under alignment on the pacer's page, removed 2026-11-22, what it held carried in [q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md); the ticket is [01-0020](./done/01-0020-each-turn-knows-its-next-step.md).
 - Governing principles for the harness and its use in software development; operational definitions and a robust load-bearing-seam test are now the alignment priority. [Draft principles](../spec/01-0010-a-shared-harness-improves-without-losing-project-conventions.md#governing-principles--for-alignment).
 - Observable selection and delivery of rule slices: the user directs Tier 1 strict/meta rules and skill descriptions, Tier 2 routed detail, and occasion-specific generated context supplied by hooks. Cross-host delivery and evidence contracts remain to be defined.
 - ~~Bootstrap suite membership and source variants.~~ **2026-09-05, user: accepted the [bootstrap source selection](#bootstrap-corpus-selection).** Exact instruction adaptations and installation remain to be planned.
@@ -85,7 +85,7 @@ M = `D:/Dev/AI/meteoscape/.agents/skills`; F = `D:/Dev/DriftSense/workspace/fore
 | `recall` | `/recall` | F core: retain priority for landed-but-unchecked work. Use this project's delivery records locally. |
 | `review-architecture` | `/review-architecture` | M and its `REFERENCE.md`; equivalent shared content. Update calls to the current workflow. |
 | `review-impl` | `/verify` | M review body, reconciled directly with agreed repair-and-report. F contains both "do not make changes until requested" and an unconditional amendment direction, so neither body is suitable unchanged. **2026-09-05, user: renamed `/verify`.** |
-| `setup-devops` | `/setup-devops` | M; equivalent to A/F and correctly named. Do not use H's mismatched `setup-project` metadata. |
+| `setup-devops` | `/setup-devops` | M; equivalent to A/F and correctly named. Do not use H's mismatched `setup-project` metadata. **2026-11-21, user: renamed `/devops`.** |
 | `skill-up` | `/skill-up` | M/F core as source. Adapt to inline local instructions initially and explicit file ownership; blanket appendix preservation cannot remain. Leave unresolved override policy explicit. |
 | `sync-arch` | `/maintain` | M responsibilities absorbed in maintenance, as agreed: architecture/code consistency in both directions and reconstruction of load-bearing contracts. |
 | `tdd` | `/tdd` | M with all five identical supporting documents. Retain the existing rule that an agreed RFC can satisfy its planning gate. |
@@ -126,7 +126,7 @@ Decided in [01-0010.0020](./done/01-0010.0020-live-alignment-across-hosts.md) on
 
 1. **Title:** Align on harness work in Codex, Cursor and Claude Code.
    **Interaction:** HITL — initial project entry/delivery boundaries still require agreement.
-   **Depends on:** the accepted [source selection](#bootstrap-corpus-selection) and current [process policy](../process.md), both already available; not completion of the parent or the still-open Life research ticket.
+   **Depends on:** the accepted [source selection](#bootstrap-corpus-selection) and current process policy (removed 2026-11-22, eadd0b64), both already available; not completion of the parent or the still-open Life research ticket.
    **Parent scope covered:** spec stories 5, 6, 8 and 10, narrowly for live alignment and its impact assessment. The parent retains the remaining corpus, maintenance implementation and cross-project distribution.
 
 **Proposed child basename after approval:** `01-0010.0020-live-alignment-across-hosts.md`.
@@ -160,7 +160,7 @@ Decided in [01-0010.0020](./done/01-0010.0020-live-alignment-across-hosts.md) on
 
 **Main blast radius.** One child: install `/spec` and use it once on the existing harness spec so that spec requires completing the delivery ring here. Catalog, `AGENTS.md` installed-list, and `.agents/README.md` change when that ticket is implemented. `/ticket` → `/plan` → `/implement` → `/verify` → `/maintain` for the ring skills are sliced from that spec, not from this pass.
 
-**Hidden edges.** The draft at `docs/spec/01-0010-a-shared-harness-improves-without-losing-project-conventions.md` already exists; first use develops it, it does not start a second spec. Source `to-spec` still says `/to-tickets` and `docs/` — those names are this install's adaptations. [01-0020](./01-0020-each-turn-knows-its-next-step.md) stays Planned.
+**Hidden edges.** The draft at `docs/spec/01-0010-a-shared-harness-improves-without-losing-project-conventions.md` already exists; first use develops it, it does not start a second spec. Source `to-spec` still says `/to-tickets` and `docs/` — those names are this install's adaptations. [01-0020](./done/01-0020-each-turn-knows-its-next-step.md) stays Planned.
 
 **Leave alone.** `/plan`, `/implement`, `/verify`, `/maintain` files; pacer runtime; `/edge`; local-override mechanism; `/impact`'s still-owed shape recommendation; source projects.
 
@@ -184,7 +184,7 @@ minted at root, outside this ticket, and are not its children.
 (`0100`). The four rule refactors — hierarchy, scope, responsibility, reachability — consolidate
 statements that live inside this ticket's corpus but answer to a different contract: coherence of
 the method's own concepts, not distribution of a canonical harness across projects. They sit at
-root on [the pacer's](./01-0020-each-turn-knows-its-next-step.md) precedent.
+root on [the pacer's](./done/01-0020-each-turn-knows-its-next-step.md) precedent.
 
 **Hidden edges.** `/discover` was installed and named in the entry file while sitting outside this
 ticket's accepted 21-capability selection, and that inconsistency was live from the moment it
@@ -199,7 +199,7 @@ Correct ownership does not produce arrival: the `/ticket`→`/impact` chain was 
 still failed to reach an in-progress `/align` on 2026-09-06, which is why responsibility and
 reachability are separate refactors rather than one.
 
-**Leave alone.** [01-0020](./01-0020-each-turn-knows-its-next-step.md) and its `<temporary>` block. The
+**Leave alone.** [01-0020](./done/01-0020-each-turn-knows-its-next-step.md) and its `<temporary>` block. The
 [01-0010.0070](./done/01-0010.0070-install-maintain.md) close, which needs only its fresh-session
 observation. The audit corpus and `legacy/skills`. The five selected commands nobody named —
 `/conclude`, `/recall`, `/dream`, `/review-architecture`, `/setup-devops` — which stay in this
@@ -596,7 +596,7 @@ split was misread.)*
 this makes observable. [MECHANISM-FORMAT](../../.agents/skills/mechanism/MECHANISM-FORMAT.md),
 which *mandates* the markdown-link form for a `not yet` referent and so mandates 11 of the 27 —
 two core documents in direct contradiction, which is the finding, not a side effect. The project's
-[verification set](../process.md#verification), which the check joins.
+[verification set](../../local.rules.md#l3--the-verification-set), which the check joins.
 
 **Hidden edges.** The green half and the reporting half are separable and only the reporting half
 is workable today: 13 findings wait on [01-0011.0050](./done/01-0011.0050-shape-checked.md)'s align,
@@ -669,7 +669,7 @@ and the README, one HITL slice with one grade. Order: `.0145` → `.0150` → `.
 `.0145` → `.0160`, its align fed by `.0145`'s update into frost_map. Leave alone: the manifest,
 the shear, the stamp, the gate; the architecture's refusal sentence; the ticket mechanism's
 meet-block (its own align, on [01-0017.0020](./01-0017.0020-practice-swaps-in-one-edit.md)); the
-loop's switchability ([01-0020](./01-0020-each-turn-knows-its-next-step.md)).
+loop's switchability ([01-0020](./done/01-0020-each-turn-knows-its-next-step.md)).
 
 ## Arrival-to-ready — 2026-09-23
 
@@ -780,7 +780,7 @@ outside every tree, and are private, so only aggregates may leave; tool results 
 type with what the person typed and must be told apart; each host keeps its own format; and a
 trend read back from the first session measures sessions that ran under earlier versions of the
 rules, which is the point, provided each point names the version it ran. Leave alone: the process
-itself — lowering the numbers is [01-0020](./01-0020-each-turn-knows-its-next-step.md)'s.
+itself — lowering the numbers is [01-0020](./done/01-0020-each-turn-knows-its-next-step.md)'s.
 
 ## Outside review, second pass — 2026-09-27
 
@@ -805,7 +805,8 @@ case.
 a suite run on Linux and CI → [01-0011.0090 a-test-catches-what-its-name-promises](./01-0011.0090-a-test-catches-what-its-name-promises.md);
 what the method may cost and what it is for → [`.0168`](./01-0010.0168-the-harness-measures-what-it-costs-and-saves.md)'s
 align; a Claude Code hook ahead of the host survey → [`.0125`](./01-0010.0125-the-host-blocks-what-a-rule-forbids.md)'s
-align. The light path for small work is [01-0020](./01-0020-each-turn-knows-its-next-step.md)'s already; every panel run
+align. The light path for small work is [01-0020](./done/01-0020-each-turn-knows-its-next-step.md)'s already *(carried
+to [q-p2tgdv](../questions/q-p2tgdv-how-does-the-method-lighten-for-small-work-and-weigh-more-for-large.md), 2026-11-24)*; every panel run
 and both review passes named it.
 
 ## A recipient's own maintenance — 2026-09-27
@@ -877,7 +878,7 @@ This is the compact decision surface extracted from the [Life research](../resea
 | Order | Decision | Recommendation |
 |---|---|---|
 | 1 | Does the loop need a spec, including for this job? | **Agreed:** substantial work uses a spec, including this harness; small fixes can start at a ticket. `/align` spans the whole loop. The spec content itself remains to be aligned. |
-| 1a | What does each HITL checkpoint require? | **Agreed:** [autonomy and repair policy](../process.md#autonomy-and-repair). Repair-and-report within its conditions; otherwise align. **Remaining implementation:** route this consistently across skills, reconcile existing checkpoint wording, and verify delivery. `/impact` is a candidate assessment procedure, not a mechanical certificate. |
+| 1a | What does each HITL checkpoint require? | **Agreed:** [autonomy and repair policy](../../AGENTS.md#autonomy). Repair-and-report within its conditions; otherwise align. **Remaining implementation:** route this consistently across skills, reconcile existing checkpoint wording, and verify delivery. `/impact` is a candidate assessment procedure, not a mechanical certificate. |
 | 2 | How should mechanisms govern skills and maintain themselves? | **Agreed:** [mechanisms and skills](../../.agents/glossary.md) and [tree maintenance](../../.agents/mechanisms/maintain/maintain.md). `/maintain` covers all applicable mechanisms and owns all `/denoise` and `/sync-arch` responsibilities, including archiving. **Remaining design:** exact boundaries, document layout, maintenance triggers, scope derivation and automation. |
 | 3 | Where do current rules, decisions and evolution live? | **Agreed:** [current documents and evidence](../../.agents/skills/mechanism/SKILL.md#three-homes-and-the-chain), including one evidence/evolution record per mechanism, created when needed. |
 | 4 | Should tickets, RFCs, specs, concerns and ideas all be queues? | Share a minimal lifecycle contract for actual queues: entry, owner/consumer, disposition, exit and maintenance. Decide which artifacts really need queues; specs and RFCs can be documents attached to work without independent backlogs. |
@@ -892,11 +893,15 @@ whether an uninstalled skill belongs in the entry file at all, or which ticket i
 here with `/conclude`, `/recall`, `/review-architecture` and `/setup-devops` — the selected commands
 [01-0010.0100](./01-0010.0100-the-remaining-named-corpus-arrives.md) does not cover.
 
+**2026-11-25:** `/dream` was installed 2026-09-07 (530f6a44), and its adaptation is with
+[01-0010.0105, the backlog five arrive with their adaptations](./01-0010.0105-the-backlog-five-arrive-with-their-adaptations.md).
+The entry file has not named it since v17, 2026-09-27 (ad5649b9).
+
 The autonomy/repair policy, mechanism concept, current/history separation and mechanical maintenance principle are agreed. Queue design (items 4–5) and the concrete maintenance design remain open. The spec as a whole and any implementation RFC remain unapproved; accepted decisions and command names are recorded above.
 
 ## Idea — pacer
 
-→ the pacer's page. Moved to its own document at the user's request, 2026-09-05; that page removed 2026-11-22, what it held carried in [q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md). The delivery ticket is [01-0020](./01-0020-each-turn-knows-its-next-step.md), not a child of this one.
+→ the pacer's page. Moved to its own document at the user's request, 2026-09-05; that page removed 2026-11-22, what it held carried in [q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md). The delivery ticket is [01-0020](./done/01-0020-each-turn-knows-its-next-step.md), not a child of this one.
 
 ## Derived work — Life basis and scope decision
 
@@ -920,7 +925,7 @@ This is an inventory for the spec, not an adopted approval policy or a complete 
 | Interfaces/test priorities | Meteoscape `/tdd` requests agreement, but explicitly accepts an existing RFC as satisfying its planning gate. | Reuse prior decisions instead of asking again at each nested skill. |
 | Architectural conflict | `/plan-impl`, `/sync-arch`, `/review-impl`, `/denoise` route ambiguity or substantial conflict to `/align`. | Resume the affected stage after recording the resolution. |
 | Commit and push | `/commit` requires explicit authorization separately for each; `/implement` repeats the commit condition. | Permission scope and one authoritative policy with inline delivery at the action. |
-| Review findings | Meteoscape `/review-impl` waits for a request before amendments; Forecast Collector differs (Phase A). | Reconcile the variants with the agreed [repair policy](../process.md#autonomy-and-repair) when updating the canonical skills. |
+| Review findings | Meteoscape `/review-impl` waits for a request before amendments; Forecast Collector differs (Phase A). | Reconcile the variants with the agreed [repair policy](../../AGENTS.md#autonomy) when updating the canonical skills. |
 | Next ticket/cycle | Named by the user as a HITL checkpoint; subsequently clarified as dynamic autonomy within established principles. `/recall` reconstructs current state and calls `/align` for decisions. | Establish whether the next work remains inside agreed scope and architectural constraints; a cycle boundary alone does not define the human decision. |
 
 The ticket text also describes AFK slices as implementable/mergeable without human interaction, while the shared commit skill requires permission. Their relationship needs an explicit scope rule. No existing gate has been removed or changed.

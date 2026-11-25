@@ -95,6 +95,19 @@ class AMigratedTree(RepositoryCase):
         self.assertEqual(sorted([f"{self.new(old)}-{words}.md" for old, words in wanted.items()] + ["former-ids.md"]), names)
         self.assertFalse((self.root / STORE / "done").exists())
 
+    def test_an_entry_holding_a_line_no_part_holds_refuses_the_run_with_nothing_written(self) -> None:
+        other = self.root / "other"
+        self.plant(other)
+        record = f"{STORE}/q-0001.0001-child-one.md"
+        held = (other / record).read_text(encoding="utf-8") + "- **colour** blue\n"
+        self.put(other, record, held)
+
+        with self.assertRaises(questions.Refused) as refused:
+            self.run_on(other)
+
+        self.assertIn("would drop", str(refused.exception))
+        self.assertEqual(held, (other / record).read_text(encoding="utf-8"))
+
     def test_a_title_and_its_relations_name_the_new_ids(self) -> None:
         child = self.text(self.record("q-0001.0002"))
 

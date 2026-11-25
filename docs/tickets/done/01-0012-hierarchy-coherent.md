@@ -15,12 +15,12 @@
 surfaced, 2026-09-06. Not a child of
 [01-0010](../01-0010-a-shared-harness-improves-without-losing-project-conventions.md): that ticket's contract is distributing a
 canonical harness across projects, and the coherence of the method's own concepts is a different
-contract — the same argument that kept [the pacer](../01-0020-each-turn-knows-its-next-step.md) out of it.
+contract — the same argument that kept [the pacer](01-0020-each-turn-knows-its-next-step.md) out of it.
 
 **Closed as a landed decision, 2026-09-28** *(the user)*. The residues went to their owners: the
 height vocabulary sweep is a criterion of
 [01-0011.0100.0010](01-0011.0100.0010-the-store-and-questions-writes-it.md); *Unit of work —
-proposed* is [01-0020](../01-0020-each-turn-knows-its-next-step.md)'s; the entry file's load-bearing threshold and its
+proposed* is [01-0020](01-0020-each-turn-knows-its-next-step.md)'s; the entry file's load-bearing threshold and its
 wrapped example are [01-0017.0020](../01-0017.0020-practice-swaps-in-one-edit.md)'s. The three
 `/discover` passes and the Life trace are research records, pointed at below. The sections that
 follow are the align as it ran, kept whole.
@@ -125,7 +125,7 @@ the docs first, load-bearing architecture only). The procedure exists at `/plan`
 
 **The moment is the turn, and it needs a state and an observer** *(the user, 2026-09-27)*. If
 the rule holds for every discussion and for the agent's autonomous work alike, its owner is the
-pacer, [01-0020](../01-0020-each-turn-knows-its-next-step.md), whose outcome is what a turn's reply is scoped to. The
+pacer, [01-0020](01-0020-each-turn-knows-its-next-step.md), whose outcome is what a turn's reply is scoped to. The
 moments above were vague because two parts were missing. *State*: the current height must be
 declared constantly and held, or there is nothing to compare against. *An observer outside the
 generator*: the agent cannot watch its own tokens as it produces them, so a shift is detected only

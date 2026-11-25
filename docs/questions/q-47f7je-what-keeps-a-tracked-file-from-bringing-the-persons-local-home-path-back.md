@@ -5,7 +5,7 @@
 - **state** closed:decided
 - **answer** [the mechanism shape](../../.agents/mechanisms/mechanism-shape/mechanism-shape.md) — the user, 2026-11-22: a check before a commit
 - **rung** development: a feature, self-improvement: a script
-- **lean** 2026-11-21: three things to keep out, each scrubbed on the person's word — the home path, the email address and the name (q-mhwbg3, decisions 1 to 3) — and perhaps the commit-author address (q-ct5gnb, open); cases are written under the rule-failure register's mechanism, the keeper's; a check that refuses a tracked file holding any of them, each read at run time from the environment and git's own configuration so the check names no one — in rule_failures.py --check or at pre-push, over the pushed files alone; found trailing by the judge of the night pass of 2026-11-21
+- **lean** 2026-11-24: decided and built — personal.py --check before a commit reads what the upstream does not hold, --all the whole tree, run each night by the pass with no person (L14); the home path, the address, the folder name and the name are guarded; the commit-author address stays, by q-mhwbg3 decision 4; no run at push
 - **opened** 2026-11-20T18:39:55Z
 - **struck** 1, last 2026-11-21T14:24Z
 
@@ -63,3 +63,15 @@ spaced or broken across a line otherwise than listed; a path whose separators ar
 damaged, encrypted or packed by a method Python lacks stops the check with a traceback and no
 finding. The list of this clone holds no line yet: until the person writes the address and the
 name there, the check guards the path alone.
+
+## After it closed
+
+- **2026-11-22, the search over bytes** (fd1dfefc): the file is no longer decoded and its case
+  folded as text; 1.7 seconds for four, the same notes on this tree by the judge's run.
+- **2026-11-22, only what is not yet published** (b5b5deaa), on the person's "а зачем проверке
+  читать все?": `--check` reads what the branch's upstream does not hold; `--all` reads every
+  file. The judge named the cost: a commit pushed with no check run is met by `--all` alone.
+- **2026-11-22, the whole tree each night**, on the person's "Гонять ли проверку по всему
+  репозиторию раз в ночь - да": the pass with no person runs `--all`, L14 of the local rules.
+- **2026-11-22, the list filled**: the address and the home folder's name by the keeper, the
+  name by the session that had scrubbed it; the whole tree read against the four lines, clean.

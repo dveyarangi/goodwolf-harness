@@ -224,7 +224,7 @@ release note says which answers moved; and the re-cut of the release family.
 ### Leave alone
 - The ticket record and `tickets.py`: a ticket reaches the product through its question.
 - The reply form, q-6kx3m2's session's ground.
-- [01-0018.0010 a-session-learns-the-entry-file-moved](../tickets/01-0018.0010-a-session-learns-the-entry-file-moved.md) and the high-frequency regime, out of the order by the user's word.
+- [01-0018.0010 a-session-learns-the-entry-file-moved](../tickets/done/01-0018.0010-a-session-learns-the-entry-file-moved.md) and the high-frequency regime, out of the order by the user's word.
 - Publishing a release and the recipient's read before taking it ([01-0010.0190](../tickets/01-0010.0190-core-is-published-as-a-release.md)'s publish, [01-0010.0195 a-recipient-reads-before-it-takes](../tickets/01-0010.0195-a-recipient-reads-before-it-takes.md)).
 
 ### Recommendation

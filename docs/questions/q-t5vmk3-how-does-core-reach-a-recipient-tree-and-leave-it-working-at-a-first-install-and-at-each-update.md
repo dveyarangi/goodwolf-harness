@@ -148,3 +148,18 @@ keeper's note of what an update brings named two other changes. What a tree is o
 rule arrives on ground its local rules already hold — told by the update, by core's keeper, or
 found by that tree's own sweep — is not decided. In game-delta the mend is that tree's keeper's
 and the person's.
+
+## From a production tree, 2026-11-24
+
+Three of the lessons a recipient's review sent up
+([as given](../research/recipient-lessons-2026-11-24.md)) are an update's:
+
+- **A per-clone part that arrived after the clone was linked is not written.** Two updates
+  reported themselves complete in a clone with no pre-push hook, and said nothing of it.
+- **"Install it with overwrite", in a rules file's head, was read as `harness.py --update`** and
+  moved core a version. The head names no command; the installer's own would have held.
+- **A skill an update renames or drops leaves a project's links to it dead**, and only that
+  project's own guard saw it. This tree did it to its recipients on 2026-11-22, renaming a
+  skill, and told the one tree whose keeper it writes to.
+
+None is mended.

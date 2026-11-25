@@ -27,15 +27,15 @@ role an agent, a subagent included, starts with are one shape is this question's
 ## The person, 2026-11-22: the role lasts, the session does not
 
 Said in a chat with another assistant that the person shared with a session of this tree, and
-passed on by that session as what was said — a thought, not a decision:
+passed on by that session as what was said — a thought, not a decision; told in paraphrase, the
+person's word of 2026-11-25:
 
-"right now the harness started to define persistent sessions/agents, but this approach is
-expensive - instead of that a more compact role definition and context that is aimed to run short
-and disappear, while next agent iteration will pick up knowing where the things stand for this
-role."
+The harness had begun to define persistent sessions, and that way is costly; in its place, a
+compact definition of a role and a context meant to run short and vanish, the next run picking
+up knowing where things stand for that role.
 
-The other assistant's reading, after it read the repository, which the person answered "yes, you
-are on point": a standing session ties three lifetimes together — the role's, which is the
+The other assistant's reading, after it read the repository, which the person confirmed: a
+standing session ties three lifetimes together — the role's, which is the
 project's; the assignment's, which ends when the work does; and the model session's, which is
 costly to keep. The role is the durable thing and owns its mechanisms, permissions, questions,
 assignments and mailbox; a short run takes on one role or several, its context built from the

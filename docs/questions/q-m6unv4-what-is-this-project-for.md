@@ -5,7 +5,7 @@
 - **rung** development: the whole product
 - **lean** 2026-10-13: the purpose root by its words; its open questions wait as undecided answers A15, A21, A51 and A52 in docs/product.md
 - **opened** 2026-10-10T12:19:56Z
-- **struck** 3, last 2026-11-16T13:15Z
+- **struck** 4, last 2026-11-25T00:12Z
 
 Opened 2026-10-09 from the front-page align (q-osjub2). Each list of what the harness *is* came
 out as either its implementation or general engineering claims. The user: *none of this answers
@@ -318,18 +318,16 @@ person's words where they said it, with where it stands.
   on q-ggpx2r. The product side: *What it is for* already names a method of one's own built on
   the harness; this would say the ring serves work beyond coding and its practice is the
   project's own.
-- *The harness drives the agents*, 2026-11-22, said in a ChatGPT chat the person shared with a
-  session of this tree, which relayed it: "the main thing that causes me to investigate this topic
-  in relation to harness, is that I want to combine session visibility with better automatic
-  session control. I'e for each role or group of roles of an agent - right now the harness started
-  to define persistent sessions/agents, but this approach is expensive - instead of that a more
-  compact role definition and context that is aimed to run short and disappear, while next agent
-  iteration will pick up knowing where the things stand for this role"; "and other ideas i struggle
-  to implement in the claude or codex UIs - cheaper and controllable message formatting and
-  referencing, project dashboard, role and prompt control, facilitating the mechanism rules
-  installation in full"; "also the various mechanisms to do not have the full set of tools for
-  their job and relying on instructions for procedures that define harness and project integrity
-  as well". And "yes, you are on point" to the chat's conclusion: the harness owns the roles, the
+- *The harness drives the agents*, 2026-11-22, said in a chat with another assistant that the person
+  shared with a session of this tree, which relayed it; told in paraphrase, the person's word of
+  2026-11-25. They look into this to join seeing the sessions with more automatic control of them,
+  for each role or group of roles. Standing sessions cost too much: in their place, a compact role
+  definition and context for a run that is short and ends, the next run picking up where the role's
+  work stands. Also wanted, and hard to get inside the hosts' own interfaces: message formatting and
+  referencing that is cheaper and controllable, a project dashboard, control of roles and prompts,
+  the mechanisms' rules installed in full. And mechanisms lack the full set of tools for their job,
+  relying on instructions for procedures the harness's and the project's integrity rests on. The
+  person agreed with the chat's conclusion: the harness owns the roles, the
   state, the scheduling, the permissions and the messaging; Claude Code and Codex are execution
   backends; a UI observes and controls the harness — an older attempt at one is
   github.com/dveyarangi/goodwolf-ui. Not yet a decision. The product side: it would move the

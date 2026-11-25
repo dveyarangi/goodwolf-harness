@@ -63,6 +63,10 @@ to say who the receiver is.
    ссылками", accepted the same day; landed 2026-11-17 at the entry contract's v137 after a
    third trial. The rule and its shelf are the session mechanism's, and pass with it to the
    session whose zone holds it.
+4. **Messages grouped, the urgent apart** — the user, 2026-11-21: "Да, группировать"; the decision
+   and what it rests on under *The person, 2026-11-21* below. Landed the same day in S10 and its
+   shelf (b14e1956), at the entry contract's
+   [v139](../research/entry-contract-findings.md#v139--2026-11-21).
 
 ## Three gaps the person found in the landed rule — 2026-11-16
 
@@ -150,4 +154,5 @@ them: what is urgent goes at once — a question, a break made in what the recei
 collision on one file, what the receiver would go wrong without now; the rest is held and goes
 as one message to a receiver, when that receiver is written anyway or when silence would start
 to cost it. The rule's text is the session mechanism's, written and put to the person by the
-session that holds the store; until it lands S10 stands as written.
+session that holds the store; until it lands S10 stands as written. *(2026-11-24: it landed the
+same day, b14e1956.)*

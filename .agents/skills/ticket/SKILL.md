@@ -119,7 +119,9 @@ Write each file to [The record](./TICKET-FORMAT.md#the-record) — the header,
 its fields, the sections it admits, and the citation conventions; `Minted` is
 the day it is written. `Answers` links the question the slice's goal answers:
 open it in the store under the parent ticket's question when the store holds
-none, and `assign` it to the slice.
+none, and `assign` it to the slice. A hazard the person set aside is minted at
+once, its split, impact and approval passed over, with `Hazard` in the place of
+`Answers`.
 Each child carries a one-line pointer to the parent's recorded `/impact`
 assessment.
 
@@ -138,8 +140,7 @@ for decision-bearing work, after its align.
   stays in the entry.
 - **At resolution:** the ticket is minted, or rewritten in place, at feature
   altitude ([TICKET-FORMAT.md](./TICKET-FORMAT.md)); open a new question for
-  separately-scoped residue. Keep its place in the order unless the resolved
-  dependencies require moving it.
+  separately-scoped residue.
 - **If the resolved feature is too coarse for one RFC:** mint it as the
   parent's end-state and decompose it through `/ticket`.
 - **If alignment eliminates the feature:** no ticket is minted; the question

@@ -80,6 +80,7 @@ absence is honestly classified, are judgements it records and never makes.
 | rendering the tree's settings as one table, on request | `.agents/scripts/gw/inject_rules.py` | |
 | telling a session at its start that the tree's blocks are out of step with its settings, and, in a worktree lacking its host's link to the skills, making the links and telling it so | `.agents/scripts/gw/hook.sh` | |
 | running the harness mechanism's hook line before the store's hook, and handing the store's hook what it prints | `.agents/scripts/gw/hook.sh` | |
+| handing the store's hook a host's call before a shell command, only one that names `commit`, every other passed at once | `.agents/scripts/gw/hook.sh` | |
 | deciding at a push whether what it sends wakes the method's checks | `.agents/scripts/gw/hook.sh` | |
 | reporting a retired tag left in core | `.agents/scripts/gw/mechanisms.py` | |
 | writing a mechanism's rule where a session reads it, the entry file included, at `/align` or here | `.agents/skills/mechanism/SKILL.md` | |
@@ -150,9 +151,9 @@ claimant is the always-on mechanism, so no uninstall can remove what another mec
   of the list the person keeps in the clone's Git directory, `gw-personal`, where no commit can
   hold it and which only the person fills; a
   finding is a file, a line and a count, never what was met. Read by whoever runs it; a tree
-  whose repository others read names it in its verification set, and nothing else runs it. With
-  `--all` it reads every file the repository speaks for, which nothing runs unasked: it is run
-  when the list gains a line.
+  whose repository others read names it in its verification set. With `--all` it reads every
+  file the repository speaks for, which core runs nowhere unasked: it is run when the list gains
+  a line, and by a pass with no person, where a tree's own rules have it run.
 - **`--index`'s render** — *what exists* — read on request by someone asking what is declared. **Nothing runs it
   unasked**, and nothing consumes its output: it exists so the register never becomes a file, and
   a register nobody asks for is a register nobody needed.
@@ -206,10 +207,10 @@ mechanism cannot be retired. The shape's block absent from `/mechanism` under `-
 signal that the always-on mechanism has lost what it installed into itself, and the check is
 what says it happened.
 
-**Nine declared mechanisms are still thin evidence for a shape.** The first three each forced
+**Twelve declared mechanisms are still thin evidence for a shape.** The first three each forced
 amendments to it, the fourth passed its check unedited and sharpened one word, the session's
 loosened one skill per mechanism to one owner per skill — what each one forced is in the
-evidence; the other four left no account there — and
+evidence; the other seven left no account there — and
 <straw-dog question="q-g6624x">the rest of the corpus meets it at once</straw-dog>.
 
 ## What retires this

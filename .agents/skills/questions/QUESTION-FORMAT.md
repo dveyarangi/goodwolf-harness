@@ -23,7 +23,6 @@ of them, it is finished, and the window leaves it out.
 - **realizes** A7 "The question store"
 - **rung** development: load-bearing
 - **lean** the flat directory, for insertion cost
-- **asks** the person, 2026-10-26
 - **opened** 2026-09-27T08:14:03Z
 - **struck** 2, last 2026-10-02T19:40Z
 

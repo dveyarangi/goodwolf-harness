@@ -32,7 +32,21 @@
    ahead is found and shown at a wake, and the product's roadmap; it reads the product document,
    the tickets and the store and writes none of them *(the user, 2026-11-21, to that session; to
    the keeper, of the line as shown: "Да, дописать")*. Written in L13 until the cut's own record
-   holds it; the cut is read with it: seven roles on six sessions.
+   holds it; the cut is read with it: seven roles on six sessions. *(Narrowed 2026-11-22 as to
+   what it writes — decision 7.)*
+7. **Путь weighs and hands on** — it keeps the roadmap and corrects the questions and tickets
+   its weighing meets; the product document it reads and never writes; it builds nothing and
+   starts no work, its own mechanism's text aside, and hands what it opens to the session whose
+   zone holds it *(the user, 2026-11-22, to that session: "ты сам ничего не строишь, только
+   анализируешь и выбираешь работу, выравниваешь роадмап, ну и корректируешь вопросы или
+   тикеты - но не сам запускаешь работу, только открываешь и передаешь"; of the line as shown:
+   "принимаю")*. Written in L13, fe401b0b.
+
+A tension left standing, found by the pass with no person of 2026-11-23: L13 still titles a
+session `🐺 <role> — <its area>`, while decision 5 and the session mechanism's rule on a row's
+name give a session one name and a list of roles. It is not mended here: the first line of L13
+goes with the cut's own record, and the roles are to be looked at again (the section of
+2026-11-22 below).
 
 ## What the decisions change — 2026-11-20
 
@@ -82,3 +96,52 @@ What the two days show, as the keeper saw it from inside:
 - **The hook that tells a running session the entry file moved** is about what a running session
   is shown at its turn's start. The role that holds where each session stands is the store's
   session's; the person leans the same way. Who takes it is the person's, not yet said.
+
+## Waiting for the roles' review — the pass's findings of 2026-11-24
+
+The pass with no person of 2026-11-24 read the sweep c479401a..26dd3dba and told the keeper
+where the records and the rule of roles do not yet say what was decided on 2026-11-21 — a role
+is the mechanisms a session holds, no mechanism is written for a role, one table, records are no
+one's — and what was decided of Путь in decisions 6 and 7. Lines as at 26dd3dba. They are kept
+here and not mended one by one: the person has said the roles are to be looked at again, and a
+note written now would be rewritten then. Each is taken up when the cut's own record stands.
+
+The rule of roles, L13 of the local rules:
+
+- "A mechanism no role here names is written by whoever works in it" beside the decision that a
+  skill every session uses is the harness's session's to edit and that no file stays without a
+  holder.
+- "Практика: the tickets", the keeper's journal, the store's "the question store", beside
+  records being no one's: readable as the mechanisms, and unsaid.
+- Путь "corrects the questions and tickets its weighing meets" beside the session mechanism's
+  "Write nothing into its question or records" and the rule's own "hands what falls in
+  another's": which wins is unsaid.
+- "asks the person for its role" and the title `🐺 <role> — <its area>` beside a session's one
+  name and its list of roles.
+
+Records that do not name the decision of 2026-11-21:
+
+- q-mvd4pi, lines 59–62, "Every role has a mechanism of its own", and its kin at 33–35, 41–42,
+  51–53.
+- q-jz3mlm, lines 41–47, 54, 59–60, 68–69, 133–134; q-gus5k2, 84–91 and 106–111; q-7mj6ax, 6;
+  q-p4sdnv, 13–15 and 19–20.
+- q-ja5mp4, *Where it stands*: the note at 156–161 covers one sentence; uncovered are 139,
+  142–143, 152–156, 162–171, 173–174, 191–192, 204–210, 228–229, 239, 244–248, 263, 270–272,
+  288, the readings at 390 and 394–398, and decisions 1, 4 and 5 at 54–57, 73, 81, 93–101.
+- q-dyc63i, 167 and 178–181, of Путь. This question: decision 4 at line 26 reads without
+  decision 6; "readings 1 to 7 stand" at 57–58, where the fourth is overturned; 96–99, where
+  the hook has since landed.
+- The plan of 01-0090.0010: lines 21 and 25, "six roles on five sessions"; 47, 69–72, 77–78,
+  80–81, 94–95, 102–103, 106 and its table without Путь, 130–132, 166–172, 207–208, 279–280.
+- The ticket 01-0090.0010: lines 27–28, 47–48, 52–53, 58, 62–64, 85, 88–89, 95, 109–110, which
+  its note at 39–46 does not name.
+- q-xbp22o, 45–46, on relayed decisions; the journal of the way of working, 54–55.
+- q-gbt7cy, decision 1 at lines 15 and 20, "Every skill has a mechanism", which the plan of
+  01-0090.0020 narrows at 145–166; passed on by the practice's session, 2026-11-24.
+
+## The person, 2026-11-25: a role of the voice and the look, perhaps
+
+To the store's session, sent on to the keeper word for word and read at its source, after asking
+that a reply to another session's message print no head, decisions or frames again: "это возможно
+новая сессия или роль по голосу и виду". A thought, not a decision; it waits for the roles'
+review. Until a session is cut off for it, how the person is spoken to is the keeper's.

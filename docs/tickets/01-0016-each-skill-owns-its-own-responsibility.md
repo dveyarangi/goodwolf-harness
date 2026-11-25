@@ -47,10 +47,10 @@ correct as it stands. `/ticket`, `TICKET-FORMAT` and `/impact` use *repair* in t
 repairing citations — and are not appliers at all. With injection available, one home and one
 installed copy replaces the election; the home is this ticket's to name, and the evidence now
 points at `/verify`, whose pass is *what to do with a discrepancy against an explicit rule* and
-which [the process](../process.md#verification) already routes discrepancies to.
+which the process (removed 2026-11-22, eadd0b64) already routes discrepancies to.
 
 The same restatement happens elsewhere: `/verify` restates repair-and-report that
-[the process](../process.md#autonomy-and-repair) owns; `/maintain` restates archive eligibility that
+[the entry file's Autonomy section](../../AGENTS.md#autonomy) now owns; `/maintain` restates archive eligibility that
 `TICKET-FORMAT` owns; `/plan` and `/ticket` both carry slicing rules. Restatement is how two sites
 drift apart without either being edited.
 
@@ -72,10 +72,10 @@ left unhosted.
 - Restated methodology replaced by links. A skill keeps a rule only if it owns it.
 - Contradictions between skills surfaced and resolved, not annotated.
 - Repair-and-report moves into the skill. **2026-09-06, user:** the `/maintain` bullet that links
-  out to [the process](../process.md#autonomy-and-repair) should carry the rule itself instead. It
-  currently lives in `docs/process.md` and is linked from `/verify`, `/implement` and `/maintain`,
-  while [the pacer's temporary block](../process.md) says step rules move into their skills as those
-  skills install. What this pass still owes is the consequence, not the decision: three skills apply
+  out to the process (removed 2026-11-22, eadd0b64) should carry the rule itself instead. It
+  lived in `docs/process.md`, linked from `/verify`, `/implement` and `/maintain`, while the pacer's
+  temporary block (removed 2026-11-22, eadd0b64) said step rules move into their skills as those
+  skills install; its home is now [the entry file's *Autonomy*](../../AGENTS.md#autonomy). What this pass still owes is the consequence, not the decision: three skills apply
   the rule, so moving it into one of them either duplicates it or makes that skill its owner and the
   others its callers.
 - The investigation responsibility consolidated into `/impact`, per the user's example.
@@ -96,8 +96,10 @@ left unhosted.
   and a mechanism's one instruction file is where its rules are read; rules it needs in skills it
   does not own arrive by injection, which is [.0020](./done/01-0011.0020-rules-one-home.md)'s. The
   question that remains is not the unit but the elected owner in each contested case.
-- Whether `docs/process.md` survives this pass as a rule home or becomes policy-only — its
-  `<temporary>` block already promises the sequence to [the pacer](./01-0020-each-turn-knows-its-next-step.md).
+- ~~Whether `docs/process.md` survives this pass as a rule home or becomes policy-only — its
+  `<temporary>` block already promises the sequence to [the pacer](./done/01-0020-each-turn-knows-its-next-step.md).~~
+  **Settled 2026-11-22:** the page is removed ([q-p4mcme, decision 2](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md#decisions)),
+  and the order of work is `/pathfinder`'s.
 - Whether "update the glossary/architecture inline" is `/align`'s or `/maintain`'s.
 - **Which mechanism is responsible for straw dogs** *(raised 2026-09-08 at
   [01-0011.0070](./done/01-0011.0070-straw-dogs-marked-and-found.md)'s align, the user)*. The duty to
@@ -107,11 +109,13 @@ left unhosted.
   straw dogs?", which this pass answers. Nothing owns the concept end to end, and
   three mechanisms each hold a piece. The elected owner is this pass's to settle; `/verify`'s
   wrapper retires with the answer.
-- A live instance to settle: on 2026-09-06 `/verify`'s skill body lost its opening line — "`/verify`
+- ~~A live instance to settle: on 2026-09-06 `/verify`'s skill body lost its opening line — "`/verify`
   is the verification of landed work, not only documentation or shape review" — while
-  [the process](../process.md#verification) still says it. The skill and its governing document now
+  the process (removed 2026-11-22, eadd0b64) still said it. The skill and its governing document now
   differ in emphasis, and nothing decided that. Whichever way it resolves, one of them stops
-  saying it.
+  saying it.~~
+  **Settled 2026-11-22:** the page that still said it is removed
+  ([q-p4mcme, decision 2](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md#decisions)).
 
 ## Already landed
 

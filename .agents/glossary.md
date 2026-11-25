@@ -146,7 +146,7 @@ Which authorized work proceeds now, pauses, or awaits a decision. Pace is distin
 The execution of a single skill. It has an input state, an immediate purpose, an expected result and a reassessment boundary at its end, and need not complete its owning ticket.
 
 **Turn**:
-One agent reply, from the user's message to the reply's end. A turn holds at most one execution step; a step may span turns.
+One agent reply, from the user's message to the reply's end. A turn chains execution steps until the first decision at or above its ladder's dial; a step may span turns.
 
 **Session**:
 One chat of a host with the tree, from its `/recall` to its `/conclude`, known by the steadiest id the host gives the chat; one that holds a role has no conclude, and lives until the person or a re-cut ends it. It holds a position in the question store, is seen or silent, and leaves a session record at its conclude.
@@ -163,7 +163,7 @@ _Avoid_: unplaced, nowhere, new as names for this.
 A historical account retained after its active role ends, with its disposition explicit; of the kind *what happened*. Current work should be understandable from maintained sources without requiring that record; historical investigation and mechanical maintenance may still reach it.
 
 **Ticket**:
-A tracked unit of agreed work with an intended outcome and observable completion criteria, minted from the body of the question it answers once the work's form is seen. It holds what is actual for the work; a decision lands where it is made, not in the ticket. Of the kind *what it intends to become*: spent when its criteria hold.
+A tracked unit of agreed work with an intended outcome and observable completion criteria, minted from the body of the question it answers once the work's form is seen; a hazard the person set aside is minted at once, from none. It holds what is actual for the work; a decision lands where it is made, not in the ticket. Of the kind *what it intends to become*: spent when its criteria hold.
 _Avoid_: dossier, decision log, history as names for a ticket's contents.
 
 **HITL ticket**:

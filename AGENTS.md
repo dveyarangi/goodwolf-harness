@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v140, 2026-11-21.
+Entry contract: v143, 2026-11-25.
 
 ## General rules
 
@@ -91,6 +91,10 @@ is goodwolf-harness's own.
 
 A turn that completes a step of the delivery ring adds a row to the head table:
 `| 🔁 <the ticket, linked with its slug> · ✅ <each step this turn completed> |`.
+
+A reply in a turn another session's message started carries no table and no frame, over S4 and
+D3, save the ⚖️ table where the turn changed what waits on the user; text the turn wrote stands
+under its header in the next reply to the person.
 </straw-dog>
 
 <installed by="ticket">
@@ -367,7 +371,8 @@ person for its role.
 - **Хранитель**: core's boundary with the other trees — their updates, what their keepers send
   up, what core carries down — the entry file, the local rules, the rule-failure register and the
   journal of the way of working; and, until a session is cut off for them, the rules no zone's
-  mechanism owns and how the person is spoken to.
+  mechanism owns.
+- **Голос**: how the person is spoken to — the voice, a reply's form, and the debugging mechanism.
 - **Практика**: the tickets, and the skills of the delivery ring from `/align` to `/verify`.
 - **Аудит и обслуживание**: the audits — an outside review kept as given, each finding given its
   home — and the maintenance: the records held in agreement and the pass with no person.
@@ -385,12 +390,11 @@ person for its role.
 
 A mechanism's rules, skills and scripts are written, and put to the person, by the session whose
 zone holds it; a session that needs a change in another's asks that session, never the person.
-What the person tells one session to change in another's zone goes to that session once, in the
-person's words. That session words the change itself and lands it on those words, puts it to the
-person no second time and sends no draft back; a choice the words do not make it puts to the
-person itself, and the first session puts none of it. It tells the first session what landed,
-and the first session tells the person. A mechanism no role here names is written by whoever
-works in it.
+What the person tells one session to change in another's zone goes there at once, quoted word for
+word, over S10's holding. The holder lands it on the quote with no showing first — over S9,
+*Autonomy* and *Self-improvement* — and no draft sent back, asks the person itself what the quote
+leaves open, and tells the first session, which tells the person; without a quote it asks the
+first session for one. A mechanism no role here names is written by whoever works in it.
 </installed>
 
 ## Straw dogs
@@ -398,8 +402,9 @@ works in it.
 Wrap anything an open question's answer will change, as you write it — or, for text already
 written, in the pass that opens the question: `<straw-dog question="q-N">`, bound to the question
 whose answer will rewrite it, or in code a `TODO` naming `q-N` first. Treat *not yet*, *until*,
-*once it exists*, *for now*, *untested* in your own text as the same signal: find the question, or
-open one. Wrap at the authored home, never where the harness installs or derives it. Write the body
+*once it exists*, *for now*, *untested* in your own text, or in a reply about it, as the same
+signal: find the question, or open one. Wrap at the authored home, never where the harness
+installs or derives it. Write the body
 to stand on its own: it is what a recipient receives once the wrapper is stripped, so it names no
 question or ticket — the binding does. Leave what no open question would change unwrapped.
 Where the work a side question was raised in goes on, what its answer will change is wrapped as
