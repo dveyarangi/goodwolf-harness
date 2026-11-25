@@ -8,4 +8,4 @@
 - **rung** development: load-bearing, self-improvement: a rule
 - **lean** 2026-10-12: 01-0011.0110.0040 verified and open on its first criterion alone, no check reading an RFC's mark until /plan is a mechanism; story 19 moved to q-zxnc6y
 - **opened** 2026-10-08T05:36:35Z
-- **struck** 2, last 2026-10-10T23:25Z
+- **struck** 3, last 2026-11-25T06:44Z

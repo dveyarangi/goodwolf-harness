@@ -12,8 +12,10 @@
 ## Where it stands
 
 A hazard the person set aside is a ticket with no question behind it, and nothing else is (decisions
-1 and 2). What a session holds when it takes one into work is
-[q-ixlyj2](q-ixlyj2-how-does-a-session-hold-a-ticket-with-no-question-behind-it.md)'s; what brings one
+1 and 2). Whether a hazard is a question instead is being asked of the person in
+[q-huss2x](q-huss2x-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three.md); on their yes decisions 1 and 2 are
+withdrawn, and until they answer nothing is built on them. What a session holds when it takes one into
+work is [q-ixlyj2](q-ixlyj2-how-does-a-session-hold-a-ticket-with-no-question-behind-it.md)'s; what brings one
 back is `/pathfinder`'s.
 
 ## The person, 2026-11-25
@@ -42,6 +44,23 @@ read by this session in that session's transcript, 23:09Z on 2026-11-24: "отл
    none of that. The agent's: a fork met later in such a ticket is a question opened where Q1 places it.
    → [the ticket format](../../.agents/skills/ticket/TICKET-FORMAT.md#the-header). Not: any work whose
    form is already known.
+
+## Held — where a fork of a hazard's ticket is kept
+
+The person took the text below, 2026-11-25, shown it: "Да, добавь"; then, asked once their lean to a
+hazard being a question was known: "Придержи". It goes into *The sections* of the ticket format if
+decision 1 stands, and falls with it.
+
+> - No `Open issues` section: a ticket's unresolved decisions and HITL forks are
+>   entries of the question store, each holding its own argument: under its `Answers`
+>   question, drawn with `questions.py --tree <its Answers id>`; a hazard's, opened where any
+>   question is and linked from its `What to build`.
+
+With it: the diagnostic for a retired `Open issues` in `tickets.py` names where a hazard's are; the
+questions mechanism's doc no longer says a ticket's open questions are always under the question it
+answers; the ticket mechanism's doc gains a row; the hazard's clause is a straw dog of q-ixlyj2. A
+judge who did not write it found the place by the text alone, and guessed at whether to `assign` the
+question to the ticket, whether to call `at` on it, and how it points back.
 
 ## Evidence — one fresh reader, 2026-11-25
 
