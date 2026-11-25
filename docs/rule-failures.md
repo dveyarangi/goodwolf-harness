@@ -19,6 +19,31 @@ This register and its rules belong to the mechanism shape under
 decision 1, the user, 2026-10-25. The move is
 [01-0019 harness-amends-itself-by-explicit-meta-rules](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)'s.
 
+## Open questions waiting their turn were proposed to be closed as deferred — 2026-11-25
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-opus-5-5 · 2026-11-25T08:02Z — chat `9481427b-dc10-46ad-9d06-c9ae6507567e`, commit 252cdf18; the instant is about that of the reply, the model is the one the session reported itself running on.
+
+**Rules in play:** the questions skill, *Closing*: *"one is parked"*, closed `deferred` with
+*"until <condition>, meanwhile <default>"*; the accepted whole of
+[q-huss2x](questions/q-huss2x-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three.md),
+by which the pathfinder holds every open question and says what waits and why.
+
+**What happened.** A pass over the open questions gave its readers the verdict *worth asking only on a
+condition*, the default being what holds today; 17 real questions whose work had not come were put to the person
+to be closed as deferred, each recommended yes. What the closing does to the path was not read. The person: "зачем
+все это прятать?"
+
+**Why it did not fire.** *Parked* names any question not taken up now, and a condition and a default can be
+written for every one of them, so the format's check is met by all. This is the session's reading.
+
+**Proposed amendment**, shown to the person: *Closing* names instead a question the person settles with a default
+until a condition, and says that one waiting its turn or another's answer stays open, `depend` holding what it
+waits on.
+
+**Disposition:** open; the proposal withdrawn the same day, the 17 left open.
+
 ## A form the trial had not tried was recommended on the trial — 2026-11-25
 
 **Source, no case yet:**

@@ -5,7 +5,7 @@
 - **state** open
 - **realizes** A8 "No question left to sink"
 - **rung** development: a feature, self-improvement: a rule
-- **lean** 2026-11-25: the store's script lists the open questions with no whole, what nothing waits on first; /maintain reads ten a pass; shown to the person
+- **lean** 2026-11-25: seeing an unreached question is the pathfinder's, handed to Путь; /maintain keeps only the one a decision already answers
 - **asks** the person, 2026-11-25
 - **opened** 2026-10-10T23:45:15Z
 - **struck** 1, last 2026-11-25T07:08Z
@@ -13,19 +13,19 @@
 ## Where it stands
 
 The store keeps an entry from being lost as a file, not as a question someone sees: one nobody reaches sinks.
-Asked by the person, 2026-11-25, the open questions with no `Where it stands` were read for relevance, and
-the reading is to be `/maintain`'s too: [the pass](../research/open-questions-2026-11-25/REPORT.md). Of 211, 47 of the
-93 read closely are proposed to be closed, deferred or reworded; what nothing waits on is worth reading first,
-31 of 55, and what something waits on seldom falls, one of 16 drawn at random.
+Seeing it is the pathfinder's, the user, 2026-11-25: an open question stays open while its turn or what it
+waits on has not come, and the pathfinder holds every open question ([q-huss2x](q-huss2x-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three.md)). What it shows today is
+counted below, *What the path shows of the open questions*; handed to Путь with the person's words.
 
-Proposed, the agent's, shown to the person: a rule of this mechanism installed in `/maintain`, ten questions a
-pass from a list the store's script prints — open, no whole, those nothing waits on first, the longest opened
-first; what is kept gets its `Where it stands` and so leaves the list, what is not goes to the person.
-Of the 47, on the person's words of 2026-11-25, "отвеченые и отпавшие закрывай" and "принимаю решения по
-вопросам": 14 closed answered or moot, 4 of them by the sessions whose they were; 8 merged, one pruned, one
-more closed, two reworded; q-4leela merged by Продукт. Left open, told: q-7ld3wt, its ticket Partial;
-q-6kx3m2 and q-3hjxcn. Waiting on the person: that rule; the 17 to be put off, a row each. Open beside it: whether the wake lists what nobody
-reaches, and whether a question shows how many straw dogs wait on it.
+What stays `/maintain`'s, proposed: an open question that a decision in force already answers, or whose ground
+one removed, is drift, put to the person with the place. The wider rule shown first is withdrawn.
+
+Read for relevance on the person's word: [the pass](../research/open-questions-2026-11-25/REPORT.md). Of the 47
+not kept, on the words "отвеченые и отпавшие закрывай" and "принимаю решения по вопросам": 14 closed answered
+or moot, 4 of them by the sessions whose they were; 8 merged, one pruned, one more closed, two reworded; q-4leela
+merged by Продукт. Left open, told: q-7ld3wt, its ticket Partial; q-6kx3m2 and q-3hjxcn. The 17 proposed to be
+put off stay open, the proposal withdrawn. Waiting on the person: the narrow rule for `/maintain`, and the
+closing rule's *parked*.
 
 ## Before the pass — 2026-10-10
 
@@ -45,3 +45,21 @@ and while it began: "и это тоже должна быть задача ма�
 with no `Where it stands`, 93 of those with no body at all. The 211 are read against the tree by seven
 fresh subagents, a verdict each — live, answered, overtaken, the same as another, to be reworded, to be
 dropped — and what they would close is read again by a second judge before it is put to the person.
+
+## What the path shows of the open questions — 2026-11-25
+
+The person, of the 17 proposed to be deferred: "зачем все это прятать? это реальные открытые вопросы, просто мы
+до них еще не добрались, у многих из них просто либо ниже приоритет, либо не готовы пререквизиты", and "и вообще,
+это задача пасфайндера".
+
+A deferred question is closed. The path's script reads open ones alone: its candidates, the roots' counts and
+the count of work toward an answer all leave a deferred one out; the wake lists it with its condition, for
+whoever wakes to re-check, 8 today; a straw dog bound to it never comes due. A pass over 17 would have taken them
+from the path and put them on the wake.
+
+Counted by the script's own readers, of 217 open below a root: 13 shown as questions, touched within the week or
+struck, 8 of those printed; 15 answered by a Ready ticket, 5 printed, and 4 by one In progress; 15 under such a
+ticket's question. 156 reach it only through a ticket neither Ready nor In progress, which it does not print, and
+14 through nothing. Every one of the 17 but q-i3xruh, under a ticket In progress, is among the last two. *Depends
+on* is read as what a candidate unlocks and never as what it waits on: five open questions wait on an open one,
+and one of them, q-osjub2, is printed as touched lately. No part of an entry says a question is of lower priority.

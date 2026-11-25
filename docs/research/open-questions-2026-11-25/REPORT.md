@@ -72,6 +72,10 @@ zone holds the question.
 
 ## Worth asking on a condition
 
+*Withdrawn 2026-11-25, on the user's word that these are open questions not yet come to, of lower priority or with
+what they wait on not ready, and that this is the pathfinder's: all 17 stay open. The column* where *holds what each
+waits on, as the readers found it.*
+
 | question | its words | where | why |
 |---|---|---|---|
 | [q-7kimiz](../../questions/q-7kimiz-does-a-project-under-node-need-python-for-core-or-do-its-scripts-run-on-node-too.md) | Does a project under Node need Python for core, or do its scripts run on Node too? | until the walk of q-yyr5br reaches objection 20 or a Node recipient will not have Python, meanwhile core needs Python 3 and its standard library | The person left it waiting on what recipients run; no recipient is recorded as refusing Python, and a port would double twelve scripts. |
