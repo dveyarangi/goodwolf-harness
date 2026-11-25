@@ -40,6 +40,11 @@ questions is the steering the signal asks for, apart from the window's form.
    on Claude Code, and this tree's window without the root's list and the children's leans is 6,326
    of 60,741, measured the same day.
 
+Seen at the first chat that cleared itself, 2026-11-25: the first message's hook said "window unchanged
+since your last one" to a context that held only the wake's cut head, since the window remembers by the
+session's tag and the clearing kept the tag. Named to the person before the clearing, and not built; the
+agent read the saved file, which nothing told it to.
+
 Not settled by it: what must be acted on beyond what the window shows today, which waits on
 [q-2ng6nb](q-2ng6nb-which-session-puts-a-question-that-asks-the-person-and-how-is-it-known-that-it-was-put.md);
 the wake, cut by the same cap; and Q1's word for a message the short window holds no place for — a change of Q1 refused for now, the person,

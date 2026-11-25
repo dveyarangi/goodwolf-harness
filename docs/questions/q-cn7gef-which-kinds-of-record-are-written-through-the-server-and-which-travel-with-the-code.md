@@ -27,6 +27,10 @@ true of the commit it stands in, and a branch carries its own.
 | the rule-failure register | every session writes it from anywhere, and it says nothing of the code: the server's by the line, with the code today | open |
 | session records, research, cases | one writer each, never changed: with the code | as they are |
 
+The agent's recommendation to the person, 2026-11-24T23:28Z and again at 23:36Z: the line, and the register
+with the code until the server is built, then the server's. On 2026-11-25 an opening session that did not
+know it recommended the register through the server at once; the recommendation stands as first given.
+
 Where it is declared: the mechanism shape's record declaration has three fields — what a record is, its
 tier, what removes an entry; a fourth would say by which of the two it is written. The shape's text is
 the keeper's to write once this is decided.

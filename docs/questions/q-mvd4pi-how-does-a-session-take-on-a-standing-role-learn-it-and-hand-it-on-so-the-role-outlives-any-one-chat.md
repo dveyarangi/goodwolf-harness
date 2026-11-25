@@ -46,6 +46,10 @@ What was seen on the way:
 The second try: the person's new word, "Да, очищай"; the clearing called about 2026-11-25T00:17Z, the person told to write
 here and not to press the button. The transcript before it is the same `93035cf8`.
 
+**It ran, 2026-11-25.** The chat was cleared, the person wrote "привет", and the opening, transcript
+`9481427b-dc10-46ad-9d06-c9ae6507567e`, took up step 1 below; a judge who built none of it read both.
+*The first trial's verdict*, below.
+
 **What the person weighs by now**, their words of 2026-11-25: "расход первым"; "3 минуты это много"; "нет
 смысла плодить сущности"; a reply to another session's message carries no frames, which is v143's. And
 where they corrected this session that day, each time it had not looked before proposing: the server that
@@ -53,22 +57,15 @@ was already decided, the zone that is paths, the two modes that are one, the let
 idle, a full reader that one case could not justify.
 
 **Next.**
-1. The trial, at the next opening, carrying 01-0020's live check by the person's word, 2026-11-25 — "а
-   разве хранилище сейчас делает не ровно это?", "Yes, move and close"
-   ([q-p4mcme](q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md), decision 4): *a session that ended mid-ring is resumed by the next session at its
-   step, without the person restating where things stood, read by a judge who did not build it.* A fresh
-   subagent judges it, given the transcript before and after and no account of the builder's:
-   - did the row, the name and the unit come through; did the wake's head reach the agent; did the app ask;
-   - did the session take up the step named in *Where it stopped*; what was asked of the person twice,
-     looked for and not found, or done over;
-   - the first request, against 86 thousand, which tells decision 6 too.
-   This trial has its work at an align, no unit at `/implement`'s middle; a second, on a unit there, is owed
-   before A4 is said to be met. Whether a chat that clears itself is the *next session* of the check is put
-   to the person with the result; the agent's reading: yes, its context holds nothing of the one before,
-   so the records alone carry the resume, and that is what the check is of.
+1. The trial ran; its verdict is below. Waiting on the person: whether a chat that clears itself is the
+   check's *next session* ([q-p4mcme](q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md), decision 4), the agent's reading yes; a second trial, on a unit
+   at `/implement`'s middle, is owed before A4 is said to be met.
 2. Put to the person, the trial passed: the whole rewritten without letters, *What falls* and *What stays*
    below; *Where it stands* and the judge's marks are rewritten to it, not before.
 3. Then the keeper is told what changes for S11, L13 and q-mz6gd4, in one message; it knows none of it.
+   With it, Голос is told what the rewritten whole changes for it: at 00:13Z it was told to work by the
+   installed rules and expect no letters and no folder; and Путь is told that the two Ready units nobody
+   resumed, 01-0010.0125.0010 and 01-0010.0240.0020, are its to place, as the person was told.
 4. Then a plan and a build, the keeper's base counted first (q-b4um7c): the bound's line at 20 and 50 %; what
    a closing does; the recall's offer. Nothing is built of it yet.
 
@@ -213,6 +210,38 @@ remedies. Not remedied, and so open:
 
 It found sound: the advice and no hold, the bound's figures, the letter's end recorded, the recall's
 offer, and that a fresh session is tried before anything is built.
+
+## The first trial's verdict — 2026-11-25
+
+A fresh subagent, given both transcripts and no account of the builder's. Its reading, with what the
+session that opened checked itself: the check passes on the case it was tried on, an align, and A4 is not
+met by it.
+
+- **Came through:** the row byte-identical, the name, the position, the unit; the app's title; the wake's
+  first lines in the first request. The clear was accepted at once, no request or question in the
+  transcript; the app's own screen cannot be read from it.
+- **Taken up:** the step *Where it stopped* named, the person restating nothing.
+- **Cost:** first request 73.4 thousand against 86 thousand at the median, and 81.9 to 89.3 in this
+  tree's Opus chats of 18 to 24 November, median 83.3: some 10 thousand less, consistent with decision 6's
+  tools being off, which no comparison isolates. The opening to its first reply is some 0.39 M units
+  against 1.0 M for the restore. The context stood at 133 thousand after the first turn, against 110 at the
+  median, three quarters under 134: of it some 50 of this record's 57 KB, the ticket list and the history
+  were read without need.
+- **Lost:** the recommendation on the register in
+  [q-cn7gef](q-cn7gef-which-kinds-of-record-are-written-through-the-server-and-which-travel-with-the-code.md) came back reversed and unsaid; and the hole of the window's "unchanged" line
+  ([q-dhrg3r](q-dhrg3r-what-does-the-window-show-once-the-open-questions-outgrow-what-a-host-puts-in-the-agent-context.md)) in no record of it. Both are written there now.
+- **Also in no record, and now here:** what a closing is to say of the person's objection to test runs at
+  each compaction, agreed by the agent: none unless code changed, nine checks, ten seconds; why no hint of
+  *Where it stopped* stands in `/recall`, put off on purpose for the trial to show whether it is missed, and
+  the fear that the last session record, of 29 October, misleads; that the private chat's words stay in
+  git's history, and their removal is not offered unless the person says.
+- **Not reached:** an ordinary closing, or a chat cut off without one; the stop was written for a test its
+  writer knew of. A role taken by another chat; another host; a chat colder than a minute, or woken by a
+  letter; whether `/recall` leads to the stop, which the position named on the row did here and nothing in
+  the skill does. The opening read the cleared chat's last reply from its transcript, after the stop.
+
+The opening's own proposal, for the whole: a session reads the stop first, then the headings, and the
+dated evidence only where a decision stands on it.
 
 ## The closing as it was done by hand, to be reproduced — 2026-11-25
 
