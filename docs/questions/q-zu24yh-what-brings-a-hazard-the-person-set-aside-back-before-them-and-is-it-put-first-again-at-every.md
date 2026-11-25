@@ -1,8 +1,9 @@
 # q-zu24yh What brings a hazard the person set aside back before them, and is it put first again at every recommendation?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-huss2x
-- **state** open
+- **state** closed:decided
+- **answer** [the pathfinder skill](../../.agents/skills/pathfinder/SKILL.md) — the user, 2026-11-25
 - **rung** self-improvement: the method
 - **opened** 2026-11-24T23:25:44Z
 - **struck** 0, last 2026-11-24T23:25Z
@@ -19,4 +20,11 @@ trigger is written. A trigger is a second thing to keep true; the hazard is alre
 
 The agent put a strip of hazards at the board's top as a thing apart; the user, 2026-11-25:
 "отложенная опасность первая это разве не есть полоса опасностей?" It is: one rule, the strip being
-how the board shows it. Whether it lands waits on the person.
+how the board shows it.
+
+## Decisions
+
+1. **A hazard set aside stays before the candidates, its reach counted anew, and stands above the rows
+   only on the board of the session that took it** — the user, 2026-11-25: "полоса сверху только на
+   доске той сессии которая взяла опасности", on the agent's text. The rest of it was not said no to
+   and is landed as the agent's. → [the pathfinder skill](../../.agents/skills/pathfinder/SKILL.md)

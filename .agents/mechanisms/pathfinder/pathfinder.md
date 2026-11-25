@@ -39,6 +39,7 @@ person first orders the work; a tree with none has no order yet.
 | a hazard is put before the candidates, its reach counted in the code | the agent's text, landed on the user's word, 2026-11-25 |
 | a hazard set aside is a unit of work at once, not a question | the user, 2026-11-25; the text the agent's |
 | a roadmap row may name a pain | the agent's text, agreed by the user, 2026-11-25 |
+| a hazard set aside stays before the candidates; the strip only on the board of the session that took hazards | the user, 2026-11-25; the text the agent's |
 | the board's cards derived, no list of them kept | the user, 2026-11-25; the text the agent's, accepted |
 | the work drawn as a board, its rules | the user asked for the drawing and took it for now, 2026-11-25; the text the agent's, accepted |
 | such a question goes first to the session it belongs to | the user's words to another session, 2026-11-24; the text the agent's, landed on them |
