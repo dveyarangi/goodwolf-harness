@@ -69,6 +69,10 @@ idle, a full reader that one case could not justify.
    and is proposed for its fewer parts. Four readers of six told the person otherwise; the person hears
    this with the choice.
 3. Then the keeper is told what changes for S11, L13 and q-mz6gd4, in one message; it knows none of it.
+   What the rewritten whole takes in from a recipient's case, the last section of
+   [q-jz3mlm](q-jz3mlm-how-does-a-project-cut-its-work-into-standing-sessions-and-how-does-the-cut-change-as-the-project-grows.md), 1b6296f8: whether a long body of
+   work of one kind, crossing every zone, is a role or a unit; a recipient's rows bear a role's title while S11
+   forbids it; what a recipient writes locally until this is built.
    With it, Голос is told what the rewritten whole changes for it: at 00:13Z it was told to work by the
    installed rules and expect no letters and no folder; and Путь is told that the two Ready units nobody
    resumed, 01-0010.0125.0010 and 01-0010.0240.0020, are its to place, as the person was told. Продукт, only if

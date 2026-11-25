@@ -23,7 +23,7 @@ pass from a list the store's script prints — open, no whole, those nothing wai
 first; what is kept gets its `Where it stands` and so leaves the list, what is not goes to the person.
 Of the 47, on the person's words of 2026-11-25, "отвеченые и отпавшие закрывай" and "принимаю решения по
 вопросам": 14 closed answered or moot, 4 of them by the sessions whose they were; 8 merged, one pruned, one
-more closed, two reworded; q-4leela's merge handed to Продукт. Left open, told: q-7ld3wt, its ticket Partial;
+more closed, two reworded; q-4leela merged by Продукт. Left open, told: q-7ld3wt, its ticket Partial;
 q-6kx3m2 and q-3hjxcn. Waiting on the person: that rule; the 17 to be put off, a row each. Open beside it: whether the wake lists what nobody
 reaches, and whether a question shows how many straw dogs wait on it.
 
