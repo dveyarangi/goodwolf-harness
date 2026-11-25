@@ -61,7 +61,13 @@ idle, a full reader that one case could not justify.
    check's *next session* (decision 13), the agent's reading yes; a second trial, on a unit
    at `/implement`'s middle, is owed before A4 is said to be met.
 2. Put to the person, the trial passed: the whole rewritten without letters, *What falls* and *What stays*
-   below; *Where it stands* and the judge's marks are rewritten to it, not before.
+   below; *Where it stands* and the judge's marks are rewritten to it, not before. A draft exists, unaccepted, made for
+   a trial of this entry: [draft](../research/question-body-2026-11-25/draft.md); the form it lands in is
+   [q-rslc3e](q-rslc3e-how-is-a-questions-body-kept-serving-whoever-takes-it-up-as-its-argument-grows.md)'s. The 22 % of the tree under *What it costs against letters waiting* is what
+   clearing saves over waking uncleared chats, not what dropping the letters saves: against the accepted
+   whole, which also keeps a chat short, the cut costs up to the folder's 4 % and the turns letters begin,
+   and is proposed for its fewer parts. Four readers of six told the person otherwise; the person hears
+   this with the choice.
 3. Then the keeper is told what changes for S11, L13 and q-mz6gd4, in one message; it knows none of it.
    With it, Голос is told what the rewritten whole changes for it: at 00:13Z it was told to work by the
    installed rules and expect no letters and no folder; and Путь is told that the two Ready units nobody

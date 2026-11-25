@@ -19,6 +19,33 @@ This register and its rules belong to the mechanism shape under
 decision 1, the user, 2026-10-25. The move is
 [01-0019 harness-amends-itself-by-explicit-meta-rules](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)'s.
 
+## A question's entry kept its history on top and its decisions under its evidence — 2026-11-25
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-opus-5-5 · 2026-11-25T06:04Z — chat `9481427b-dc10-46ad-9d06-c9ae6507567e`, the instant of the turn in which the person asked why a question's evolution lives in the question; the entry was written in this chat and the one before it, the model is the one the session reported itself running on.
+
+**Rules in play:** the questions skill's shelf, *The body*: *"It runs in three parts, in this order"*
+and, of `Where it stands`, *"Rewritten whole whenever a decision lands; it holds no history"*.
+
+**What happened.** [q-mvd4pi](questions/q-mvd4pi-how-does-a-session-take-on-a-standing-role-learn-it-and-hand-it-on-so-the-role-outlives-any-one-chat.md)'s
+entry opens with a stop that tells two trials over, holds its decisions after its evidence, and its
+`Where it stands` was left unrewritten as decision 13 landed, carrying a judge's marks. Other long
+entries keep their decisions after evidence too.
+
+**Why it did not fire.** The shelf declares no place for where the work stopped, so the stop was put on
+top and filled with what it had no bound against; and the whole was held back for the person's answer on
+its largest change, which let it go stale on the settled ones. This is the session's reading.
+
+**What it cost**, [tried on fresh readers](research/question-body-2026-11-25/REPORT.md): no wrong answer;
+the whole read by nearly every reader.
+
+**Proposed amendment**, with the closing's text and the stop's form that q-mvd4pi's plan drafts: the shelf
+declares the stop as a part of the body, holding the next step, what waits and what is in doubt, and no
+history; no check, nothing having gone wrong that one would have stopped.
+
+**Disposition:** open; the form waits on [q-rslc3e](questions/q-rslc3e-how-is-a-questions-body-kept-serving-whoever-takes-it-up-as-its-argument-grows.md).
+
 ## A role was born in four exchanges with the person, and without its mechanism — 2026-11-25
 
 **Source, no case yet:**
