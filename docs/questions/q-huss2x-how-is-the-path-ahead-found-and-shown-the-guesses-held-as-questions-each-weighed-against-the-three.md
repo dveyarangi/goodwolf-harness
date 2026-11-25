@@ -61,7 +61,8 @@ the cap and the cadence have been watched; the picture, which needs a time axis 
 now, next, later; the ring mark, deferred until the cap counts wrongly; the unit of work across
 methods, a seam marked in the ticket mechanism's doc until a second method manifests its unit; and
 whether the roadmap's rows, printed first by the path since 2026-11-25 (bf2ef7ce), are enough for a
-waking session to recommend by them.
+waking session to recommend by them; and whether the path is read under those rows, every open question
+placed, as *The open questions read under the roadmap's row* below tries it, put to the person.
 
 ## Decisions
 
@@ -817,3 +818,32 @@ unit for four turns, until the person: *wait, we were on the pathfinder — why 
 voice?* The rule held at the opening and gave way at the agent's own offer: an idea said mid-ring
 captured the session not by the person's returning but by the agent's asking. Recorded as decision 6
 asks.
+
+## The open questions read under the roadmap's row, 2026-11-25
+
+The person, of 17 open questions proposed to be put off: "нет секундочку. зачем все это прятать? это
+реальные открытые вопросы, просто мы до них еще не добрались, у многих из них просто либо ниже
+приоритет, либо не готовы пререквизиты", and "и вообще, это задача пасфайндера". What the path shows of
+them today is counted in [q-242vqe](q-242vqe-how-is-an-open-question-that-nobody-reaches-kept-from-sinking-unseen.md).
+
+Both reasons are in the records already, and the path reads neither. *Lower priority* is the roadmap: a
+question leads to a row by the answer it, or the nearest question above it, realizes, and the product
+document's table says which pains and causes that answer serves. *What it waits on is not ready* is a
+dependency on an open question, or of the ticket it falls to on one unfinished. Tried on the one row, of 217
+open below a root:
+
+- **Pain 2 by the table's column alone: 93**, under 19 answers. The path prints 4 of them. A row that takes 93
+  orders nothing.
+- **Pain 2 and cause C8**, the process weighing the same for all work and the instructions costing context —
+  the reading nearest "перерасход токенов" — **15**. The path prints 3, and neither of the two the product
+  document says pain 2 waits most on: q-p2tgdv, a lighter path for small work, and q-pkpo3l, the cost counted.
+- **Of the 15, 3 wait by what is written**: q-2denhj, q-hrfk7l, q-xxoz5p. The reading of 2026-11-25 found a
+  fourth, q-ecxzr5, whose wait is written in no entry; what the rest of the 17 wait on is in
+  [its report](../research/open-questions-2026-11-25/REPORT.md) and becomes a dependency where it is a question.
+- **It misses by a link**: q-s6ngtr, what keeps the rules from only growing, costs every session and realizes
+  A36, which serves no pain 2.
+
+Proposed, nothing built: the path prints, under each row, its open questions by name, those free and those
+waiting, each with what on; every other open question counted under its answer, so that the sum is the store's;
+and this takes the place of the ready work in id order and of the most struck, the whole no longer than the
+3600 characters it prints now. No part is added to an entry.
