@@ -135,3 +135,9 @@ Put to the person 2026-11-23 and again, in plain words, 2026-11-25; neither acce
 как после изменений Хранилища будет работать система с ночным прогоном посылающим сообщения, спроси
 ее". Asked of that session the same day; nothing is built until it answers and the person is asked
 again.
+
+The answer, the same day: the roles' design does not hold what the first check would. The sweep is
+decided a session of no role; the hand-over is a rule of judgement on a closing session's own
+leftovers, and the one check proposed beside it, unbuilt, never reads whether a finding was placed.
+The second check is untouched by it. Whether the pass takes the role:
+[q-m2dquq](q-m2dquq-does-a-pass-with-no-person-take-the-role-that-holds-the-maintenance.md). The two checks and G3 go back to the person.
