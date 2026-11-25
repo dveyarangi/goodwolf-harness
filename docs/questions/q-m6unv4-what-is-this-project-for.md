@@ -230,10 +230,9 @@ The user names it as the third cause and gives no answer yet.
   the body of the question it stands on until its form is seen, and the ticket is minted only
   then, with checkable criteria; `/align` stress-tests it. If so, the memory of the exploration
   space is also the answer to this cause, not only to its own pain.
-- **Today:** question bodies used as whiteboards; `/align`; `/impact`; tickets with
-  criteria.
-- **Missing:** the rule that a ticket is minted only from a question's body is decided in
-  q-7ld3wt and not yet landed.
+- **Today:** question bodies used as whiteboards, a ticket minted only from one, save a hazard the
+  person set aside ([the ticket format](../../.agents/skills/ticket/TICKET-FORMAT.md#the-record));
+  `/align`; `/impact`; tickets with criteria.
 
 ### Agents out of sync with each other
 
