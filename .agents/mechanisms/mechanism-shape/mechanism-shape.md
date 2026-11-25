@@ -80,7 +80,6 @@ absence is honestly classified, are judgements it records and never makes.
 | rendering the tree's settings as one table, on request | `.agents/scripts/gw/inject_rules.py` | |
 | telling a session at its start that the tree's blocks are out of step with its settings, and, in a worktree lacking its host's link to the skills, making the links and telling it so | `.agents/scripts/gw/hook.sh` | |
 | running the harness mechanism's hook line before the store's hook, and handing the store's hook what it prints | `.agents/scripts/gw/hook.sh` | |
-| handing the store's hook a host's call before a shell command, only one that names `commit`, every other passed at once | `.agents/scripts/gw/hook.sh` | |
 | deciding at a push whether what it sends wakes the method's checks | `.agents/scripts/gw/hook.sh` | |
 | reporting a retired tag left in core | `.agents/scripts/gw/mechanisms.py` | |
 | writing a mechanism's rule where a session reads it, the entry file included, at `/align` or here | `.agents/skills/mechanism/SKILL.md` | |
