@@ -93,7 +93,9 @@ roles on six sessions". The private wording q-ja5mp4:522-525 stays near to is to
 reply" against v143 (told to Хранитель); the tickets' decisions 26 and 33 of 01-0011.0100, which Практика
 holds; the bare-commit refusal in session.md:114 and :170, a trial stated as a rule, read 2026-12-08;
 questions.evidence.md, whose window test has no rerun found after 0271f182 and 1262601d; RFC
-01-0010.0250.0110:223 against q-c2qp5n decision 1.
+01-0010.0250.0110:223 against q-c2qp5n decision 1; `_noticed`'s "a window drawn whole";
+`_started`, whose never-registered session's compaction also tends rows; a failing compaction event
+answering plain text, which Cursor reads as JSON; the refusal of `end`, which says *holds the role*.
 
 **Not for now, and whose.** *How the wake sees what hangs on a role*: the mark with an addressee was
 dropped for the folder, and the folder by the person's last thought; [q-2ng6nb](q-2ng6nb-which-session-puts-a-question-that-asks-the-person-and-how-is-it-known-that-it-was-put.md) builds its
