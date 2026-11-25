@@ -148,7 +148,7 @@ claimant is the always-on mechanism, so no uninstall can remove what another mec
   the branch's upstream does not hold already
   holds the person's home folder written as a path, read from the machine at run time, or a line
   of the list the person keeps in the clone's Git directory, `gw-personal`, where no commit can
-  hold it and which only the person fills; a
+  hold it and which the person fills, or a session on their word; a
   finding is a file, a line and a count, never what was met. Read by whoever runs it; a tree
   whose repository others read names it in its verification set. With `--all` it reads every
   file the repository speaks for, which core runs nowhere unasked: it is run when the list gains

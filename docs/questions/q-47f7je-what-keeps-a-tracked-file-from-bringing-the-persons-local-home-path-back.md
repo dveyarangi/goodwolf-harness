@@ -77,5 +77,6 @@ name there, the check guards the path alone.
   name by the session that had scrubbed it; the whole tree read against the four lines, clean.
   On the person's word of that day, to the keeper's "Вписать адрес и имя в список — твоё
   действие; без него проверка охраняет только путь": "да, я разве еще не сказал?" — read by the
-  keeper as leave to write them. The mechanism shape's doc says only the person fills the list;
-  which of the two stands is put to the person, 2026-11-25.
+  keeper as leave to write them. The mechanism shape's doc said only the person fills the list.
+- **2026-11-25, who fills the list**: the person, or a session on their word *(the user,
+  2026-11-25: "Сессия по моему слову")* — the mechanism shape's doc says so now.
