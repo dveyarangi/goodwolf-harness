@@ -4,7 +4,7 @@
 - **part of** q-dmvmf2
 - **state** open
 - **rung** development: load-bearing, self-improvement: a rule
-- **lean** 2026-11-25: the whole rewritten and the evidence in a file beside it; the trial does not decide it, its one reader who read less had both
+- **lean** 2026-11-25: the whole rewritten and the evidence in a file beside it, by the fourth form's trial, met narrowly on the measure set before it: 24 thousand tokens an opening against 29, right alike
 - **asks** the person, 2026-11-25
 - **opened** 2026-11-25T06:04:50Z
 - **struck** 0, last 2026-11-25T06:04Z
@@ -22,11 +22,13 @@ Three forms were tried on fresh readers: [the trial](../research/question-body-2
 evidence in a file apart, the head left as it was, changed neither what was read nor what was right; a head
 rewritten whole, the evidence in a file apart, let one reader of two stop early and showed holes the others
 passed over; the answers to the questions were right in all three. The head rewritten with the evidence in
-the same file was not tried.
+the same file was then tried too, on the person's word, 2026-11-25: every reader read it whole at once, 29
+thousand tokens, against 24 on the mean with the file beside; right alike.
 
 Open, for the person, the whole rewritten when a decision lands and the stop holding the next step and what
 waits alone in either: (a) the evidence in the same entry, after the decisions; (b) the evidence in a file
 beside the entry, as a mechanism's is. The agent first recommended (a), a form the trial had not tried, and
-withdrew it when the person asked, 2026-11-25. It recommends (b): the one form in which a reader read less, a
-host's read taking a file whole unless told otherwise, at the price of a second file where there is evidence
-to put in it. The trial does not decide between them.
+withdrew it when the person asked, 2026-11-25. It recommends (b), by the measure set before the fourth form was
+read, met narrowly: five thousand tokens an opening, a host's read taking a file whole. Its price: a second
+file where there is evidence to put in it, its name outside the pattern of the entries' own, and the links
+into the evidence of an entry already written.

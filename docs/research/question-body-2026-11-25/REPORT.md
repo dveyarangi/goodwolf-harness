@@ -46,13 +46,33 @@ folder's path and the host refused it. Of the rewritten form's two, one read the
 the evidence; the other read everything, the head more than once by a mistyped path, so its 35 is partly
 that.
 
+**Round three: the fourth form.** Asked for by the person, 2026-11-25: the rewritten head with the same second
+file's text after it in one file, 71 thousand bytes. Four readers to it, and two more to the rewritten form
+with the file beside, whose round-two readers had mistyped paths; the task of round two. Before any reader
+ran it was written down: correctness first, a form with more errors in most sheets losing; the same file kept
+if its readers' context grew by no more than 4 thousand tokens above the other's; the file beside if it is
+over 4 thousand lower and half of its readers stop before the evidence is read whole; else undecided.
+
+| form | points of 12 | errors | context grown by, thousand tokens |
+|---|---|---|---|
+| rewritten, one file | 10, 10, 10, 8 | 1, 1, 0, 1 | 29, 29, 29, 29 |
+| rewritten, file beside, this round | 10, 9 | 1, 1 | 24, 22 |
+| the same, round two | 10, 11 | 1, 1 | 14, 35 |
+
+Means: 28.9 against 23.9; 9.5 points against 10 and errors alike; and three of the four readers of the file
+beside stopped before the evidence was whole: by the measure set, the file beside, by less than a thousand
+over the line. All four readers of the one file took it whole in their first read. The grading differs from
+the first rounds' in kind, not in total: all six sheets named the judge's letting go of the unit against the
+row's keeping it, one of six before; none gave the 22 % bare, though five of six understate the folder; none
+said that what was overturned would stand again, four of six before; the triggers of a closing were cited by
+their decision's number and not told. The fresh readers of the file beside read the old stop and the old whole in it, text
+that a form kept to would not hold. Two file-beside readers' paths were mistyped, in round two.
+
 **What is read off.** The entry is right for a reader that reads it whole, and nearly every reader of it
 did. Setting the evidence apart with the head left as it was changed neither what was read nor what was right. Rewriting the head let one
 reader of two stop early in round two, saved nothing in round one, and is where holes come to be seen.
 An entry of this size costs some 25 thousand tokens once, against a first request of 73 thousand.
 
 **Limits.** One entry, two readers to a form and one drafter; agents, not the person, who is one of its
-readers; readers told to be economical in round one and not in round two. A fourth form, the head rewritten
-with the evidence left in the same file, was not tried, so what rewriting gives is not told apart from what
-the second file gives. The rewritten form's second file held the old stop and the old whole beside the
+readers; readers told to be economical in round one and not in round two. The rewritten form's second file held the old stop and the old whole beside the
 evidence, 54 thousand bytes where *apart*'s held 36, so its reading is overstated for a reader who opened it.
