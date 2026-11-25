@@ -111,3 +111,19 @@ says the entry file says *may* of picking up a dream; the entry file has not nam
 
 What of these describes G3 waits with G3 itself: two checks in `maintain.py` and its new text were
 put to the person 2026-11-23.
+
+## The night run of 2026-11-25: told to this unit, no judge yet
+
+The pass of 2026-11-25 (session `local_92121923`, `797cb25f`, `80be0056`, `33325051`) swept
+`26dd3dba..2490febf` and marked it `amended`. By its message: what it found went to six sessions,
+doubtful findings included; no question was opened; the harness, pathfinder, questions and ticket
+levels and the session's parts were left due, their drift told. What it told those sessions was not
+read here.
+
+Checked in git the same day by the session holding this unit: two files repaired, the push taken,
+its row ended, `maintain.py --check` naming the same levels due, and the mark rows that moved
+holding the hashes of the files as `80be0056` has them. The case of 2026-11-23's second failure is
+thereby not shown, nor is the rest of the run judged.
+
+It says the six items above and maintain.md:114 still stand. Re-read: item 1's lines and
+maintain.md:114 do; items 2 to 6 were not re-read.
