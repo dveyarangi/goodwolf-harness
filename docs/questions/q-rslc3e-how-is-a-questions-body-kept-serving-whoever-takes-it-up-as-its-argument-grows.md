@@ -32,9 +32,14 @@ two more: `questions.py --check`, which the pass runs, finds an entry that links
 section besides the three, stands out of their order, or links a file that is missing, entries not yet moved
 left alone; and `maintain.py`'s sweep of what landed, whose homes of decisions take in `docs/questions` whole,
 passes over the folder. The pass moves nothing by itself: a move with the head left as it was changed
-nothing in the trial, and what a whole says is its holder's. Entries already written move as each is next rewritten, 108 of 414 holding
-something besides the three parts and 92 links standing into such headings; q-mvd4pi's first, once its whole
-is rewritten.
+nothing in the trial, and what a whole says is its holder's. Entries already written move as each is next rewritten; q-mvd4pi's first, once its whole is rewritten.
+Asked by the person, 2026-11-25, why not all at once, counted the same day: 110 entries hold something besides the
+three parts, 37 of them closed; of the 73 open, 52 have no `Where it stands`, so a move would leave nothing in
+the entry, and 21 have one. A script moves the text, 92 links with it, for next to nothing, and by the trial
+alone it saves nothing; a whole rewritten is what might, and the one draft made cost a subagent 133 thousand
+tokens against five an opening, paid back by some 26 openings, roughly. Put to the person: (a) each as it is
+next rewritten; (b) the 21 at once by a script, the rest as (a). The agent recommends (a), and one line of the
+check naming how many open entries still hold evidence.
 
 ## Decisions
 
