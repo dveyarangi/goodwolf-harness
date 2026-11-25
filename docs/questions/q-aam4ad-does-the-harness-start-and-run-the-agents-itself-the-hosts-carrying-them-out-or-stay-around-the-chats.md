@@ -1,10 +1,10 @@
 # q-aam4ad Does the harness start and run the agents itself, the hosts carrying them out, or stay around the chats the person opens?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-m6unv4
-- **state** open
+- **state** closed:deferred
+- **answer** until the whole of q-mvd4pi is accepted anew and a week of cleared chats is measured by the script of 2026-11-25, or the person's word before that, meanwhile the harness stays around the chats the person opens — the user, 2026-11-25
 - **rung** development: the whole product, self-improvement: the method
-- **asks** the person, 2026-11-25
 - **opened** 2026-11-25T06:54:42Z
 - **struck** 0, last 2026-11-25T06:54Z
 
@@ -57,3 +57,11 @@ much, and the sessions are neither seen nor controlled well enough.
 The load-bearing assumption is that a fresh run started by the harness does a role's work at less
 cost and no worse than a chat that cleared itself. The cheapest example that could prove it wrong
 is one role woken for the same piece of work both ways, as q-p4sdnv already proposes.
+
+## Put aside — 2026-11-25
+
+The person, asked whether the align is put aside until the chats that clear themselves have been
+measured: "Yes, put it aside". Nothing is designed here. What no other work answers when it is taken
+up again: a run begun by the harness's own code, a role's own bounds and tools, and control from one
+page. It comes back once the whole of q-mvd4pi is accepted anew and a week of cleared chats is
+measured by the same script, or on the person's word before that.

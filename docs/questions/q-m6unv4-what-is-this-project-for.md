@@ -329,7 +329,8 @@ person's words where they said it, with where it stands.
   person agreed with the chat's conclusion: the harness owns the roles, the
   state, the scheduling, the permissions and the messaging; Claude Code and Codex are execution
   backends; a UI observes and controls the harness — an older attempt at one is
-  github.com/dveyarangi/goodwolf-ui. Not yet a decision. The product side: it would move the
+  github.com/dveyarangi/goodwolf-ui. Not yet a decision: aligned 2026-11-25 and put
+  aside by the person, [q-aam4ad](q-aam4ad-does-the-harness-start-and-run-the-agents-itself-the-hosts-carrying-them-out-or-stay-around-the-chats.md). The product side: it would move the
   account's G2 and A47 from roles held by standing sessions to short-lived agents per role run by
   the harness, A41's coordination into the harness, and q-pcnqd5's dashboard into a controlling
   UI; the document's *Who it is for* and the harness's definition — the instructions, records and
