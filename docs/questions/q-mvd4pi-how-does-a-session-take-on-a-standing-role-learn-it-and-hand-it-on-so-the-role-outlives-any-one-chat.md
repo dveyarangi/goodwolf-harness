@@ -22,7 +22,9 @@ Read this first on taking the work up; it is gone with the question's close. The
 ran: "а ты готов? включи инстинкт выживания )", and, asked again for the go, "а как-там с инстинктом
 самосохранения?". The readiness is this section, the wake's head changed so that a cleared chat is told its
 name, question and unit (1262601d), and the leftovers given homes. A reader before the clearing was offered
-and dropped. Nothing of this session's is uncommitted or running.
+and dropped. Nothing of this session's is uncommitted or running. The go was given, "Да, очищай", and the
+clearing called at 2026-11-25T00:03Z by the session itself, `clear_session` on itself, the last act of the turn; the
+chat's transcript before it is Claude Code's `93035cf8-48af-476e-bdfd-ede52295255c`.
 
 **What the person weighs by now**, their words of 2026-11-25: "расход первым"; "3 минуты это много"; "нет
 смысла плодить сущности"; a reply to another session's message carries no frames, which is v143's. And
@@ -50,7 +52,7 @@ idle, a full reader that one case could not justify.
 4. Then a plan and a build, the keeper's base counted first (q-b4um7c): the bound's line at 20 and 50 %; what
    a closing does; the recall's offer. Nothing is built of it yet.
 
-**Waiting on the person.** The trial's go; after it the whole; the line of
+**Waiting on the person.** After the trial the whole; the line of
 [q-cn7gef](q-cn7gef-which-kinds-of-record-are-written-through-the-server-and-which-travel-with-the-code.md) and the register's place; [q-ixlyj2](q-ixlyj2-how-does-a-session-hold-a-ticket-with-no-question-behind-it.md),
 no hurry, no such ticket exists.
 
