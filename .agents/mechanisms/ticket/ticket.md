@@ -110,14 +110,16 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 | citation reader | `.agents/scripts/gw/docs_corpus.py` | `mechanism-shape`, the one that cannot leave |
 | test harness | `.agents/scripts/gw/test/repository.py` | `mechanism-shape` |
 | the installer | `.agents/scripts/gw/inject_rules.py` | `mechanism-shape` |
+| the question script, for the store's entries the check and the list read | `.agents/scripts/gw/questions.py` | `questions` |
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |
 
 ## What it produces, and who reads it
 
 - **The tickets** — *what it intends to become, what happened once closed* — read by `/plan` for what to build, by `/implement` for the same, by `/verify`
   for the criteria, by `/maintain` for whether each is finished, by the questions mechanism's
-  window, which counts the live ones through `tickets.live_tickets`, and through citations from
-  every record that cites work by its slug.
+  window, which counts the live ones through `tickets.live_tickets`, by its path, which reads every
+  live record through `tickets.check`, and through citations from every record that cites work by
+  its slug.
 - **The list** — *what exists* — read under P12 by whoever is about to mint a ticket, and by whoever
   orders the work; rendered from the headers on request by `tickets.py --list` and never committed.
 - **The maintainer's report** — *what exists* — read by `/verify` through the verification set, by `/maintain`

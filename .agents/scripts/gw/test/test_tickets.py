@@ -58,9 +58,9 @@ class Records(RepositoryCase):
     """A tree with two tickets minted before the format moved, one of them planned, and its RFC,
     all conforming.
 
-    Every live ticket names the question it answers (the user, 2026-10-03), so a ticket written
-    here without an `Answers` line is given one, and a store entry it owns, as it is written; a
-    test of the field itself writes the ticket raw.
+    Every live ticket names the question it answers (the user, 2026-10-03), save a hazard set aside
+    (the user, 2026-11-25), so a ticket written here without an `Answers` line is given one, and a
+    store entry it owns, as it is written; a test of either field writes the ticket raw.
     """
 
     def setUp(self) -> None:

@@ -19,10 +19,14 @@ command while a *staged* declared file's skill is not loaded.
 
 **What it meets.** S5 (the user, 2026-10-25, in
 [session.rules.md](../../.agents/mechanisms/session/session.rules.md)): a commit names its paths
-and stages nothing ahead of it; since `7ad25f37` (2026-11-22) Claude Code's hook denies a commit
-that names none. So at every commit the host lets through, the files stand in the command and need
-not stand in the index: a guard that reads the index alone would see none of them. Read from the
-texts, not tried — the guard is not built.
+and stages nothing ahead of it. No host's hook refuses a commit that names none: Claude Code's did
+from `7ad25f37` (2026-11-22) to `19356b62` (2026-11-24), and Git's own `pre-commit`,
+[pre_commit.sh](../../.agents/scripts/gw/pre_commit.sh), stands in its place, on trial in this clone.
+So at every commit made as S5 says, the files stand in the command and need not stand in the index
+when the command starts: a guard that reads the index alone there may see none of them. Read from
+the texts, not tried — the guard is not built. Git hands a `pre-commit` hook an index holding the
+paths the command names and nothing else staged, so a guard run there would see them (tried
+2026-11-25 in a scratch repository, Git 2.32.0).
 
 **Where *staged* stands.** q-5jcptm's `Where it stands`, *The acts*, and decision 5;
 [01-0010.0125-the-host-blocks-what-a-rule-forbids](../tickets/01-0010.0125-the-host-blocks-what-a-rule-forbids.md),
@@ -34,6 +38,11 @@ texts, not tried — the guard is not built.
 
 1. The guard reads the files the commit takes: the paths the command names, and the index where it
    names none. The decision's purpose — a write through the shell caught at the commit — stands.
-2. The index alone, as worded: on Claude Code the act catches nothing S5 lets through.
+2. The index alone, as worded, read before the command: it need show no file of a commit made as S5
+   says.
+3. The index alone, read in Git's `pre-commit`: it shows the files the commit takes. It stands in
+   each clone apart, holds the index's lock while it runs, and
+   [q-c2qp5n](q-c2qp5n-how-do-the-harnesss-checks-run-without-the-agent-at-push-and-in-the-projects-ci-beside-its-own-gates.md#decisions)
+   decision 7 opened that hook on 2026-11-24 for one check alone.
 
-**Recommendation.** 1.
+**Recommendation.** 1: it needs no hook but the host's, which the guard's other two acts stand on.

@@ -30,7 +30,12 @@ read by this session in that session's transcript, 23:09Z on 2026-11-24: "отл
    aside, the day and its reach, held by `tickets.py --check` and shown in `--list`. Landed on the
    words with no showing first (L13).
    → [the ticket format](../../.agents/skills/ticket/TICKET-FORMAT.md#the-header). Not: `Answers`
-   optional — a ticket with neither would be read as finished.
+   optional — a ticket with neither would be read as finished. It narrows the user's of 2026-09-27
+   ([01-0011.0100 the-open-questions-are-kept-by-a-mechanism](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md),
+   decision 23), of 2026-10-03
+   ([01-0011.0100.0020 open-issues-are-entries-of-the-store](../tickets/done/01-0011.0100.0020-open-issues-are-entries-of-the-store.md#decisions-landed-at-this-tickets-align),
+   decision 4) and of 2026-10-07
+   ([q-7ld3wt](q-7ld3wt-what-kinds-of-written-thing-does-a-tree-hold-and-which-of-them-does-maintain-hold-in-agreement.md)).
 2. **Nothing else stands without a question** — the user, 2026-11-25, to the agent's recommendation:
    "Yes, hazards only". A ticket reads what it is for in its question, and the window, the path and
    the product's reading of what realizes an answer go by it; a hazard serves no answer, so it loses

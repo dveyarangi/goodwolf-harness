@@ -62,7 +62,10 @@ cannot be the place where the form is found — that is the body of the lowest q
 the task, which the placement rule already names. From that body a ticket is minted — outcome,
 what to build, criteria — and is the form of one kind of interaction, agreed work carried into
 code and closed. A decision lands from the body into its durable home; the story of what went
-wrong goes to evidence or a session record, and the ticket links.
+wrong goes to evidence or a session record, and the ticket links. *2026-11-25, narrowed by
+[q-an5uw2](q-an5uw2-which-work-has-a-ticket-and-no-question-behind-it.md#decisions)
+decisions 1 and 2, the user:* a hazard the person set aside is a ticket at once, with no question;
+nothing else is.
 
 **Decided: core owns the contract of kind 1; the file form is its default realization, and a
 project may substitute its own board** *(the user, 2026-10-07)*. What a unit of agreed work must

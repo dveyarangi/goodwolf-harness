@@ -6,17 +6,17 @@
 
 `--list` prints the live tickets as their headers say them, a markdown table in id order: the
 ticket by id and slug, its status word, its type, its title, and the question it answers by id and
-slug. It is the ticket list, rendered on request and never committed (the user, 2026-10-10); it
-judges nothing, so a field a header lacks prints a dash, and a ticket it cannot read is named under
-the table and fails the run.
+slug or, for a hazard set aside, the day it was. It is the ticket list, rendered on request and
+never committed (the user, 2026-10-10); it judges nothing, so a field a header lacks prints a dash,
+and a ticket it cannot read is named under the table and fails the run.
 
 The shape is the ticket format shelf's, `TICKET-FORMAT.md`, under *The record*: the mark of what
 the ticket is a record of, the header's fields and their order, the sections a stage admits, the
-acceptance boxes, and the pairing of an RFC with the ticket that shares its basename. The question
-store is read for one thing: that a ticket's `Answers` links an entry the ticket owns. This script
-rules on form alone. Whether a ticket
-should have been written, whether its status is true, whether an outcome is any good, are
-judgments it records and never makes.
+acceptance boxes, and the pairing of an RFC with the ticket that shares its basename. Of the question
+store the check reads one thing, that a ticket's `Answers` links an entry the ticket owns, and the
+list one, that entry's name. This script rules on form alone. Whether a ticket should have been
+written, whether its status is true, whether an outcome is any good, are judgments it records and
+never makes.
 
 Live rows only: an archived record is matched by name for pairing and opened for nothing. The
 script writes nothing; its exit status is the verdict and its JSON is for the person reading a
@@ -56,8 +56,8 @@ FORMAT_MOVED = "2026-10-11"
 RETIRED = ("Kind", "Legacy id", "RFC", "Parent PRD", "User stories addressed")
 # `Parent scope addressed` left with the spec whose stories it counted (the user, 2026-10-15).
 NAMED_SECTIONS = ("Parent", "What to build", "Acceptance criteria", "Out of scope")
-# A ticket's open questions are entries of the store under its `Answers` question, each holding
-# its own argument, so a section listing them is a second home (the user, 2026-10-03).
+# A ticket's open questions are entries of the store, each holding its own argument, so a section
+# listing them is a second home (the user, 2026-10-03).
 RETIRED_SECTIONS = ("Open issues",)
 REQUIRED_SECTIONS = ("What to build", "Acceptance criteria")
 # A live ticket is a record of what it intends to become, as the ticket format declares; it

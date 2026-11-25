@@ -40,8 +40,8 @@ follow-up.
 
 **Left to the build**, none of it a decision of this question: whether a subagent's hook carries its
 own id on Claude Code, since a subagent does not see its parent's skills; whether git's own
-pre-commit is wired for a commit made outside any agent — the tree has none today; and Cursor's
-skill load, observed live.
+pre-commit is wired for a commit made outside any agent — the one on trial in this clone since
+2026-11-24 looks at an agent's commits alone; and Cursor's skill load, observed live.
 
 ## Decisions
 
