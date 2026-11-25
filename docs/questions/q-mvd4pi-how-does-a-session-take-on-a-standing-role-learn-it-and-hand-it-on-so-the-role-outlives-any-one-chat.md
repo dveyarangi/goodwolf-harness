@@ -71,6 +71,9 @@ idle, a full reader that one case could not justify.
 4. Then a plan and a build, the keeper's base counted first (q-b4um7c): the bound's line at 20 and 50 %; what
    a closing does; the recall's offer. Nothing is built of it yet.
 
+**For the plan of `/pack`, when taken up again.** How a role is born: [q-gujwd6](q-gujwd6-what-is-a-role-born-with-its-line-its-session-the-mechanism-its-zone-lacks-and-how-often-is-the-person.md), opened on the
+person's words of 2026-11-25; how fast a role eats its window, [q-ziw66h](q-ziw66h-how-is-a-trees-cut-read-against-its-work-and-who-proposes-changing-it.md).
+
 **Waiting on the person.** After the trial the whole; the line of
 [q-cn7gef](q-cn7gef-which-kinds-of-record-are-written-through-the-server-and-which-travel-with-the-code.md) and the register's place; [q-ixlyj2](q-ixlyj2-how-does-a-session-hold-a-ticket-with-no-question-behind-it.md),
 no hurry, no such ticket exists.
