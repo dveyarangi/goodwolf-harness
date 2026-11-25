@@ -769,7 +769,7 @@ reader confirmed the omission; the case and its limits are in
 the explanation that followed did not. The model-internal cause is not established. This is not
 the first-greeting recall omission recorded below.
 
-<straw-dog question="q-p4mcme">
+<straw-dog question="q-tt733j">
 **Proposed amendment to investigate:** an outside completion check that also covers the move
 after a correction. The existing outside-check proposal belongs to another session; this case
 does not establish its design or authorise changing it. No amendment has been accepted here.
