@@ -1475,6 +1475,10 @@ def _most_struck(live: list[Entry]) -> list[Entry]:
 # --- the path -----------------------------------------------------------------------------------
 
 # TODO q-huss2x: the path is the pathfinder's, drawn here until its mechanism draws it.
+ROADMAP = "docs/roadmap.md"
+# A row of the roadmap's table: its first cell an integer, the place in the order.
+_ROADMAP_ROW = re.compile(r"^\s*\|\s*\d+\s*\|")
+_CELL_END = re.compile(r"(?<!\\)\|")
 AHEAD_READY = 5
 AHEAD_STRUCK = 3
 AHEAD_LATELY = 5
@@ -1484,13 +1488,13 @@ _FIRST_ID = re.compile(_ID)
 
 
 def path_ahead(root: Path, now: datetime) -> str:
-    """The path read from the records as they are, for the agent to tell the person: the work in
-    hand, the questions touched lately with no ticket, the candidates at the next boundary each
-    with its reasons and the running sessions beside it, and how the roots balance. A reading, written nowhere, so two sessions read
-    one path; it ranks nothing, the roadmap's order unread, and compares no count with the project's
-    limit on work in hand, which the agent reads from the entry file.
+    """The path read from the records as they are, for the agent to tell the person: the roadmap's
+    rows as written, the work in hand, the questions touched lately with no ticket, the candidates
+    at the next boundary each with its reasons and the running sessions beside it, and how the roots
+    balance. A reading, written nowhere, so two sessions read one path; it ranks nothing, the agent
+    ordering by the rows it prints, and compares no count with the project's limit on work in hand,
+    which the agent reads from the entry file.
     """
-    # TODO q-huss2x: the order, read from docs/roadmap.md.
     if not (root / STORE).is_dir():
         return "path: no question store here"
     return "\n".join(["path:", *_ahead_lines(root, now)])
@@ -1500,6 +1504,7 @@ def _ahead_lines(root: Path, now: datetime) -> list[str]:
     ahead = _Ahead.read(root)
     lately = ahead.touched_lately(now)
     return [
+        *_roadmap_lines(root),
         *ahead.in_work(),
         *ahead.touched_lately_lines(lately),
         "  ready, in id order, none ranked above another:",
@@ -1510,6 +1515,21 @@ def _ahead_lines(root: Path, now: datetime) -> list[str]:
         "  roots:",
         *ahead.roots(),
     ]
+
+
+def _roadmap_lines(root: Path) -> list[str]:
+    """The roadmap's rows as they are written, the order the person gave; nothing where there is no
+    roadmap or no row in it."""
+    path = root / ROADMAP
+    if not path.is_file():
+        return []
+    try:
+        lines = path.read_text(encoding="utf-8").splitlines()
+    except UnicodeDecodeError:
+        return [f"  roadmap: unread — {ROADMAP} is not UTF-8"]
+    rows = [line for line in lines if _ROADMAP_ROW.match(line)]
+    cells = [[cell.strip().replace("\\|", "|") for cell in _CELL_END.split(row.strip())[1:-1]] for row in rows]
+    return ["  roadmap, the person's order, as written:", *(f"    {' · '.join(row)}" for row in cells)] if cells else []
 
 
 def _left_out(found: int, shown: int) -> list[str]:
@@ -1581,8 +1601,8 @@ class _Ahead:
     # --- the candidates ---
 
     def ready(self) -> list:
-        """The Ready tickets, in id order: none stands above another, the roadmap's order unread."""
-        # TODO q-huss2x: stand them by the roadmap's order, docs/roadmap.md.
+        """The Ready tickets, in id order: none stands above another, the roadmap's rows ordering
+        answers and pains and no ticket."""
         return [ticket for ticket in self.tickets if _status_of(ticket) == "Ready"]
 
     def ready_lines(self) -> list[str]:

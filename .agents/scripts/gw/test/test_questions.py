@@ -767,6 +767,31 @@ class ThePathAhead(RepositoryCase):
         self.assertIn("  in work: unread — no ticket here carries a status", lines)
         self.assertEqual(["    unread — no ticket here carries a status"], self.under(lines, "ready")[1:])
 
+    def test_the_roadmaps_rows_stand_first_as_written(self) -> None:
+        self.a_tree()
+        self.write("docs/roadmap.md", "# Roadmap\n\nThe order | the person gives.\n\n"
+                   "| order | what | the person's words | date |\n|---|---|---|---|\n"
+                   '| 1 | pain 2 | "cost first"; "a \\| b" | 2026-11-25 |\n| 2 | A3 | "then rules" | 2026-11-26 |\n')
+
+        lines = self.path()[1]
+
+        self.assertEqual(
+            ["path:", "  roadmap, the person's order, as written:", '    1 · pain 2 · "cost first"; "a | b" · 2026-11-25',
+             '    2 · A3 · "then rules" · 2026-11-26'],
+            lines[:4],
+        )
+        self.assertTrue(lines[4].startswith("  in work:"), lines[4])
+
+    def test_a_roadmap_that_is_missing_empty_or_unreadable_adds_no_row(self) -> None:
+        self.a_tree()
+        without = self.path()[1]
+
+        self.assertTrue(without[1].startswith("  in work:"), without[1])
+        self.write("docs/roadmap.md", "# Roadmap\n\n| order | what | the person's words | date |\n|---|---|---|---|\n")
+        self.assertEqual(without, self.path()[1])
+        (self.root / "docs/roadmap.md").write_bytes(b"\xff\n| 1 | A1 | x | y |\n")
+        self.assertEqual("  roadmap: unread — docs/roadmap.md is not UTF-8", self.path()[1][1])
+
     def test_a_tree_with_no_store_has_no_path_and_passes(self) -> None:
         status, lines = self.path()
 
