@@ -59,7 +59,9 @@ work comes next is this question's.
 **Open here.** The weighing itself — value, leverage, evidence under the person's weights — after
 the cap and the cadence have been watched; the picture, which needs a time axis the store lacks,
 now, next, later; the ring mark, deferred until the cap counts wrongly; the unit of work across
-methods, a seam marked in the ticket mechanism's doc until a second method manifests its unit.
+methods, a seam marked in the ticket mechanism's doc until a second method manifests its unit; and
+the roadmap's rows printed by the path, asked of the store's session 2026-11-25, since a wake reads
+them nowhere.
 
 ## Decisions
 

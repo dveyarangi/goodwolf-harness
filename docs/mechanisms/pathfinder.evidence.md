@@ -43,3 +43,11 @@ aside or not, the user's word and the agent's text, accepted
 ([q-huss2x](../questions/q-huss2x-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three.md), decision 8). Tried on one fresh reader, by a made-up case: it opened the question as met, counted the
 reach in the code, marked it as asking, deferred it on a condition and left it asking on a bare *later*.
 Its one contradiction was the ticket skill's own text of a hazard, then due to go.
+
+## The first wakes after the roadmap held a row
+
+The row `pain 2` stands from 2026-11-24T23:11Z. Read from the transcripts on 2026-11-25, two sessions a
+person speaks with woke after it. Голос, new, 00:11Z: it recommended its first work within its zone,
+three options and one advised, without opening the roadmap or `/pathfinder`. Хранилище, cleared,
+00:19Z: it stood on work already taken, the cost's, and recommended nothing new. `/pathfinder` was
+loaded by no session but the path's. Whether Голос's is a miss is the person's to grade, not graded.
