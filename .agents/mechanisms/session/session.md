@@ -155,13 +155,14 @@ for this mechanism.
 - **The session record** — *what happened* — read by the next session's `/recall` and by a person
   reading what a session did; the account of a session, where the row is only its position.
 - **The wake's lines on sessions** — *what exists* — read by the agent at session start, through
-  the hook or `/recall`, for who else is where and which unit each holds; the window carries the
-  same of the other running sessions, and of its own.
+  the hook or `/recall`, for its own name, question and unit, which come first, and for who else is
+  where and which unit each holds; the window carries the same, and when each other session was
+  last seen.
 - **The sign of life**, outside the tree — *what exists* — its time read by the rows' script alone, to
-  tell a silent session from a quiet one; a start or a compaction empties it, itself a sign of
-  life. Its file holds the question script's window fingerprint, and where it stands, `memory`, is
-  read by that script, by the id migration and by the harness mechanism's hook line, which keeps a
-  memory of its own beside it.
+  tell a silent session from a quiet one, and for the window to say when another was last seen; a
+  start or a compaction empties it, itself a sign of life. Its file holds the question script's
+  window fingerprint, and where it stands, `memory`, is read by that script, by the id migration and
+  by the harness mechanism's hook line, which keeps a memory of its own beside it.
 - **The check's report** — *what exists* — read by `/maintain` at its pass, by `/verify` through
   the verification set and by the pre-push check, `harness.py --pre-push`, at a push that carries a file of the method.
 - **The rules file** — *what must always hold* — read by the installer alone. Its blocks sit in
