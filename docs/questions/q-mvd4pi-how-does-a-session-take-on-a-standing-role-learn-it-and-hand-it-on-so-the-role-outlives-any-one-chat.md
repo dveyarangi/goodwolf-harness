@@ -25,6 +25,9 @@ name, question and unit (1262601d), and the leftovers given homes. A reader befo
 and dropped. Nothing of this session's is uncommitted or running. The go was given, "Да, очищай", and the
 clearing called at 2026-11-25T00:03Z by the session itself, `clear_session` on itself, the last act of the turn; the
 chat's transcript before it is Claude Code's `93035cf8-48af-476e-bdfd-ede52295255c`.
+Seen at the call: in auto mode the first was refused unreviewed, the app having added a label of the chat
+to its input, and the same call sent with that label was taken with no card to the person; it answered that
+the chat is cleared when the turn ends.
 
 **What the person weighs by now**, their words of 2026-11-25: "расход первым"; "3 минуты это много"; "нет
 смысла плодить сущности"; a reply to another session's message carries no frames, which is v143's. And
