@@ -371,7 +371,8 @@ person for its role.
 - **Хранитель**: core's boundary with the other trees — their updates, what their keepers send
   up, what core carries down — the entry file, the local rules, the rule-failure register and the
   journal of the way of working; and, until a session is cut off for them, the rules no zone's
-  mechanism owns and how the person is spoken to.
+  mechanism owns.
+- **Голос**: how the person is spoken to — the voice, a reply's form, and the debugging mechanism.
 - **Практика**: the tickets, and the skills of the delivery ring from `/align` to `/verify`.
 - **Аудит и обслуживание**: the audits — an outside review kept as given, each finding given its
   home — and the maintenance: the records held in agreement and the pass with no person.
