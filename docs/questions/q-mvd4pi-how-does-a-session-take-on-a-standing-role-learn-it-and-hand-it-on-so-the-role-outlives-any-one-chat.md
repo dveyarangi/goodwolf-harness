@@ -43,7 +43,8 @@ What was seen on the way:
   a fresh chat's first 86 thousand would be 0.17. Restoring is the dear way back.
 - Decision 6's tools: the host's own tools count 8.9 thousand where they counted 25.4, at the same restart;
   which six fell out no snapshot of the host's shows.
-A second try needs the person's new word, and that the chat is written to without the button.
+The second try: the person's new word, "Да, очищай"; the clearing called about 2026-11-25T00:17Z, the person told to write
+here and not to press the button. The transcript before it is the same `93035cf8`.
 
 **What the person weighs by now**, their words of 2026-11-25: "расход первым"; "3 минуты это много"; "нет
 смысла плодить сущности"; a reply to another session's message carries no frames, which is v143's. And
