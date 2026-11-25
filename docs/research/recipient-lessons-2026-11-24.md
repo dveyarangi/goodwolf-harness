@@ -161,3 +161,62 @@ carries it or refuses it.
 | lesson | holder in this tree | told |
 |---|---|---|
 | 13, pace: the task in hand against improvements for later | the keeper: the entry file's general rules; the setting a role carries, the store's session, at its align on roles; a question opened for it | 2026-11-25 |
+
+## A fifth message, 2026-11-25 — as sent
+
+Three ideas of the user's for the harness, from DriftSense: a check against printing secrets, such
+findings as hazards, and what the nightly pass covers. Ideas, not decisions.
+
+The user, 2026-11-25T07:33Z, in DriftSense's session "Audit and security" (I read it in that
+transcript): "write the harness about the secrets check, and that such findings are hazards and
+maintain probably should flag them. also tell it to consider how the nightly maintain run
+currently covers the project - and how it tells next nightly session what was covered previously
+and when. perhaps there should be some file monitoring rotation there. those are ideas, not
+decided things."
+
+What stands behind each; the proposals here are the sessions', not the user's. Keep the project's
+facts out of the harness's repository.
+
+1. The secrets check. Two sessions printed a secret's value that day while reading one settings
+   file, one through a filter that hid values by name, one with no filter; that the file holds
+   secrets was already recorded. Proposed there: until the values leave the code, refuse to print
+   a file on a list of known holders unless its values are masked; the list is the project's. What
+   I add: this session once printed part of a mail-service key while searching a host's
+   transcript, a file no such list would name. So a path list covers the known holders and not the
+   copies. Not looked at: whether a host's pre-tool hook can hold this; a read by shell and a read
+   by the file tool are two ways in.
+
+2. Hazards. Read as: what endangers whoever works there until it is mended. Cases: a secret in
+   code, a key that can be switched off only in a certain order, a service address found by
+   chance, a setting that reads as off and is on. Nothing sweeps for them: one token stood in the
+   code for half a year and was recorded when someone happened to read the line. Connects to the
+   lesson sent earlier that pathfinder weighs no hazard: that one is about ranking, this one about
+   finding.
+
+3. What the nightly pass covers, as I read it at ed0f4e1d in this recipient:
+   - The sweep lists only what changed between two commits in the decision homes
+     (`maintain.py:78`: docs/questions, the mechanisms' rules files, local.rules.md, AGENTS.md),
+     then looks across the tree for what contradicts those decisions. A change outside the homes
+     (architecture, glossary, edges, tickets, process) is never a reason to read anything.
+   - A recipient with no mechanism of its own has an empty dueness list (`--check` here:
+     `mechanisms: []`), so that list makes it re-read nothing.
+   - With no mark the record starts at the head (G4), so a text older than the install is reached
+     only when a later decision happens to touch it. Our first night, 2026-11-25, set the mark,
+     swept nothing, and the outcome reads "nothing to change".
+   - The code in a project's other repositories is outside the tree it diffs; here the product is
+     all there.
+   - What the next night is told: one row, the commit swept through, a date and one outcome word.
+     Not which files were read, by whom, or when a file was last read. B2 (certify only what you
+     examined) has no record to be held against.
+   - A rotation, the user's word: the least I can see is a record of when each file was last read
+     whole, kept by a script, so a night takes the oldest few. The audit method aligned here needs
+     the like: a verdict names the files it rests on and lapses when one changes, which the user
+     agreed to there. Perhaps one record serves both.
+
+No answer needed; it is recorded here in q-n6t5vb as sent, its form open.
+
+| lesson | holder in this tree | told |
+|---|---|---|
+| 14, a secret's value printed into a session's context | the keeper, no zone's mechanism owning it; the person's words found in their transcript, and a question opened for it | — |
+| 15, hazards are found by nobody | the audit and maintenance's session: what the pass flags | 2026-11-25 |
+| 16, what the nightly pass covers, and what one night tells the next | the audit and maintenance's session: the pass with no person | 2026-11-25 |
