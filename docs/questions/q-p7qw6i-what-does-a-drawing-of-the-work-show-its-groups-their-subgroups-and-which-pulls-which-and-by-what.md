@@ -95,8 +95,7 @@ store's 243 open questions, calling no model:
   record. And what is left to a root, *How is this project built?*, falls by its majority to a row it
   has little to do with.
 
-So no list is kept, and the agent's proposal of one is withdrawn; the rule that says so is put to the
-person. A script of the store that prints the cards would spare each maker the writing of it; it is
+So no list is kept, and the agent's proposal of one is withdrawn (decision 2). A script of the store that prints the cards would spare each maker the writing of it; it is
 the store's session's to build, and nobody is asked for it yet.
 
 ## Decisions
@@ -104,3 +103,5 @@ the store's session's to build, and nobody is asked for it yet.
 1. **The board's rules are a shelf of the pathfinder skill**, for as long as the board is the drawing
    taken — the agent's text, accepted by the user, 2026-11-25: "принимаю правила".
    → [BOARD.md](../../.agents/skills/pathfinder/BOARD.md)
+2. **The cards are derived and no list of them is kept** — the user, 2026-11-25: "Карточки выводить,
+   списка не хранить - принято". → [BOARD.md](../../.agents/skills/pathfinder/BOARD.md)

@@ -1,9 +1,11 @@
 # The board of the work
 
 <straw-dog question="q-p7qw6i">
-A card is a subgroup: a subtree of the question store under a head the maker names, each open
-question falling to its nearest head. A row is a group of cards, named by what the product
-document's headings have in common. A column is the card's state, read from the units of work and
+A card is derived, and no list of cards is kept: an open question heads one where at least three open
+questions fall to it — its subtree, itself included, less the cards within — and the rest fall to the
+nearest head above. A row is the product document's heading that most of a card's questions reach by
+the answers they, or the nearest question above them, realize; cards that reach none make a row of
+their own. A column is the card's state, read from the units of work and
 the running sessions: in progress; a ready unit; units not ready; questions alone. Colour repeats
 the column and says nothing else.
 

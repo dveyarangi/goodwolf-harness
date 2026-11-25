@@ -16,3 +16,7 @@ reading prints that ticket as `→ unread` (`questions.py`, `_ticket_line`); non
 **The agent's proposal, not agreed.** Put first again whenever candidates are put, with the day it was
 set aside and its reach counted anew; the person says *later* as often as they like, and no row or
 trigger is written. A trigger is a second thing to keep true; the hazard is already in the list.
+
+The agent put a strip of hazards at the board's top as a thing apart; the user, 2026-11-25:
+"отложенная опасность первая это разве не есть полоса опасностей?" It is: one rule, the strip being
+how the board shows it. Whether it lands waits on the person.
