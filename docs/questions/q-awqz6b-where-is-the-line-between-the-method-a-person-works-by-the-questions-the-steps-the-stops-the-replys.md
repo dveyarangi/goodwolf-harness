@@ -167,7 +167,7 @@ Moved here from a root the same day: the line is drawn by who consumes a text, w
   harness's own opinionated method, and separating it would make every description of the loop
   local … a materially larger task and this ticket does not take it.* That larger task is this
   question. The cut relaxed 2026-09-21: the loop's ceremony is to become switchable, held as a
-  straw dog on the pacer, [01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md); since
+  straw dog on the pacer, [01-0020](../tickets/done/01-0020-each-turn-knows-its-next-step.md); since
   2026-11-24 the loop's switchability is [q-p2tgdv](q-p2tgdv-how-does-the-method-lighten-for-small-work-and-weigh-more-for-large.md)'s.
 - q-qmq6ty *How does a project change how it builds in one edit?* with q-tcnf74 and
   q-ggpx2r — the practice mechanism: how tests are written and how architecture is

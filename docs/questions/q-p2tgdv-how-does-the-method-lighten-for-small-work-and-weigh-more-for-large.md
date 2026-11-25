@@ -15,7 +15,7 @@ the whole verification set. Open: what weighs a change, if the principle alone p
 
 ## Evidence — the loop's granularity and ceremony, carried 2026-11-24
 
-Carried when [01-0020-each-turn-knows-its-next-step](../tickets/01-0020-each-turn-knows-its-next-step.md)
+Carried when [01-0020-each-turn-knows-its-next-step](../tickets/done/01-0020-each-turn-knows-its-next-step.md)
 was cut down (q-p4mcme decision 1, which does not decide it).
 
 How the loop's granularity and ceremony become switchable *(the user, 2026-09-21)*: a

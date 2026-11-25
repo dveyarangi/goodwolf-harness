@@ -3734,7 +3734,7 @@ ranked.
 the ordering rule, which re-ranks at every wake; the user then set when the order changes — by the
 user's decision, when priorities or product requirements change, the order is found inconsistent,
 or a HITL resolution meets unpredicted complexity or a split
-([01-0020 pacer](tickets/01-0020-each-turn-knows-its-next-step.md)). `/recall` now reads, as a straw dog on 01-0020, which
+([01-0020 pacer](tickets/done/01-0020-each-turn-knows-its-next-step.md)). `/recall` now reads, as a straw dog on 01-0020, which
 owns ordering and rehomes the rule: *read the next item from the order the queue states; do not
 re-rank it; check whether any of those occasions has arisen since the order was set, name each,
 and put the reordering to the user; a last session's handoff is a list of candidates, not an
@@ -4146,7 +4146,7 @@ with "what's next" starts with `/recall`.
 the contract, reported the tree clean and *offered* `/recall` — "say `/recall` when you want to
 pick up where that left off". The user then invoked it by hand, with the question of how to make
 it the default. Twelve earlier sessions had taken the wake by hand too, which
-[01-0020](tickets/01-0020-each-turn-knows-its-next-step.md) already recorded on 2026-09-09 without treating it as a
+[01-0020](tickets/done/01-0020-each-turn-knows-its-next-step.md) already recorded on 2026-09-09 without treating it as a
 failure.
 
 **Why it did not fire.** The instruction lived in a diagram — a noun-phrase picture of the loop,

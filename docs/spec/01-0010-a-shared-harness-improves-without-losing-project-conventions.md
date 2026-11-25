@@ -129,7 +129,7 @@ What comes next is the path's reading, shown at every `/recall`. Bootstrap suite
 
 ## Delivery-ring breakdown — 2026-09-06
 
-Parent of this `/ticket` pass: the agreed loop-completion requirement (story 11 and [Harness loop on itself](#harness-loop-on-itself--agreed-2026-09-06)), not the unaccepted rest of this draft. [01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md) is a different contract. **Minted 2026-09-06.**
+Parent of this `/ticket` pass: the agreed loop-completion requirement (story 11 and [Harness loop on itself](#harness-loop-on-itself--agreed-2026-09-06)), not the unaccepted rest of this draft. [01-0020](../tickets/done/01-0020-each-turn-knows-its-next-step.md) is a different contract. **Minted 2026-09-06.**
 
 ### Impact
 
@@ -137,7 +137,7 @@ Parent of this `/ticket` pass: the agreed loop-completion requirement (story 11 
 
 **Hidden edges.** `/maintain` has no source file (denoise + sync-arch plus the `<temporary>` enumerator); composition is still open on 0010. `/implement` and `/verify` still name `/tdd`, `/improve-comments`, `/review-impl`, `/sync-arch`; adapt per slice. The rest of this draft (principles, distribution, local overrides) is not accepted and is not sliced here.
 
-**Leave alone.** [01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md), `/edge`, `/recall`, the remaining selected corpus, spec acceptance.
+**Leave alone.** [01-0020](../tickets/done/01-0020-each-turn-knows-its-next-step.md), `/edge`, `/recall`, the remaining selected corpus, spec acceptance.
 
 **Recommendation.** Proceed, narrowed to the four ring skills.
 

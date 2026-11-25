@@ -97,7 +97,7 @@ left unhosted.
   does not own arrive by injection, which is [.0020](./done/01-0011.0020-rules-one-home.md)'s. The
   question that remains is not the unit but the elected owner in each contested case.
 - ~~Whether `docs/process.md` survives this pass as a rule home or becomes policy-only — its
-  `<temporary>` block already promises the sequence to [the pacer](./01-0020-each-turn-knows-its-next-step.md).~~
+  `<temporary>` block already promises the sequence to [the pacer](./done/01-0020-each-turn-knows-its-next-step.md).~~
   **Settled 2026-11-22:** the page is removed ([q-p4mcme, decision 2](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md#decisions)),
   and the order of work is `/pathfinder`'s.
 - Whether "update the glossary/architecture inline" is `/align`'s or `/maintain`'s.

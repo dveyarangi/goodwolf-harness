@@ -32,7 +32,7 @@ Consolidate the existing dev skill family into the requested canonical home, aft
 - **2026-09-05, user:** spec first; review the existing skills before proceeding. This reaffirms the earlier spec decision and makes spec development the next step, ahead of further queue design. Source review: Meteoscape and Forecast Collector `/to-spec` explicitly cover substantial inception before ticket decomposition and do not queue the spec itself; `/to-tickets` also accepts bounded discussed work without a spec; `/plan-impl` requires an owning ticket for an RFC. The current workspace's older `/to-tickets` assumes a spec, while its `/to-spec` has conflicting output paths. The existing research/alignment tickets remain valid; implementation decomposition follows the harness spec.
 - **2026-09-05, user:** accepted the first bootstrap slice as proposed and decided the root: the harness is the git repository `D:\Dev\AI\agents`, with the installed corpus under `.agents/skills`. `/align` and `/impact` are installed from Meteoscape with the accepted deltas; nothing else is installed or renamed yet.
 - **2026-09-06, user:** mint Install `/spec`. Spec-first and loop completion do not contradict: install `/spec`, use it to develop the spec for completing the delivery ring on this harness, then take the natural course. `/plan` is planned by reading `/plan`. A ticket whose criteria are met moves to `done/` as part of that close. Ring-skill tickets are not pre-minted.
-- **2026-09-06, user:** the pacer is not a child of this ticket. It is [01-0020](./01-0020-each-turn-knows-its-next-step.md), parented on the pacer's page, removed 2026-11-22, what it held carried in [q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md).
+- **2026-09-06, user:** the pacer is not a child of this ticket. It is [01-0020](./done/01-0020-each-turn-knows-its-next-step.md), parented on the pacer's page, removed 2026-11-22, what it held carried in [q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md).
 - **2026-09-06, user:** do not close a ticket until `/verify` has been run on it; reviewing is an acceptance criterion. 0020, 0030 and 0035 were reopened; they stay `Partial` until that box is checked.
 - **2026-09-06, user:** 0050 installs the implementation mechanism — `/implement`, `/tdd` (with its files), `/improve-comments` — not the `/implement` skill alone. `/verify` and `/maintain` stay later ring mechanisms.
 - **2026-09-06, user:** `/verify` is the verification of landed work, not only documentation or shape review. `/implement`'s typecheck/suite line is generalized and links the verification set (removed 2026-11-22, eadd0b64); commands are not inlined in the skill.
@@ -47,7 +47,7 @@ Consolidate the existing dev skill family into the requested canonical home, aft
 ## Decisions this ticket's align owns
 
 - Spec lifecycle: enduring decisions move to maintained governing documents, specs eventually become history. ~~Who owns maintenance and archiving?~~ **2026-09-05, user: `/maintain` owns all tree maintenance, all `/denoise` and `/sync-arch` responsibilities, and archiving.** It checks all mechanisms against their actual rules and can run at whole-tree, project or RFC scope. Current policy: [tree maintenance](../../.agents/mechanisms/maintain/maintain.md). Exact lifecycle state and implementation design remain open.
-- Issue capture, routing, decomposition and pace: define Tier 1 natural-language triggers, an owner for initially unowned issues, and feedback to earlier stages. The user's `/step` and `/decompose` examples are alternatives to assess, not selected new skills. **2026-09-06, user:** the loop's sequence and the scoping of work are the pacer's concern; `docs/process.md` (removed 2026-11-22, eadd0b64) is marked preliminary and the pacer is expected to own it; each step's rules move into the step's skill as it is installed. The pacer's core rules are Tier 1: they say what the agent does after `/recall` and what one turn's reply is scoped to. Their content was under alignment on the pacer's page, removed 2026-11-22, what it held carried in [q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md); the ticket is [01-0020](./01-0020-each-turn-knows-its-next-step.md).
+- Issue capture, routing, decomposition and pace: define Tier 1 natural-language triggers, an owner for initially unowned issues, and feedback to earlier stages. The user's `/step` and `/decompose` examples are alternatives to assess, not selected new skills. **2026-09-06, user:** the loop's sequence and the scoping of work are the pacer's concern; `docs/process.md` (removed 2026-11-22, eadd0b64) is marked preliminary and the pacer is expected to own it; each step's rules move into the step's skill as it is installed. The pacer's core rules are Tier 1: they say what the agent does after `/recall` and what one turn's reply is scoped to. Their content was under alignment on the pacer's page, removed 2026-11-22, what it held carried in [q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md); the ticket is [01-0020](./done/01-0020-each-turn-knows-its-next-step.md).
 - Governing principles for the harness and its use in software development; operational definitions and a robust load-bearing-seam test are now the alignment priority. [Draft principles](../spec/01-0010-a-shared-harness-improves-without-losing-project-conventions.md#governing-principles--for-alignment).
 - Observable selection and delivery of rule slices: the user directs Tier 1 strict/meta rules and skill descriptions, Tier 2 routed detail, and occasion-specific generated context supplied by hooks. Cross-host delivery and evidence contracts remain to be defined.
 - ~~Bootstrap suite membership and source variants.~~ **2026-09-05, user: accepted the [bootstrap source selection](#bootstrap-corpus-selection).** Exact instruction adaptations and installation remain to be planned.
@@ -160,7 +160,7 @@ Decided in [01-0010.0020](./done/01-0010.0020-live-alignment-across-hosts.md) on
 
 **Main blast radius.** One child: install `/spec` and use it once on the existing harness spec so that spec requires completing the delivery ring here. Catalog, `AGENTS.md` installed-list, and `.agents/README.md` change when that ticket is implemented. `/ticket` → `/plan` → `/implement` → `/verify` → `/maintain` for the ring skills are sliced from that spec, not from this pass.
 
-**Hidden edges.** The draft at `docs/spec/01-0010-a-shared-harness-improves-without-losing-project-conventions.md` already exists; first use develops it, it does not start a second spec. Source `to-spec` still says `/to-tickets` and `docs/` — those names are this install's adaptations. [01-0020](./01-0020-each-turn-knows-its-next-step.md) stays Planned.
+**Hidden edges.** The draft at `docs/spec/01-0010-a-shared-harness-improves-without-losing-project-conventions.md` already exists; first use develops it, it does not start a second spec. Source `to-spec` still says `/to-tickets` and `docs/` — those names are this install's adaptations. [01-0020](./done/01-0020-each-turn-knows-its-next-step.md) stays Planned.
 
 **Leave alone.** `/plan`, `/implement`, `/verify`, `/maintain` files; pacer runtime; `/edge`; local-override mechanism; `/impact`'s still-owed shape recommendation; source projects.
 
@@ -184,7 +184,7 @@ minted at root, outside this ticket, and are not its children.
 (`0100`). The four rule refactors — hierarchy, scope, responsibility, reachability — consolidate
 statements that live inside this ticket's corpus but answer to a different contract: coherence of
 the method's own concepts, not distribution of a canonical harness across projects. They sit at
-root on [the pacer's](./01-0020-each-turn-knows-its-next-step.md) precedent.
+root on [the pacer's](./done/01-0020-each-turn-knows-its-next-step.md) precedent.
 
 **Hidden edges.** `/discover` was installed and named in the entry file while sitting outside this
 ticket's accepted 21-capability selection, and that inconsistency was live from the moment it
@@ -199,7 +199,7 @@ Correct ownership does not produce arrival: the `/ticket`→`/impact` chain was 
 still failed to reach an in-progress `/align` on 2026-09-06, which is why responsibility and
 reachability are separate refactors rather than one.
 
-**Leave alone.** [01-0020](./01-0020-each-turn-knows-its-next-step.md) and its `<temporary>` block. The
+**Leave alone.** [01-0020](./done/01-0020-each-turn-knows-its-next-step.md) and its `<temporary>` block. The
 [01-0010.0070](./done/01-0010.0070-install-maintain.md) close, which needs only its fresh-session
 observation. The audit corpus and `legacy/skills`. The five selected commands nobody named —
 `/conclude`, `/recall`, `/dream`, `/review-architecture`, `/setup-devops` — which stay in this
@@ -669,7 +669,7 @@ and the README, one HITL slice with one grade. Order: `.0145` → `.0150` → `.
 `.0145` → `.0160`, its align fed by `.0145`'s update into frost_map. Leave alone: the manifest,
 the shear, the stamp, the gate; the architecture's refusal sentence; the ticket mechanism's
 meet-block (its own align, on [01-0017.0020](./01-0017.0020-practice-swaps-in-one-edit.md)); the
-loop's switchability ([01-0020](./01-0020-each-turn-knows-its-next-step.md)).
+loop's switchability ([01-0020](./done/01-0020-each-turn-knows-its-next-step.md)).
 
 ## Arrival-to-ready — 2026-09-23
 
@@ -780,7 +780,7 @@ outside every tree, and are private, so only aggregates may leave; tool results 
 type with what the person typed and must be told apart; each host keeps its own format; and a
 trend read back from the first session measures sessions that ran under earlier versions of the
 rules, which is the point, provided each point names the version it ran. Leave alone: the process
-itself — lowering the numbers is [01-0020](./01-0020-each-turn-knows-its-next-step.md)'s.
+itself — lowering the numbers is [01-0020](./done/01-0020-each-turn-knows-its-next-step.md)'s.
 
 ## Outside review, second pass — 2026-09-27
 
@@ -805,7 +805,7 @@ case.
 a suite run on Linux and CI → [01-0011.0090 a-test-catches-what-its-name-promises](./01-0011.0090-a-test-catches-what-its-name-promises.md);
 what the method may cost and what it is for → [`.0168`](./01-0010.0168-the-harness-measures-what-it-costs-and-saves.md)'s
 align; a Claude Code hook ahead of the host survey → [`.0125`](./01-0010.0125-the-host-blocks-what-a-rule-forbids.md)'s
-align. The light path for small work is [01-0020](./01-0020-each-turn-knows-its-next-step.md)'s already *(carried
+align. The light path for small work is [01-0020](./done/01-0020-each-turn-knows-its-next-step.md)'s already *(carried
 to [q-p2tgdv](../questions/q-p2tgdv-how-does-the-method-lighten-for-small-work-and-weigh-more-for-large.md), 2026-11-24)*; every panel run
 and both review passes named it.
 
@@ -901,7 +901,7 @@ The autonomy/repair policy, mechanism concept, current/history separation and me
 
 ## Idea — pacer
 
-→ the pacer's page. Moved to its own document at the user's request, 2026-09-05; that page removed 2026-11-22, what it held carried in [q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md). The delivery ticket is [01-0020](./01-0020-each-turn-knows-its-next-step.md), not a child of this one.
+→ the pacer's page. Moved to its own document at the user's request, 2026-09-05; that page removed 2026-11-22, what it held carried in [q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md). The delivery ticket is [01-0020](./done/01-0020-each-turn-knows-its-next-step.md), not a child of this one.
 
 ## Derived work — Life basis and scope decision
 

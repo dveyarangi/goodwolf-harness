@@ -1,30 +1,37 @@
 # q-p4mcme How does each turn know its next step, and each session where to resume?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-fjlob4
-- **state** open
-- **owner** [01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md)
+- **state** closed:decided
+- **owner** [01-0020](../tickets/done/01-0020-each-turn-knows-its-next-step.md)
+- **answer** [the method's glossary, *Turn*](../../.agents/glossary.md), [the entry file](../../AGENTS.md) — the user, 2026-11-25
 - **realizes** A44 "A turn runs to the person's next decision"
 - **rung** development: load-bearing, self-improvement: the method
-- **lean** 2026-11-25: the live check is q-mvd4pi trial by the person word; 01-0020 closes on its verification, which found the accepted account overstated in three parts; the correction put to the person
+- **lean** 2026-11-25: closed - 01-0020 done on its verification; the live check and A4 are at q-mvd4pi decision 13
 - **opened** 2026-10-03T11:36:26Z
 - **struck** 6, last 2026-11-24T23:40Z
 
 ## Where it stands
 
-Accepted by the user, 2026-11-25: "Yes, accept"; its part on how 01-0020 closes is decision 4's since.
+Accepted by the user, 2026-11-25: "Yes, accept"; its part on how 01-0020 closes is q-mvd4pi's decision 13's, and
+its account of the homes the correction of the same day: "Yes, accept and close". The agent's since,
+on a verifier's finding: what a new conversation is shown, the unsteady id and the dial's rungs, told
+to the user.
 
-Every part of a turn's next step and a session's resume stands in a home of its own (decision
-1): the wake is S6; the resume, the store's window keyed on the host's id for the conversation;
-the stop for the person, the autonomy dial; the weight of the ceremony, `/impact` and *Weight
-follows the work*; the order of work, `/pathfinder`; that a reply says what is next, the reply's
-form. A turn chains steps until the first decision at or above its ladder's dial. How the loop's
+Every part of a turn's next step and a session's resume has a home, some not whole yet (decision
+1): the wake is S6; the resume, the store's window keyed on the host's id for the conversation, for
+that conversation, where its host keeps the id steady (q-ou6kps), and for one that takes its name — a
+new conversation may be shown an unfinished ticket, and never that an ended session held it, which is
+q-mvd4pi's; the stop for the person, the autonomy dial, its rungs provisional; the weight of
+the ceremony, *Weight follows the work*, provisional until q-p2tgdv, `/impact` not grading it until
+01-0010.0080; the order of work, `/pathfinder`; that a reply says what is next, the reply's form,
+provisional until q-awqz6b. A turn chains steps until the first decision at or above its ladder's dial. How the loop's
 granularity and ceremony become switchable, which the ticket also held, is open at q-p2tgdv, the
 user's words carried there; nothing here decides it. `docs/process.md`
 and the glossary's proposed *Unit of work* are gone (decisions 2 and 3). 01-0020 closes on its
 verification; that a session which ended mid-ring is resumed by the next at its step is tried at
 [q-mvd4pi](q-mvd4pi-how-does-a-session-take-on-a-standing-role-learn-it-and-hand-it-on-so-the-role-outlives-any-one-chat.md)
-(decision 4). The product's answer
+(its decision 13). The product's answer
 A44 reads "A turn runs to the person's next decision" since it was brought to decision 1.
 
 ## Decisions
@@ -39,7 +46,8 @@ A44 reads "A turn runs to the person's next decision" since it was brought to de
    allowance the user named on 2026-09-06 is the dial, and no rule holds a turn to one step. Left
    to the ticket: `docs/process.md`, the glossary's *Unit of work*, and the record of where each
    part went. Not: a one-step rule standing apart from the dial.
-   → [the method's glossary, *Turn*](../../.agents/glossary.md).
+   → [the method's glossary, *Turn*](../../.agents/glossary.md). Corrected 2026-11-25: `/impact` does
+   not weigh the ceremony yet; `Where it stands` says which homes are not whole.
 2. **`docs/process.md` is removed** — the user, 2026-11-22: "Yes, remove it". No rule lived there
    alone: its straw dog waited on the pacer, dissolved; *Work and documents* retold the entry
    file's helpers, the path's reading at `/recall` and Q6, and said wrongly that the skills link
@@ -54,12 +62,9 @@ A44 reads "A turn runs to the person's next decision" since it was brought to de
    agreed work; the proposed sense, work at any scale up to a milestone, was used nowhere. The
    scales it pointed to stay as evidence below. Not: an entry of its own in the method's glossary.
    → [the method's glossary, *Ticket*](../../.agents/glossary.md).
-4. **The live check is q-mvd4pi's trial, and 01-0020 closes** — the user, 2026-11-25, who saw that the
-   Хранилище session prepares the same observation ("а разве хранилище сейчас делает не ровно это?"),
-   to the agent's recommendation: "Yes, move and close". The trial is to have the work at its middle and
-   resumed at the same step, by the next session, with the person restating nothing, read by a judge
-   who did not build it; A4 goes with it.
-   → [q-mvd4pi](q-mvd4pi-how-does-a-session-take-on-a-standing-role-learn-it-and-hand-it-on-so-the-role-outlives-any-one-chat.md), told to its session. Not: 01-0020 waiting for a case of its own.
+
+Decision 4, that the live check and A4 are q-mvd4pi's and 01-0020 closes without them (the user,
+2026-11-25), moved to [q-mvd4pi](q-mvd4pi-how-does-a-session-take-on-a-standing-role-learn-it-and-hand-it-on-so-the-role-outlives-any-one-chat.md#decisions), its decision 13.
 
 ## Evidence — a correction ended the next move, 2026-10-26
 
@@ -173,8 +178,8 @@ the order of work, `/recall`, the chaining, no one-step rule. Not whole, against
 `Where it stands`:
 
 - **The resume** holds for the same conversation and for one that takes its name (S11); a new
-  conversation with neither is shown nothing of a unit an ended holder left, the wake listing running
-  sessions alone; under an id the host does not keep steady it is *not yet* (q-ou6kps).
+  conversation with neither is not shown that an ended session held a unit, the wake listing running
+  sessions alone, though the path lists some tickets; under an id the host does not keep steady it is *not yet* (q-ou6kps).
 - **The weight of the ceremony** is not in `/impact`, whose body gives the blast radius alone
   (01-0010.0080); *Weight follows the work* is provisional, bound to q-p2tgdv.
 - **That a reply says what is next** stands provisional, bound to q-awqz6b.

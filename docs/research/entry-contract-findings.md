@@ -1298,7 +1298,7 @@ method glossary now defines **painted door**, with *place* and *path convention*
 
 **One core change:** the announce sentence now also says *start every session by running
 `/recall`, whatever the first message says*. Decided by the user on 2026-09-20 at
-[01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md)'s align, and the first of the pacer's core rules to land in
+[01-0020](../tickets/done/01-0020-each-turn-knows-its-next-step.md)'s align, and the first of the pacer's core rules to land in
 the entry file. The occasion is
 [rule failure 4](../rule-failures.md#4-the-wake-rule-sat-in-a-diagram-and-a-greeting-was-answered-with-a-greeting--2026-09-20):
 the loop diagram had said *wake with `/recall`* since v1, and on 2026-09-15 a session opened with
