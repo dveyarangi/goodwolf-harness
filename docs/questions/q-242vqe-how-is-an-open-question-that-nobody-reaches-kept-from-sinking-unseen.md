@@ -7,7 +7,7 @@
 - **rung** development: a feature, self-improvement: a rule
 - **lean** the wake could list open questions unreached for some span and show how many straw dogs wait on each; nothing chosen
 - **opened** 2026-10-10T23:45:15Z
-- **struck** 0, last 2026-10-03T22:30Z
+- **struck** 1, last 2026-11-25T07:08Z
 
 The store keeps an entry from being lost as a file, not as a question someone sees: a strike
 ranks a question that is reached again, and one nobody reaches sinks. q-h3lqgx, height, raised
@@ -17,3 +17,11 @@ such a question heavier, since text in the tree waits on it
 ([01-0011.0100.0030 decision 6](../tickets/done/01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md#decisions-landed-at-this-tickets-align)).
 Candidates, none chosen: the wake lists open questions unreached for longer than some span; a
 question shows how many straw dogs wait on it; `/maintain` checks how long questions have stood.
+
+## The person's words, and a pass over the open questions — 2026-11-25
+
+"бро, надо пройти по вопросам без где стоит, хотябы открытым, и вообще проверить что они еще релевантны",
+and while it began: "и это тоже должна быть задача майнтайн". Counted the same day: 243 open, 211 of them
+with no `Where it stands`, 93 of those with no body at all. The 211 are read against the tree by seven
+fresh subagents, a verdict each — live, answered, overtaken, the same as another, to be reworded, to be
+dropped — and what they would close is read again by a second judge before it is put to the person.
