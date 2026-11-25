@@ -1,8 +1,9 @@
 # q-dyc63i Which standing roles does this tree have, where every session develops the harness itself?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-jz3mlm
-- **state** open
+- **state** closed:decided
+- **answer** [L13](../../local.rules.md#l13--this-trees-standing-sessions) — the user, 2026-11-15 and 2026-11-16; the cuts since and the review of the roles on q-mz6gd4
 - **rung** development: load-bearing, self-improvement: the method
 - **opened** 2026-11-15T08:33:21Z
 - **struck** 1, last 2026-11-16T13:08Z
@@ -34,6 +35,7 @@ one file. A rule written here also changes, at once, how every running session h
    scheduled task, no role; what it finds goes to the owner of the mechanism it falls in. No
    session here is kept from writing rules; a tree where the harness serves another product
    writes such a limit into its keeper's skill or its local rules, never into core's common rules.
+   → [L13](../../local.rules.md#l13--this-trees-standing-sessions)
 
 The user, 2026-11-16: "у нас есть продуктовая сессия? если нет, давай выберем ту, что ближе и
 заведем? чтобы не терять продуктовые сигналы. и надо будет как-то записать ее роль - где мы
@@ -172,6 +174,8 @@ the nightly sweep, and a chat started for one task, which ends with it.
    has its whole accepted. The keeper had said why: its zone named three unrelated things, six
    threads ran through its chat in two days, and ten decisions stood waiting on the person. What
    the keeper keeps after the cut is put to the person.
+   → [L13](../../local.rules.md#l13--this-trees-standing-sessions), the four; the fifth is not cut, and stands on
+   [q-mz6gd4](q-mz6gd4-where-does-a-session-of-this-tree-read-each-roles-zone-and-brief-and-which-session-holds-it.md#decisions), decision 1
 
 ## Decided since, 2026-11-20 and 2026-11-21
 
@@ -188,3 +192,12 @@ mechanisms it holds. It stands on
 person", and on
 [q-mz6gd4](q-mz6gd4-where-does-a-session-of-this-tree-read-each-roles-zone-and-brief-and-which-session-holds-it.md#decided-in-the-stores-session--2026-11-21).
 
+## Closed, 2026-11-25
+
+On the person's word of that day for the questions answered: "отвеченые и отпавшие закрывай". Which roles this
+tree has is L13's list; every cut since, and the roles' review, stand on q-mz6gd4. What waited
+here — whether Self-improvement, M2, `/maintain`'s leftovers and the landing on main change —
+is answered by decision 1's last sentence: none changes, since no session here is kept from
+writing rules and such a limit never enters core's common rules; the landing stays every
+session's while L13's Слияние is not opened. Decision 1's "the maintenance sweep is a scheduled
+task, no role" gave way on 2026-11-20 to the role of the audits and the maintenance.
