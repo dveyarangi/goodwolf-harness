@@ -75,6 +75,30 @@ two boards do not compare and a map cannot be updated from its last; and where a
 board, none of the four columns holding it apart. What it asked of the medium, the palette and the
 language is left to the maker on purpose.
 
+## The cards derived, not kept — 2026-11-25
+
+The agent proposed keeping the list of cards as a record. The user: "список карточек можешь хранить,
+но осторожно. как бы ей не стать нашей новой очередью, которую никто не слушал мы не можем выводить
+этот спискок механически, из тэгов вопросов и тикетов  и прочих записей?" Tried the same day over the
+store's 243 open questions, calling no model:
+
+- **A card**: an open question to which at least three open questions fall — its subtree, itself
+  included, less the cards within it. It gives 40 cards and leaves no question out; 37 heads are among
+  the 41 chosen by hand, and the two cuts agree at 0.89 (adjusted Rand). Not independent: the hand's
+  heads were picked from a list of the largest subtrees. At four it gives 28 cards and 0.79, at five
+  24 and 0.72.
+- **A row**: the product document's heading most of a card's questions reach by the answer they, or
+  the nearest question above them, realize. It gives twelve rows, one of cards reaching no answer. 199
+  of the 243 name no answer themselves and reach one through a question above.
+- **A column and a pull** are read already.
+- **Not derived**: a card's short name in the person's words; only its head's question stands in a
+  record. And what is left to a root, *How is this project built?*, falls by its majority to a row it
+  has little to do with.
+
+So no list is kept, and the agent's proposal of one is withdrawn; the rule that says so is put to the
+person. A script of the store that prints the cards would spare each maker the writing of it; it is
+the store's session's to build, and nobody is asked for it yet.
+
 ## Decisions
 
 1. **The board's rules are a shelf of the pathfinder skill**, for as long as the board is the drawing
