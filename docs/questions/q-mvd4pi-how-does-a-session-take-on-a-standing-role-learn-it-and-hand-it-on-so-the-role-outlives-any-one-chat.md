@@ -531,7 +531,7 @@ A letter is a pointer or a word, never state: from one's own closing, "q-… sta
 on the person for …"; from another, what would have been sent. State and decisions stay in their homes
 (decision 4), and a letter that outlives its home's content is stale and dropped. It keeps no order:
 which is taken is the path's, so it is no written queue of work again. It is the mailbox of the
-reading the person answered "yes, you are on point", 2026-11-22
+reading the person agreed with, 2026-11-22
 ([q-p4sdnv](q-p4sdnv-what-is-an-agent-role-and-which-mechanism-keeps-roles.md)).
 
 **When to close, the agent's proposal, not decided.** The piece of work is done; the person's message
