@@ -29,6 +29,20 @@ Seen at the call: in auto mode the first was refused unreviewed, the app having 
 to its input, and the same call sent with that label was taken with no card to the person; it answered that
 the chat is cleared when the turn ends.
 
+**The first trial did not run, 2026-11-25.** The next message, 00:10Z, was "привет кажется весь контекст
+вернулся после кнопки восстановления": the chat was brought back by the app's restore before anything was
+written in it cleared, so no session opened from the records. Whether the button was pressed on purpose the
+person has not said. What was seen on the way:
+- No transcript but `93035cf8` is written for this chat, and the host's start came to the hook as a
+  *resume*; its answer, 15.7 thousand characters, was cut to its first 2, and its head bore the name, the
+  question and the unit (1262601d). The row was as before.
+- The context that came back is the whole one, 504 thousand tokens, and its first request read nothing from
+  the cache and wrote it all, five minutes after the last: some 1.0 M units at a one-hour write, where
+  a fresh chat's first 86 thousand would be 0.17. Restoring is the dear way back.
+- Decision 6's tools: the host's own tools count 8.9 thousand where they counted 25.4, at the same restart;
+  which six fell out no snapshot of the host's shows.
+A second try needs the person's new word, and that the chat is written to without the button.
+
 **What the person weighs by now**, their words of 2026-11-25: "расход первым"; "3 минуты это много"; "нет
 смысла плодить сущности"; a reply to another session's message carries no frames, which is v143's. And
 where they corrected this session that day, each time it had not looked before proposing: the server that
