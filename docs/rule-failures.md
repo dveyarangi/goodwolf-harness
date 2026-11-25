@@ -1585,6 +1585,24 @@ stands refused, 2026-11-21; not put again unasked.
 
 **Disposition after the fourth strike:** open, struck four times.
 
+**Struck 2026-11-25 — a fifth time, the host's task list and recap.**
+
+**Source**
+
+- Claude desktop app · claude-opus-5-5 · 2026-11-25T00:19Z — chat `9481427b-dc10-46ad-9d06-c9ae6507567e`, no case yet.
+
+**Rule in play, loaded:** L9.
+
+**What happened.** The person wrote in Russian throughout. The session's replies were Russian, and the
+host's task list and the recap the person sees beside them came in English at every turn, where the same
+chat before its clearing wrote them in Russian. Found by the judge of the clearing.
+
+**Why it did not fire.** The task list and the recap are the host's forms and not the reply, and the
+instructions for them are English; L9 names the reply.
+
+**Disposition after the fifth strike:** no amendment proposed: the wording and the hook were both refused
+by the person, 2026-11-15 and 2026-11-21; open.
+
 ## 72. The commits table and the counters line were put at the reply's end — 2026-10-25
 
 **Source cases, retrospective extraction:**
