@@ -188,7 +188,11 @@ what was read with one note saying so — is put to the person by the maintenanc
 that follows a recorded digest to its file is what would have gone red; whether it is built is
 with that choice.
 
-**Disposition:** open — with the maintenance session and the person.
+**Disposition:** open. The choice is made — the person, 2026-11-25, to the maintenance session:
+of the digests, "пересчитывай все суммы уже"; of the audit's three files, "из аудита тоже
+убирай" — and carried out in 4f6268eb, 1030 places in 72 files, recorded in q-mhwbg3, decisions
+1 and 3. Left: whether the check that follows a recorded digest to its file is built, which the
+keeper puts to the person.
 
 ## A sweep's findings were left neither repaired, told nor asked, and the sweep was to be marked — 2026-11-21
 
