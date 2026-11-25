@@ -40,3 +40,4 @@ orders nothing by itself; nor a risk list beside the store — the list is what 
    since it works in a tree with no tickets. A ticket's required `Answers` refuses one that answers no
    question; the words went to the session whose zone the tickets are.
    → [the pathfinder skill](../../.agents/skills/pathfinder/SKILL.md)
+   *(Taken back the same day: a hazard is a question, [q-huss2x](q-huss2x-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three.md) decision 8.)*

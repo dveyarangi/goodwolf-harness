@@ -28,3 +28,5 @@ how the board shows it.
    only on the board of the session that took it** — the user, 2026-11-25: "полоса сверху только на
    доске той сессии которая взяла опасности", on the agent's text. The rest of it was not said no to
    and is landed as the agent's. → [the pathfinder skill](../../.agents/skills/pathfinder/SKILL.md)
+   *(Amended the same day: the one set aside keeps asking or is deferred, [q-huss2x](q-huss2x-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three.md)
+   decision 8; the strip stands.)*

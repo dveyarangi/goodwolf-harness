@@ -37,3 +37,9 @@ The cards are derived and no list of them is kept, the user's word of 2026-11-25
 A hazard set aside stays before the candidates, the agent's text of 2026-11-25; that the strip stands
 only on the board of the session that took hazards is the user's word of that day
 ([q-zu24yh](../questions/q-zu24yh-what-brings-a-hazard-the-person-set-aside-back-before-them-and-is-it-put-first-again-at-every.md), decision 1); tried on no reader.
+
+Later that day the unit of work was taken back: a hazard is an open question that asks the person, set
+aside or not, the user's word and the agent's text, accepted
+([q-huss2x](../questions/q-huss2x-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three.md), decision 8). Tried on one fresh reader, by a made-up case: it opened the question as met, counted the
+reach in the code, marked it as asking, deferred it on a condition and left it asking on a bare *later*.
+Its one contradiction was the ticket skill's own text of a hazard, then due to go.

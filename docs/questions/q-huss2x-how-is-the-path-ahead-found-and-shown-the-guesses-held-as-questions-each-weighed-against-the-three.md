@@ -50,10 +50,7 @@ answer it serves, how much of it is built, what waits on it, what it unlocks; an
 balance, 158 open under *how it is built* and seven under the other two with no ticket on
 2026-10-20. Its unit of output is a question and its unit of work as the installed method names it,
 `/ticket` here, installed into the pathfinder by the method, not looked up. A hazard is put before the
-candidates and is no question: set aside it is its unit of work, by
-[q-6y4lwm](q-6y4lwm-how-does-a-hazard-which-leads-to-no-answer-of-the-product-weigh-in-what-comes-next.md) decision 2
-and [q-zu24yh](q-zu24yh-what-brings-a-hazard-the-person-set-aside-back-before-them-and-is-it-put-first-again-at-every.md)
-decision 1, the user, 2026-11-25.
+candidates and is a question like any other, one that asks the person (decision 8).
 
 **Not the pacer.** The pacer dissolved: the ring's rules are delivery's; a driver
 that runs the ring with judges outside the working agent is q-kjd6ej; which
@@ -62,14 +59,7 @@ work comes next is this question's.
 **Open here.** The weighing itself — value, leverage, evidence under the person's weights — after
 the cap and the cadence have been watched; the picture, which needs a time axis the store lacks,
 now, next, later; the ring mark, deferred until the cap counts wrongly; the unit of work across
-methods, a seam marked in the ticket mechanism's doc until a second method manifests its unit; and
-what a hazard is, asked for a tree with no method, where the questions are the work. The user,
-2026-11-25: "если в одном месте это вопрос то в остальных тоже должен быть вопрос. наверное так лучше,
-потому что тогда не надо изобретать отдельные правила для тикетов опасности- будем их ловить через
-вопросы?" It would take back
-[q-6y4lwm](q-6y4lwm-how-does-a-hazard-which-leads-to-no-answer-of-the-product-weigh-in-what-comes-next.md) decision 2.
-The agent: yes, an open question that asks the person, since the wake shows one until it closes; set
-aside, it keeps asking or is deferred until their condition. Waiting on the person's yes to the text.
+methods, a seam marked in the ticket mechanism's doc until a second method manifests its unit.
 
 ## Decisions
 
@@ -125,6 +115,16 @@ aside, it keeps asking or is deferred until their condition. Waiting on the pers
    *(Noted 2026-11-24: the order read from strikes, and the candidates left unordered, are
    superseded — by q-s2nyhd's decision 3, closed 2026-10-25, the path standing its work by the
    product roadmap, and by q-ojs4jd's decision 1, 2026-11-21, the roadmap a record of its own.)*
+8. A hazard is an open question that asks the person, opened as it is met; set aside, it keeps asking
+   or is deferred until their condition; its unit of work is minted from it as from any question
+   *(the user, 2026-11-25: "если в одном месте это вопрос то в остальных тоже должен быть вопрос.
+   наверное так лучше, потому что тогда не надо изобретать отдельные правила для тикетов опасности-
+   будем их ловить через вопросы?", and of the text "да, принимаю текст")*. Asked of a tree with no
+   method, where the questions are the work. It takes back
+   [q-6y4lwm](q-6y4lwm-how-does-a-hazard-which-leads-to-no-answer-of-the-product-weigh-in-what-comes-next.md)'s decision 2
+   → [the pathfinder skill](../../.agents/skills/pathfinder/SKILL.md). Not: a unit of work with no
+   question, the user's earlier of that day — it asked a field, a check and a way of holding of its own;
+   nor a question with no mark — lost among the open ones.
 
 ## Impact of the split, 2026-10-23
 

@@ -15,10 +15,10 @@ Mechanism: pathfinder
   that answer.
 - A hazard — what can harm those the project serves or their data, or stop it running — leads to
   no answer and is put before the candidates, its reach counted in the code and not taken from
-  its record. The order stays the person's: one set aside is a unit of work at once, marked as set
-  aside by them, with its reach, dated, and stays before the candidates, its reach counted anew. On
-  a board hazards stand above the rows only where it is the board of the session that took
-  them.
+  its record. It is an open question that asks the person, opened as it is met, its body holding
+  its reach, dated. The order stays the person's: one they set aside keeps asking, its reach
+  counted anew, or is deferred until the condition they name. On a board hazards stand above the
+  rows only where it is the board of the session that took them.
 - Weigh questions, not the method's records. A unit of work is whatever the installed method
   materialises a question into; where no method is installed, the questions are the work.
 - A new idea is placed under its question and weighed against the purpose and the guesses already

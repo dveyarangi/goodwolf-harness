@@ -38,9 +38,10 @@ person first orders the work; a tree with none has no order yet.
 | a question waiting on the person that no work under way holds is a candidate | the user's words to another session, 2026-11-22; the text the agent's, landed on them |
 | such a question goes first to the session it belongs to | the user's words to another session, 2026-11-24; the text the agent's, landed on them |
 | a hazard is put before the candidates, its reach counted in the code | the agent's text, landed on the user's word, 2026-11-25 |
-| a hazard set aside is a unit of work at once, not a question | the user, 2026-11-25; the text the agent's |
+| a hazard is an open question that asks the person, not a unit of work of its own | the user, 2026-11-25, after a unit of work by their word of the same day; the text the agent's, accepted |
 | a roadmap row may name a pain | the agent's text, agreed by the user, 2026-11-25 |
-| a hazard set aside stays before the candidates; the strip only on the board of the session that took hazards | the user, 2026-11-25; the text the agent's |
+| a hazard set aside keeps asking or is deferred until the person's condition | the agent's text, accepted by the user, 2026-11-25 |
+| the strip of hazards only on the board of the session that took them | the user, 2026-11-25; the text the agent's |
 | the board's cards derived, no list of them kept | the user, 2026-11-25; the text the agent's, accepted |
 | the work drawn as a board, its rules | the user asked for the drawing and took it for now, 2026-11-25; the text the agent's, accepted |
 
@@ -70,10 +71,10 @@ person first orders the work; a tree with none has no order yet.
 
 | part | where | owner |
 |---|---|---|
-| the path, the store's reading of the candidates | `.agents/scripts/gw/questions.py` | `questions` |
+| the path, the store's reading of the candidates, and the mark of a question that asks the person | `.agents/scripts/gw/questions.py` | `questions` |
 | the product document's answers and pains the roadmap orders | `.agents/skills/product/SKILL.md` | `product` |
 | the running sessions the board reads, what each holds and where it stands | `.agents/scripts/gw/sessions.py` | `session` |
-| the wake that shows the path | `.agents/skills/recall/SKILL.md` | `session` |
+| the wake that shows the path and what asks the person | `.agents/skills/recall/SKILL.md` | `session` |
 | the installer, which writes the voice into its skill | `.agents/scripts/gw/inject_rules.py` | `mechanism-shape` |
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |
 
