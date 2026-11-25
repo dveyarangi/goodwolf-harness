@@ -71,7 +71,9 @@ idle, a full reader that one case could not justify.
 3. Then the keeper is told what changes for S11, L13 and q-mz6gd4, in one message; it knows none of it.
    With it, Голос is told what the rewritten whole changes for it: at 00:13Z it was told to work by the
    installed rules and expect no letters and no folder; and Путь is told that the two Ready units nobody
-   resumed, 01-0010.0125.0010 and 01-0010.0240.0020, are its to place, as the person was told.
+   resumed, 01-0010.0125.0010 and 01-0010.0240.0020, are its to place, as the person was told. Продукт, only if
+   the rewritten whole settles how a session is started: [q-aam4ad](q-aam4ad-does-the-harness-start-and-run-the-agents-itself-the-hosts-carrying-them-out-or-stay-around-the-chats.md) stands on
+   it, opened 2026-11-25 (4a9dcdae), and touches *How far an orchestrator starts sessions by itself*.
 4. Then a plan and a build, the keeper's base counted first (q-b4um7c): the bound's line at 20 and 50 %; what
    a closing does; the recall's offer. Nothing is built of it yet.
 
