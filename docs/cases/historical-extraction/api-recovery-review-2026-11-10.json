@@ -92,11 +92,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "0689e197541f12b03617c419c8856f41b53c0d475e37bc561792ea4111ca0a6e",
+      "api_sha256": "eb5e43a2aabdf97627bdf5c1ff2e4e65802ffc74f6b2c5ffb4c3cd78f50613fe",
       "before_optional_repair_api_sha256": "831ed1f080ff8181412a19943fca0287d10da2c6b819c273a7d181229942a16b",
       "optional_field_repair": {
         "case": "rf-a-commit-below-every-dial-was-pu-63aa8532b5",
-        "current_api_input_sha256": "0689e197541f12b03617c419c8856f41b53c0d475e37bc561792ea4111ca0a6e",
+        "current_api_input_sha256": "eb5e43a2aabdf97627bdf5c1ff2e4e65802ffc74f6b2c5ffb4c3cd78f50613fe",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1
@@ -122,11 +122,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "313b232df7f8af1da789ed484ca8c82a1e12f5e02eafe47b4e69f7be7c5a6a82",
+      "api_sha256": "182b5844fa53153892bd770a8942213d2ed06d269e73820413d12f76aa518f65",
       "before_optional_repair_api_sha256": "f99f7b8bf58e78964c11bdb175bd5cf3ad9788ceae2f08bc3fa44346994f76e9",
       "optional_field_repair": {
         "case": "rf-a-decision-abandoned-twelve-days-44a2f38b3e",
-        "current_api_input_sha256": "313b232df7f8af1da789ed484ca8c82a1e12f5e02eafe47b4e69f7be7c5a6a82",
+        "current_api_input_sha256": "182b5844fa53153892bd770a8942213d2ed06d269e73820413d12f76aa518f65",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1
@@ -152,11 +152,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "bc3f58d719c10fb8d03f9c067718accec3dd9d33a9fc6ee5269467aa8dd8b7e9",
+      "api_sha256": "566c3b32fba15dead45d5d3874d2a068b1c426479b769af8963f625c3063d1ae",
       "before_optional_repair_api_sha256": "c032c622f0b36eac1bb5b742370f8670d098f34493b6a62536a275e5a44feb97",
       "optional_field_repair": {
         "case": "rf-a-decision-abandoned-twelve-days-7748bd8716",
-        "current_api_input_sha256": "bc3f58d719c10fb8d03f9c067718accec3dd9d33a9fc6ee5269467aa8dd8b7e9",
+        "current_api_input_sha256": "566c3b32fba15dead45d5d3874d2a068b1c426479b769af8963f625c3063d1ae",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1
@@ -182,11 +182,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "4ad09eec7ad823d11a11853b7b9d4daf3dbcbfc2457b8fbfa79dbc58b59a6b66",
+      "api_sha256": "e54255506a99e9253352427d13bd47386028435a3fa245bc3528532f7678d80e",
       "before_optional_repair_api_sha256": "2170e5faa169315fcbe8407a393285a7d5fc7b21c12c7c939460733b9515af76",
       "optional_field_repair": {
         "case": "rf-a-directory-wide-add-committed-a-6d83511710",
-        "current_api_input_sha256": "4ad09eec7ad823d11a11853b7b9d4daf3dbcbfc2457b8fbfa79dbc58b59a6b66",
+        "current_api_input_sha256": "e54255506a99e9253352427d13bd47386028435a3fa245bc3528532f7678d80e",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1
@@ -212,11 +212,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "425c476250a479e1c2f6a50997958de455cb5505cffc092d582b30e009727102",
+      "api_sha256": "8fe7af200c6fa24844010cc05e6c94c775e0dba26bbed260f77a5fa724a2ae2f",
       "before_optional_repair_api_sha256": "c9a41be141fa3f46e3899d8152feb4bb7517dbad18f4c1edc114842a9663cab6",
       "optional_field_repair": {
         "case": "rf-a-drift-repair-s-subagent-sent-i-be22c2bccd",
-        "current_api_input_sha256": "425c476250a479e1c2f6a50997958de455cb5505cffc092d582b30e009727102",
+        "current_api_input_sha256": "8fe7af200c6fa24844010cc05e6c94c775e0dba26bbed260f77a5fa724a2ae2f",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1
@@ -242,11 +242,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "dbb8cccb33ad3a41610c697b72214611eb409ffdf8e2b1cc7cd3d50447c746e6",
+      "api_sha256": "1877591aaa92ec2e67c5c92af7073144d10a491b36fcc03ca55c3d61885138e5",
       "before_optional_repair_api_sha256": "936eb5e1f72cb01678045494879172af84337cfb0665ad9e4ba0e0f5f78b1ba0",
       "optional_field_repair": {
         "case": "rf-a-judge-session-s-verdict-was-pu-2395f763d0",
-        "current_api_input_sha256": "dbb8cccb33ad3a41610c697b72214611eb409ffdf8e2b1cc7cd3d50447c746e6",
+        "current_api_input_sha256": "1877591aaa92ec2e67c5c92af7073144d10a491b36fcc03ca55c3d61885138e5",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1,
@@ -273,11 +273,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "eb891796f565804b92cd8e106b94b1c2bd414693343c54ef138fa6cdbac0dbfb",
+      "api_sha256": "9c757ea9d83f71aa6602bcea9c3eac7d0bc97d3607db73cc97a56652f99c3f70",
       "before_optional_repair_api_sha256": "f12c1525c03dc5779f3fdd9e8fd3a84472e1ff005b7c78b854769ecf793f6dce",
       "optional_field_repair": {
         "case": "rf-a-partial-sweep-was-reported-as-b11081bd61",
-        "current_api_input_sha256": "eb891796f565804b92cd8e106b94b1c2bd414693343c54ef138fa6cdbac0dbfb",
+        "current_api_input_sha256": "9c757ea9d83f71aa6602bcea9c3eac7d0bc97d3607db73cc97a56652f99c3f70",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1
@@ -303,11 +303,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "3d9153ac3b917c4d3ca867566059c192591a3b8f65e28ed567f7306dc489df31",
+      "api_sha256": "eae20ffbdfaa8bb62b8b2c54a46e272fd4a7b441c1f31594ad0d30212873b78b",
       "before_optional_repair_api_sha256": "5c5c771151edc092c918e19070f3ad3f39160685ee57f82a6402739005370fd2",
       "optional_field_repair": {
         "case": "rf-a-plan-built-across-a-boundary-i-86b2092254",
-        "current_api_input_sha256": "3d9153ac3b917c4d3ca867566059c192591a3b8f65e28ed567f7306dc489df31",
+        "current_api_input_sha256": "eae20ffbdfaa8bb62b8b2c54a46e272fd4a7b441c1f31594ad0d30212873b78b",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1
@@ -334,11 +334,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "968a2541917d910973946c9eb9f5d0b6b9c8813874531709fedb1019248e577f",
+      "api_sha256": "f9ac9acc860eb0744c3004f76d4db9a6ab8d2c06911822c34aeed557aa157736",
       "before_optional_repair_api_sha256": "3337a852d69ffb0e301a63fecc01086abcdeca90b4c4fdb3872965b6a91db710",
       "optional_field_repair": {
         "case": "rf-a-question-was-opened-long-as-a-2357ec4349",
-        "current_api_input_sha256": "968a2541917d910973946c9eb9f5d0b6b9c8813874531709fedb1019248e577f",
+        "current_api_input_sha256": "f9ac9acc860eb0744c3004f76d4db9a6ab8d2c06911822c34aeed557aa157736",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1,
@@ -365,11 +365,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "782ba8615b59f62b51daacc9f659515a4e3919d1eb69fd0d8ce45bba4cbec70c",
+      "api_sha256": "cc661a8db75024374d6b1ef052fe82f97c1f4e81ecdc334b866d5f65afdd9f33",
       "before_optional_repair_api_sha256": "b28ab43c951f32b8aab30678001d7314c3ddb9a3a133a3fd9552a79ba86f621e",
       "optional_field_repair": {
         "case": "rf-a-reply-named-what-it-asked-abou-f1a8f025ff",
-        "current_api_input_sha256": "782ba8615b59f62b51daacc9f659515a4e3919d1eb69fd0d8ce45bba4cbec70c",
+        "current_api_input_sha256": "cc661a8db75024374d6b1ef052fe82f97c1f4e81ecdc334b866d5f65afdd9f33",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1,
@@ -396,11 +396,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "819fde0d0bb07f76c8befee491f82a3dab15d121cedde44d1405ee529810113f",
+      "api_sha256": "a365dd0bb01a208ef0e782b6e9a3ff8e46214e735d02afa9ecdf8f0a5dcaddd0",
       "before_optional_repair_api_sha256": "014795a31ce86863b72fee576383a7db7a409c79a0c07aa6be64a317fa11f0a8",
       "optional_field_repair": {
         "case": "rf-a-rule-was-landed-with-a-filter-40a495fbcb",
-        "current_api_input_sha256": "819fde0d0bb07f76c8befee491f82a3dab15d121cedde44d1405ee529810113f",
+        "current_api_input_sha256": "a365dd0bb01a208ef0e782b6e9a3ff8e46214e735d02afa9ecdf8f0a5dcaddd0",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1,
@@ -427,11 +427,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "540bb0deed1a705ce63083f0e8ab07806845e8f1dbec44f616413743f4efcee4",
+      "api_sha256": "5f8f76a5a0b8a106053dc497337a7b100fa56dda9a3378aadf1ea7cf883d89dd",
       "before_optional_repair_api_sha256": "a3bea6462f4a6e624b97bc083c428a51ad70258d6708d94a543ecba3c1548378",
       "optional_field_repair": {
         "case": "rf-a-rule-was-landed-with-a-filter-cca9f4a85d",
-        "current_api_input_sha256": "540bb0deed1a705ce63083f0e8ab07806845e8f1dbec44f616413743f4efcee4",
+        "current_api_input_sha256": "5f8f76a5a0b8a106053dc497337a7b100fa56dda9a3378aadf1ea7cf883d89dd",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1,
@@ -458,11 +458,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "ee626e20bdcb6ebe70a9ba1aa7314f0240f87f5196b83188c95ad2d3c3d7af30",
+      "api_sha256": "f7e793674680b38b28d7704e34f753ef98ddb16f24643df00bf23ad0d881cad3",
       "before_optional_repair_api_sha256": "a83940e10b50d0f87f0e53e1b5255ad8ec640526d94d6c79eaa998a94c7c3f32",
       "optional_field_repair": {
         "case": "rf-asked-whether-a-project-needs-th-0de6c1cfba",
-        "current_api_input_sha256": "ee626e20bdcb6ebe70a9ba1aa7314f0240f87f5196b83188c95ad2d3c3d7af30",
+        "current_api_input_sha256": "f7e793674680b38b28d7704e34f753ef98ddb16f24643df00bf23ad0d881cad3",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1,
@@ -489,11 +489,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "f9889b335d519333cbc2d387b4aad1591f31f7b79796daa96357b6dc00b105d8",
+      "api_sha256": "579f2e89c0b7478c07a4495d3305e1f337d90be1127591c2d64e14ecee624b7c",
       "before_optional_repair_api_sha256": "8d949511519280cb4f51410c8c25e1d62acec0abcd42b88477620a5fece4fd50",
       "optional_field_repair": {
         "case": "rf-commits-were-named-after-what-th-9be1e8867a",
-        "current_api_input_sha256": "f9889b335d519333cbc2d387b4aad1591f31f7b79796daa96357b6dc00b105d8",
+        "current_api_input_sha256": "579f2e89c0b7478c07a4495d3305e1f337d90be1127591c2d64e14ecee624b7c",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1
@@ -519,11 +519,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "b3f0bc9b2bfdae28bafa6cd046b470f37d02ba2aa86672c52aec934cd3f19244",
+      "api_sha256": "cf8168cfc11a63054a63ed9e88e14cabfdc1474a5a41b25f00bb62326280a068",
       "before_optional_repair_api_sha256": "cdb312f54e785351f8cd3c66cd40ce1ba344fc537b5e92d3f220a2c0cc43ff99",
       "optional_field_repair": {
         "case": "rf-commits-were-named-after-what-th-d5630d44b6",
-        "current_api_input_sha256": "b3f0bc9b2bfdae28bafa6cd046b470f37d02ba2aa86672c52aec934cd3f19244",
+        "current_api_input_sha256": "cf8168cfc11a63054a63ed9e88e14cabfdc1474a5a41b25f00bb62326280a068",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1
@@ -549,11 +549,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "49fa47a8c23665dc0369dca977b343d5d0e4e4e6dded9c8a1605c39bc0b3c1f2",
+      "api_sha256": "5a1f9fa6dc5c3eebf81101d57c0cd9c21076350b3c8b97f8e9d2797235de0402",
       "before_optional_repair_api_sha256": "1067cf0261400fa1d31d7b2ebf666541f58e8ef37080ae4db801323b2ae8b926",
       "optional_field_repair": {
         "case": "rf-core-shipped-with-carriage-retur-f0f8d76a6d",
-        "current_api_input_sha256": "49fa47a8c23665dc0369dca977b343d5d0e4e4e6dded9c8a1605c39bc0b3c1f2",
+        "current_api_input_sha256": "5a1f9fa6dc5c3eebf81101d57c0cd9c21076350b3c8b97f8e9d2797235de0402",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1,
@@ -580,11 +580,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "85fc786b0616902dd26c5d556997fe59e5645396784436bb873639f32581fd57",
+      "api_sha256": "6ac815a1b110292cf4f73e228637e59d842008fdf16246379bb9217d695cb123",
       "before_optional_repair_api_sha256": "384868c9ca0dec6f6f5e8fd4e0385dcef185dcb3fe7d13d8c1cb38cadab710c1",
       "optional_field_repair": {
         "case": "rf-rules-were-proposed-in-a-reply-w-474ce62787",
-        "current_api_input_sha256": "85fc786b0616902dd26c5d556997fe59e5645396784436bb873639f32581fd57",
+        "current_api_input_sha256": "6ac815a1b110292cf4f73e228637e59d842008fdf16246379bb9217d695cb123",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1
@@ -610,11 +610,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "c543554d8b44180dc96620468d70bd4b642e6315781cf0431cee0cebc2a5dc3d",
+      "api_sha256": "3aa3e864200900f7f52745e99186b16dcb213f10787f496a39b4b0e0a11a44f1",
       "before_optional_repair_api_sha256": "cffec37372b7e5ef7a0c89036bde3ca155de3d471c416925b886e82aed7f4861",
       "optional_field_repair": {
         "case": "rf-rules-were-proposed-in-a-reply-w-a7ada13a87",
-        "current_api_input_sha256": "c543554d8b44180dc96620468d70bd4b642e6315781cf0431cee0cebc2a5dc3d",
+        "current_api_input_sha256": "3aa3e864200900f7f52745e99186b16dcb213f10787f496a39b4b0e0a11a44f1",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1
@@ -640,11 +640,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "9f861c842259b2398647a670a14cf993edb10a6bfaab016bb6cdfbcbeba45285",
+      "api_sha256": "cb5e848d95737a9713ab35deab788c8e7ffebeacd51db0310cfe09df02005865",
       "before_optional_repair_api_sha256": "2776fde953b6c09152bdce09832175609eeb80d9a0fffac7c64ea814c07ac75d",
       "optional_field_repair": {
         "case": "rf-the-commits-table-and-the-counte-adcf691134",
-        "current_api_input_sha256": "9f861c842259b2398647a670a14cf993edb10a6bfaab016bb6cdfbcbeba45285",
+        "current_api_input_sha256": "cb5e848d95737a9713ab35deab788c8e7ffebeacd51db0310cfe09df02005865",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1
@@ -670,11 +670,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "4e98b4d1f89b98673dfb06c82d6f851d22c6535da7784afc0da5e6b65dda75e6",
+      "api_sha256": "9cef54619199b73e7b0237235f8b62953a88914cadd40875a984ed6844a62412",
       "before_optional_repair_api_sha256": "ad518e3ba29347e4f1695f6c19beebde76bdd11b2d5ed8ab1664345aacd8e53a",
       "optional_field_repair": {
         "case": "rf-the-commits-table-and-the-counte-caea6e72f6",
-        "current_api_input_sha256": "4e98b4d1f89b98673dfb06c82d6f851d22c6535da7784afc0da5e6b65dda75e6",
+        "current_api_input_sha256": "9cef54619199b73e7b0237235f8b62953a88914cadd40875a984ed6844a62412",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1
@@ -700,11 +700,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "cc2a260139ed4e69400f6379054826eae0768b887d04fd3a9240eba78b23e0f0",
+      "api_sha256": "dfcee5e0a625380d290def2fd7a3fb6ebfb0b0224e8eb9b6398b512b65370a06",
       "before_optional_repair_api_sha256": "32d0edac758c63d174e9cfc3c0d9da0574a06d269e68f9cfebd3f838c3649499",
       "optional_field_repair": {
         "case": "rf-the-person-was-asked-to-choose-a-6a4e1c3f6d",
-        "current_api_input_sha256": "cc2a260139ed4e69400f6379054826eae0768b887d04fd3a9240eba78b23e0f0",
+        "current_api_input_sha256": "dfcee5e0a625380d290def2fd7a3fb6ebfb0b0224e8eb9b6398b512b65370a06",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1
@@ -730,11 +730,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "1bb74964e6dbdf6f6435f70aad5fa0c14605800e487f01064c948cb2847a474f",
+      "api_sha256": "f45874ef393a82f3fe844f67ab7f520b80ed7dc006283c07cee70e57dd1c16f4",
       "before_optional_repair_api_sha256": "7eaebf3071431422e2d43586ed401bb642d9990059e62ffa75b385284972ad55",
       "optional_field_repair": {
         "case": "rf-the-person-was-asked-to-choose-a-6a4e1c3f6d-peer-message",
-        "current_api_input_sha256": "1bb74964e6dbdf6f6435f70aad5fa0c14605800e487f01064c948cb2847a474f",
+        "current_api_input_sha256": "f45874ef393a82f3fe844f67ab7f520b80ed7dc006283c07cee70e57dd1c16f4",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1
@@ -760,11 +760,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "cd9efb8170c027ceb8db317320a14b1245671c38adf22978382d743d2ac85a92",
+      "api_sha256": "1c6a23bd85a1a8a63d143a95b93f7fa9a01b87a17da43cbdd9cc8055a32a0fc3",
       "before_optional_repair_api_sha256": "1a65992b965bc6c19b835a87170a03d962392c9a46d8ce4a9e13f7857e05518d",
       "optional_field_repair": {
         "case": "rf-the-person-was-asked-to-choose-a-a1d74846d1",
-        "current_api_input_sha256": "cd9efb8170c027ceb8db317320a14b1245671c38adf22978382d743d2ac85a92",
+        "current_api_input_sha256": "1c6a23bd85a1a8a63d143a95b93f7fa9a01b87a17da43cbdd9cc8055a32a0fc3",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1
@@ -790,11 +790,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "327210b056058c33e81a41edce14e672b69c90202faded9b3f7a19acc1b86211",
+      "api_sha256": "f2ac825ccb45802d056c9e52228e27bae058b98ce128757bbf198233bffd162d",
       "before_optional_repair_api_sha256": "b1e936c2b1153d15acb4b2f6efa146a6b7999d1b65c568e7baf73aa9b1ead0a6",
       "optional_field_repair": {
         "case": "rf-the-person-was-asked-to-choose-a-d058c1c6aa",
-        "current_api_input_sha256": "327210b056058c33e81a41edce14e672b69c90202faded9b3f7a19acc1b86211",
+        "current_api_input_sha256": "f2ac825ccb45802d056c9e52228e27bae058b98ce128757bbf198233bffd162d",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1
@@ -820,11 +820,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "7c8c8ad06aa549b88f2fb9e4537c9d7f0392c80e9daa056923f50b44e3121c41",
+      "api_sha256": "896e7a7c9d45c0e5ff1ad7a9154552d9e1fcac84d29d609c495bcfbfbe415e3c",
       "before_optional_repair_api_sha256": "56964c7865c50d43eff708353bd5ebe82ef816ccd79ccccfc06ec98c5cfd76f4",
       "optional_field_repair": {
         "case": "rf-the-reader-the-person-named-gave-2db9c8a004",
-        "current_api_input_sha256": "7c8c8ad06aa549b88f2fb9e4537c9d7f0392c80e9daa056923f50b44e3121c41",
+        "current_api_input_sha256": "896e7a7c9d45c0e5ff1ad7a9154552d9e1fcac84d29d609c495bcfbfbe415e3c",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1
@@ -850,11 +850,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "6956f6a2d5f26889fbfbeb5238982e3101f03786e83d1e75b44edab90ffceb40",
+      "api_sha256": "dee9bb61c10e80c9c9c57f6eef4128c1a62d9e3272ed03f3cdfae3bae17c094e",
       "before_optional_repair_api_sha256": "8b60c1a498ccb00a0f4165e26c7467a563ad95a61950400cc72cf9c74ebf49fe",
       "optional_field_repair": {
         "case": "rf-the-study-was-written-by-the-age-0c4e95d73c",
-        "current_api_input_sha256": "6956f6a2d5f26889fbfbeb5238982e3101f03786e83d1e75b44edab90ffceb40",
+        "current_api_input_sha256": "dee9bb61c10e80c9c9c57f6eef4128c1a62d9e3272ed03f3cdfae3bae17c094e",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1
@@ -880,11 +880,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "0bf753a6a3765c1377c6a6179941a0358e3b6c9109fde7febf8199764d1bd556",
+      "api_sha256": "eb31d218917e5251c9cd156cfd8be764d342b8fd0ea80c326d8361fab166b530",
       "before_optional_repair_api_sha256": "4b492ffda44138caafcbec120e971a279d24a849b9d320077a69475eace4185b",
       "optional_field_repair": {
         "case": "rf-the-study-was-written-by-the-age-395d404336",
-        "current_api_input_sha256": "0bf753a6a3765c1377c6a6179941a0358e3b6c9109fde7febf8199764d1bd556",
+        "current_api_input_sha256": "eb31d218917e5251c9cd156cfd8be764d342b8fd0ea80c326d8361fab166b530",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1
@@ -910,11 +910,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "eaab3c2dac8adb75c887acfcb685672c3887d9561cb965ad05c187fa3db8c5f0",
+      "api_sha256": "ccd2aa38bc6206ca1bcc949c2db39fd742bf304abaa27bce01e67b8442e72f5e",
       "before_optional_repair_api_sha256": "cec2707af97552944753dbd6b7c7cc0c9bbf91b858ccff8c1e8e690893454c97",
       "optional_field_repair": {
         "case": "rf-the-study-was-written-by-the-age-7c0e3a40a0",
-        "current_api_input_sha256": "eaab3c2dac8adb75c887acfcb685672c3887d9561cb965ad05c187fa3db8c5f0",
+        "current_api_input_sha256": "ccd2aa38bc6206ca1bcc949c2db39fd742bf304abaa27bce01e67b8442e72f5e",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1
@@ -940,11 +940,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "ef28036a12e7faa72825504a4a35b4612045ddce105ae02e102238df78f71d92",
+      "api_sha256": "776baf8844b4bb186de9055cf1e06547ca906fb481a7d029a6928faf1bd00390",
       "before_optional_repair_api_sha256": "c71107103a3bb484b0221a4493d0d1884b0f44385668974f0281500cd6340e10",
       "optional_field_repair": {
         "case": "rf-the-study-was-written-by-the-age-e7bba0481b",
-        "current_api_input_sha256": "ef28036a12e7faa72825504a4a35b4612045ddce105ae02e102238df78f71d92",
+        "current_api_input_sha256": "776baf8844b4bb186de9055cf1e06547ca906fb481a7d029a6928faf1bd00390",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1
@@ -970,11 +970,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "554f6a03c42d7ded978f992f003fa4c941fb76fc6939d9b3835c332abe426e7a",
+      "api_sha256": "dced0451bb3fd6258bd57ecfe4e32d8a6cdc03ae3467957a708bfe0f9cbf5c76",
       "before_optional_repair_api_sha256": "5bc1acf713664d19349d50a9ef5ae7891d13cb1c578863bf10e612e411fd7cbd",
       "optional_field_repair": {
         "case": "rf-two-sessions-numbered-one-versio-3e7583f9b1",
-        "current_api_input_sha256": "554f6a03c42d7ded978f992f003fa4c941fb76fc6939d9b3835c332abe426e7a",
+        "current_api_input_sha256": "dced0451bb3fd6258bd57ecfe4e32d8a6cdc03ae3467957a708bfe0f9cbf5c76",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1
@@ -1000,11 +1000,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "304d9b4127cf9af70ead820945ae1fdd4bcf8851d04cc7a42266cdde49ca7d9b",
+      "api_sha256": "7f1e24667b4b35dccffb4962a882dd449d880a61595a306fcfa9f7d084570422",
       "before_optional_repair_api_sha256": "5e8899c5c0b7100ecd2cf4d7e860bf6b2064cd49b5c7f228d069cd80991cbeb3",
       "optional_field_repair": {
         "case": "rf-two-sessions-numbered-one-versio-c0c47575b2",
-        "current_api_input_sha256": "304d9b4127cf9af70ead820945ae1fdd4bcf8851d04cc7a42266cdde49ca7d9b",
+        "current_api_input_sha256": "7f1e24667b4b35dccffb4962a882dd449d880a61595a306fcfa9f7d084570422",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1
@@ -1030,11 +1030,11 @@
       "tool_problems": [],
       "unreturned_call_ids": [],
       "defects": [],
-      "api_sha256": "f93693db312b0ce1d537ba524da33e7623f0be45368678fe83d04276de58551e",
+      "api_sha256": "5234103e7da276d2fb04f2ccab01bf346bd824a9a83a6e64fda92bb6a57a8aed",
       "before_optional_repair_api_sha256": "a20252fdbb1fe44ca964d49e1aa16e3a30b0536fdf0e9119b9bd9c3a2d7f2a64",
       "optional_field_repair": {
         "case": "rf-two-sessions-numbered-one-versio-f3594b6fdc",
-        "current_api_input_sha256": "f93693db312b0ce1d537ba524da33e7623f0be45368678fe83d04276de58551e",
+        "current_api_input_sha256": "5234103e7da276d2fb04f2ccab01bf346bd824a9a83a6e64fda92bb6a57a8aed",
         "before_hash_reconstructed_by_removing_only_restored_fields": true,
         "restored_field_positions": {
           "output_config": 1

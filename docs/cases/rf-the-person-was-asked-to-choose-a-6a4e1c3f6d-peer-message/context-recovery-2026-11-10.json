@@ -38,7 +38,7 @@
   "remaining_source_gap_kinds": [],
   "public_api_projection_update": {
     "report": "api-projection-repair-2026-11-10.json",
-    "current_api_input_sha256": "1bb74964e6dbdf6f6435f70aad5fa0c14605800e487f01064c948cb2847a474f",
+    "current_api_input_sha256": "f45874ef393a82f3fe844f67ab7f520b80ed7dc006283c07cee70e57dd1c16f4",
     "source": "Independent review found public output_config/clear_at fields omitted by the earlier projection; request order and message role/content stayed unchanged."
   }
 }

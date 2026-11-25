@@ -3,7 +3,7 @@
   "date": "2026-11-10",
   "scope": "Restored previously omitted public message-level config/metadata; no change to request order, role/content, source provenance or case criteria.",
   "before_api_input_sha256": "2776fde953b6c09152bdce09832175609eeb80d9a0fffac7c64ea814c07ac75d",
-  "after_api_input_sha256": "9f861c842259b2398647a670a14cf993edb10a6bfaab016bb6cdfbcbeba45285",
+  "after_api_input_sha256": "cb5e848d95737a9713ab35deab788c8e7ffebeacd51db0310cfe09df02005865",
   "changed_positions": [
     {
       "position": 1,

@@ -22,9 +22,9 @@
   "cases": [
     {
       "case": "rf-better-abstraction-left-scattered-20261019-231722",
-      "case_file_sha256": "ee7a1e26e3132bbda4f2b1addb329b314ae3b42a3c5400a1b181e5661e5f9a41",
-      "source_file_sha256": "021392c721f982c4dc32dec919aac869a3b96ea4a4986cec45c738b540e64f9a",
-      "integration_file_sha256": "71e6da096deeffe2c996ffe1b5163c81725bf37ef3bdc4780faf6813606da9d9",
+      "case_file_sha256": "512692daf087a79b8f1bbbe640d05802ce66b3da9c1c4d56ddd8194845e0a602",
+      "source_file_sha256": "c6f17cb39bbcea610c2cda90b51df9aae7e47fa9e254ea1fb3df7871352d4e2e",
+      "integration_file_sha256": "912fb578cec77c0ef894c4381b59e2beacf252d820466eafd6c21d7669b9846b",
       "failure_record": "source.json#/records/436",
       "actor_input_count": 5,
       "expected_source_evidence": [
@@ -63,9 +63,9 @@
     },
     {
       "case": "rf-landed-header-kept-proposed-20261011-115247",
-      "case_file_sha256": "127d7d2a5029057764ca65596156c5536f88e8f65ed1eb7786d95b20d12f5b06",
-      "source_file_sha256": "4f2530bca58b2fadab29556a256532a6fb6ff8fb0cb00d5590d0c7399b55b765",
-      "integration_file_sha256": "320c8fb0a1c66aef5bfdda4e948159b80112cac838d8da920356313c33b0b026",
+      "case_file_sha256": "a878138d7288d02c3869f42b112366caf7751c63ac471ff70fc05038655ab4ff",
+      "source_file_sha256": "406c1313ed3a9dbb600e8d7aa6a82c14d7225475b2b3e8d888b74d1c2f1bfca8",
+      "integration_file_sha256": "3c25e7fd2013e73f981e2de3f163f2dd42acf87ca9d821ed15d15ec7cabc2b84",
       "failure_record": "source.json#/records/683",
       "actor_input_count": 12,
       "expected_source_evidence": [
@@ -104,9 +104,9 @@
     },
     {
       "case": "rf-landed-instruction-framed-as-change-20261011-003803",
-      "case_file_sha256": "4d19b8022b48647685d4ff12e357833c9e6a488615e3e543d186916d90824ad7",
-      "source_file_sha256": "a3aa865a679a0104bd1e211651ba87ffd0f61f01b846592fd8a7a12c949e86da",
-      "integration_file_sha256": "0a70603fd574c5b758ddb5a473e033a087b8b05eda1c7763575ab316c8daba56",
+      "case_file_sha256": "1a9367cbdbb311ca67b21f5ac811c548b7d7dda900614ae6130fcfe593786e52",
+      "source_file_sha256": "2c5a3f0df7e26ff8ce30133b0597af79965929771500aca9fbb53b02b39b45c1",
+      "integration_file_sha256": "60d5f4de6aa7d6fdf7d2aae68fc42b9a77430019b67e3e218d6e7c17a63bce36",
       "failure_record": "source.json#/records/186",
       "actor_input_count": 33,
       "expected_source_evidence": [
@@ -144,7 +144,7 @@
     {
       "case": "rf-empty-tangle-footer-20261010-004432",
       "case_file_sha256": "87bdf96b3659d3b8a7d93321ed08d674c85ece2d23c52e7a8f2011e30781cddf",
-      "source_file_sha256": "78008cc8f809d423fabde797bd3e698cc036ee1be9bfde4fa414560e3833ec77",
+      "source_file_sha256": "6395c9a6e343e9be983590f44f0d104b4a60e55882e9c71978b9e885f36a1f53",
       "integration_file_sha256": "901ec9206d1bfb196c7e14c0893b12b429f0e85c09f21910f3a081b7065e3494",
       "failure_record": "source.json#/records/400",
       "actor_input_count": 32,
@@ -184,7 +184,7 @@
     {
       "case": "rf-unwrapped-wake-rule-by-ownership-20260920-033835",
       "case_file_sha256": "d8e3004453a40431ceb0fde16653dbd6cfd97d8d2cb53869950b60ef7005a610",
-      "source_file_sha256": "9329af8bb5d8e86cca6487b84ef8287150f1df70bdfbbb76b42c09f5a582e6ac",
+      "source_file_sha256": "706635626c68fdcc1b4bf7e8e961c8c35eb306695452e786164a645312b5f33b",
       "integration_file_sha256": "b43abe99806f63e246d250af9966286c0836e493117ca2e3bc761cd9ad1b2b0f",
       "failure_record": "source.json#/records/162",
       "actor_input_count": 6,
