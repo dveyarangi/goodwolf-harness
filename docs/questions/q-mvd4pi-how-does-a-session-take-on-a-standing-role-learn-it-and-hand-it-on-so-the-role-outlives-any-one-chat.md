@@ -72,7 +72,11 @@ idle, a full reader that one case could not justify.
    What the rewritten whole takes in from a recipient's case, the last section of
    [q-jz3mlm](q-jz3mlm-how-does-a-project-cut-its-work-into-standing-sessions-and-how-does-the-cut-change-as-the-project-grows.md), 1b6296f8: whether a long body of
    work of one kind, crossing every zone, is a role or a unit; a recipient's rows bear a role's title while S11
-   forbids it; what a recipient writes locally until this is built.
+   forbids it; what a recipient writes locally until this is built. And what followed there, a1b0c032: a person who
+   cuts a role by a body of work they talk to; for the plan, read again in `sessions.py` and the conclude skill, no
+   hand-over the same day with a live holder (`take_name` waits three hours, `drop_name` leaves the position and
+   the hold behind), a closing chat leaving its successor no record, a named row running through any silence;
+   reported, unread: whether a standing leave is the person's word in S9, no kind of message for a finding in another's zone.
    With it, Голос is told what the rewritten whole changes for it: at 00:13Z it was told to work by the
    installed rules and expect no letters and no folder; and Путь is told that the two Ready units nobody
    resumed, 01-0010.0125.0010 and 01-0010.0240.0020, are its to place, as the person was told. Продукт, only if
