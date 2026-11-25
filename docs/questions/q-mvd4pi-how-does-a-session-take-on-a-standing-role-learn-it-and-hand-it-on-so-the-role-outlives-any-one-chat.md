@@ -81,8 +81,7 @@ idle, a full reader that one case could not justify.
 person's words of 2026-11-25; how fast a role eats its window, [q-ziw66h](q-ziw66h-how-is-a-trees-cut-read-against-its-work-and-who-proposes-changing-it.md).
 
 **Waiting on the person.** After the trial the whole; the line of
-[q-cn7gef](q-cn7gef-which-kinds-of-record-are-written-through-the-server-and-which-travel-with-the-code.md) and the register's place; [q-ixlyj2](q-ixlyj2-how-does-a-session-hold-a-ticket-with-no-question-behind-it.md),
-no hurry, no such ticket exists.
+[q-cn7gef](q-cn7gef-which-kinds-of-record-are-written-through-the-server-and-which-travel-with-the-code.md) and the register's place.
 
 **For the rewrite of the whole**, read off by the maintenance pass of 2026-11-25 (sweep 26dd3dba..2490febf),
 none of it mended. *What it overturns* does not name: q-zxnc6y decisions 1 and 4; q-7ebz2f 10's clause on
