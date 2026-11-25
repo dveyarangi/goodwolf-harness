@@ -36,3 +36,18 @@ read by the shell and a read by the file tool being two ways in.
 
 That such a finding is a hazard, and what the pass with no person flags, are the maintenance's:
 told to its session, 2026-11-25.
+
+## The align, opened 2026-11-25 — the gate
+
+- **Customer**: a recipient whose old code still holds secrets; this tree holds none.
+- **Problem seen**: three prints in the recipient's sessions, two of them of a file already
+  recorded as holding secrets, one of a copy in a host's transcript.
+- **Why what exists does not hold it**: the record that a file holds secrets is read by nobody at
+  the moment of the read. Each host documents a refusal before a tool call
+  ([the hosts' records](../edge/hosts/)); core wires none since 19356b62, and none was ever
+  wired for a read.
+- **What both a guard and a notice assume**: the secrets stay in files a session can reach.
+  Moving them out is the project's mending; this question is what holds until then.
+
+Put to the person first: whether core stops a known holder from being printed, notices a value
+already printed, or both.
