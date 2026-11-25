@@ -7,7 +7,7 @@
 - **rung** self-improvement: the method
 - **lean** the user, 2026-10-25: the voice is L9 of the local file, its name and the language of the message, installed in the entry file and under every skill's What the person hears (01-0016.0030, v113); the bench recognised Lem in none of ten replies; whether Lem stays, the person decides by talking with the voice
 - **opened** 2026-10-24T10:09:08Z
-- **struck** 2, last 2026-10-26T11:06Z
+- **struck** 3, last 2026-11-25T00:13Z
 
 ## Where it stands
 
@@ -103,6 +103,12 @@ goes, left where it stands.
     default is the person's, once they have talked with the new voice *(the user, 2026-10-25)*.
     *(Overturned 2026-11-17 as to the default of core: the voice stays in the local rules and core
     holds none — the section of that date, below.)*
+11. The reply's form leaves the entry file for a rules file of its own mechanism, and the voice's name stays
+    L9's: the person's "начинай" to that recommendation of the role Голос *(the user, 2026-11-25)*. The
+    mechanism is the one [q-l36vii](q-l36vii-which-mechanism-owns-how-a-reply-is-laid-out-for-its-reader-debugging-or-interaction-and-what-does-it.md)
+    decision 4 sends the layout to; that decision was committed an hour after decision 8 here (244a31e8 after
+    cc01e9bb), which took the mechanism from the voice's rule and left the layout without its home. Its shape is
+    open: how a project replaces the form, its name, its skill.
 
 ## The case, 2026-10-24
 
