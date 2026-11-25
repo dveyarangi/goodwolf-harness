@@ -21,8 +21,9 @@ import sessions
 
 
 class TheSessions(Store):
-    """One line per session: its tag, running or ended, the date it last wrote, its current
-    question or `-` before it has one, and up to four recent ones."""
+    """What the check says of the rows a store from before keeps in one file, a line per session:
+    the form, its time the date alone or to the minute; a tag registered twice; a position naming
+    no entry; and a running session on a closed question, a finding and no failure."""
 
     def setUp(self) -> None:
         super().setUp()

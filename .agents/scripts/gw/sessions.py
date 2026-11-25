@@ -78,11 +78,12 @@ _USAGE = (
 class Session:
     """One session's row: where one conversation stands in the store, and when the row was last
     written, in UTC to the minute. `record` is the file it was read from, for the check to name.
-    `holds` is the unit the session holds, by the question the unit answers, or `None`; `taken`
-    and `taken_by`, where `holds` would stand, the unit another session took over from it and
-    that session's tag, until this session next holds, releases or ends. `name` is the name of a
-    session that holds a role, which keeps its row through any silence, its conclude and time
-    (q-q5i2um and q-g6lj7m)."""
+    `holds` is the unit the row names, by the question the unit answers, or `None`, held while the
+    row runs and the question is open; `taken` and `taken_by`, where `holds` would stand, the unit
+    another session took from it and that session's tag, until this session next holds or takes
+    over a unit, takes one with a name, releases or ends. `name` is the name of a session that
+    holds a role, which keeps its row through any silence, its conclude and time (q-q5i2um and
+    q-g6lj7m)."""
 
     tag: str
     running: bool
@@ -316,9 +317,9 @@ def state(held_row: Session) -> str:
 def write_row(root: Path, held_row: Session) -> None:
     """Write one session's row to its own file and touch no other. The line replaces the old in one
     rename, so a reader never meets half a file, and nothing is locked: two writes to one row at
-    once leave the later. Besides its own session, a wake ending a silent row, the id
-    migration rewriting the old ids it names, a takeover marking the holder's row and a chat taking
-    a name ending the row it leaves write it."""
+    once leave the later. Besides its own session, a wake ending a silent row, a hold or a
+    takeover marking a row that names the unit, and a chat taking a name ending the row it leaves
+    write it here; the id migration rewrites the old ids it names by a write of its own."""
     _write_row_file(folder(root), held_row.tag, row_line(held_row))
 
 
@@ -435,9 +436,9 @@ def tend(root: Path, now: datetime, waking: str) -> None:
     lives until the person or a re-cut ends it (the user, 2026-11-16 and 2026-11-18, q-q5i2um and
     q-g6lj7m).
 
-    The writes to a row not its own, besides the id migration's: safe because a silent session has no
-    write of its own to meet. The session's next message turns an ended row running again; a
-    removed one is registered anew when its host returns.
+    Its writes to rows not its own are safe because a silent session has no write of its own to
+    meet. The session's next message turns an ended row running again; a removed one is registered
+    anew when its host returns.
     """
     for held_row in rows(root)[0]:
         if held_row.tag == waking:
@@ -496,10 +497,9 @@ def end(root: Path, tag: str, now: datetime) -> Session:
 
 
 def drop_name(root: Path, tag: str, now: datetime) -> tuple[Session, str | None]:
-    """The session drops the role it holds, on the person's word: the name leaves its row, its
-    position, hold and running or ended kept, and it is then a session like any other, which its
-    conclude ends (the user, 2026-11-20, q-g6lj7m). Says the name dropped; bearing none writes
-    nothing."""
+    """The session's name leaves its row, as it drops its role on the person's word: its position,
+    hold and running or ended kept, and it is then a session like any other, which its conclude
+    ends (the user, 2026-11-20, q-g6lj7m). Says the name dropped; bearing none writes nothing."""
     held_row = held(root, tag)
     if held_row.name is None:
         return held_row, None
@@ -664,8 +664,9 @@ def memory(root: Path, tag: str) -> Path:
 
 
 def forget_window(root: Path, tag: str) -> None:
-    """After a compaction the last window is gone from the conversation, so the next is whole. The
-    memory is emptied rather than removed: its time is the session's sign of life."""
+    """At a start or a compaction the last window is gone from the conversation, so the next is
+    drawn, changed or not. The memory is emptied rather than removed: its time is the session's sign
+    of life."""
     seen_file = memory(root, tag)
     if seen_file.is_file():
         seen_file.write_text("", encoding="utf-8")

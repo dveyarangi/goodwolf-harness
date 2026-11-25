@@ -121,7 +121,7 @@ NOT_HOMES = (f"{STORE}/", "docs/tickets/", "docs/rfc/")
 _USAGE = (
     "usage: questions.py --check | --window --session <tag> | --wake [--session <tag>] | --path "
     "| --tree [<q-id>] | --seed | <event> ... --session <tag>, the events "
-    "at, open, move, reword, depend, undepend, close, suspect, clear, lean, assign, realize, rung"
+    "at, open, move, reword, depend, undepend, close, suspect, clear, lean, assign, realize, rung, ask"
 )
 # How many times an `open` draws an id again when another session took the one it drew.
 OPEN_ATTEMPTS = 3
@@ -516,8 +516,7 @@ def _finished(entries: list[Entry]) -> set[str]:
 
 
 def _entry_files(root: Path) -> list[str]:
-    """Every markdown file under the store but the table of former ids. The sessions file is not
-    markdown and not an entry."""
+    """Every markdown file under the store but the table of former ids."""
     return sorted(
         name
         for name in corpus(root)
@@ -1488,10 +1487,10 @@ def path_ahead(root: Path, now: datetime) -> str:
     """The path read from the records as they are, for the agent to tell the person: the work in
     hand, the questions touched lately with no ticket, the candidates at the next boundary each
     with its reasons and the running sessions beside it, and how the roots balance. A reading, written nowhere, so two sessions read
-    one path; it ranks nothing, no order among the candidates being written yet, and compares
-    no count with the project's limit on work in hand, which the agent reads from the entry file.
+    one path; it ranks nothing, the roadmap's order unread, and compares no count with the project's
+    limit on work in hand, which the agent reads from the entry file.
     """
-    # TODO q-huss2x: the order, once the roadmap's rows hold one.
+    # TODO q-huss2x: the order, read from docs/roadmap.md.
     if not (root / STORE).is_dir():
         return "path: no question store here"
     return "\n".join(["path:", *_ahead_lines(root, now)])
@@ -1582,9 +1581,8 @@ class _Ahead:
     # --- the candidates ---
 
     def ready(self) -> list:
-        """The Ready tickets, in id order: none stands above another until the product's roadmap
-        orders them."""
-        # TODO q-huss2x: stand them by the roadmap's order, docs/roadmap.md, once its rows hold one.
+        """The Ready tickets, in id order: none stands above another, the roadmap's order unread."""
+        # TODO q-huss2x: stand them by the roadmap's order, docs/roadmap.md.
         return [ticket for ticket in self.tickets if _status_of(ticket) == "Ready"]
 
     def ready_lines(self) -> list[str]:
@@ -1807,14 +1805,16 @@ def hook_input() -> str:
 
 
 def hook(root: Path, host_name: str, payload: str, now: datetime) -> str:
-    """What a host's hook prints: the wake's read when a session starts, the window before a
-    message, nothing after a compaction but a forgotten window. A message marks its session seen;
-    where its answer reaches no agent, that is all it does.
+    """What a host's hook prints: at a start the wake's read, or the window alone where the start is
+    a registered session's compaction; at a message the window, or the wake's read where no start
+    registered the session; at a compaction's own event and at any other, nothing for the agent,
+    the compaction's forgetting the last window. A message marks its session seen; where its answer
+    reaches no agent, it registers a session no start did, and draws nothing.
 
     It never fails the host. A prompt hook that fails can hold back the person's message, so any
-    problem is answered as one line of context that names it, and the exit status stays 0. Once the
-    host and the event are known, the notice goes out in that host's own form, since a host that
-    reads its hook's answer as JSON would drop plain text.
+    problem is answered as one line of context that names it, and the exit status stays 0. At a
+    start or a message the notice goes out in the host's own form, since a host that reads its
+    hook's answer as JSON would drop plain text.
     """
     host = HOSTS.get(host_name)
     event: str | None = None
@@ -1933,7 +1933,7 @@ def _sent(payload: str) -> dict:
 
 def _started(root: Path, tag: str, source: str | None, now: datetime) -> str:
     """A session starting, resuming or compacted: registered once under the host's id, running
-    again if it had ended, and given a whole window, since its context has none. A start that is
+    again if it had ended, and given a drawn window, since its context has none. A start that is
     not a compaction tends the other sessions' rows first."""
     sessions.forget_window(root, tag)
     held, registered_now = sessions.arrive(root, tag, now)
