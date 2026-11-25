@@ -761,7 +761,6 @@ the user, 2026-11-10; the store's 366 entries were renamed so on 2026-11-11.
 **Source, no case yet:**
 
 - Claude Code · claude-opus-5-5 · 2026-11-09T10:58:11.753Z — chat `d6e32568-d0bd-5f0b-9894-7a6acd869960`, assistant message `msg_011CgsEbYDxGgCjQVxpFe7db`; the model is the transcript's recorded identifier, not an attested backend version.
-- Claude desktop app · claude-opus-5-5 · 2026-11-25T07:40Z — chat `9481427b-dc10-46ad-9d06-c9ae6507567e`, commit a861c4bb; the instant is about that of the reply, the model is the one the session reported itself running on.
 
 **Goal missed:** at wake, every decision waiting on the person reaches them ready to decide — its
 options and a recommendation — in the first reply.
@@ -787,7 +786,13 @@ and no further read is needed.
 **Disposition:** the reply-form question closed on the person's word, 2026-11-09. The amendment is
 not made: `questions.py` is being reworked by the session on the shared question store.
 
-**Struck 2026-11-25 — once, the amendment not made, and it would not have held this one.** A reply put five
+**Struck 2026-11-25 — once, the amendment not made, and it would not have held this one.**
+
+**Source**
+
+- Claude desktop app · claude-opus-5-5 · 2026-11-25T07:40Z — chat `9481427b-dc10-46ad-9d06-c9ae6507567e`, commit a861c4bb; the instant is about that of the reply, the model is the one the session reported itself running on.
+
+**What happened.** A reply put five
 decisions over 47 questions to the person, a row a kind: *rewrite the words of two*, *merge nine*, *put off 17*,
 each with its recommendation and none naming a question or its new words; those stood in a linked report. The
 person: "как я могу принять решение например по фразе "переписать слова двух. Советую да"?" The rule in

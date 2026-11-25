@@ -80,8 +80,9 @@ Each sidecar names its own parts.
 
 - A hook's unreadable input becomes a line of context — *validated by:*
   `.agents/scripts/gw/test/test_sessions.py`, the hook's unreadable-input case
-- The hook exits clean whatever its input, so it never fails the host — **⚠ unguarded**: no test
-  asserts its exit status
+- The hook exits clean whatever its input, so it never fails the host — *validated by:*
+  `.agents/scripts/gw/test/test_sessions.py`, the exit status of the unreadable-input and unknown-host cases;
+  `.agents/scripts/gw/test/test_harness.py`, a failing harness line, through the wrapper
 - A session is registered under the host's own session id — *validated by:* live —
   **Registration**
 - In a host whose start hook reaches the agent, the wake's read arrives before its first command,
