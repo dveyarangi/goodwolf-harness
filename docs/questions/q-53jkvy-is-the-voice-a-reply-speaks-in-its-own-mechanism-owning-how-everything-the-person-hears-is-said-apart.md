@@ -109,6 +109,13 @@ goes, left where it stands.
     decision 4 sends the layout to; that decision was committed an hour after decision 8 here (244a31e8 after
     cc01e9bb), which took the mechanism from the voice's rule and left the layout without its home. Its shape is
     open: how a project replaces the form, its name, its skill.
+    *(In doubt, 2026-11-25: put to the person without
+    [q-nlec4j](q-nlec4j-does-every-rule-of-the-entry-file-belong-to-a-mechanism-so-that-an-install-adds-the-method-a-mechanism.md)
+    decisions 5 and 7, committed the evening after q-l36vii's 4 (d88777bc) and accepted whole on 2026-10-26: each
+    part of a reply is installed by the mechanism whose occasion it shows, and the common frame, *A reply speaks
+    the method* and the order of the tables, is the meta-principles', 7 rehoming that 4. The role had read neither,
+    told the person that the form had no home, and "начинай" answered that. Found by the pass with no person.
+    Which stands is the person's; lines of this question that hold the frame's home open wait on it.)*
 
 ## The case, 2026-10-24
 
