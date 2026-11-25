@@ -623,3 +623,9 @@ The role's chat that clears itself leaves one chat where each piece of work woul
     [q-7ebz2f](q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md)'s decision 1.
 12. **The whole above, its new parts included** — the user, 2026-11-25: "по ролям все верно". The wake and
     the calls are not built before test 1 has run and the base is counted.
+13. **01-0020's live check and A4 are this question's, and 01-0020 closes without them** — the user,
+    2026-11-25, to the practice's session: "а разве хранилище сейчас делает не ровно это?", "Yes, move and
+    close", "Yes, accept and close". The check: a session that ended mid-ring is resumed by the next session
+    at its step, without the person restating where things stood, read by a judge who did not build it. The
+    clearing of this chat is its first trial, its work at an align; a second, on a unit at `/implement`'s
+    middle, is owed before A4 is said to be met.
