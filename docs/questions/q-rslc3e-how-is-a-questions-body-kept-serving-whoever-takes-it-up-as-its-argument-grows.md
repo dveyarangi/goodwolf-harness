@@ -4,7 +4,7 @@
 - **part of** q-dmvmf2
 - **state** open
 - **rung** development: load-bearing, self-improvement: a rule
-- **lean** 2026-11-25: the form as it is kept, no evidence file; the trial found nothing that pays for one
+- **lean** 2026-11-25: the whole rewritten and the evidence in a file beside it; the trial does not decide it, its one reader who read less had both
 - **asks** the person, 2026-11-25
 - **opened** 2026-11-25T06:04:50Z
 - **struck** 0, last 2026-11-25T06:04Z
@@ -19,10 +19,14 @@ puts `Where it stands` first, with no history, the decisions next, the dated evi
 keeps neither the order nor the no-history; a mechanism's evidence stands in a file of its own.
 
 Three forms were tried on fresh readers: [the trial](../research/question-body-2026-11-25/REPORT.md). The
-evidence in a file apart changed neither what was read nor what was right; a head rewritten whole let one
-reader of two stop early and showed holes the others passed over; the answers were right in all three.
+evidence in a file apart, the head left as it was, changed neither what was read nor what was right; a head
+rewritten whole, the evidence in a file apart, let one reader of two stop early and showed holes the others
+passed over; the answers to the questions were right in all three. The head rewritten with the evidence in
+the same file was not tried.
 
-Open, for the person: (a) the form as it is, kept: the whole rewritten when a decision lands, the stop
-holding the next step and what waits alone, no evidence file; (b) the evidence in a file beside the entry, as a
-mechanism's is. The agent recommends (a): nothing in the trial pays for the second file, and what helped is
-what the form already asks.
+Open, for the person, the whole rewritten when a decision lands and the stop holding the next step and what
+waits alone in either: (a) the evidence in the same entry, after the decisions; (b) the evidence in a file
+beside the entry, as a mechanism's is. The agent first recommended (a), a form the trial had not tried, and
+withdrew it when the person asked, 2026-11-25. It recommends (b): the one form in which a reader read less, a
+host's read taking a file whole unless told otherwise, at the price of a second file where there is evidence
+to put in it. The trial does not decide between them.

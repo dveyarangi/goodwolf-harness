@@ -47,9 +47,12 @@ the evidence; the other read everything, the head more than once by a mistyped p
 that.
 
 **What is read off.** The entry is right for a reader that reads it whole, and nearly every reader of it
-did. Setting the evidence apart changed neither what was read nor what was right. Rewriting the head let one
+did. Setting the evidence apart with the head left as it was changed neither what was read nor what was right. Rewriting the head let one
 reader of two stop early in round two, saved nothing in round one, and is where holes come to be seen.
 An entry of this size costs some 25 thousand tokens once, against a first request of 73 thousand.
 
 **Limits.** One entry, two readers to a form and one drafter; agents, not the person, who is one of its
-readers; readers told to be economical in round one and not in round two.
+readers; readers told to be economical in round one and not in round two. A fourth form, the head rewritten
+with the evidence left in the same file, was not tried, so what rewriting gives is not told apart from what
+the second file gives. The rewritten form's second file held the old stop and the old whole beside the
+evidence, 54 thousand bytes where *apart*'s held 36, so its reading is overstated for a reader who opened it.

@@ -19,6 +19,26 @@ This register and its rules belong to the mechanism shape under
 decision 1, the user, 2026-10-25. The move is
 [01-0019 harness-amends-itself-by-explicit-meta-rules](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)'s.
 
+## A form the trial had not tried was recommended on the trial — 2026-11-25
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-opus-5-5 · 2026-11-25T06:40Z — chat `9481427b-dc10-46ad-9d06-c9ae6507567e`, commit e019a991; the instant is about that of the reply, the model is the one the session reported itself running on.
+
+**Rules in play:** none that covers it. *The builder does not judge* gave the grading to a subagent; what
+to recommend on the grades was the builder's, and no rule holds a recommendation to the cases tried.
+
+**What happened.** Three forms of a long entry were tried: as it is, the evidence apart, the head rewritten
+with the evidence apart. The reply recommended a fourth, the head rewritten with the evidence in the same
+file, saying nothing in the trial paid for the second file, where the one reader who read less had it. The
+person asked whether the rewritten form with the evidence apart had been tried; it had, and was named
+without its second half.
+
+**Why.** The form was named by what was new in it, *rewritten*, and the shorter name was then compared as
+if it varied one thing. This is the session's reading.
+
+**Disposition:** the records corrected the same day, the recommendation withdrawn.
+
 ## A question's entry kept its history on top and its decisions under its evidence — 2026-11-25
 
 **Source, no case yet:**
@@ -37,8 +57,8 @@ entries keep their decisions after evidence too.
 top and filled with what it had no bound against; and the whole was held back for the person's answer on
 its largest change, which let it go stale on the settled ones. This is the session's reading.
 
-**What it cost**, [tried on fresh readers](research/question-body-2026-11-25/REPORT.md): no wrong answer;
-the whole read by nearly every reader.
+**What it cost**, [tried on fresh readers](research/question-body-2026-11-25/REPORT.md): no wrong answer
+where they were asked; the whole read by nearly every reader.
 
 **Proposed amendment**, with the closing's text and the stop's form that q-mvd4pi's plan drafts: the shelf
 declares the stop as a part of the body, holding the next step, what waits and what is in doubt, and no
