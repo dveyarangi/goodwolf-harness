@@ -7,7 +7,7 @@
 - **rung** development: load-bearing, self-improvement: the method
 - **lean** 2026-11-17: the first night run stopped on G2 — another session's work told only when running; G2 amended on the user's word, a finding told to its session counts as swept; waits on the next night run read by a judge, then /verify and the close of 01-0011.0110.0100
 - **opened** 2026-10-25T20:00:44Z
-- **struck** 2, last 2026-11-21T04:19Z
+- **struck** 3, last 2026-11-25T07:48Z
 
 ## Where it stands
 
@@ -127,3 +127,11 @@ thereby not shown, nor is the rest of the run judged.
 
 It says the six items above and maintain.md:114 still stand. Re-read: item 1's lines and
 maintain.md:114 do; items 2 to 6 were not re-read.
+
+## The two checks and the new G3: the person's answer, 2026-11-25
+
+Put to the person 2026-11-23 and again, in plain words, 2026-11-25; neither accepted nor refused:
+"у нас же майтайнер это роль. у ролей есть передача инфы - ее строит хранилище. вопрос ей конечно
+как после изменений Хранилища будет работать система с ночным прогоном посылающим сообщения, спроси
+ее". Asked of that session the same day; nothing is built until it answers and the person is asked
+again.

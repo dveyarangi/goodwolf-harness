@@ -26,6 +26,11 @@ core from a repository of its own, as
    had escaped the scrub, its members compressed — 73 of 466 members, 521 places; found by the
    judge of q-47f7je's check. Its members scrubbed the same way and the archive rewritten, its
    record's digests brought to the new members.
+   2026-11-25: every recorded sha256 of a file the scrubs of decisions 1 to 3 changed is brought to
+   the file as it stands *(the user: «пересчитывай все суммы уже»)* — 1030 places in 72 files of
+   `docs/cases`, the chain of records of records followed, and the archive's 73 digests stay as
+   rewritten. A hash the host recorded of a message or of its own record is the host's word of what
+   it held, and stays.
    → [mechanism-shape, `personal.py --check`'s report](../../.agents/mechanisms/mechanism-shape/mechanism-shape.md)
 
 2. The person's email address is scrubbed too *(the user, 2026-11-21: «Да, вычистить»)*: replaced
@@ -35,7 +40,9 @@ core from a repository of its own, as
 
 3. The person's name is scrubbed too *(the user, 2026-11-21: «Да, убрать»)*: replaced by
    same-length placeholders in seven tracked files — four cases' transcripts and three files of the
-   audit of 2026-09-05. The history is not rewritten.
+   audit of 2026-09-05. The history is not rewritten. The word of 2026-11-21 was for the four
+   cases; the audit's three were the session's doing until the user, 2026-11-25: «из аудита тоже
+   убирай».
    → [mechanism-shape, `personal.py --check`'s report](../../.agents/mechanisms/mechanism-shape/mechanism-shape.md)
 
 4. The commit-author address that 25 cases quote from `git log` stays *(the user, 2026-11-21:

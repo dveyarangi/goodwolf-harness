@@ -3,7 +3,7 @@
 - **record of** what happened
 - **part of** q-5jcptm
 - **state** closed:deferred
-- **answer** until the second reading of q-b4um7c shows the new system of roles not to hold, meanwhile no guard is built and the rule alone asks for the skill - the user, 2026-11-25
+- **answer** until the new system of roles is seen not to hold a session to its skills, meanwhile the skill guard is not built (the user, 2026-11-25: "это решение - усиление если не сработает новая система ролей")
 - **rung** development: load-bearing, self-improvement: the method
 - **opened** 2026-11-24T22:57:38Z
 - **struck** 0, last 2026-11-24T22:57Z
