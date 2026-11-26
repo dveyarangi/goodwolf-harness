@@ -4,15 +4,16 @@
 - **part of** q-xmk75m
 - **state** open
 - **rung** development: load-bearing, self-improvement: the method
+- **lean** 2026-11-26, the user: Where it stands accepted whole - the host refuses every call of an agent that names a file on the project list of holders, a reader that hides every value alone let through; no rule in the entry file; nothing built yet
 - **opened** 2026-11-25T07:36:53Z
-- **struck** 1, last 2026-11-25T23:44Z
+- **struck** 2, last 2026-11-26T21:53Z
 
 ## Where it stands
 
 The person's idea for core, sent from a recipient tree. Core guards what a commit could publish
 of the person's own; nothing stands between a session and a file whose values are secrets, and a
-value once printed is in the host's transcript. Put to the person whole, 2026-11-26; not yet
-accepted, and nothing is built before it is.
+value once printed is in the host's transcript. Accepted whole by the person, 2026-11-26:
+"Принимаю". It is built through the tickets cut from it.
 
 Decided by the person:
 
@@ -141,3 +142,59 @@ What bears on how far the refusal reaches:
 Put to the person: whether the host refuses every call of an agent's that names a listed file -
 a read, a search, a change, a shell command - the masking reader alone let through; or the reads
 and the printing commands only, a change allowed.
+
+## The draft split and its impact, 2026-11-26
+
+The draft, in order:
+
+1. A listed file is closed to an agent in Claude Code: the project's list, the script that
+   answers the host's call, the hook wired where a list is kept, the limits said at an install;
+   the live try first.
+2. An agent reads a listed file's names and structure without a value, and the refusal names that
+   reader. After 1.
+3. Codex refuses the same, seen live. After 1.
+4. Cursor refuses the same, seen live. After 1.
+
+### Impact
+
+Core's hook entries reach a host from one shelf, the questions mechanism's
+(`.agents/skills/questions/hooks/`), merged into each host's committed hook file by the harness
+mechanism's script, and a check compares core's entries alone. Every one of them is unconditional
+today, and `hook.sh` says its host branches never fail the host. So the first slice changes three
+things at once: an entry merged only where a tree keeps a list, a host branch that refuses by
+design, and a call before every tool that names a path. Must change: the shelf's three host
+files, `harness.py`'s merge and its check, `hook.sh` and its head comment, the tests of both, the
+harness mechanism's doc, the hosts' edge record - a promise added, compatible - and each host's
+own record as it is seen live. Must verify: what the call costs each tool call, subagents'
+included; a recipient at an older core through an update.
+
+### Hidden edges
+
+- **A search over a folder prints a listed file's lines and names it nowhere.** It is the
+  commonest way a value was printed, and it stands under what the accepted whole does not hold.
+  The host's search reads ignore files: whether the list also makes the search skip its files is
+  the plan's first question.
+- **How a name in a shell command is matched.** By its last part, every file of that name
+  anywhere is refused; by its path, a command run from inside the folder passes. Case and the two
+  slashes on Windows are part of it.
+- **Which tools name a file.** In Claude Code the shell is two tools here, and a tool an outside
+  server adds reads files through no hook that names them.
+- **The shelf is the questions mechanism's**, the script the mechanism shape's, the merge the
+  harness mechanism's: where the new entry and its script stand is the plan's, and a change in
+  another session's zone is asked of that session.
+- **Cursor lets a failing hook through** unless told otherwise; Codex's hook is the shell's alone.
+- **The list is read at every call**: a tree's settings hold values, not paths, and what a
+  script reads of a project's own is an open question
+  ([q-veooj7](q-veooj7-how-do-projects-share-one-development-method-without-losing-their-own-conventions.md)).
+
+### Leave alone
+
+The entry file, which takes no rule; `personal.py`; the pre-commit; the guard on controlled
+files and its tickets, which join the same script only when the person releases them; the
+question of a process that outlives its call.
+
+### Recommendation
+
+Proceed, narrowed at its start: the first slice begins with the live try and builds nothing
+before a refusal of a read is seen in Claude Code. One script before a call is a general shape,
+and two other uses already wait for it; it is built for this use alone, the seam kept.
