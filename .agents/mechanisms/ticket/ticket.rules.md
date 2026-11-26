@@ -28,8 +28,8 @@ A ticket is finished when every acceptance box is checked, the verification box 
 
 <rule>
 Close a ticket and its RFC together, in one invocation, and every eligible pair in the same
-invocation: `move_doc.py [--dry-run] SRC DST [SRC DST ...]`, into `docs/tickets/done/` and
-`docs/rfc/done/`.
+invocation of core's mover, `.agents/scripts/gw/move_doc.py [--dry-run] SRC DST [SRC DST ...]`,
+into `docs/tickets/done/` and `docs/rfc/done/`.
 </rule>
 
 ## P3 — the header is the maintainer's

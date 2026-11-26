@@ -125,8 +125,8 @@ a manifest — and each entry belongs at its authored home, wrapped there if pro
 **P1** A ticket is finished when every acceptance box is checked, the verification box included.
 
 **P2** Close a ticket and its RFC together, in one invocation, and every eligible pair in the same
-invocation: `move_doc.py [--dry-run] SRC DST [SRC DST ...]`, into `docs/tickets/done/` and
-`docs/rfc/done/`.
+invocation of core's mover, `.agents/scripts/gw/move_doc.py [--dry-run] SRC DST [SRC DST ...]`,
+into `docs/tickets/done/` and `docs/rfc/done/`.
 
 **P3** Update the ticket header yourself; the mover changes no checkbox, status, date or prose and
 leaves the Git index alone. Treat a refusal as a finding. Repair or deliberately leave what it
