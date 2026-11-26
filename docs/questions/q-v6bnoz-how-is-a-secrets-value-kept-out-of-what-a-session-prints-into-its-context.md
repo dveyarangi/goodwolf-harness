@@ -27,6 +27,8 @@ Decided by the person:
 - The host refuses every call of an agent's that names a listed file - a read, a search, a
   change, a shell command - the masking reader alone let through. A listed file is changed by the
   person until the secrets leave it (decision 3).
+- Where the check cannot run, the call is refused, though the refusal close the command that
+  mends it (decision 4, 2026-11-27).
 
 Settled by the keeper under those, each below the person's rung:
 
@@ -99,6 +101,11 @@ already printed, or both.
    обращение", of the two put to them)*. A listed file is changed by the person until the secrets
    leave it. Its cost, put with it: a holder that keeps ordinary settings beside the secrets is
    closed to agents whole.
+4. **Where the check cannot run, the call is refused** *(the user, 2026-11-27: "Запрещать при
+   сбое", of the two put to them with the first slice's plan - the call passing with a warning, or
+   refused)*. Its cost, put with it: the refusal may close the command that mends the fault, and
+   the person then mends it by hand in a terminal. The keeper's reading under it: with no check
+   to tell which call names a listed file, every call is refused until the fault is mended.
 
 ## The align, 2026-11-26 - by what the stop is held
 

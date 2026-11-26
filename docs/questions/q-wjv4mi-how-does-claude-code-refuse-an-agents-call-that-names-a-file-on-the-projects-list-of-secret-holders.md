@@ -5,6 +5,6 @@
 - **state** open
 - **owner** [01-0120.0010](../tickets/01-0120.0010-claude-code-refuses-a-call-that-names-a-listed-file.md)
 - **rung** development: load-bearing, self-improvement: the method
-- **lean** 2026-11-27: planned - docs/rfc/01-0120.0010; one script behind the hooks wrapper, wired by the installer where the tree keeps local.closed.txt; nothing built, the live try waits on the person signed in to claude in the terminal
+- **lean** 2026-11-27, the user: the plan taken with one change - where the check cannot run the call is refused, q-v6bnoz decision 4; docs/rfc/01-0120.0010. Nothing built: the live try, its first stage, waits on the person signed in to claude in the terminal
 - **opened** 2026-11-26T22:00:50Z
 - **struck** 0, last 2026-11-26T22:00Z
