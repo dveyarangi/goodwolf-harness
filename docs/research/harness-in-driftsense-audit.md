@@ -33,11 +33,11 @@ lessons file, core's rules files, scripts and questions by search. No transcript
 | what the nightly pass covers and tells the next | lesson 16 | open: [q-tug2bm](../questions/q-tug2bm-what-does-a-pass-with-no-person-read-of-a-tree-and-what-does-it-tell-the-next-pass-of-what-was-read-and.md) |
 | a process that outlives the call that started it | lesson 17; register 2026-11-25 | open: [q-7v6dpa](../questions/q-7v6dpa-how-is-a-process-a-command-starts-kept-from-outliving-the-call-that-started-it.md) |
 | roles, and the name a role's session bears | L14; L15, which overrides session/S11 | open: [q-p4sdnv](../questions/q-p4sdnv-what-is-an-agent-role-and-which-mechanism-keeps-roles.md), [q-jz3mlm](../questions/q-jz3mlm-how-does-a-project-cut-its-work-into-standing-sessions-and-how-does-the-cut-change-as-the-project-grows.md), [q-mvd4pi](../questions/q-mvd4pi-how-does-a-session-take-on-a-standing-role-learn-it-and-hand-it-on-so-the-role-outlives-any-one-chat.md) |
-| the paired close names a mover without its path | register 2026-09-27 | **not sent**: ticket/P2 still names `move_doc.py` with no path, `.agents/mechanisms/ticket/ticket.rules.md:30` |
-| a choice put to the person without what sets its options apart | register 2026-11-23; L6 | **not sent**: no rule in core says it |
+| the paired close names a mover without its path | register 2026-09-27 | **not sent**: ticket/P2 still names `move_doc.py` with no path, `.agents/mechanisms/ticket/ticket.rules.md:30`. Amended after this round, `b91d91be`, 2026-11-27 |
+| a choice put to the person without what sets its options apart | register 2026-11-23; L6 | **not sent**: no rule in core says it. Placed after this round as [q-2cbkvs](../questions/q-2cbkvs-what-must-a-decision-put-to-the-person-carry-so-that-it-can-be-decided-from-the-reply-alone.md), 2026-11-27 |
 | a part judged from lines that left out what decides it | register 2026-11-25 | **not sent**: no rule of the harness was in play |
 | a Windows path written through a script's string lost its backslashes | register 2026-11-26 | **not sent** |
-| the head table and the decisions table dropped with the debugging marks | register 2026-11-26 | **not sent** |
+| the head table and the decisions table dropped with the debugging marks | register 2026-11-26 | **not sent**. Placed after this round as [q-4kvvec](../questions/q-4kvvec-does-a-tree-with-debug-off-keep-the-replys-frame-the-head-table-and-the-decisions-table-and-does-the.md), 2026-11-27 |
 
 The project's own, with no cause in core: L1 what the repository is, L2 the dials, L5 the
 verification set, L8 which host does what, L10 a screen used before it is planned twice, L13
