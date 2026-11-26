@@ -4,7 +4,7 @@
 - **part of** q-7f4anv
 - **state** closed:decided
 - **owner** [01-0019.0020](../tickets/done/01-0019.0020-one-amendment-is-tested-end-to-end.md)
-- **answer** [runner](../../.agents/scripts/gw/amendment.py), [case](../cases/discover-material/case.json), [report](../case-runs/discover-material/report.json) — implemented under the user-selected scope, 2026-10-26
+- **answer** [runner](../../.agents/scripts/gw/amendment.py), [case](../cases/discover-material/case.json), [report](../research/case-runs/discover-material/report.json) — implemented under the user-selected scope, 2026-10-26
 - **rung** self-improvement: the method
 - **lean** 2026-10-24: minted as its slice of 01-0019, Planned
 - **opened** 2026-10-26T15:07:44Z
@@ -31,7 +31,7 @@ judged by this ticket's acceptance criteria, not by the offline host fixture.
 
 ## Experiment, 2026-10-26
 
-The [report](../case-runs/discover-material/report.json) gives `helped` for this single case.
+The [report](../research/case-runs/discover-material/report.json) gives `helped` for this single case.
 For families, application, assumptions and ordering, the no-instruction and standing arms both
 scored `[0, 0, 3, 0]`; the amended arm scored `[3, 3, 3, 3]`. Each arm contains three valid
 executions and assessments. All eight calibration specimens passed before any execution.
@@ -40,7 +40,7 @@ The run used 29 agent sessions: one health probe, eight calibration judgements, 
 nine first judgements and two replacements for infrastructure-failed judgements. All failed
 processes remain in accounting. The captured totals are 393382 input tokens, 10899 output
 tokens, 20096 cached input tokens, and 7193.9325752 cumulative process seconds; money is
-unreported. Earlier stopped attempts are separate in the [record](../case-runs/discover-material/record.json),
+unreported. Earlier stopped attempts are separate in the [record](../research/case-runs/discover-material/record.json),
 whose archive preserves the raw inputs, events, commands and source snapshots.
 
 An independent reader recomputed counts, accounting and 75 quotations, verified the identical

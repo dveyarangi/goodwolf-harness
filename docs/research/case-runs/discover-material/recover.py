@@ -12,7 +12,7 @@ import subprocess
 import sys
 import tomllib
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[3] / ".agents/scripts/gw"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[4] / ".agents/scripts/gw"))
 import amendment
 
 
