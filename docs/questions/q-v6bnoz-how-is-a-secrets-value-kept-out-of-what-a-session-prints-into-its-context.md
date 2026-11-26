@@ -10,9 +10,10 @@
 ## Where it stands
 
 The person's idea for core, sent from a recipient tree. Decided: core stops a file known to hold
-secrets from being printed, and does not look for a value already printed (decision 1). By what
-the stop is held, where the list of holders stands and what reads a holder with its values hidden
-are open; nothing is built before this section is accepted.
+secrets from being printed, and does not look for a value already printed (decision 1); the stop
+is the host's refusal before the read, and the entry file carries no rule for it (decision 2).
+Where the list of holders stands, what reads a holder with its values hidden and how far a read
+by the shell is covered are open; nothing is built before this section is accepted.
 Core guards what a commit could publish of the person's own; nothing stands between a session and
 a file whose values are secrets, and a value once printed is in the host's transcript.
 
@@ -60,6 +61,10 @@ already printed, or both.
 1. **Core stops a known holder from being printed, and notices nothing after the fact** *(the
    user, 2026-11-26: "Не дать напечатать", of the three put to them - stop, notice, both)*. Left out by
    it: a value printed from a file no list names, a copy in a host's transcript among them.
+2. **The stop is the host's refusal before the read, never a rule the agent follows** *(the user,
+   2026-11-26: "Отказ хоста", of the two put to them)*. The refusal's own text names the way to
+   read the file with its values hidden; the entry file carries no line for it. Left out by it: a
+   read that never names the file to the host - a script, a glob.
 
 ## The align, 2026-11-26 - by what the stop is held
 
@@ -83,3 +88,26 @@ What bears on it:
 Both ways assume the project keeps a list of the files that hold secrets. Put to the person:
 whether the stop is a rule the agent follows, or the host's refusal before the read, the refusal's
 own text naming the reader that hides values.
+
+## The align, 2026-11-26 - what the refusal covers
+
+A live try of the refusal of a read, in Claude Code, was set up the same day outside the tree: a
+folder with one test file, a hook before `Read`, `Bash` and `Grep` that denies a call naming it,
+and a headless run. It did not run: the host's command line was not signed in on this machine. It
+stands before the build as its cheapest example; nothing above rests on it having passed.
+
+What bears on how far the refusal reaches:
+
+- A filter by name has failed once already: the recipient's session hid values by the names of
+  their keys and printed one. A list of the shell commands that print is a filter of the same kind.
+- A change to a holder shows the lines beside it, and a `git diff` of it prints them.
+- The recipient's holder is a settings file in its code, holding ordinary settings beside the
+  secrets: a refusal of every call that names it leaves agents unable to change it until the
+  secrets leave it.
+- A tree's settings today are values the local rules set from what a mechanism declares
+  (`inject_rules.py`, `read_settings`); a list of paths is no such value, and where it stands is
+  not put to the person before this is.
+
+Put to the person: whether the host refuses every call of an agent's that names a listed file -
+a read, a search, a change, a shell command - the masking reader alone let through; or the reads
+and the printing commands only, a change allowed.
