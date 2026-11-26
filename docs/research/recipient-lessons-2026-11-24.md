@@ -220,3 +220,58 @@ No answer needed; it is recorded here in q-n6t5vb as sent, its form open.
 | 14, a secret's value printed into a session's context | the keeper, no zone's mechanism owning it; the person's words found in their transcript, and a question opened for it | — |
 | 15, hazards are found by nobody | the audit and maintenance's session: what the pass flags | 2026-11-25 |
 | 16, what the nightly pass covers, and what one night tells the next | the audit and maintenance's session: the pass with no person | 2026-11-25 |
+
+## A sixth message, 2026-11-26 — as sent, the project's own facts left out
+
+A lesson from DriftSense for core, sent on the user's word: shell processes that outlive the call
+that started them, and a host hook that refuses the two kinds seen. The user's word is relayed
+here and was not read at its source.
+
+What happened, three times in two days, by that tree's register of rule failures, an entry struck
+twice:
+
+1. Three helpers looked for a library with `find /`. Each call outran its time limit and went to
+   the background, and each search ran on for half an hour after its helper had finished, two of
+   them holding a core each.
+2. A session waited for a background task with a shell loop around
+   `read -t 10 < <(tail -f /dev/null)`. It left 34 `tail` processes and 34 shells behind for a
+   day. The host announces the end of a background task by itself, so the loop was never needed.
+3. A role session looked for a framework's source with `P=$(find / -path ...)`. The call went to
+   the background, and stopping the task ended the shell but not the `find` under it. It held a
+   core for 26 minutes.
+
+None was caught by the session itself; in each case another session, one that watches the
+computer, noticed. No rule was in play. A second strike takes a mechanical amendment, so a hook
+was drafted for the project, not landed, waiting on the user: a script called before a shell
+command in Claude Code, which reads the call's payload and denies
+
+- a `find` whose start is a disk's root and which carries neither `-xdev` nor a `-maxdepth` of 1
+  to 3, with a reason saying where to look instead;
+- a `tail` that follows (`-f`, `-F`, `--follow`), with a reason saying the host announces the end.
+
+Evidence as sent: replayed over the 7,005 shell commands that tree's sessions have run, it
+refuses six — the five registered occurrences and the trial's own test text; right on 34 made-up
+cases, refusing 18 and passing 16; about 0.2 s added to a command that names neither word; not
+tried in a live session. A search inside a container passes where `-xdev` bounds it.
+
+What the sender thinks is core's, for the keeper to judge:
+
+- `hook.sh`'s `before-tool` branch says "Nothing else here may refuse it". If core takes this
+  kind of refusal, it belongs there or beside it, and every host gets it: Cursor and Codex are
+  not covered by a Claude-only settings entry.
+- The general rule, which no harness rule states: a process a command starts must end with the
+  call. A command that may outlive the call is bounded (`timeout`, `-xdev`/`-maxdepth`), and a
+  session checks that nothing it started was left before closing. The places to look are named
+  in a helper's brief.
+- Related: the same register's entry on a secret's value printed while reading code that holds
+  it has four strikes and also proposes a hook, one that masks key-shaped values in any command's
+  output. Not drafted; whether a host lets a hook rewrite a built-in tool's output is not checked.
+
+"I wait for nothing. If core takes one, tell me and the project's draft yields to it."
+
+The keeper's reading, 2026-11-26: core's `hook.sh` has held no `before-tool` branch since
+19356b62; the sender read an older copy. The hook's text is the sender's and stays in its tree.
+
+| lesson | holder in this tree | told |
+|---|---|---|
+| 17, a process that outlives the call that started it | the keeper: what the host refuses; a question opened for it | — |
