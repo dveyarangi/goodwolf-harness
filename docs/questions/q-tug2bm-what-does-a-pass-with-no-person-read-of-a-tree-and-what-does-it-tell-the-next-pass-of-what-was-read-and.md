@@ -42,9 +42,10 @@ taking the oldest few. Read against this tree at `0d05d540`:
 - Not the sweep's own rule, what the landed decisions contradict: that is
   [q-hh7trc](q-hh7trc-how-does-a-pass-with-no-person-sweep-the-tree-for-what-the-decisions-landed-since-its-last-sweep.md)'s.
   An answer may amend G1, G4 and the marks' format.
-- A turn taken by the longest unread is also proposed for the open questions, ten a pass:
-  [q-242vqe](q-242vqe-how-is-an-open-question-that-nobody-reaches-kept-from-sinking-unseen.md), the store's,
-  waiting on the person. Whether one record serves both is not looked at.
+- Not the open questions nobody reaches: seeing those is the pathfinder's *(the user, 2026-11-25)*,
+  [q-242vqe](q-242vqe-how-is-an-open-question-that-nobody-reaches-kept-from-sinking-unseen.md), and
+  a turn of ten a pass in `/maintain`, proposed for them, was withdrawn. `/maintain` keeps Q4's
+  share alone, an open question a decision in force answers or makes moot.
 - A verdict that names the files it rests on and lapses when one changes, agreed by the person for
   that recipient's audits by its message: whether an audit here needs the same record is
   [q-7rmmpw](q-7rmmpw-how-is-produced-work-gone-over-again-over-what-scope-by-what-criteria-by-whom-and-to-what-result.md)'s.
