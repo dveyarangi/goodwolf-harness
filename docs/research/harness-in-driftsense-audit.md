@@ -15,7 +15,7 @@ lessons file, core's rules files, scripts and questions by search. No transcript
 
 | cause | where DriftSense holds it | in core |
 |---|---|---|
-| a question opened below the dial | lesson 1; L7 | **sent, no record**: told the store's session 2026-11-24; Q1 unchanged, no question holds it |
+| a question opened below the dial | lesson 1; L7 | **sent, no record**: told the store's session 2026-11-24; Q1 unchanged, no question holds it. Placed after this round as [q-sa75ul](../questions/q-sa75ul-which-questions-does-the-store-take-and-which-are-settled-in-the-turn-and-written-where-the-work-keeps.md), 2026-11-27 |
 | urgent work | lesson 2; L9 | open: [q-4a4iit](../questions/q-4a4iit-how-does-urgent-work-go-through-the-method-small-or-wide-and-what-record-does-it-leave-after.md) |
 | hazards weigh nothing | lesson 3; L11 | **fixed**: [q-6y4lwm](../questions/q-6y4lwm-how-does-a-hazard-which-leads-to-no-answer-of-the-product-weigh-in-what-comes-next.md) decided; hazards stand above the board's rows, `.agents/skills/pathfinder/SKILL.md:20` |
 | silent zeros where status lives on another board | lesson 4; L12 | **fixed**: `9e37df11`, the path reads unread where no ticket carries a status |
@@ -48,3 +48,43 @@ holder, 5 never sent; 6 local rules the project's own.
 
 **What it taught about auditing a project's harness:** the baseline's search was scripted, but its
 marks were not: a recipient's cause and core's fix share no id, and are matched by what they say.
+
+## Round 1 — cost, 2026-11-27
+
+Measured by [harness-in-driftsense-audit-cost.py](harness-in-driftsense-audit-cost.py), which prints
+counts only, over DriftSense's Claude Code sessions of its harness tree, 2026-11-24 to 2026-11-26
+(UTC): 23 sessions and their 115 subagents. A forked session's copied records count once. The
+script was read by a reader who did not write it; its five faults were mended before these counts:
+forks counted twice (5.6% of tokens), the person's messages miscounted both ways, messages to
+subagents counted as messages to sessions, host tools counted as the method's.
+
+Not counted: the Cursor sessions, where DriftSense builds its code (its L8), so product code's share
+below is Claude Code's alone; frost_map's 64 sessions, a tree of its own; whether a message between
+sessions was needed, which takes reading.
+
+| measure | count |
+|---|---|
+| API calls | 7,019 |
+| tokens | 1,784.9M: cache reads 1,734.1M (97.2%), cache writes 42.8M, output 8.0M, fresh input 0.01M |
+| the person's messages | 469 (7 of them the same words again) — 15 calls and 3.8M tokens each |
+| tokens per session | median 77.0M, largest 214.7M |
+| tool calls | about 10,500; the host's task list and wrap-up 1,426 of them |
+| messages between sessions | 252 sent to sessions, 364 received, 4 of them exact repeats |
+| commits in the harness tree | 350: ALIGN 272 (78%), MAINTAIN 28, TICKET 17, PLAN 14, VERIFY 7, SKILL 5, HARNESS 4, RULE 1, no step 2 |
+| commits in the product's repositories, the same days | 37: admin 14, the farmer frontend 21, the WRF coordinator 2 |
+
+Tokens by what a call's tools worked on — a call's whole count, mostly the context it re-reads,
+goes to its tools: replies with no tool 19.8%, the host's own tools 17.6%, scratch scripts 15.0%,
+the method's records and scripts 14.5%, other 12.1%, product code 8.1%, git 4.2%, product records
+3.4%, the web 2.5%, the host's files 1.1%, subagents 0.9%, the board 0.7%, mail 0.1% (counted, never
+read).
+
+Tokens the host attributes to a skill: 16.4%; `/recall` alone 8.5%, more than product code's share
+by the measure above. Skills called: `/recall` 19, `/commit` 11, `/verify` 9, `/ticket` 7, `/align`,
+`/plan`, `/impact` and `/skill-up` 4 each, others 1–2.
+
+**For the person to set:** what share the method's own steps may take of a session, and what a
+wake may cost; the next round on cost judges against it.
+
+**What it taught about auditing a project's harness:** a measuring script needs a reader of its own
+as much as a finding does: the first count was 5.6% high, and the person's messages off both ways.

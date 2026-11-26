@@ -61,3 +61,6 @@ to its harness session, wait on the person's yes when a round needs them.
 
 - Round 0, the baseline, 2026-11-27: [the health record](../research/harness-in-driftsense-audit.md#round-0--the-baseline-2026-11-27).
   23 causes — 3 fixed in core, 13 open, 2 received with no record or holder, 5 never sent.
+- Round 1, cost, 2026-11-27: [the health record](../research/harness-in-driftsense-audit.md#round-1--cost-2026-11-27).
+  23 sessions, 1,784.9M tokens, 97.2% of them cache reads; 469 messages of the person; 78% of the
+  harness tree's commits ALIGN; Cursor not counted. The share the method may take is the person's to set.
