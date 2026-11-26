@@ -60,3 +60,5 @@
 - **Messaging** — unobserved: whether one session can message another in this host is not known.
 - **Entry notice** — unobserved; whether the host reads `AGENTS.md` again after a compaction is
   not documented, and the line takes it so, as it does where that is documented.
+- **Call refusal** — unobserved; what its hook before a shell command and a patch is documented to
+  refuse stands under **Edit refusal**.

@@ -57,3 +57,5 @@
 - **Entry notice** — absent: `beforeSubmitPrompt` can only allow or block, so what changed in the
   entry file under a running session reaches no agent; the entry file's rule at session start
   stands in, and a session reasons from the text it loaded until its next start.
+- **Call refusal** — unobserved; what its hooks before a tool and before a file is read are
+  documented to refuse stands under **Edit refusal**.

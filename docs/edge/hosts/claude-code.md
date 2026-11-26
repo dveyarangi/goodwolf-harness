@@ -86,3 +86,17 @@
   2026-11-22, desktop app, of the window alone: a hook's output of 58 KB was saved as the
   context's own text, line by line, under the session's folder, and its path and first 2 KB were
   what stood in context.
+- **Call refusal** — unobserved; the try of 2026-11-26 did not run, the terminal's `claude` not
+  being signed in. Of the host's search alone, seen 2026-11-27, desktop app, session `1981de0e`, on
+  a scratch folder of fake values: `Grep` over a folder skipped a file named by a `.gitignore`
+  inside a repository, by a `.ignore` and by a `.rgignore`, a parent folder's `.ignore` included;
+  a `glob` that matched the file printed it though ignored, a `glob` that only excluded did not;
+  a `path` naming the file printed it; `Glob` listed every one. Documented, read 2026-11-27: the
+  call before a tool gets `tool_name`, `tool_input`, `cwd` and, in a helper, `agent_id`, and fires
+  for a helper's calls; it refuses with `permissionDecision: "deny"` or exit 2; a hook that exits
+  otherwise, cannot start or times out lets the call through, `onFailure: "block"` turning that
+  round from 2.1.295; a file the person mentions with `@` passes no hook; the host's own
+  `Read(path)` deny rules cover its file tools, its search on a best effort, and the shell's file
+  commands it recognises ([hooks](https://code.claude.com/docs/en/hooks),
+  [permissions](https://code.claude.com/docs/en/permissions),
+  [sub-agents](https://code.claude.com/docs/en/sub-agents)).

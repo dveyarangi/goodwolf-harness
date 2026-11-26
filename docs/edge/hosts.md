@@ -39,6 +39,18 @@ Where the window does not reach the agent, as in Cursor, a session sees another'
 it draws its window itself, as the entry file's rule asks, and the refusal at a hold is the one
 stop that needs no window.
 
+<straw-dog question="q-wjv4mi">
+**Promised to a project that keeps a list of the files that hold secrets** — **⚠ pending —
+[01-0120.0010 claude-code-refuses-a-call-that-names-a-listed-file](../tickets/01-0120.0010-claude-code-refuses-a-call-that-names-a-listed-file.md),
+stage 5**: an agent's call that names a listed file — a read, a search, a change, a shell
+command — is refused before it runs, and the agent reads why, in each host whose sidecar says the
+refusal was seen there; a tree that keeps no list has no call before its tools. It asks of a host
+a hook before every tool call that can refuse the call and tell the agent why. Not promised: a
+read that never names the file to the host, a copy in a file the list does not name, a value
+already printed, a file the person hands the agent, and a call the host lets through when it
+cannot run the hook.
+</straw-dog>
+
 <straw-dog question="q-5jcptm">
 **Required of a host, to guard the files a mechanism controls** — an edit to such a file refused
 while the skill the mechanism names is not loaded in the session:
@@ -104,6 +116,9 @@ Each sidecar names its own parts.
 - <straw-dog question="q-5jcptm">An edit to a file a mechanism controls is refused
   while the skill it names is not loaded in the session — **⚠ unguarded**: the guard is not
   built</straw-dog>
+- <straw-dog question="q-wjv4mi">In a tree that keeps a list of the files that hold secrets, an
+  agent's call that names a listed file is refused before it runs — **⚠ unguarded**: the refusal
+  is not built; **⚠ pending —** [01-0120.0010 claude-code-refuses-a-call-that-names-a-listed-file](../tickets/01-0120.0010-claude-code-refuses-a-call-that-names-a-listed-file.md)</straw-dog>
 
 ## Extending
 
@@ -139,6 +154,9 @@ Each sidecar names its own parts.
     carries the changed passages as they were and as they are now, and the message after it
     carries none; a fresh chat's first message carries none; a notice the host cut short is read
     whole where the host saved it.
+17. **Call refusal** — in a tree that keeps a list of the files that hold secrets, a hook refuses
+    an agent's read, search, change and shell command that names a listed file, before it runs,
+    and the agent reads why; a helper's call is refused the same; a call that names none passes.
 
 ## Extensions
 
@@ -167,5 +185,6 @@ Each sidecar names its own parts.
 - The three hosts' unwatched checks — compaction, helper ids, Codex's start-hook attribution —
   observed: [01-0010.0120 what-each-host-says-without-being-asked](../tickets/01-0010.0120-what-each-host-says-without-being-asked.md).
 - A fourth host, chosen under q-kecvv7: no ticket yet.
+- A file that holds secrets closed to agents, host by host: [01-0120 a-file-that-holds-secrets-is-closed-to-agents](../tickets/01-0120-a-file-that-holds-secrets-is-closed-to-agents.md).
 - The guard on the files a mechanism controls, once q-5jcptm's `Where it stands` is
   accepted: [01-0010.0125 the-host-blocks-what-a-rule-forbids](../tickets/01-0010.0125-the-host-blocks-what-a-rule-forbids.md).
