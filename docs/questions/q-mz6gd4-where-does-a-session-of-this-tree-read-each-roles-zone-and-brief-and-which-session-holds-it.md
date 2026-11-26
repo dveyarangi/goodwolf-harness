@@ -147,6 +147,13 @@ Records that do not name the decision of 2026-11-21:
 - q-gbt7cy, decision 1 at lines 15 and 20, "Every skill has a mechanism", which the plan of
   01-0090.0020 narrows at 145–166; passed on by the practice's session, 2026-11-24.
 
+The pass of 2026-11-26 (sweep 2490febf..944806fb) adds decision 8 to the same list, kept the
+same way. In the plan of
+[01-0090.0010 each-role-of-this-tree-stands-in-a-mechanism-of-its-own](../tickets/01-0090.0010-each-role-of-this-tree-stands-in-a-mechanism-of-its-own.md):
+line 25, "six roles on five sessions", where the rule of roles carries eight on seven; the table
+of reading 9 at line 103, which gives `debugging` to `role-method` under Хранитель, where decision 8
+gives it to Голос; and the note *Overturned in part*, which names decision 4 and neither 6 nor 8.
+
 ## The person, 2026-11-25: a role of the voice and the look, perhaps
 
 To the store's session, sent on to the keeper word for word and read at its source, after asking
