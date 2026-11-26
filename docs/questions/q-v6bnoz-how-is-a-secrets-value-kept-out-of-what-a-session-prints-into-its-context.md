@@ -9,13 +9,38 @@
 
 ## Where it stands
 
-The person's idea for core, sent from a recipient tree. Decided: core stops a file known to hold
-secrets from being printed, and does not look for a value already printed (decision 1); the stop
-is the host's refusal before the read, and the entry file carries no rule for it (decision 2).
-Where the list of holders stands, what reads a holder with its values hidden and how far a read
-by the shell is covered are open; nothing is built before this section is accepted.
-Core guards what a commit could publish of the person's own; nothing stands between a session and
-a file whose values are secrets, and a value once printed is in the host's transcript.
+The person's idea for core, sent from a recipient tree. Core guards what a commit could publish
+of the person's own; nothing stands between a session and a file whose values are secrets, and a
+value once printed is in the host's transcript. Put to the person whole, 2026-11-26; not yet
+accepted, and nothing is built before it is.
+
+Decided by the person:
+
+- Core stops a file known to hold secrets from being printed, and looks for no value already
+  printed (decision 1).
+- The stop is the host's refusal before the call; the entry file carries no rule for it
+  (decision 2).
+- The host refuses every call of an agent's that names a listed file - a read, a search, a
+  change, a shell command - the masking reader alone let through. A listed file is changed by the
+  person until the secrets leave it (decision 3).
+
+Settled by the keeper under those, each below the person's rung:
+
+- **The list** is the project's: one tracked file of paths. A tree that keeps none has no
+  refusal wired and pays nothing for it.
+- **The reader** shows a listed file's names and structure and never a value, whatever its name;
+  of a file whose form it does not know it shows nothing. The refusal's text names its command.
+- **The hosts** come one at a time: Claude Code first, the live try its first step; then Codex,
+  by the hook on its shell, and Cursor. A host's record says the refusal holds only once it was
+  seen live there.
+- **No mechanism is added.** The harness mechanism wires this hook as it wires the others. One
+  script answers the host's call, so the guard on controlled files
+  ([q-bsd3ga](q-bsd3ga-which-forbidden-actions-does-the-host-refuse-instead-of-trusting-the-agent.md))
+  can join it when the person releases it; nothing of that guard is built here.
+
+Not held, and said so to a project that installs it: a read that never names the file to the
+host - a script, a glob, a program that loads it; a copy of a value in a file no list names; a
+value already printed.
 
 ## The person, 2026-11-25
 
@@ -65,6 +90,11 @@ already printed, or both.
    2026-11-26: "Отказ хоста", of the two put to them)*. The refusal's own text names the way to
    read the file with its values hidden; the entry file carries no line for it. Left out by it: a
    read that never names the file to the host - a script, a glob.
+3. **The host refuses every call of an agent's that names a listed file** - a read, a search, a
+   change, a shell command - the masking reader alone let through *(the user, 2026-11-26: "Любое
+   обращение", of the two put to them)*. A listed file is changed by the person until the secrets
+   leave it. Its cost, put with it: a holder that keeps ordinary settings beside the secrets is
+   closed to agents whole.
 
 ## The align, 2026-11-26 - by what the stop is held
 
