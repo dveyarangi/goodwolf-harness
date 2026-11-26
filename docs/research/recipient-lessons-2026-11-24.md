@@ -275,3 +275,29 @@ The keeper's reading, 2026-11-26: core's `hook.sh` has held no `before-tool` bra
 | lesson | holder in this tree | told |
 |---|---|---|
 | 17, a process that outlives the call that started it | the keeper: what the host refuses; a question opened for it | — |
+
+## A seventh message, 2026-11-27 — from this tree's audit of the harness in DriftSense
+
+Round 0 of [the audit](harness-in-driftsense-audit.md) told the keeper three causes that had no
+holder in core: lesson 9 above, received and held by nobody, and two entries of DriftSense's own
+register of rule failures that were never sent. Neither of the two had a rule of the harness in
+play:
+
+- **A part was judged from lines that left out what decides it** (its register, 2026-11-25): a
+  route was reported to the person and to another session as unchecked, from a read that began
+  one line below the line that checks it.
+- **A path written through a script's string lost its backslashes** (its register, 2026-11-26):
+  a record received a control byte where a Windows path stood, and the tree's docs guard failed
+  for every session.
+
+The keeper's reading, 2026-11-27: lesson 9 was a fault of the edge check and is mended — the
+check passes over its folder's own `README.md`, with its test. The two slips propose no rule, by
+the register's own rule for a slip no rule covers; the second met this tree the same day and
+stands in [the register](../rule-failures.md), where a repeat will strike it. The first is kept
+here, and has no occurrence in this tree to register.
+
+| lesson | holder in this tree | told |
+|---|---|---|
+| 9, the edge check reads its folder's README | the keeper, no role naming the edge mechanism; mended 2026-11-27 | — |
+| 18, a part judged from lines that left out what decides it | the keeper: the register; no occurrence here | — |
+| 19, a backslash lost through a script's string | the keeper: the register, an entry of 2026-11-27 | — |

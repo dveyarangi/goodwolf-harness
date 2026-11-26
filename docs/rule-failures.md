@@ -19,6 +19,56 @@ This register and its rules belong to the mechanism shape under
 decision 1, the user, 2026-10-25. The move is
 [01-0019 harness-amends-itself-by-explicit-meta-rules](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)'s.
 
+## A backslash was lost on a text's way through a shell into a file — 2026-11-27
+
+**Source, no case yet:**
+
+- Claude Code · claude-opus-5-5 · 2026-11-26T23:20Z — the audit and maintenance's session, as it reported it the same day; the instant is approximate.
+
+**Rules in play:** none that covers it. One session's memory in the host held it since 2026-11-24, as a
+note that a shell's heredoc had turned an escaped newline into a real one inside generated Python; no
+record of this tree did.
+
+**What happened.** A script written to the scratchpad was edited through `sed`, and a regex's character
+class lost a backslash; the script no longer compiled, and was mended with an editor's edit before
+anything was committed.
+
+**Struck 2026-11-27 — once, sixteen minutes later, in another session.** A test was added to a test file
+by a script handed to the interpreter through a shell's quoted heredoc. The script's string held an
+escaped newline meant for the test's own string; the file received real newlines and the test module no
+longer parsed. Seen at the first run and mended with the editor tool. The same family in a recipient: a
+record received a control byte where a Windows path held a backslash and a digit, and its docs guard
+then failed for every session (its register, 2026-11-26).
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-fable-5-2 · 2026-11-26T23:36Z — chat `1981de0e-7693-4931-aeab-4881f9fa0065`, the fix of the edge check's folder page; the model is the one the session reported itself running on.
+
+**What it is.** A slip no rule covers: text that carries a backslash is handed through a shell's
+quoting, or a script's string, into a file, and arrives changed. It proposes no rule; the strike is the
+second shape a rule would need.
+
+## The paired close named its mover by a bare name, and a recipient's own older mover ran — 2026-09-27
+
+**Source, no case yet:**
+
+- Cursor · unknown · 2026-09-27T15:01+03:00 — in a recipient's tree, as its register of rule failures records it; the host's transcript names no model. Entered late: found by the audit of the harness in that recipient, round 0, 2026-11-27.
+
+**Rules in play:** the ticket mechanism's P2, on closing a ticket with its plan: the pair is moved in
+one invocation, which it named as `move_doc.py` with no path.
+
+**What happened.** The recipient held a mover of its own under another folder, older than core's and
+repairing only live records. The close ran that one on the bare name, and the links of the closed
+tickets went unrepaired.
+
+**Why it did not fire.** The rule fired, on the wrong script: a bare name is whatever the tree answers
+it with first. This is the keeper's reading.
+
+**Proposed amendment:** P2 names core's mover by its path, `.agents/scripts/gw/move_doc.py`.
+
+**Disposition:** closed 2026-11-27, the amendment landed by the practice's session, b91d91be, and
+reinstalled into `/maintain`.
+
 ## Open questions waiting their turn were proposed to be closed as deferred — 2026-11-25
 
 **Source, no case yet:**
