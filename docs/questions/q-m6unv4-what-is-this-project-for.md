@@ -335,6 +335,12 @@ person's words where they said it, with where it stands.
   the harness, A41's coordination into the harness, and q-pcnqd5's dashboard into a controlling
   UI; the document's *Who it is for* and the harness's definition — the instructions, records and
   scripts around a runtime — would widen to the harness running the runtime.
+- *Where the person stands: on their own plan of learning*, 2026-11-27, said to the practice
+  session as thinking aloud, in their words in [q-xtv3eb](q-xtv3eb-where-does-the-person-stand-in-the-work-at-the-decisions-that-bear-load-and-where-models-are-weak-or.md): the harness closes the dull holes
+  of the models' weak sides and opens the interesting points of contact; the person's place is not
+  steering the architecture but learning to take on harder and more varied work, kept awake to the
+  agent's persuasiveness. Not yet a decision. The product side: it would move pain 3's right point,
+  *What it does, in one line*, and what the dials order a decision by.
 
 **How a complaint is read** *(the user, 2026-11-16)*: "непонятно было бы лучше без харнесс )) я
 считаю что нет, он держит линию хотябы. оптимальность это не только про вес. и не всякая жалоба
