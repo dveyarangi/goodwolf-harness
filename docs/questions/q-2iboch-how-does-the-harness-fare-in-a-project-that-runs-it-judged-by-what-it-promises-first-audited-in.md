@@ -56,3 +56,8 @@ any `.env`, the product's settings and config files that hold keys, the user's m
 cause, with that zone's session told; a summary to DriftSense's harness session; and a line per round
 on what it taught about auditing a project's harness. Polling DriftSense's role sessions, and writing
 to its harness session, wait on the person's yes when a round needs them.
+
+## Rounds
+
+- Round 0, the baseline, 2026-11-27: [the health record](../research/harness-in-driftsense-audit.md#round-0--the-baseline-2026-11-27).
+  23 causes — 3 fixed in core, 13 open, 2 received with no record or holder, 5 never sent.
