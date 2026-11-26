@@ -99,8 +99,7 @@ tickets 01-0090.0010 (:50, :82), 01-0090.0020 (:28, :64), 01-0090.0030 (:37). So
 the person and go to them. q-g6lj7m is marked overturned in decisions 1 and 2 where the whole says 1 to 3,
 its accepted *Where it stands* unmarked. The default session at install, overturned here, is marked at
 q-ja5mp4:216 only, and not at its :101, :235, :291, nor in 01-0090 (:48, :65), the 01-0090.0020 ticket
-(:103) and plan (:289), and the 01-0090.0010 plan (:270). L13's Голос trails in the cut's plan, :221, "seven
-roles on six sessions". The private wording q-ja5mp4:522-525 stays near to is to be read beside
+(:103) and plan (:289), and the 01-0090.0010 plan (:270). The private wording q-ja5mp4:522-525 stays near to is to be read beside
 [q-p4sdnv](q-p4sdnv-what-is-an-agent-role-and-which-mechanism-keeps-roles.md)'s paraphrase.
 
 **Due, not mended, for the mechanism's next opening:** the questions skill's call table without `rung`, its
