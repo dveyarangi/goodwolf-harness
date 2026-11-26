@@ -267,6 +267,13 @@ class TheCommandLine(Records):
         self.assertEqual(1, status)
         self.assertEqual([RECORD], [passed["record"] for passed in json.loads(out)["skipped"]])
 
+    def test_the_folders_own_readme_is_no_record(self) -> None:
+        # A recipient kept an index beside its records, 2026-11-24, and the check read it as one.
+        self.write("docs/edge/README.md", "# Edges\n\nAn index the project keeps.\n")
+        status, out = self.run_main("--check")
+        self.assertEqual(0, status)
+        self.assertEqual([RECORD], [read["record"] for read in json.loads(out)["records"]])
+
     def test_a_bare_invocation_refuses(self) -> None:
         self.assertEqual(2, self.run_main()[0])
 

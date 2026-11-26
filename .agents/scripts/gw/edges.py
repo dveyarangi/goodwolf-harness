@@ -113,7 +113,8 @@ def main(argv: list[str], root: Path) -> int:
 
 
 def check(root: Path) -> Checked:
-    """Every record under `docs/edge/` against the format, and every sidecar against its record."""
+    """Every record under `docs/edge/` against the format, and every sidecar against its record.
+    The folder's own `README.md` is its page and never a record: a record is named by its edge."""
     edges = root / EDGES
     records: list[Read] = []
     diagnostics: list[Diagnostic] = []
@@ -121,6 +122,8 @@ def check(root: Path) -> Checked:
     if not edges.is_dir():
         return Checked(records, diagnostics, skipped)
     for path in sorted(edges.glob("*.md")):
+        if path.name.lower() == "readme.md":
+            continue
         read = _read(root, path)
         if isinstance(read, Skipped):
             skipped.append(read)
