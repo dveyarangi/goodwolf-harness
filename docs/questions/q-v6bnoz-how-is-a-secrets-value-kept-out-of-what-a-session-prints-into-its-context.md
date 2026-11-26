@@ -3,6 +3,7 @@
 - **record of** what it intends to become
 - **part of** q-xmk75m
 - **state** open
+- **owner** [01-0120](../tickets/01-0120-a-file-that-holds-secrets-is-closed-to-agents.md)
 - **rung** development: load-bearing, self-improvement: the method
 - **lean** 2026-11-26, the user: Where it stands accepted whole - the host refuses every call of an agent that names a file on the project list of holders, a reader that hides every value alone let through; no rule in the entry file; nothing built yet
 - **opened** 2026-11-25T07:36:53Z
@@ -13,7 +14,9 @@
 The person's idea for core, sent from a recipient tree. Core guards what a commit could publish
 of the person's own; nothing stands between a session and a file whose values are secrets, and a
 value once printed is in the host's transcript. Accepted whole by the person, 2026-11-26:
-"Принимаю". It is built through the tickets cut from it.
+"Принимаю". It is built through
+[01-0120 a-file-that-holds-secrets-is-closed-to-agents](../tickets/01-0120-a-file-that-holds-secrets-is-closed-to-agents.md)
+and its four slices, minted 2026-11-27 on the person's word.
 
 Decided by the person:
 
