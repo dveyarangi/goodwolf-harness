@@ -23,7 +23,7 @@ lessons file, core's rules files, scripts and questions by search. No transcript
 | a per-clone part an update does not write | lesson 6 | open: [q-t5vmk3](../questions/q-t5vmk3-how-does-core-reach-a-recipient-tree-and-leave-it-working-at-a-first-install-and-at-each-update.md) |
 | "install it with overwrite" misread | lesson 7 | open: q-t5vmk3 |
 | a renamed skill leaves a project's links dead | lesson 8 | open: q-t5vmk3 |
-| the edge check reads its folder's README | lesson 9 | **received, no holder**: `edges.py:123` still reads every `*.md`; no role names the edge mechanism |
+| the edge check reads its folder's README | lesson 9 | **received, no holder**: `edges.py:123` still reads every `*.md`; no role names the edge mechanism. Mended after this round, `831edf69`, 2026-11-27 |
 | one chat as two sessions | lesson 10 | open: [q-hz2br4](../questions/q-hz2br4-how-is-one-chat-kept-from-standing-as-two-sessions-one-its-host-named-and-one-a-bare-wake-did.md) |
 | a rule's override does not reach the script that carries it out | lesson 11; L3, L4 | open: [q-veooj7](../questions/q-veooj7-how-do-projects-share-one-development-method-without-losing-their-own-conventions.md) |
 | friction beside a rule's failure | lesson 12 | open: [q-f7p2oh](../questions/q-f7p2oh-does-self-improvement-also-register-friction-work-that-succeeds-slowly-and-will-be-repeated-and-what-is.md) |
@@ -35,8 +35,8 @@ lessons file, core's rules files, scripts and questions by search. No transcript
 | roles, and the name a role's session bears | L14; L15, which overrides session/S11 | open: [q-p4sdnv](../questions/q-p4sdnv-what-is-an-agent-role-and-which-mechanism-keeps-roles.md), [q-jz3mlm](../questions/q-jz3mlm-how-does-a-project-cut-its-work-into-standing-sessions-and-how-does-the-cut-change-as-the-project-grows.md), [q-mvd4pi](../questions/q-mvd4pi-how-does-a-session-take-on-a-standing-role-learn-it-and-hand-it-on-so-the-role-outlives-any-one-chat.md) |
 | the paired close names a mover without its path | register 2026-09-27 | **not sent**: ticket/P2 still names `move_doc.py` with no path, `.agents/mechanisms/ticket/ticket.rules.md:30`. Amended after this round, `b91d91be`, 2026-11-27 |
 | a choice put to the person without what sets its options apart | register 2026-11-23; L6 | **not sent**: no rule in core says it. Placed after this round as [q-2cbkvs](../questions/q-2cbkvs-what-must-a-decision-put-to-the-person-carry-so-that-it-can-be-decided-from-the-reply-alone.md), 2026-11-27 |
-| a part judged from lines that left out what decides it | register 2026-11-25 | **not sent**: no rule of the harness was in play |
-| a Windows path written through a script's string lost its backslashes | register 2026-11-26 | **not sent** |
+| a part judged from lines that left out what decides it | register 2026-11-25 | **not sent**: no rule of the harness was in play. Kept after this round as lesson 18, `72f346b7`, 2026-11-27 |
+| a Windows path written through a script's string lost its backslashes | register 2026-11-26 | **not sent**. Registered after this round in core's own register, met here the same day, and kept as lesson 19, `72f346b7`, 2026-11-27 |
 | the head table and the decisions table dropped with the debugging marks | register 2026-11-26 | **not sent**. Placed after this round as [q-4kvvec](../questions/q-4kvvec-does-a-tree-with-debug-off-keep-the-replys-frame-the-head-table-and-the-decisions-table-and-does-the.md), 2026-11-27 |
 
 The project's own, with no cause in core: L1 what the repository is, L2 the dials, L5 the
