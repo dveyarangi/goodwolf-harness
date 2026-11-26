@@ -1,11 +1,11 @@
 # q-7g3y6j When does an open question close with nobody taking it up, and who finds the ones already answered?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-dmvmf2
-- **state** open
+- **state** closed:decided
+- **answer** [Q4](../../.agents/mechanisms/questions/questions.rules.md) in /maintain and [Closing](../../.agents/skills/questions/SKILL.md#closing) - the user, 2026-11-27: "да, но попробуй сократить"
 - **rung** development: load-bearing, self-improvement: the method
 - **lean** 2026-11-25: only one a decision answers or unseats, found at /maintain; deferred is the person's settling, never a wait for a turn; both texts shown to the person
-- **asks** the person, 2026-11-25
 - **opened** 2026-11-25T10:48:25Z
 - **struck** 0, last 2026-11-25T10:48Z
 
@@ -32,5 +32,6 @@ Seeing an open question nobody has come to, and what it waits on, is the pathfin
    > or another's answer, has not come: that one stays open, `depend` holding the answer it waits on. **Do**
    > `close` with its kind and pointer:
 
-Waiting on the person: each of the two, recommended yes. Open: the eight deferred today, held against the second
+Both landed on the user's word, 2026-11-27, "да, но попробуй сократить", each shortened: the first as a sentence
+of Q4, already installed in `/maintain`, and not a rule of its own; the second in *Closing*. Open: the eight deferred today, held against the second
 once it lands.

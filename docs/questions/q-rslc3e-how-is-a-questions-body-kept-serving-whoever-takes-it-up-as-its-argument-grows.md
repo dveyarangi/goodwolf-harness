@@ -7,7 +7,7 @@
 - **lean** 2026-11-25: the whole rewritten and the evidence in a file beside it, by the fourth form's trial, met narrowly on the measure set before it: 24 thousand tokens an opening against 29, right alike
 - **asks** the person, 2026-11-25
 - **opened** 2026-11-25T06:04:50Z
-- **struck** 0, last 2026-11-25T06:04Z
+- **struck** 1, last 2026-11-26T22:06Z
 
 ## Where it stands
 

@@ -138,6 +138,8 @@ diagnostic is a finding; repair it at the rung of what it mends.
 
 <installed by="questions">
 **Q4** Check the question store with `questions.py --check`. A diagnostic is a finding; repair it at the rung of what it mends.
+So is an open question that a decision in force answers or makes moot: put it to the person with the place and the
+reason, or, with no person, write them in its body and mark it `ask`.
 </installed>
 
 <installed by="edge">

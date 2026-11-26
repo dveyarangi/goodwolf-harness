@@ -84,10 +84,12 @@ happened.
 ## Q4 — the store is checked
 
 - **target** `.agents/skills/maintain/SKILL.md`
-- **authority** the user, 2026-09-29, for M1's duty
+- **authority** the user, 2026-09-29, for M1's duty; an open question already answered, 2026-11-25 and 2026-11-27
 
 <rule>
 Check the question store with `questions.py --check`. A diagnostic is a finding; repair it at the rung of what it mends.
+So is an open question that a decision in force answers or makes moot: put it to the person with the place and the
+reason, or, with no person, write them in its body and mark it `ask`.
 </rule>
 
 ## Q5 — a question is named by a link and its words

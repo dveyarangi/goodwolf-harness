@@ -106,8 +106,10 @@ none.
 
 ## Closing
 
-**When** an answer lands, a question is found wrong, two are found to be one, one is parked, one
-is made irrelevant, or one is replaced. **Do** `close` with its kind and pointer:
+**When** an answer lands, a question is found wrong, two are found to be one, the person sets one
+aside with a default until a condition, one is made irrelevant, or one is replaced; one that only
+waits its turn or another's answer stays open, `depend` naming what it waits on. **Do** `close`
+with its kind and pointer:
 
 | kind | pointer |
 |---|---|
