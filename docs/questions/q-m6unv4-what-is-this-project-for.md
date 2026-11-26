@@ -342,7 +342,8 @@ person's words where they said it, with where it stands.
   agent's persuasiveness. Not yet a decision. The product side: it would move pain 3's right point,
   *What it does, in one line*, and what the dials order a decision by.
   Where to begin, the same day: "я думаю можно начать с того, показывает ли харнесс человеку
-  "интересненькое" ))" — [q-p3khdo](q-p3khdo-does-the-harness-show-the-person-what-in-the-work-may-interest-them-and-how-would-it-know-what-does.md).
+  "интересненькое" ))" — [q-p3khdo](q-p3khdo-does-the-harness-show-the-person-what-in-the-work-may-interest-them-and-how-would-it-know-what-does.md); what it means, to the voice's session: "интересно чему-то научиться,
+  конечно" — learning, over the unexpected or what they reached for alone, its decision 1.
 
 **How a complaint is read** *(the user, 2026-11-16)*: "непонятно было бы лучше без харнесс )) я
 считаю что нет, он держит линию хотябы. оптимальность это не только про вес. и не всякая жалоба
