@@ -23,3 +23,10 @@ Opened from the person's words to the Практика session, 2026-11-27, as w
   `/discover` and `/celebrate` show more, and only when asked.
 - A candidate record of what interested the person, not yet read: the questions they asked on
   their own in the hosts' transcripts, beside what the agent showed them before each.
+
+## Decisions
+
+1. What may interest the person is what they can learn from — the work that grows what they can
+   take on; of the readings put to them, the unexpected in the work, the new by a plan of learning,
+   what they reached for on their own, or only on request, the second: "интересно чему-то научиться, конечно" *(the person, 2026-11-27, to the Голос
+   session)*. Open: how the harness knows what the person is learning, and what it shows of it.
