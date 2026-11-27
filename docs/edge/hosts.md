@@ -13,7 +13,8 @@ message where the host carries them, with the entry file's rule as the floor whe
 with a message, where the host carries it, the passages of the entry file that changed under the
 session since its context took the file in, once, or a request to read it again where they are
 too many; and a hook that never fails the host, so a problem becomes a line of context
-([architecture](../architecture.md), *the store*).
+<straw-dog question="q-wjv4mi">— save, in a tree that lists files closed to agents, the one
+before its tools, below</straw-dog> ([architecture](../architecture.md), *the store*).
 
 **Required of a host, to be reached in full:**
 
@@ -70,8 +71,8 @@ A host lacking one is guarded in part, and the commit's check stands in for the 
 refuse. A skill counts as loaded as the host keeps it, never by a lifetime the harness invents:
 the host's row in `HOSTS` declares the events that load a skill and its lifetime rule, and the
 check reads them there. A guard that cannot read what it checks lets the edit through and says so
-in the agent's context, as no hook here fails the host; a session with no load recorded has
-nothing loaded, and its edit is refused.
+in the agent's context, as no hook here fails the host, the one before a tool aside; a session
+with no load recorded has nothing loaded, and its edit is refused.
 </straw-dog>
 
 **What a host's integration is made of**, all of it core:
@@ -125,8 +126,11 @@ Each sidecar names its own parts.
   while the skill it names is not loaded in the session — **⚠ unguarded**: the guard is not
   built</straw-dog>
 - <straw-dog question="q-wjv4mi">In a tree that keeps a list of the files that hold secrets, an
-  agent's call that names a listed file is refused before it runs — **⚠ unguarded**: the refusal
-  is not built; **⚠ pending —** [01-0120.0010 claude-code-refuses-a-call-that-names-a-listed-file](../tickets/01-0120.0010-claude-code-refuses-a-call-that-names-a-listed-file.md)</straw-dog>
+  agent's call that names a listed file is refused before it runs — *validated by:*
+  `.agents/scripts/gw/test/test_before_tool.py`; the wiring,
+  `.agents/scripts/gw/test/test_harness.py`; live — **Call refusal**, **⚠ pending —**
+  [01-0120.0010 claude-code-refuses-a-call-that-names-a-listed-file](../tickets/01-0120.0010-claude-code-refuses-a-call-that-names-a-listed-file.md),
+  stage 5</straw-dog>
 
 ## Extending
 

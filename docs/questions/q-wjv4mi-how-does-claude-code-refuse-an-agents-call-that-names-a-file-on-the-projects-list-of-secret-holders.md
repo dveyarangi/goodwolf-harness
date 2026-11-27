@@ -5,7 +5,7 @@
 - **state** open
 - **owner** [01-0120.0010](../tickets/01-0120.0010-claude-code-refuses-a-call-that-names-a-listed-file.md)
 - **rung** development: load-bearing, self-improvement: the method
-- **lean** 2026-11-27, the user: held by both - the host own deny rule for every listed file, and the hook; decision 1. Being built: docs/rfc/01-0120.0010, stage 1
+- **lean** 2026-11-27: built through stage 4 of docs/rfc/01-0120.0010 - the script, the wrapper, the installer wiring with the host own rule for every listed file, the records; held by both, decision 1. Not done: the harness skill lines, shown to the person and waiting; stage 5, the refusal seen live in a tree with a list
 - **opened** 2026-11-26T22:00:50Z
 - **struck** 0, last 2026-11-26T22:00Z
 

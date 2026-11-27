@@ -11,7 +11,7 @@
 ## Parent
 
 [q-v6bnoz](../questions/q-v6bnoz-how-is-a-secrets-value-kept-out-of-what-a-session-prints-into-its-context.md), whose *Where it stands* the person accepted whole on 2026-11-26; its
-*Decisions* hold the three that are theirs. This ticket keeps the end-state; its four slices are
+*Decisions* hold the four that are theirs. This ticket keeps the end-state; its four slices are
 [01-0120.0010 claude-code-refuses-a-call-that-names-a-listed-file](./01-0120.0010-claude-code-refuses-a-call-that-names-a-listed-file.md),
 [01-0120.0020 an-agent-reads-a-listed-file-without-its-values](./01-0120.0020-an-agent-reads-a-listed-file-without-its-values.md),
 [01-0120.0030 codex-refuses-a-call-that-names-a-listed-file](./01-0120.0030-codex-refuses-a-call-that-names-a-listed-file.md) and

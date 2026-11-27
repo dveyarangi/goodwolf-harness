@@ -5,7 +5,7 @@
 - **state** open
 - **owner** [01-0120](../tickets/01-0120-a-file-that-holds-secrets-is-closed-to-agents.md)
 - **rung** development: load-bearing, self-improvement: the method
-- **lean** 2026-11-26, the user: Where it stands accepted whole - the host refuses every call of an agent that names a file on the project list of holders, a reader that hides every value alone let through; no rule in the entry file; nothing built yet
+- **lean** 2026-11-26, the user: Where it stands accepted whole - the host refuses every call of an agent that names a file on the project list of holders, a reader that hides every value alone let through; no rule in the entry file. 2026-11-27: the refusal built for Claude Code through stage 4, not yet seen live in a tree with a list - q-wjv4mi; the reader and the other two hosts not begun
 - **opened** 2026-11-25T07:36:53Z
 - **struck** 2, last 2026-11-26T21:53Z
 
@@ -67,7 +67,8 @@ read by the shell and a read by the file tool being two ways in.
 - `personal.py --check`: what a commit could publish of the person's own. It reads files, never
   what a session prints.
 - The harness mechanism's hooks: session start, each message, a compaction. The call before a
-  shell command was removed 2026-11-24.
+  shell command was removed 2026-11-24; since 6f138958 a call before every tool is wired in a
+  tree that lists files closed to agents, and only there.
 
 That such a finding is a hazard, and what the pass with no person flags, are the maintenance's:
 told to its session, 2026-11-25.
@@ -110,6 +111,14 @@ already printed, or both.
    longer left a file open *(the user, 2026-11-27: "Запрещать", and "проверим будет ли это
    кусаться по ходу дела")*: on trial, under
    [q-hqk736](q-hqk736-does-a-check-of-closed-files-that-refuses-every-call-when-it-cannot-run-stop-work-often-enough-to-be.md).
+   As built it holds where the wrapper is reached: with no interpreter recorded, or where the
+   script faults, every call is refused. It does not hold where the host cannot start the hook
+   or stops it at its time limit: there the host lets the call through, and the host's own rule
+   for each listed file still stands. The host's setting that would turn that round,
+   `onFailure: "block"`, is not set: with it, a shell standing inside a nested repository would
+   be refused every command, the one that returns it included. The narrowing is the keeper's,
+   not the person's decision: the person was told of it on 2026-11-27, when the decision was
+   asked again and kept, and the same trial watches it.
 
 ## The align, 2026-11-26 - by what the stop is held
 

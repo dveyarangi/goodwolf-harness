@@ -22,8 +22,9 @@ gone to the background, a wait on a stream that never ends — each noticed by a
 none by its own; a hook drafted in that tree which refuses the two kinds seen; and a general rule
 proposed, that a process a command starts ends with the call.
 
-What bears on it here: core wires no call before a tool since 19356b62; the person, 2026-10-14,
-held that what is off the agent's ladder is kept by a mechanical check, never a rule
+What bears on it here: core wires no call before a tool since 19356b62, save the one it wires
+since 6f138958 in a tree that lists files closed to agents, and only there; the person,
+2026-10-14, held that what is off the agent's ladder is kept by a mechanical check, never a rule
 ([q-bsd3ga](q-bsd3ga-which-forbidden-actions-does-the-host-refuse-instead-of-trusting-the-agent.md),
 decision 1) — whether a runaway process is of that kind is not said; and the hook as drafted
 names two commands, a filter by name.
