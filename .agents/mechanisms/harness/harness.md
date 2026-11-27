@@ -195,6 +195,8 @@ its own.
 | its tests | `.agents/scripts/gw/test/test_harness.py` |
 | the hook line that shows a running session what changed in the entry file | `.agents/scripts/gw/entry_notice.py` |
 | that line's tests | `.agents/scripts/gw/test/test_entry_notice.py` |
+| the script that answers a host's call before a tool, in a tree that lists files closed to agents | `.agents/scripts/gw/before_tool.py` |
+| that script's tests | `.agents/scripts/gw/test/test_before_tool.py` |
 | the entry file | `AGENTS.md` |
 | the host stub | `CLAUDE.md` |
 
