@@ -84,6 +84,11 @@ nothing loaded, and its edit is refused.
 - its hook file's shelf under `.agents/skills/questions/hooks/`, at the path the host reads it
   from, each entry launching `.agents/scripts/gw/hook.sh` as `gw-hook <host>` — the install merges every shelf it finds there into the recipient's
   file of the same path, with no list to amend;
+- where the host can refuse a call before a tool, its entry for that call on the harness
+  mechanism's shelf under `.agents/skills/harness/hooks/`, launched as `gw-hook <host> before-tool`
+  and merged only where the tree lists files closed to agents; its form of a refusal and the
+  fields of its tools that hold a path in `.agents/scripts/gw/before_tool.py`, and in the wrapper
+  the refusal it prints where that script cannot answer;
 - a loader link in `LINKS`, `.agents/scripts/gw/harness.py`, unless the host reads `.agents/skills`
   natively, and a stub like `CLAUDE.md` unless it reads `AGENTS.md` natively;
 - its hook cases in `.agents/scripts/gw/test/test_sessions.py`, and its merge in

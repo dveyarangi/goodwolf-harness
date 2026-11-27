@@ -7,6 +7,11 @@
 - The hooks in `.claude/settings.json`, merged from the shelf
   `.agents/skills/questions/hooks/.claude/settings.json`: `SessionStart` and `UserPromptSubmit`,
   each launching `.agents/scripts/gw/hook.sh` as `gw-hook claude-code`.
+- In a tree that lists files closed to agents, and only there: `PreToolUse` from the shelf
+  `.agents/skills/harness/hooks/.claude/settings.json`, launching the wrapper as
+  `gw-hook claude-code before-tool`, and in `permissions.deny` a `Read(/<path>)` rule for every
+  line of `local.closed.txt`; the host's form of a refusal and its tools' path fields in
+  `.agents/scripts/gw/before_tool.py`, their cases in `.agents/scripts/gw/test/test_before_tool.py`.
 - The host's row `claude-code` in `HOSTS`, `.agents/scripts/gw/questions.py`: `session_id`, and
   the desktop app's `CLAUDE_CODE_HOST_SESSION_ID`, read first where it is set, since the app gives
   a resumed conversation a new `session_id` and keeps its own id; the terminal keeps the
