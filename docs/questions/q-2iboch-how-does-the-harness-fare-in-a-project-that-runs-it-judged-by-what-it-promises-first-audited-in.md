@@ -77,3 +77,7 @@ to its harness session, wait on the person's yes when a round needs them.
 - Round 4, records about code in sibling repositories, 2026-11-27: [the health record](../research/harness-in-driftsense-audit.md#round-4--records-about-code-in-sibling-repositories-2026-11-27).
   665 citations of sibling code; of 15 read, 6 hold, 8 point at a moved line, 1 lapsed; nothing in
   core or DriftSense notices. How a citation should hold is the person's to set.
+- Round 5, safety, 2026-11-27: [the health record](../research/harness-in-driftsense-audit.md#round-5--safety-2026-11-27).
+  11 distinct secret-shaped values printed in 9 of 23 sessions; 77 reads of files that hold secrets;
+  37 whole-disk searches, none since DriftSense's own hook. What reading of secrets is acceptable is
+  the person's to set.

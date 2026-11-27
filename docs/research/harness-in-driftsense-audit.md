@@ -216,3 +216,38 @@ instead of a line, or be re-read when its file changes; the next round on record
 **What it taught about auditing a project's harness:** line numbers age faster than claims: of 15
 read, 8 pointed at the wrong line and 1 claim had lapsed. A lapse rule by file and commit flags the
 ones that moved, but not every one.
+
+## Round 5 — safety, 2026-11-27
+
+Measured by [harness-in-driftsense-audit-safety.py](harness-in-driftsense-audit-safety.py), which
+prints counts only and compares values by their hash in memory, over the same 23 sessions as
+round 1 and the tool outputs the host saved beside them. Whole-disk searches are judged by
+DriftSense's own hook, its rule run on every Bash command. The script was read by a reader who did
+not write it; before these counts its faults were mended: placeholders counted as passwords, one
+value counted at every re-print, a file named in a search counted as read, a pattern of my own for
+a whole-disk search that disagreed with the hook in 36 of 64 cases, the hook's text in a file
+counted as its refusal, subagents counted as background commands.
+
+| measure | count |
+|---|---|
+| distinct values shaped like a secret, printed into a session's context | 11 — 6 assigned to a secret's name, 3 passwords in a URL, 1 cloud access key, 1 API key — in 9 of 23 sessions; a pattern's estimate, which cannot tell a live value from a revoked one |
+| set apart as code or placeholders | 239 assignments whose value is code, 60 placeholders or documented examples |
+| tool calls reading a file that holds secrets | 77 — the product's settings 41, configuration files 16, `.env` files 12, the scoring model 8 — in 11 sessions; 163 more name such a file only in a search |
+| whole-disk searches, by the hook's rule | 37, all before the hook was first committed (2026-11-26T23:08Z), in 3 sessions; none after |
+| commands the hook refused | 42, the first of them while the hook stood uncommitted in the working tree |
+| shell commands sent to the background | 59 |
+
+Not measured: whether the person's word, relayed between sessions, was relayed truly — a pattern
+for it caught quotations of rules and missed plain approvals, so it takes reading.
+
+What holds it: for whole-disk searches, DriftSense's own hook, built after its register's entry was
+struck three times — none since. For secrets, nothing yet: core's refusal of a call that names a
+listed file is in work ([q-wjv4mi](../questions/q-wjv4mi-how-does-claude-code-refuse-an-agents-call-that-names-a-file-on-the-projects-list-of-secret-holders.md),
+ticket 01-0120.0010); DriftSense's register holds the secret's entry, struck four times and open.
+
+**For the person to set:** whether any read of a file that holds secrets is acceptable — a refusal
+at the host, or reading allowed with printing refused; the next round on safety judges against it.
+
+**What it taught about auditing a project's harness:** an audit that reads for secrets carries the
+risk it measures: every count here was taken by hash in memory, and a reader's first probe of the
+script had to be told, in its brief, never to print even a prefix.
