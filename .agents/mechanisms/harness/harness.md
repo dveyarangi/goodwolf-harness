@@ -197,6 +197,7 @@ its own.
 | that line's tests | `.agents/scripts/gw/test/test_entry_notice.py` |
 | the script that answers a host's call before a tool, in a tree that lists files closed to agents | `.agents/scripts/gw/before_tool.py` |
 | that script's tests | `.agents/scripts/gw/test/test_before_tool.py` |
+| the shelf of the call before a tool, wired only where a tree lists files closed to agents | `.agents/skills/harness/hooks/.claude/settings.json` |
 | the entry file | `AGENTS.md` |
 | the host stub | `CLAUDE.md` |
 

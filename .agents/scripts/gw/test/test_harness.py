@@ -23,6 +23,7 @@ from unittest import mock
 
 from repository import SCRIPTS, RepositoryCase, folder_listing, proves_a_process
 
+import before_tool
 import harness
 import inject_rules
 import mechanisms
@@ -2367,6 +2368,142 @@ class TheWrapper(RepositoryCase):
                     said = json.loads(said)["additional_context"]
                 self.assertIn("harness.py . --links", said)
                 self.assertIn("`py -3`", said, "a bare `python` on Windows may be the Store stub")
+
+
+CLOSED = "config/secrets.yml"
+BEFORE_A_TOOL = {"hooks": [{"type": "command", "command": "sample --hook claude-code before-tool", "timeout": 30}]}
+
+
+class TheClosedFilesWiring(TwoTrees):
+    """The call before a tool and the host's own rules, wired only where the target lists files
+    closed to agents — a recipient that came to be by an install, then wrote its list."""
+
+    def seed_source(self) -> None:
+        super().seed_source()
+        self.write(f"{harness.OWN_HOOKS}.claude/settings.json", json.dumps({"hooks": {"PreToolUse": [BEFORE_A_TOOL]}}))
+        self.commit("core wires a call before a tool where a tree lists closed files")
+
+    def held(self) -> dict:
+        return json.loads(self.target_text(".claude/settings.json"))
+
+    def list_closed(self, *paths: str) -> None:
+        (self.target / before_tool.LIST).write_text("".join(f"{path}\n" for path in paths), encoding="utf-8")
+        for path in paths:
+            (self.target / path).parent.mkdir(parents=True, exist_ok=True)
+            (self.target / path).write_text("token: fake\n", encoding="utf-8")
+
+    def test_a_tree_with_no_list_carries_no_call_before_its_tools_and_passes_its_check(self) -> None:
+        status, report = self.run_harness("--install")
+
+        self.assertEqual(0, status, report)
+        self.assertNotIn("PreToolUse", self.held()["hooks"])
+        self.assertNotIn("permissions", self.held())
+        self.assertTrue(self.run_harness("--check")[1]["gates"]["ref"]["passed"])
+
+    def test_once_the_tree_lists_a_file_an_update_wires_the_call_and_the_hosts_rule(self) -> None:
+        self.run_harness("--install")
+        self.list_closed(CLOSED)
+
+        status, report = self.run_harness("--update")
+
+        self.assertEqual(0, status, report)
+        self.assertEqual([BEFORE_A_TOOL], self.held()["hooks"]["PreToolUse"])
+        self.assertEqual([before_tool.deny_rule(CLOSED)], self.held()["permissions"]["deny"])
+        self.assertEqual(FIXTURE_WIRING[".claude/settings.json"]["hooks"]["SessionStart"], self.held()["hooks"]["SessionStart"])
+        self.assertTrue(self.run_harness("--check")[1]["gates"]["ref"]["passed"])
+
+    def test_a_list_written_since_the_last_update_fails_the_check_naming_the_host_file(self) -> None:
+        self.run_harness("--install")
+        self.list_closed(CLOSED)
+
+        gate = self.run_harness("--check")[1]["gates"]["ref"]
+
+        self.assertFalse(gate["passed"])
+        self.assertIn(".claude/settings.json", gate["differs"])
+
+    def test_a_line_added_to_the_list_fails_the_check_until_an_update_writes_its_rule(self) -> None:
+        self.run_harness("--install")
+        self.list_closed(CLOSED)
+        self.run_harness("--update")
+        self.list_closed(CLOSED, "deploy/keys.json")
+
+        self.assertFalse(self.run_harness("--check")[1]["gates"]["ref"]["passed"])
+        self.run_harness("--update")
+
+        self.assertEqual(
+            [before_tool.deny_rule(CLOSED), before_tool.deny_rule("deploy/keys.json")], self.held()["permissions"]["deny"]
+        )
+        self.assertTrue(self.run_harness("--check")[1]["gates"]["ref"]["passed"])
+
+    def test_the_projects_own_permissions_stay_beside_cores_rules(self) -> None:
+        theirs = {"permissions": {"allow": ["Bash(ls)"], "deny": ["Read(~/.ssh/**)"]}}
+        (self.target / ".claude").mkdir()
+        (self.target / ".claude/settings.json").write_text(json.dumps(theirs), encoding="utf-8")
+        self.run_harness("--install")
+        self.list_closed(CLOSED)
+
+        self.run_harness("--update")
+
+        self.assertEqual(["Bash(ls)"], self.held()["permissions"]["allow"])
+        self.assertEqual(["Read(~/.ssh/**)", before_tool.deny_rule(CLOSED)], self.held()["permissions"]["deny"])
+
+    def test_once_the_list_is_gone_an_update_takes_the_call_out_and_leaves_the_rule(self) -> None:
+        self.run_harness("--install")
+        self.list_closed(CLOSED)
+        self.run_harness("--update")
+        (self.target / before_tool.LIST).unlink()
+
+        self.assertFalse(self.run_harness("--check")[1]["gates"]["ref"]["passed"])
+        status, report = self.run_harness("--update")
+
+        self.assertEqual(0, status, report)
+        self.assertEqual([], self.held()["hooks"]["PreToolUse"])
+        self.assertEqual([before_tool.deny_rule(CLOSED)], self.held()["permissions"]["deny"])
+        self.assertTrue(self.run_harness("--check")[1]["gates"]["ref"]["passed"])
+
+    def test_with_no_earlier_ref_to_read_the_call_is_still_taken_out_where_no_list_stands(self) -> None:
+        wired = json.dumps({"hooks": {"PreToolUse": [BEFORE_A_TOOL]}})
+        (self.target / ".claude").mkdir()
+        (self.target / ".claude/settings.json").write_text(wired, encoding="utf-8")
+        shipment = harness.Shipment(None, {f"{harness.OWN_HOOKS}.claude/settings.json": wired})
+
+        plan = harness._wiring_plan(self.target, shipment, None)
+
+        self.assertEqual([], json.loads(plan[".claude/settings.json"])["hooks"]["PreToolUse"])
+
+    def test_the_report_says_what_the_refusal_does_not_hold_only_where_a_list_stands(self) -> None:
+        _, bare = self.run_harness("--install")
+        self.list_closed(CLOSED)
+        (self.target / before_tool.LIST).write_text(f"{CLOSED}\ngone/away.env\n", encoding="utf-8")
+        _, listed = self.run_harness("--update")
+        (self.target / before_tool.LIST).write_text(f"{CLOSED}\n", encoding="utf-8")
+        _, shrunk = self.run_harness("--update")
+
+        said = [note for note in listed["notes"] if before_tool.LIST in note]
+        self.assertEqual([], [note for note in bare["notes"] if before_tool.LIST in note])
+        self.assertTrue(any("Not held" in note for note in said), listed["notes"])
+        self.assertTrue(any("gone/away.env" in note and "no file" in note for note in said), listed["notes"])
+        self.assertTrue(
+            any(before_tool.deny_rule("gone/away.env") in note for note in shrunk["notes"]), shrunk["notes"]
+        )
+
+
+class TheOriginKeepsNoList(unittest.TestCase):
+    """The origin lists no file closed to agents, so its own host file carries no call before a
+    tool: every session here would pay for it."""
+
+    def test_its_host_file_wires_nothing_before_a_tool(self) -> None:
+        origin = SCRIPTS.parents[2]
+
+        self.assertFalse((origin / before_tool.LIST).exists())
+        self.assertNotIn("PreToolUse", json.loads((origin / before_tool.HOST_FILE).read_text(encoding="utf-8"))["hooks"])
+
+    def test_the_entry_its_shelf_ships_is_the_one_the_starts_line_looks_for(self) -> None:
+        shelf = SCRIPTS.parents[2] / harness.OWN_HOOKS / before_tool.HOST_FILE
+        entries = json.loads(shelf.read_text(encoding="utf-8"))["hooks"]["PreToolUse"]
+
+        self.assertEqual(1, len(entries))
+        self.assertTrue(entries[0]["hooks"][0]["command"].endswith(before_tool.ENTRY_ENDS))
 
 
 class TheOriginsOwnHostFiles(unittest.TestCase):

@@ -43,7 +43,8 @@ from pathlib import Path  # noqa: E402
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-import inject_rules  # noqa: E402  (path set just above)
+import before_tool  # noqa: E402  (path set just above)
+import inject_rules  # noqa: E402
 import product  # noqa: E402
 import questions  # noqa: E402
 from docs_corpus import (  # noqa: E402
@@ -83,6 +84,10 @@ INTERPRETER_RECORD = "gw-interpreter"
 LINK_TARGET = "../.agents/skills"
 SKILLS = ".agents/skills"
 HARNESS_SKILL = f"{SKILLS}/harness/SKILL.md"
+# The harness mechanism's own shelf of hook entries, each file at its host file's path like the
+# questions mechanism's: wired only where the target lists files closed to agents, since its one
+# entry is a call before every tool.
+OWN_HOOKS = f"{SKILLS}/harness/hooks/"
 FRONT_PAGE = "README.md"
 REPOSITORY = re.compile(r"^Repository: (?P<url>\S+)[ \t]*(?:\r?\n|\Z)", re.M)
 MODES = ("--install", "--update", "--check", "--links")
@@ -1139,32 +1144,67 @@ def _wiring_plan(target: Path, shipment: Shipment, previous: Shipment | None) ->
     """Each host file's merged text, planned before anything is written so a host file that cannot
     be merged refuses the run with no file changed. A host whose wiring left core since the
     previous ref is planned too: its entries are taken out."""
-    shelves = _shelves(shipment)
-    before = _shelves(previous) if previous is not None else {}
+    closed = before_tool.listed(target)
+    shelves = _shelves(shipment, bool(closed))
+    # An entry wired by the list's presence left no ref, so what may stand in the target from
+    # before is read with the harness mechanism's shelf whole, the previous ref's and this one's.
+    whole = _shelves(shipment, True)
+    before = _shelves(previous, True) if previous is not None else {}
     plan: dict[str, str] = {}
-    for host_file in sorted({*shelves, *before}):
+    for host_file in sorted({*whole, *before}):
         held = target / host_file
-        text = wired(
-            host_file,
-            _read(held) if held.is_file() else None,
-            shelves.get(host_file, "{}"),
-            before.get(host_file),
-        )
+        held_text = _read(held) if held.is_file() else None
+        left = _joined(host_file, before.get(host_file), whole.get(host_file))
+        text = wired(host_file, held_text, shelves.get(host_file, "{}"), left)
+        if host_file == before_tool.HOST_FILE and closed:
+            text = _with_rules(host_file, text if text is not None else held_text, closed) or text
         if text is not None:
             plan[host_file] = text
     return plan
 
 
-def _shelves(shipment: Shipment) -> dict[str, str]:
+def _shelves(shipment: Shipment, closed: bool) -> dict[str, str]:
     """Core's wiring per host file, read off the shipment: a shelf file's destination is its path
-    beneath the questions mechanism's hooks directory. A shelf that is not a hook file is a fault
-    of the ref, refused naming it."""
-    shelves = {}
-    for path, text in shipment.files.items():
-        if path.startswith(questions.HOOKS):
-            _hook_document(path, text)
-            shelves[path[len(questions.HOOKS):]] = text
+    beneath a hooks directory — the questions mechanism's always, the harness mechanism's own where
+    the target lists files closed to agents, the two joined event by event. A shelf that is not a
+    hook file is a fault of the ref, refused naming it."""
+    shelves: dict[str, str] = {}
+    for shelf in (questions.HOOKS, OWN_HOOKS) if closed else (questions.HOOKS,):
+        for path, text in shipment.files.items():
+            if path.startswith(shelf):
+                _hook_document(path, text)
+                host_file = path[len(shelf):]
+                shelves[host_file] = _joined(host_file, shelves.get(host_file), text) or text
     return shelves
+
+
+def _joined(host_file: str, first: str | None, second: str | None) -> str | None:
+    """Two wirings of one host file as one: the first's keys, and every event's entries from both,
+    each once."""
+    if first is None or second is None:
+        return first if second is None else second
+    joined = _hook_document(host_file, first)
+    events = joined.setdefault("hooks", {})
+    for event, entries in _hook_document(host_file, second).get("hooks", {}).items():
+        listed = events.setdefault(event, [])
+        listed.extend(entry for entry in entries if entry not in listed)
+    return json.dumps(joined)
+
+
+def _with_rules(host_file: str, held: str | None, closed: list[str]) -> str | None:
+    """The host file with the host's own rule for every listed file beside whatever the project
+    keeps there, or None where every rule already stands. A rule is never taken out here: one
+    whose line has left the list cannot be told from the project's own."""
+    document = _hook_document(host_file, held)
+    permissions = document.setdefault("permissions", {})
+    deny = permissions.setdefault("deny", []) if isinstance(permissions, dict) else None
+    if not isinstance(deny, list):
+        raise Refused(f"wire: {host_file} holds permissions that are not the host's form; settle it by hand")
+    lacking = [rule for rule in map(before_tool.deny_rule, closed) if rule not in deny]
+    if not lacking:
+        return None
+    deny.extend(lacking)
+    return json.dumps(document, indent=2, ensure_ascii=False) + "\n"
 
 
 def _write_wiring(target: Path, plan: dict[str, str], report: Report) -> None:
@@ -1520,16 +1560,78 @@ def _gate(target: Path, shipment: Shipment, report: Report) -> None:
     report.links_resolve = _links_resolve(target)
     report.arrived = all(gate["passed"] for gate in gates.values())
     report.notes.append("whether a host reads the loader link is not observable from inside a tree")
+    report.notes.extend(_what_the_closed_list_holds(target))
+
+
+# Said wherever a tree lists files closed to agents, by every run: the refusal's limits belong
+# before whoever relies on it, and nowhere else tells them.
+NOT_HELD = (
+    f"{before_tool.LIST}: an agent's call that names a listed file is refused in Claude Code, and its own rule keeps "
+    "the file out of a search. Not held: a read that never names the file to the host — a script, a pattern, a link, "
+    "a program that loads it; a copy in a file no line names, another worktree's or clone's among them; a value "
+    "already printed; a file the person hands over with @. Where the check is reached and cannot decide, every tool "
+    "call is refused until it is mended; a hook the host cannot start lets the call through, and the host's rule "
+    "holds the file meanwhile."
+)
+_CORE_RULE = re.compile(r"Read\(/(.+)\)")
+
+
+def _what_the_closed_list_holds(target: Path) -> list[str]:
+    """The notes of a tree that lists files closed to agents: what the refusal does not hold, each
+    line that is no file on disk, and each rule of core's form whose line has left the list —
+    which the installer never removes, since it cannot tell it from the project's own."""
+    closed = before_tool.listed(target)
+    if not closed:
+        return []
+    notes = [NOT_HELD]
+    notes += [
+        f"{before_tool.LIST}: no file at {path}; a line closes one file, and a folder is closed by listing its files"
+        for path in closed if not (target / path).is_file()
+    ]
+    try:
+        deny = json.loads(_read(target / before_tool.HOST_FILE)).get("permissions", {}).get("deny", [])
+    except (OSError, ValueError, AttributeError):
+        deny = []
+    for rule in deny if isinstance(deny, list) else []:
+        named = _CORE_RULE.fullmatch(rule) if isinstance(rule, str) else None
+        if named and named.group(1) not in closed:
+            notes.append(
+                f"{before_tool.HOST_FILE}: the rule {rule} stands for no line of {before_tool.LIST}; "
+                "remove it by hand once the file is no longer closed"
+            )
+    return notes
 
 
 def _ref_gate(target: Path, shipment: Shipment) -> dict:
     differing = [path for path in shipment.files if _differs(target, path, shipment.files)]
-    differing += [
-        host_file for host_file, wiring in _shelves(shipment).items()
-        if not holds_wiring(_read(target / host_file) if (target / host_file).is_file() else None, wiring)
-    ]
+    closed = before_tool.listed(target)
+    wanted, whole = _shelves(shipment, bool(closed)), _shelves(shipment, True)
+    for host_file in sorted(whole):
+        held = _read(target / host_file) if (target / host_file).is_file() else None
+        if not _holds_the_wiring_the_list_calls_for(host_file, held, wanted.get(host_file, "{}"), whole[host_file], closed):
+            differing.append(host_file)
     own =sorted(name for name in corpus(target) if name.startswith(CORE) and name not in shipment.files)
     return {"passed": not differing, "ref": shipment.ref.announced, "differs": differing, "own": own}
+
+
+def _holds_the_wiring_the_list_calls_for(
+    host_file: str, held: str | None, wanted: str, whole: str, closed: list[str]
+) -> bool:
+    """Whether a host file holds every entry core wires in this tree and none it wires only where
+    a list of closed files stands and none does here; and, where one stands, the host's own rule
+    for every line. Core's entries and rules alone are read, never the project's."""
+    if not holds_wiring(held, wanted):
+        return False
+    document = _hook_document(host_file, held)
+    kept = _hook_document(host_file, wanted).get("hooks", {})
+    for event, entries in _hook_document(host_file, whole).get("hooks", {}).items():
+        only_with_a_list = [entry for entry in entries if entry not in kept.get(event, [])]
+        if any(entry in document.get("hooks", {}).get(event, []) for entry in only_with_a_list):
+            return False
+    if host_file != before_tool.HOST_FILE or not closed:
+        return True
+    deny = document.get("permissions", {}).get("deny", [])
+    return all(before_tool.deny_rule(path) in deny for path in closed)
 
 
 def _script_gate(target: Path, script: str) -> dict:
