@@ -208,7 +208,7 @@ citing record's last edit; both files hold changes in admin's working tree not y
 **What would notice.** Nothing, in core or in DriftSense. Core's `/maintain` marks with a fingerprint
 the files inside the tree (G1); the edge check asks only that a validator's file exists
 (`.agents/scripts/gw/edges.py:266`). DriftSense's guards check links and bytes inside its tree.
-DriftSense's own audit method plans the lapse by file and commit (its q-vxes7i), not built.
+DriftSense's own audit method plans the lapse by file and commit (its q-vxes7i), not built. The question it raises in core: [q-2rio5w](../questions/q-2rio5w-does-maintain-hold-a-records-citation-of-code-in-another-repository-to-that-code-as-the-code-moves.md).
 
 **For the person to set:** whether a record's citation of code is to pin a commit, name a symbol
 instead of a line, or be re-read when its file changes; the next round on records judges against it.
