@@ -11,8 +11,10 @@
 # the same top level. The interpreter is the one the link step recorded in this clone's common Git
 # directory, a worktree's own record read first: a bare `python` may be the Windows Store stub, and `uv` is one machine's habit.
 #
-# The host branches never fail the host. The `pre-push` branch is the one that refuses by design:
-# a push that carries a broken record of the method is stopped, and the checks say why.
+# The host branches never fail the host, and a refusal is not a failure. Two branches refuse by
+# design: `before-tool`, a call that names a file the tree closes to agents, through the harness
+# mechanism's script; `pre-push`, a push that carries a broken record of the method, which is
+# stopped, and the checks say why.
 
 host="$1"
 
@@ -31,6 +33,30 @@ interpreter() {
     done
     return 1
 }
+
+if [ "$2" = "before-tool" ]; then
+    # A host calls this before every tool, and is wired to only in a tree that lists files closed
+    # to agents; a tree whose list is gone leaves at once. The harness mechanism's script reads the
+    # host's payload and decides, and what it prints is the host's own form of a refusal. Where
+    # it cannot answer — no interpreter recorded, a fault of its own — every call is refused,
+    # since nothing else tells which call names a listed file, and the reason says what mends it.
+    # TODO q-hqk736: the refusal of every call where the check cannot run is on trial.
+    [ -f local.closed.txt ] || exit 0
+    if python=$(interpreter); then
+        if answer=$("$python" .agents/scripts/gw/before_tool.py --hook "$host"); then
+            [ -z "$answer" ] || printf '%s\n' "$answer"
+            exit 0
+        fi
+        why="The check of the files this tree closes to agents could not run, so no tool call passes until it is mended. Tell the person: .agents/scripts/gw/before_tool.py failed on this call."
+    else
+        why="The check of the files this tree closes to agents could not run, so no tool call passes: this clone has no interpreter recorded. Tell the person to run once, in a terminal: python .agents/scripts/gw/harness.py . --links"
+    fi
+    case "$host" in
+        claude-code) printf '{"hookSpecificOutput": {"hookEventName": "PreToolUse", "permissionDecision": "deny", "permissionDecisionReason": "%s"}}\n' "$why" ;;
+        *) printf '%s\n' "$why" >&2; exit 2 ;;
+    esac
+    exit 0
+fi
 
 if [ "$host" = "pre-push" ]; then
     # Git hands one line per ref: <local ref> <local sha> <remote ref> <remote sha>. No lines is
@@ -82,6 +108,15 @@ if python=$(interpreter); then
     if grep -qiE 'hook_event_name"[[:space:]]*:[[:space:]]*"sessionstart"' "$payload" 2>/dev/null; then
         if [ -f .agents/scripts/gw/inject_rules.py ]; then
             notice=$("$python" .agents/scripts/gw/inject_rules.py --check --line 2>/dev/null)
+        fi
+        # A tree that lists files closed to agents, whose host is not set to hold the list: the
+        # harness mechanism's line says so, and which step sets it.
+        if [ -f local.closed.txt ] && [ -f .agents/scripts/gw/before_tool.py ]; then
+            unheld=$("$python" .agents/scripts/gw/before_tool.py --line "$host" 2>/dev/null)
+            if [ -n "$unheld" ]; then
+                notice="${notice:+$notice
+}$unheld"
+            fi
         fi
         case "$host" in
             claude-code) link=.claude/skills ;;

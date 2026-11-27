@@ -6,11 +6,14 @@ from __future__ import annotations
 import contextlib
 import io
 import json
+import subprocess
+import sys
 from unittest import mock
 
-from repository import RepositoryCase
+from repository import SCRIPTS, RepositoryCase
 
 import before_tool
+import harness
 
 LISTED = "config/secrets.yml"
 
@@ -226,3 +229,85 @@ class TheStartsLine(Calls):
         self.write(".claude/settings.json", "{not json")
 
         self.assertIn(before_tool.LIST, self.line())
+
+
+HOOK_COMMAND = 'git -c "alias.gw-hook=!sh .agents/scripts/gw/hook.sh" gw-hook'
+NOTICING_STORE = "import os, sys\nprint('noticed', ascii(os.environ.get('GW_NOTICE', '')))\n"
+
+
+class ThroughTheWrapper(RepositoryCase):
+    """The call before a tool as a host makes it: through Git's alias and the hooks' wrapper, the
+    real script behind it, from wherever the host's shell stands in the tree."""
+
+    proves_a_process = True
+
+    def setUp(self) -> None:
+        super().setUp()
+        for script in ("hook.sh", "before_tool.py"):
+            self.write(f".agents/scripts/gw/{script}", (SCRIPTS / script).read_text(encoding="utf-8"))
+        self.write(before_tool.LIST, f"{LISTED}\n")
+        (self.root / "sub").mkdir()
+
+    def call(self, payload: object, host: str = "claude-code") -> subprocess.CompletedProcess:
+        text = payload if isinstance(payload, str) else json.dumps(payload)
+        return subprocess.run(
+            f"{HOOK_COMMAND} {host} before-tool", shell=True, cwd=self.root / "sub", input=text,
+            capture_output=True, encoding="utf-8",
+        )
+
+    def record_the_interpreter(self) -> None:
+        (self.root / ".git" / harness.INTERPRETER_RECORD).write_text(f"{sys.executable}\n", encoding="utf-8")
+
+    def refusal(self, done: subprocess.CompletedProcess) -> str:
+        self.assertEqual(0, done.returncode, done.stderr)
+        decision = json.loads(done.stdout)["hookSpecificOutput"]
+        self.assertEqual("deny", decision["permissionDecision"])
+        return decision["permissionDecisionReason"]
+
+    def reading(self, name: str) -> dict:
+        return {"cwd": str(self.root), "tool_name": "Read", "tool_input": {"file_path": str(self.root / name)}}
+
+    def test_a_call_that_names_a_listed_file_is_refused_and_another_passes(self) -> None:
+        self.record_the_interpreter()
+
+        self.assertIn(LISTED, self.refusal(self.call(self.reading(LISTED))))
+        passed = self.call(self.reading("docs/notes.md"))
+        self.assertEqual((0, ""), (passed.returncode, passed.stdout))
+
+    def test_a_tree_whose_list_is_gone_leaves_at_once_with_no_interpreter_asked_for(self) -> None:
+        (self.root / before_tool.LIST).unlink()
+
+        done = self.call(self.reading(LISTED))
+
+        self.assertEqual((0, ""), (done.returncode, done.stdout))
+
+    def test_a_clone_with_no_interpreter_refuses_every_call_and_names_the_step_that_mends_it(self) -> None:
+        reason = self.refusal(self.call(self.reading("docs/notes.md")))
+
+        self.assertIn("--links", reason)
+
+    def test_a_check_that_fails_refuses_the_call(self) -> None:
+        self.record_the_interpreter()
+
+        self.assertIn("could not", self.refusal(self.call("{not json")))
+
+    def test_a_host_with_no_known_form_of_refusal_is_stopped_by_the_exit(self) -> None:
+        done = self.call(self.reading("docs/notes.md"), host="another-host")
+
+        self.assertEqual((2, ""), (done.returncode, done.stdout))
+        self.assertIn("--links", done.stderr)
+
+    def test_the_wrapper_and_the_script_name_one_list(self) -> None:
+        self.assertIn(f"[ -f {before_tool.LIST} ]", (SCRIPTS / "hook.sh").read_text(encoding="utf-8"))
+
+    def test_a_sessions_start_is_told_of_a_list_the_host_is_not_set_to_hold(self) -> None:
+        self.record_the_interpreter()
+        self.write(".agents/scripts/gw/questions.py", NOTICING_STORE)
+
+        started = subprocess.run(
+            f"{HOOK_COMMAND} claude-code", shell=True, cwd=self.root, input='{"hook_event_name": "SessionStart"}',
+            capture_output=True, encoding="utf-8",
+        )
+
+        self.assertEqual(0, started.returncode, started.stderr)
+        self.assertIn(before_tool.LIST, started.stdout)
