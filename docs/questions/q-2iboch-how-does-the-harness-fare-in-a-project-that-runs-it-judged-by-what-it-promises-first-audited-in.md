@@ -74,3 +74,6 @@ to its harness session, wait on the person's yes when a round needs them.
 - Rounds 0–3 summarized to DriftSense's Harness session, 2026-11-27, on the person's word: its own
   findings — an edge record's 12 unguarded promises, the missing push gate and what it would refuse,
   the ticket format's silence on L4, L7 at work. *(the user, 2026-11-27: "Yes, tell it")*
+- Round 4, records about code in sibling repositories, 2026-11-27: [the health record](../research/harness-in-driftsense-audit.md#round-4--records-about-code-in-sibling-repositories-2026-11-27).
+  665 citations of sibling code; of 15 read, 6 hold, 8 point at a moved line, 1 lapsed; nothing in
+  core or DriftSense notices. How a citation should hold is the person's to set.

@@ -171,3 +171,48 @@ does not write ([q-t5vmk3](../questions/q-t5vmk3-how-does-core-reach-a-recipient
 reaching its occasion are two tests. Every override here passed the first; two checks that would
 carry rules mechanically are not run at all, and the gate that would run them is missing, so the
 second fails without a sound.
+
+## Round 4 — records about code in sibling repositories, 2026-11-27
+
+Measured by [harness-in-driftsense-audit-citations.py](harness-in-driftsense-audit-citations.py) over
+DriftSense's records and its eleven sibling repositories' history; read by two readers apart, a
+random sample of 15 cited lines, half of them from citations the script flags; core's and
+DriftSense's checks read for what would notice.
+
+**Citations.** 665 of DriftSense's records cite a file of a sibling repository: admin 513, the WRF
+coordinator 80, the farmer frontend 38, eight others 30. 414 give a line; 8 point past the file's
+end; 8 name a file no longer in its repository. By record: questions 241, the security audit 158,
+RFCs 162 (100 of them done), tickets 94 (11 done). Another 820 paths could not be given to one
+repository, mostly bare file names.
+
+**May have lapsed** — the cited file changed in its repository after the citing record last
+changed, the round method's lapse rule: 47, 30 of them in done RFCs and tickets, records of what
+happened; 17 in live records.
+
+**The sample, read.**
+
+| | holds | moved | lapsed |
+|---|---|---|---|
+| flagged as may have lapsed (7) | 0 | 6 | 1 |
+| not flagged (8) | 6 | 2 | 0 |
+
+Moved: the claim still true of the code, at another line — a reader who follows the line lands on
+other code, once on a prompt for a language model, once on a blank line. Lapsed: a done RFC says a
+body with no plots is refused; the code now takes an empty list (`admin/api/viewsets/operation.py`,
+the plots validator). Read by two readers apart: the refusal was taken out on purpose, at admin's
+`5332b3b` of 2026-09-22, by the follow-up the RFC itself names, and was never an acceptance
+criterion — a record of what happened, overtaken, not a broken promise. The two moved lines the script did not flag sit in files whose last commit is older than the
+citing record's last edit; both files hold changes in admin's working tree not yet committed
+(`api/viewsets/excel_upload.py`, `app/admin.py`). A rule by commit misses code that is not committed.
+
+**What would notice.** Nothing, in core or in DriftSense. Core's `/maintain` marks with a fingerprint
+the files inside the tree (G1); the edge check asks only that a validator's file exists
+(`.agents/scripts/gw/edges.py:266`). DriftSense's guards check links and bytes inside its tree.
+DriftSense's own audit method plans the lapse by file and commit (its q-vxes7i), not built.
+
+**For the person to set:** whether a record's citation of code is to pin a commit, name a symbol
+instead of a line, or be re-read when its file changes; the next round on records judges against it.
+
+**What it taught about auditing a project's harness:** line numbers age faster than claims: of 15
+read, 8 pointed at the wrong line and 1 claim had lapsed. A lapse rule by file and commit flags the
+ones that moved, but not every one.
