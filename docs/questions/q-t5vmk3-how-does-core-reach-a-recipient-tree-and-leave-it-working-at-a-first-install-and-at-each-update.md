@@ -163,3 +163,12 @@ Three of the lessons a recipient's review sent up
   skill, and told the one tree whose keeper it writes to.
 
 None is mended.
+
+## Met in a recipient, 2026-11-27 — the push gate never ran there
+
+Round 3 of [the audit of the harness in DriftSense](../research/harness-in-driftsense-audit.md),
+told to the keeper: the recipient's clone holds no `pre-push`. The installer writes it in
+`--links` alone, and the link step a session's start runs leaves it out by design, so a clone
+that never ran `--links` pushes unchecked and nothing tells it so. Lesson 6 of
+[the recipient lessons](../research/recipient-lessons-2026-11-24.md), now seen in the field.
+Nothing is decided by it.

@@ -48,3 +48,16 @@ changes what an agent reads and never the script that carries the rule out; a se
 declared for what text a tree carries, and no check, hook or wake reads one. Three ways were
 named and none weighed: a setting a mechanism declares for its scripts; a check a tree may
 replace by name; the push's list of checks being the tree's own. Not decided.
+
+## Measured in a recipient, 2026-11-27 — core's checks against a project's overrides
+
+Round 3 of [the audit of the harness in DriftSense](../research/harness-in-driftsense-audit.md),
+told to the keeper: run there read-only, core's `tickets.py --check` gives 173 diagnostics over
+all 32 tickets, every one from the shape the recipient's local rules override; `edges.py --check`
+gives 21, nine of them the folder's README, mended in core at 831edf69. Neither runs in the
+recipient's verification set. Were the push gate installed there
+([q-t5vmk3](q-t5vmk3-how-does-core-reach-a-recipient-tree-and-leave-it-working-at-a-first-install-and-at-each-update.md)),
+the ticket check would refuse its pushes. The ticket format still says the check holds every
+live ticket, with no word of an override. Lesson 11 of
+[the recipient lessons](../research/recipient-lessons-2026-11-24.md), with its measure. Nothing
+is decided by it.
