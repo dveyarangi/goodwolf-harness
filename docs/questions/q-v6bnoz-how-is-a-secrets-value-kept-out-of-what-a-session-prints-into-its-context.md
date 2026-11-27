@@ -106,6 +106,10 @@ already printed, or both.
    refused)*. Its cost, put with it: the refusal may close the command that mends the fault, and
    the person then mends it by hand in a terminal. The keeper's reading under it: with no check
    to tell which call names a listed file, every call is refused until the fault is mended.
+   Kept, asked again once Claude Code's own rule stood beside the hook and a failed check no
+   longer left a file open *(the user, 2026-11-27: "Запрещать", and "проверим будет ли это
+   кусаться по ходу дела")*: on trial, under
+   [q-hqk736](q-hqk736-does-a-check-of-closed-files-that-refuses-every-call-when-it-cannot-run-stop-work-often-enough-to-be.md).
 
 ## The align, 2026-11-26 - by what the stop is held
 

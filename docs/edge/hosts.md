@@ -47,9 +47,11 @@ command — is refused before it runs, and the agent reads why, in each host who
 refusal was seen there; a tree that keeps no list has no call before its tools. It asks of a host
 a hook before every tool call that can refuse the call and tell the agent why. Not promised: a
 read that never names the file to the host, a copy in a file the list does not name, a value
-already printed, and a file the person hands the agent. Where the check cannot run, every call is
-refused until the person mends it: in a tree that keeps a list this is the one hook that may stop
-the host's work, where every other hook's problem becomes a line of context.
+already printed, and a file the person hands the agent. Where the check is reached and cannot
+decide — no interpreter recorded, a fault of its own — every call is refused until the person
+mends it: in a tree that keeps a list this is the one hook that may stop the host's work, where
+every other hook's problem becomes a line of context. A hook the host cannot start lets the call
+through.
 </straw-dog>
 
 <straw-dog question="q-5jcptm">
