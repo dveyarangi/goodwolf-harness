@@ -847,3 +847,9 @@ Proposed, nothing built: the path prints, under each row, its open questions by 
 waiting, each with what on; every other open question counted under its answer, so that the sum is the store's;
 and this takes the place of the ready work in id order and of the most struck, the whole no longer than the
 3600 characters it prints now. No part is added to an entry.
+
+**Tickets with no status, 2026-11-27.** The audit of the harness in DriftSense, round 6, lesson 4, sent on by
+the keeper: the path reads `unread` only while no ticket carries a status; once one does, every other counts as
+neither Ready nor In progress, and the in-work and ready lines fall back to zeros. Checked in the store's script,
+`_status_kept_elsewhere`: so. What the path needs, to go with the proposal above: a ticket with no status is
+counted apart and said, never read as not ready. A board kept outside the tree stays the ticket mechanism's.
