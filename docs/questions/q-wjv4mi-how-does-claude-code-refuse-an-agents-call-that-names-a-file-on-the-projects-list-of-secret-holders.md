@@ -17,3 +17,22 @@
    over a folder; the hook gives the reason and holds a shell's any command. What the try saw of
    each: [Claude Code's sidecar](../edge/hosts/claude-code.md), **Call refusal**. Its cost, put
    with it: the installer writes a rule for every listed file beside the hook's entry.
+
+## What a recipient's sessions show, 2026-11-27
+
+Round 5 of [the audit of the harness in DriftSense](../research/harness-in-driftsense-audit.md),
+told to the keeper, counted there by hash and never printed. Over three days of that tree's
+sessions in Claude Code, values shaped like a secret reached a session's context in 9 sessions of
+23. Tool calls that read a file holding secrets came to 77, more than half of them on one
+settings file the product's own code is built around; 163 more named such a file only in a
+search.
+
+What it bears on here:
+
+- The print is common, not rare, where the secrets still stand in files.
+- The file most read is one an agent has ordinary reason to read, so the refusal will be met
+  often, and the reader of
+  [01-0120.0020 an-agent-reads-a-listed-file-without-its-values](../tickets/01-0120.0020-an-agent-reads-a-listed-file-without-its-values.md)
+  is what makes the refusal livable there.
+- A search for text that mentions a listed file is told apart from a search of the file: the
+  first passes, the second is refused — as the script stands.
