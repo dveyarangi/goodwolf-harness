@@ -18,7 +18,7 @@ lessons file, core's rules files, scripts and questions by search. No transcript
 | a question opened below the dial | lesson 1; L7 | **sent, no record**: told the store's session 2026-11-24; Q1 unchanged, no question holds it. Placed after this round as [q-sa75ul](../questions/q-sa75ul-which-questions-does-the-store-take-and-which-are-settled-in-the-turn-and-written-where-the-work-keeps.md), 2026-11-27 |
 | urgent work | lesson 2; L9 | open: [q-4a4iit](../questions/q-4a4iit-how-does-urgent-work-go-through-the-method-small-or-wide-and-what-record-does-it-leave-after.md) |
 | hazards weigh nothing | lesson 3; L11 | **fixed**: [q-6y4lwm](../questions/q-6y4lwm-how-does-a-hazard-which-leads-to-no-answer-of-the-product-weigh-in-what-comes-next.md) decided; hazards stand above the board's rows, `.agents/skills/pathfinder/SKILL.md:20` |
-| silent zeros where status lives on another board | lesson 4; L12 | **fixed**: `9e37df11`, the path reads unread where no ticket carries a status |
+| silent zeros where status lives on another board | lesson 4; L12 | **fixed**: `9e37df11`, the path reads unread where no ticket carries a status. *Corrected in round 6: partly — see there.* |
 | a promise made in a reply | lesson 5 | **fixed**: `c40e6217`, entry contract v141 |
 | a per-clone part an update does not write | lesson 6 | open: [q-t5vmk3](../questions/q-t5vmk3-how-does-core-reach-a-recipient-tree-and-leave-it-working-at-a-first-install-and-at-each-update.md) |
 | "install it with overwrite" misread | lesson 7 | open: q-t5vmk3 |
@@ -251,3 +251,46 @@ at the host, or reading allowed with printing refused; the next round on safety 
 **What it taught about auditing a project's harness:** an audit that reads for secrets carries the
 risk it measures: every count here was taken by hash in memory, and a reader's first probe of the
 script had to be told, in its brief, never to print even a prefix.
+
+## Round 6 — fit, 2026-11-27
+
+Read: DriftSense's `local.rules.md`, `.claude/settings.json` and hooks, its own scripts, and core
+at HEAD, by me and by a reader apart for what core now carries; tested: core's checks there, round 3.
+
+**What DriftSense switched off, overrode or built beside core.**
+
+| what | why core could not take it | in core now |
+|---|---|---|
+| debugging switched off | — the person's setting; the reply's frame went with it, and a project hook (`frame-reminder.sh`) now says each turn that it stays | [q-4kvvec](../questions/q-4kvvec-does-a-tree-with-debug-off-keep-the-replys-frame-the-head-table-and-the-decisions-table-and-does-the.md), open |
+| L3, a ticket's shape: no `Status` or `Type`, the board's link on the third line | the board owns state and kind; core's format requires both (`TICKET-FORMAT.md:108–109`) | open, lesson 11; L3 names no override, as core's R7 asks |
+| L4 over ticket/P5: the project's guard checks tickets, not `tickets.py` | `tickets.py` fails on all 32 tickets of that shape (round 3) | open, lesson 11 |
+| L5, the verification set: the project's two guards and `harness.py --check`, none of core's record checks | the ticket and edge checks fail there | open |
+| L7 over questions/Q1 | Q1 opens what the dial would settle | [q-sa75ul](../questions/q-sa75ul-which-questions-does-the-store-take-and-which-are-settled-in-the-turn-and-written-where-the-work-keeps.md), open |
+| L13, ask before committing code | departs from *Autonomy*'s "work closes with its commit"; that sentence has no rule id, so no override can name it | — |
+| L15 over session/S11 | S11 names a session by the person's name for it, not by its role | open, roles |
+| a hook refusing whole-disk searches and followed streams | core had none | [q-7v6dpa](../questions/q-7v6dpa-how-is-a-process-a-command-starts-kept-from-outliving-the-call-that-started-it.md), open |
+| two guards of its own: the records' conventions, and links and bytes | core's ticket check cannot take its tickets; no script of core checks a tracked file for control bytes, by a search of them | — |
+
+**What DriftSense holds as waiting for core.** Six local rules are wrapped as straw dogs on its
+question of which of them core comes to carry. Read against core at HEAD:
+
+| local rule | carried by core |
+|---|---|
+| L11, a hazard comes first | **fully** — `.agents/skills/pathfinder/SKILL.md:16–21`, since `fd6fa720` and `3b70d896`, 2026-11-25 |
+| L12, the state of work is the board's | **partly** — the wake reads "unread" where no ticket carries a status (`9e37df11`), but tells it rather than staying silent, returns to zeros once one ticket carries a status, and nothing reads the board |
+| L7, L9, L14, L15 | not yet — each an open question in core (round 0) |
+
+Round 0 marked L12's cause fixed; it is partly. Round 0's counts read 2 fixed, 1 partly, 13 open.
+
+**What it taught about auditing a project's harness:** fit is best read from the project's own
+straw dogs: DriftSense had already written down which of its rules it expects core to take, so the
+round had only to read core against them.
+
+## The audit, rounds 0–6
+
+The baseline and six aspects, each round's counts by a script read by a reader apart, each serious
+finding read twice. The findings went to the questions that own their causes and their zones'
+sessions; DriftSense's own, through rounds 0–3, to its Harness session. What none of the rounds
+could judge, because nothing written says what working means, waits on the person: the cost a
+method's steps may take, the person's load, how a citation of code should hold, and what reading of
+secrets is acceptable. The next audit judges against what the person sets.

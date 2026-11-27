@@ -81,3 +81,8 @@ to its harness session, wait on the person's yes when a round needs them.
   11 distinct secret-shaped values printed in 9 of 23 sessions; 77 reads of files that hold secrets;
   37 whole-disk searches, none since DriftSense's own hook. What reading of secrets is acceptable is
   the person's to set.
+- Round 6, fit, 2026-11-27: [the health record](../research/harness-in-driftsense-audit.md#round-6--fit-2026-11-27).
+  Debugging off, three overrides by name and two without (L3, L13), two hooks and two guards beside
+  core; of six local rules DriftSense holds for core to take, core carries L11 fully and L12 partly.
+  Round 0's L12 corrected from fixed to partly. [The audit, rounds 0–6](../research/harness-in-driftsense-audit.md#the-audit-rounds-06):
+  four standards wait on the person.
