@@ -71,3 +71,6 @@ to its harness session, wait on the person's yes when a round needs them.
   The three overrides reach a fresh reader, and L7 cut low-rung questions from 15 of 25 to 2 of 37;
   core's ticket and edge checks fail there and are never run, and the push gate that would run them
   was never written into the clone.
+- Rounds 0–3 summarized to DriftSense's Harness session, 2026-11-27, on the person's word: its own
+  findings — an edge record's 12 unguarded promises, the missing push gate and what it would refuse,
+  the ticket format's silence on L4, L7 at work. *(the user, 2026-11-27: "Yes, tell it")*
