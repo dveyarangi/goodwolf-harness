@@ -126,3 +126,48 @@ against it.
 **What it taught about auditing a project's harness:** a session's transcript is not what its
 person saw: in a tree of sessions that write to each other, nearly half of what an agent writes
 answers another agent, and a count of the person's load must first find which turns were theirs.
+
+## Round 3 — rules reaching their occasion, 2026-11-27
+
+Read: DriftSense's `docs/rule-failures.md`, its question store, `local.rules.md`, `AGENTS.md`, its
+skills and its copy of core's scripts at its commit `504e12a`. Tested: core's checks run there
+read-only, the working tree unchanged after. Asked: three fresh readers given only what a session
+there reads, one per overridden rule, never told the rule.
+
+**The register.** 7 entries, 15 occurrences. Struck again: a secret's value printed, 4 times; a
+helper's whole-disk search outliving it, 3; a backslash lost through a script's string, once.
+Closed 4 — the paired close's mover, a choice without what sets its options apart, the whole-disk
+search and the dropped head table — the last two by a hook of the project's own beside core's. Open
+3: the secret printed, the part judged from lines that left out what decides it, the backslash.
+
+**The store's struck counts.** 14 of 62 questions struck at least once: one 5 times, two 3, one 2,
+ten once.
+
+**The overridden rules.** Three: L4 over ticket/P5, L7 over questions/Q1, L15 over session/S11.
+Each stands installed right after the rule it overrides, and each fresh reader did what the
+override says, citing R7 for why the local rule wins. One reader found that `TICKET-FORMAT.md:73`
+still says `tickets.py --check` holds every live ticket, and that `/verify` never says L4 dropped it.
+
+**L7 at work.** Before it landed (2026-11-24T18:02Z), 15 of the 25 questions opened were at the
+rung of a feature or of code; after it, 2 of 37. Whether those two are the investigations L7 lets in
+was not read.
+
+**Core's checks, run there.**
+
+| check | result |
+|---|---|
+| mechanisms, inject_rules, questions, sessions, maintain, product, personal, harness | pass |
+| tickets | fails: 173 diagnostics on all 32 tickets, every one from the shape L3 and L4 override — the override reaches the text and not the script ([q-veooj7](../questions/q-veooj7-how-do-projects-share-one-development-method-without-losing-their-own-conventions.md), lesson 11) |
+| edges | fails: 9 diagnostics on `docs/edge/README.md` (lesson 9, mended in core at `831edf69`, after the copy DriftSense runs); 12 on `shared-task-link.md`, a Normative record whose 12 promises are marked unguarded — a finding of the check that DriftSense's verification set (L5) never runs |
+
+**The push gate.** Core's `harness.py` holds a pre-push gate that runs eight checks, `tickets` and
+`edges` among them; the per-clone step `harness.py --links` writes the hook
+(`.agents/scripts/gw/harness.py:215`). DriftSense's clone has none, only Git's samples, and no `core.hooksPath`. Installed, it
+would refuse any push carrying a commit that touches the method's records while those two checks
+fail at that commit (`harness.py:1639`, `:1739`). Read by two readers apart. This is lesson 6, a per-clone part an update
+does not write ([q-t5vmk3](../questions/q-t5vmk3-how-does-core-reach-a-recipient-tree-and-leave-it-working-at-a-first-install-and-at-each-update.md)).
+
+**What it taught about auditing a project's harness:** a rule reaching its reader and a rule
+reaching its occasion are two tests. Every override here passed the first; two checks that would
+carry rules mechanically are not run at all, and the gate that would run them is missing, so the
+second fails without a sound.

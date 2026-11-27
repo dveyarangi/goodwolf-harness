@@ -67,3 +67,7 @@ to its harness session, wait on the person's yes when a round needs them.
 - Round 2, the person's load, 2026-11-27: [the health record](../research/harness-in-driftsense-audit.md#round-2--the-persons-load-2026-11-27).
   481 messages of the person, 310 words read per message at the median; 431 decisions shown, up to
   14 at once; 45 questions waiting on the person in the store. The limits are the person's to set.
+- Round 3, rules reaching their occasion, 2026-11-27: [the health record](../research/harness-in-driftsense-audit.md#round-3--rules-reaching-their-occasion-2026-11-27).
+  The three overrides reach a fresh reader, and L7 cut low-rung questions from 15 of 25 to 2 of 37;
+  core's ticket and edge checks fail there and are never run, and the push gate that would run them
+  was never written into the clone.
