@@ -344,6 +344,13 @@ person's words where they said it, with where it stands.
   Where to begin, the same day: "я думаю можно начать с того, показывает ли харнесс человеку
   "интересненькое" ))" — [q-p3khdo](q-p3khdo-does-the-harness-show-the-person-what-in-the-work-may-interest-them-and-how-would-it-know-what-does.md); what it means, to the voice's session: "интересно чему-то научиться,
   конечно" — learning, over the unexpected or what they reached for alone, its decision 1.
+  What is learned, 2026-11-28, in game-delta, relayed by that tree's optimization session and the
+  keeper, not read at its source: a system's architecture, in cuts each driven through one key
+  event and the chain of its causes — «я хочу учиться, а не тупить»; the measure, «меньше и точнее
+  кода перечитывается для понимания архитектуры и меньше ошибок анализа случается» —
+  [q-2xcunj](q-2xcunj-how-does-the-harness-explain-a-systems-architecture-to-the-person-in-cuts-each-driven-through-one-key.md).
+  The product side: the same move of pain 3's right point, its measure also pain 2's cost in the
+  person's attention; beside it stands the agent's search the written architecture spares.
 
 **How a complaint is read** *(the user, 2026-11-16)*: "непонятно было бы лучше без харнесс )) я
 считаю что нет, он держит линию хотябы. оптимальность это не только про вес. и не всякая жалоба
