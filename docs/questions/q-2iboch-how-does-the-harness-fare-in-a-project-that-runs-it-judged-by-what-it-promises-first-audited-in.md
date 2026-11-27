@@ -64,3 +64,6 @@ to its harness session, wait on the person's yes when a round needs them.
 - Round 1, cost, 2026-11-27: [the health record](../research/harness-in-driftsense-audit.md#round-1--cost-2026-11-27).
   23 sessions, 1,784.9M tokens, 97.2% of them cache reads; 469 messages of the person; 78% of the
   harness tree's commits ALIGN; Cursor not counted. The share the method may take is the person's to set.
+- Round 2, the person's load, 2026-11-27: [the health record](../research/harness-in-driftsense-audit.md#round-2--the-persons-load-2026-11-27).
+  481 messages of the person, 310 words read per message at the median; 431 decisions shown, up to
+  14 at once; 45 questions waiting on the person in the store. The limits are the person's to set.

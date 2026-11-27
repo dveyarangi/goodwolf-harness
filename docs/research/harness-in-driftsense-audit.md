@@ -88,3 +88,41 @@ wake may cost; the next round on cost judges against it.
 
 **What it taught about auditing a project's harness:** a measuring script needs a reader of its own
 as much as a finding does: the first count was 5.6% high, and the person's messages off both ways.
+
+## Round 2 — the person's load, 2026-11-27
+
+Measured by [harness-in-driftsense-audit-load.py](harness-in-driftsense-audit-load.py), which prints
+counts only, over the same 23 sessions as round 1, and by a count of DriftSense's question store at
+2026-11-27T00:00Z. Only the turns the person started are counted: 46% of the agent's words, and
+half the decision tables, were in turns another session or the host started, and the person
+reads those only if they open the session. The script was read by a reader who did not write it;
+before these counts its faults were mended: those other turns charged to the person, decisions
+counted once per session instead of once, the session's last table taken for its last reply, and
+the pattern for a request to explain missing what it was for and catching "explanation".
+
+| measure | count |
+|---|---|
+| the person's messages | 481; 198 of them hold a question mark |
+| asking what something means, or to explain | 18 (3.7%), all in English — a pattern's estimate |
+| the agent's words read per message of the person | median 310, upper quartile 476, largest 1,825; 161,802 in all |
+| decision tables shown to the person | 295, in 15 of 23 sessions |
+| distinct decisions in them | 431; 338 shown once, 93 shown again — those over a median 3 tables and 0.4 hours, the longest 61 tables and 52 hours |
+| most decisions in one table | 14 |
+| decisions standing in a session's last reply | 18, in 9 sessions |
+| questions put by the host's own means | 195 wrap-ups with a question, 2 AskUserQuestion |
+| the question store | 63 questions, 48 open, 45 of them at or above the dial and so waiting on the person; open a median 2.2 days, the oldest 4.1 |
+
+A decision is the same while the words of its row are; one reworded counts as new, so "shown once"
+holds some decisions reworded between replies. Matched by their first five words instead: 364
+decisions, 256 shown once, 108 again.
+
+Not measured: words the agent made up — whether a term the person met was defined where they read
+it takes reading, not a count.
+
+**For the person to set:** how many decisions a reply may put at once, how long one may wait, and
+how many questions may wait on them in the store; the next round on the person's load judges
+against it.
+
+**What it taught about auditing a project's harness:** a session's transcript is not what its
+person saw: in a tree of sessions that write to each other, nearly half of what an agent writes
+answers another agent, and a count of the person's load must first find which turns were theirs.
