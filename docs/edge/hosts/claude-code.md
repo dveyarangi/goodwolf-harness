@@ -86,8 +86,30 @@
   2026-11-22, desktop app, of the window alone: a hook's output of 58 KB was saved as the
   context's own text, line by line, under the session's folder, and its path and first 2 KB were
   what stood in context.
-- **Call refusal** — unobserved; the try of 2026-11-26 did not run, the terminal's `claude` not
-  being signed in. Of the host's search alone, seen 2026-11-27, desktop app, session `1981de0e`, on
+- **Call refusal** — observed 2026-11-27, desktop app, by a session started for it in a scratch
+  folder of fake values, its permission mode `auto`; a helper's own call not seen. A project's
+  hook before a tool, launched through a Git alias, printed `permissionDecision: "deny"` with a
+  reason, and the host refused `Read`, `Edit`, `Grep` with the file as its `path`, `Bash` and
+  `PowerShell`, each time showing the agent `PreToolUse:<tool> hook error: <the reason>`; a call
+  naming another file ran. The payload came as compact JSON with `session_id`,
+  `transcript_path`, `cwd`, `permission_mode`, `hook_event_name`, `tool_name`, `tool_input`,
+  `tool_use_id`, `effort`, `prompt_id`, `scratchpad_dir` and `mcp_server`; `file_path` was
+  absolute, with the platform's separators; the PowerShell tool is named `PowerShell` and carries
+  `command`. Every tool passed the hook, the app's own tools and the one that starts a helper
+  included, that one with its prompt as input. A hook that exited 1 let the call run with no
+  warning; under `onFailure: "block"` the call was refused, `hook error: [<the command>]: failed;
+  blocking because onFailure is "block"`. The hook ran in the project's folder at every call and
+  `CLAUDE_PROJECT_DIR` was set; the shell's folder was reset to the project's after every
+  command, so a shell that stays outside it was not seen. The helper's own call: the try's two
+  attempts to have a helper read a refused file were refused by the host's classifier of that
+  mode before a helper started, and were not repeated.
+  The host's own deny rule, `Read(<file>)` in the project's settings, seen in the same try:
+  `Read` refused, `File is in a directory that is denied by your permission settings.`; `cat` and
+  `grep` naming the file refused, `Permission to use Bash with command … has been denied.`;
+  PowerShell's `Get-Content` refused; a search over the folder printed no line of the file, with a
+  `glob` that includes it and without. Not tried under it: a change, a helper, a program the host
+  does not recognise.
+  Of the host's search and ignore files, seen 2026-11-27, desktop app, session `1981de0e`, on
   a scratch folder of fake values: `Grep` over a folder skipped a file named by a `.gitignore`
   inside a repository, by a `.ignore` and by a `.rgignore`, a parent folder's `.ignore` included;
   a `glob` that matched the file printed it though ignored, a `glob` that only excluded did not;
