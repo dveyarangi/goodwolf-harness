@@ -61,3 +61,19 @@ the ticket check would refuse its pushes. The ticket format still says the check
 live ticket, with no word of an override. Lesson 11 of
 [the recipient lessons](../research/recipient-lessons-2026-11-24.md), with its measure. Nothing
 is decided by it.
+
+## Found in a recipient, 2026-11-27 — an override that cannot name what it overrides
+
+Round 6 of [the audit of the harness in DriftSense](../research/harness-in-driftsense-audit.md),
+told to the keeper:
+
+- The recipient's local rule that a commit of code waits for the person departs from a sentence
+  of the entry file's *Autonomy*, "Work closes with its commit once `/verify` passes on it". That
+  sentence bears no rule's id, so the rule that an override names the rule it overrides cannot be
+  met for it: a project can depart from the entry file's own prose only without saying from what.
+- The recipient's local rule that gives a ticket the project's own shape departs from the ticket
+  format's required fields and names nothing it overrides. That one is the recipient's own
+  drift; its cause is the same as the measure above — a local rule changes what a session reads,
+  and neither a core script nor a core format hears of it.
+
+Nothing is decided by it.
