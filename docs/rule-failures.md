@@ -44,9 +44,25 @@ then failed for every session (its register, 2026-11-26).
 
 - Claude desktop app · claude-fable-5-2 · 2026-11-26T23:36Z — chat `1981de0e-7693-4931-aeab-4881f9fa0065`, the fix of the edge check's folder page; the model is the one the session reported itself running on.
 
+**Struck 2026-11-27 — a second time, within the hour.** A replacement written through a shell's heredoc
+into a script turned a regex's escaped word boundary into a control byte, four times; the regex matched
+nothing, in silence, and a count read 0 where the run before had read 18. Caught by the count and mended
+before its commit, d0a2a989. No check of this tree reads a tracked file for a control byte — by a search
+of its scripts, not by a run.
+
+**Source, no case yet:**
+
+- Claude Code · claude-opus-5-5 · 2026-11-27T00:05Z — the audit and maintenance's session, as it reported it the same day; the instant is approximate.
+
 **What it is.** A slip no rule covers: text that carries a backslash is handed through a shell's
-quoting, or a script's string, into a file, and arrives changed. It proposes no rule; the strike is the
-second shape a rule would need.
+quoting, or a script's string, into a file, and arrives changed. Two of its four occurrences were loud,
+a file that no longer parsed; two were silent, a control byte where the backslash and its letter stood.
+
+**Proposed amendment**, mechanical, as a second strike takes: a check in the verification set that no
+tracked text file holds a control byte other than a tab and its line ends, as a recipient's own guard
+does. It holds the silent kind; the loud kind fails at its first run. Put to the person by the keeper.
+
+**Disposition:** open — the amendment waits on the person.
 
 ## The paired close named its mover by a bare name, and a recipient's own older mover ran — 2026-09-27
 
