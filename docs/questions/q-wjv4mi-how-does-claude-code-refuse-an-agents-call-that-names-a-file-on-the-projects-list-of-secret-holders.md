@@ -7,7 +7,7 @@
 - **rung** development: load-bearing, self-improvement: the method
 - **lean** 2026-11-27: built through stage 4 of docs/rfc/01-0120.0010 - the script, the wrapper, the installer wiring with the host own rule for every listed file, the records; held by both, decision 1. Not done: the harness skill lines, shown to the person and waiting; stage 5, the refusal seen live in a tree with a list
 - **opened** 2026-11-26T22:00:50Z
-- **struck** 0, last 2026-11-26T22:00Z
+- **struck** 1, last 2026-11-28T00:13Z
 
 ## Decisions
 

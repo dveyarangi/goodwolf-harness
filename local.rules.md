@@ -167,7 +167,9 @@ straw dog's binding or a `TODO q-N`; a ticket never.
   lands there on their words, with no draft sent back and no second asking, 2026-11-22; at once
   and on a quote word for word, 2026-11-24, in the store's session: "(а) по цитате"; a session
   for the voice and the look, cut from the keeper's, 2026-11-25: "это возможно новая сессия или
-  роль по голосу и виду", then "Да, открывай"
+  роль по голосу и виду", then "Да, открывай"; core's own audit of the harness in another tree
+  is the audit session's, 2026-11-27: "pass it to her", and written here 2026-11-28: "допиши
+  зоны сессий"
 
 <rule>
 This tree keeps standing sessions, each titled `🐺 <role> — <its area>`. A session works its
@@ -180,8 +182,9 @@ person for its role.
   mechanism owns.
 - **Голос**: how the person is spoken to — the voice, a reply's form, and the debugging mechanism.
 - **Практика**: the tickets, and the skills of the delivery ring from `/align` to `/verify`.
-- **Аудит и обслуживание**: the audits — an outside review kept as given, each finding given its
-  home — and the maintenance: the records held in agreement and the pass with no person.
+- **Аудит и обслуживание**: the audits — an outside review kept as given, and core's own audit
+  of the harness in another tree, each finding given its home — and the maintenance: the records
+  held in agreement and the pass with no person.
 - **Путь**: what the work does next and why — how the path ahead is found and shown at a wake,
   and the product's roadmap. It weighs the work, keeps the roadmap, and corrects the questions
   and tickets its weighing meets; the product document it reads and never writes. It builds
