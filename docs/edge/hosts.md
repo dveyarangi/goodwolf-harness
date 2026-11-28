@@ -88,8 +88,9 @@ with no load recorded has nothing loaded, and its edit is refused.
 - where the host can refuse a call before a tool, its entry for that call on the harness
   mechanism's shelf under `.agents/skills/harness/hooks/`, launched as `gw-hook <host> before-tool`
   and merged only where the tree lists files closed to agents; its form of a refusal and the
-  fields of its tools that hold a path in `.agents/scripts/gw/before_tool.py`, and in the wrapper
-  the refusal it prints where that script cannot answer;
+  fields of its tools that hold a path in `.agents/scripts/gw/before_tool.py`,
+  <straw-dog question="q-hqk736">and in the wrapper the refusal it prints where that script
+  cannot answer</straw-dog>;
 - a loader link in `LINKS`, `.agents/scripts/gw/harness.py`, unless the host reads `.agents/skills`
   natively, and a stub like `CLAUDE.md` unless it reads `AGENTS.md` natively;
 - its hook cases in `.agents/scripts/gw/test/test_sessions.py`, and its merge in
@@ -99,9 +100,11 @@ Each sidecar names its own parts.
 
 ## Invariants
 
-- A hook's unreadable input becomes a line of context — *validated by:*
+- At a session's start and before a message, a hook's unreadable input becomes a line of
+  context — *validated by:*
   `.agents/scripts/gw/test/test_sessions.py`, the hook's unreadable-input case
-- The hook exits clean whatever its input, so it never fails the host — *validated by:*
+- The hook at a session's start and before a message exits clean whatever its input, so it never
+  fails the host — *validated by:*
   `.agents/scripts/gw/test/test_sessions.py`, the exit status of the unreadable-input and unknown-host cases;
   `.agents/scripts/gw/test/test_harness.py`, a failing harness line, through the wrapper
 - A session is registered under the host's own session id — *validated by:* live —

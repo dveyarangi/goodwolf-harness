@@ -43,6 +43,12 @@ Settled by the keeper under those, each below the person's rung:
   script answers the host's call, so the guard on controlled files
   ([q-bsd3ga](q-bsd3ga-which-forbidden-actions-does-the-host-refuse-instead-of-trusting-the-agent.md))
   can join it when the person releases it; nothing of that guard is built here.
+- **A check that cannot run** refuses every call, as built, where the hooks' wrapper is reached:
+  with no interpreter recorded, or where the script faults. Where the host cannot start the hook,
+  or stops it at its time limit, the host lets the call through: its setting
+  `onFailure: "block"` is not set, since with it a shell standing in a repository nested in the
+  tree would be refused every command, the one that returns it included. The host's own rule for
+  each listed file holds the file meanwhile (decision 4, below).
 
 Not held, and said so to a project that installs it: a read that never names the file to the
 host - a script, a glob, a program that loads it; a copy of a value in a file no list names; a

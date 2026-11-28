@@ -1565,6 +1565,7 @@ def _gate(target: Path, shipment: Shipment, report: Report) -> None:
 
 # Said wherever a tree lists files closed to agents, by every run: the refusal's limits belong
 # before whoever relies on it, and nowhere else tells them.
+# TODO q-hqk736: its sentence on every call refused where the check cannot decide is on trial.
 NOT_HELD = (
     f"{before_tool.LIST}: an agent's call that names a listed file is refused in Claude Code, and its own rule keeps "
     "the file out of a search. Not held: a read that never names the file to the host — a script, a pattern, a link, "

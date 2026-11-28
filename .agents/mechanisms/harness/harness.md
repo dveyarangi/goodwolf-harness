@@ -34,7 +34,9 @@ merged rather than written**: each host's shared, committed hook file, never a l
 file, receives core's hook entries beside the project's own *(the user, 2026-10-09)*. The entries'
 words are the questions mechanism's shelf, shipped as core; an update replaces core's entries and
 removes one that left core, and a check compares core's entries alone, so a project's own hook is
-never drift. A host file that is not valid JSON is refused, not rewritten. **One entry is wired
+never drift. A host file the merge cannot read in the host's own form — not valid JSON, no hook
+file, a key set otherwise than core's hooks need, `permissions` that hold no list where the merge
+writes a rule — is refused, not rewritten. **One entry is wired
 only where the tree lists files closed to agents**, in `local.closed.txt` beside the entry file:
 a host's call before every tool, from the mechanism's own shelf, answered by the mechanism's
 script through the hooks' wrapper. A tree that keeps no list carries no such call, since every
@@ -187,7 +189,7 @@ its own.
 | merging core's hook wiring into each host's file | `.agents/scripts/gw/harness.py` | |
 | wiring a host's call before a tool, and its own rule for every listed file, where the tree lists files closed to agents | `.agents/scripts/gw/harness.py` | |
 | answering a host's call before a tool: refusing one that names a listed file, with the reason | `.agents/scripts/gw/before_tool.py` | |
-| telling a session at its start that the tree's list of closed files is not wired in its host | `.agents/scripts/gw/before_tool.py` | |
+| telling a session at its start that its host is not set to hold the tree's list of closed files: no call before a tool wired, or a listed line without the host's rule | `.agents/scripts/gw/before_tool.py` | |
 | recording, per clone, the interpreter the hooks run under | `.agents/scripts/gw/harness.py` | |
 | writing the clone's `pre-push` inside the project, or giving the line beside another's hook | `.agents/scripts/gw/harness.py` | |
 | checking a push in a copy of what it sends, and refusing it on a finding | `.agents/scripts/gw/harness.py` | |
@@ -229,7 +231,7 @@ would otherwise fail the shape check for the same absence the report already nam
 | the product document's seed, its shelf and the reader of its form | `.agents/scripts/gw/product.py` | `product`, which owns the document and words it |
 | the hook wiring's directory, each file at its host file's path | `.agents/scripts/gw/questions.py` | `questions`, which words the hooks |
 | the shape check | `.agents/scripts/gw/mechanisms.py` | `mechanism-shape` |
-| the hooks' wrapper, which the written `pre-push` runs, which runs the hook line and hands on what it prints, and which runs the answer to a call before a tool and refuses the call where that script cannot answer | `.agents/scripts/gw/hook.sh` | `mechanism-shape` |
+| the hooks' wrapper, which the written `pre-push` runs, which runs the hook line and hands on what it prints, and which runs the answer to a call before a tool <straw-dog question="q-hqk736">and refuses the call where that script cannot answer</straw-dog> | `.agents/scripts/gw/hook.sh` | `mechanism-shape` |
 | the reading of which session a hook's payload speaks for, and the hook that prints the handed line in the host's form | `.agents/scripts/gw/questions.py` | `questions` |
 | a check the push runs, and where a session's memory is kept | `.agents/scripts/gw/sessions.py` | `session` |
 | a check the push runs | `.agents/scripts/gw/tickets.py` | `ticket` |
@@ -255,7 +257,8 @@ would otherwise fail the shape check for the same absence the report already nam
   that lists files closed to agents it holds the call before a tool and the host's own rule for
   every line too, read by the host before every tool call.
 - **The refusal of a call that names a listed file** — *what happened* — read by the agent whose
-  call it was, with its reason; and the line at a session's start where the list is not wired.
+  call it was, with its reason; and the line at a session's start where the host is not set to
+  hold the list: no call before a tool wired, or a listed line without the host's rule.
 - **The report's notes of a tree with a list** — *what exists* — what the refusal does not hold,
   each line that is no file, each rule whose line is gone; read by whoever ran the script.
 <straw-dog question="q-t3p7na">

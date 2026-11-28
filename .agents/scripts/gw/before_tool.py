@@ -13,8 +13,11 @@ a reason the agent reads; any other is answered with nothing.
 
 The script exits clean whenever it has decided. Where it cannot decide — a payload it cannot
 read, a host it does not know — it fails, and the wrapper refuses the call: a value once printed
-stays printed. It holds this one refusal and no table of refusals.
+stays printed. It holds this one refusal and no table of refusals. The wrapper's refusal where
+the script fails is on trial.
 """
+
+# TODO q-hqk736: the wrapper's refusal of every call where this script cannot decide is on trial.
 
 from __future__ import annotations
 
