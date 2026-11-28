@@ -2489,14 +2489,19 @@ class TheClosedFilesWiring(TwoTrees):
 
 
 class TheOriginKeepsNoList(unittest.TestCase):
-    """The origin lists no file closed to agents, so its own host file carries no call before a
-    tool: every session here would pay for it."""
+    """A tree that lists no file closed to agents carries no call of core's before a tool, the
+    origin among them: every session there would pay for it. Read in whatever tree this runs, so
+    a recipient's own call before a tool is its own and no finding."""
 
-    def test_its_host_file_wires_nothing_before_a_tool(self) -> None:
-        origin = SCRIPTS.parents[2]
+    def test_its_host_file_wires_no_call_of_core_s_before_a_tool(self) -> None:
+        tree = SCRIPTS.parents[2]
+        if (tree / before_tool.LIST).exists():
+            self.skipTest("a tree that lists files closed to agents wires the call on purpose")
 
-        self.assertFalse((origin / before_tool.LIST).exists())
-        self.assertNotIn("PreToolUse", json.loads((origin / before_tool.HOST_FILE).read_text(encoding="utf-8"))["hooks"])
+        hooks = json.loads((tree / before_tool.HOST_FILE).read_text(encoding="utf-8"))["hooks"]
+        commands = [hook.get("command", "") for entry in hooks.get("PreToolUse", []) for hook in entry.get("hooks", [])]
+
+        self.assertEqual([], [command for command in commands if command.endswith(before_tool.ENTRY_ENDS)])
 
     def test_the_entry_its_shelf_ships_is_the_one_the_starts_line_looks_for(self) -> None:
         shelf = SCRIPTS.parents[2] / harness.OWN_HOOKS / before_tool.HOST_FILE
