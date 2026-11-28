@@ -172,7 +172,8 @@ for this mechanism.
   from Git, at a commit that names no paths: S5 held where the commit is made, which a rule in
   `/commit` alone did not hold (the register, *A directory-wide add committed another session's
   work in progress*, 2026-10-20). Only a clone whose `pre-commit` calls it is held; no install
-  writes that hook, and its text is the one the script's tests run.
+  writes that hook. The script lets by itself every commit it does not stop, so the hook may be the
+  file alone or call it after a guard of its own; the script's tests run both.
 
 ## Not yet at the shape
 

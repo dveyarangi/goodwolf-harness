@@ -106,9 +106,10 @@ roles, is an open question of the store.
 | writing a question's argument, the body after its parts, by hand | `.agents/skills/questions/QUESTION-FORMAT.md` | |
 | landing a decision an align makes, and holding one with nowhere to land yet | `.agents/skills/align/SKILL.md` | |
 | checking the store | `.agents/scripts/gw/questions.py` | |
+| finding, at a maintenance, an open question a decision in force answers or makes moot, and putting it to the person or marking it as asking them | `.agents/skills/maintain/SKILL.md` | |
 | reading the store at a session's wake: the most struck, what asks the person, the deferred, the straw dogs due | `.agents/scripts/gw/questions.py` | |
 | marking an open question as asking the person, shown by every wake until it closes, closed on the person's word | `.agents/skills/questions/SKILL.md` | |
-| <straw-dog question="q-huss2x">reading the path ahead at the wake and on request: the work in hand, what was touched lately with no ticket, the candidates with their reasons and the running sessions beside each, the roots</straw-dog> | `.agents/scripts/gw/questions.py` | |
+| <straw-dog question="q-huss2x">reading the path ahead at the wake and on request: the roadmap's rows, the work in hand, what was touched lately with no ticket, the candidates with their reasons and the running sessions beside each, the roots</straw-dog> | `.agents/scripts/gw/questions.py` | |
 | writing the session's leans | `.agents/skills/conclude/SKILL.md` | |
 | leaving a finished subtree out of the window, where it stands | `.agents/scripts/gw/questions.py` | |
 | installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
@@ -152,6 +153,7 @@ roles, is an open question of the store.
 | the rows' script, for each session's row | `.agents/scripts/gw/sessions.py` | `session` |
 | the ticket maintainer, for the live tickets the counters count and the path reads | `.agents/scripts/gw/tickets.py` | `ticket` |
 | the product document's reader, for how much of each answer is built, which the path shows | `.agents/scripts/gw/product.py` | `product` |
+| the roadmap, whose rows the path prints first | `docs/roadmap.md` | `pathfinder` |
 | the mover, which the migration moves the entries with | `.agents/scripts/gw/move_doc.py` | `ticket` |
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |
 
