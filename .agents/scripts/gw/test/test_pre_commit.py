@@ -132,6 +132,33 @@ class ACommitInTheClone(Committing):
             self.assertEqual(want, done.returncode == 0, done.stderr)
 
 
+class TheScriptWiredBareAsTheHook(Committing):
+    """A clone whose `pre-commit` is the script itself, with no guard before it, stops the same."""
+
+    def setUp(self) -> None:
+        super().setUp()
+        hook = self.root / ".git" / "hooks" / "pre-commit"
+        hook.write_text(SCRIPT.read_text(encoding="utf-8"), encoding="utf-8", newline="\n")
+        os.chmod(hook, 0o755)
+
+    def test_an_agents_commit_naming_no_paths_is_stopped(self) -> None:
+        self.assertStopped("commit", "-qm", "x")
+
+    def test_a_commit_naming_its_paths_takes_them_alone(self) -> None:
+        self.assertTakes(["mine.md"], "commit", "-qm", "x", "--", "mine.md")
+
+    def test_a_persons_own_commit_is_not_stopped(self) -> None:
+        self.assertTakes(["mine.md", "theirs.md"], "commit", "-qm", "x", agent=False)
+
+    def test_a_commit_from_an_index_of_the_callers_own_is_not_stopped(self) -> None:
+        own = str(self.root / ".git" / "own-index")
+        self.git("read-tree", f"--index-output={own}", "HEAD")
+        self.write("docs/one.md", "1\n")
+        self.assertEqual(0, self.asked("add", "docs/one.md", GIT_INDEX_FILE=own).returncode)
+
+        self.assertTakes(["docs/one.md"], "commit", "-qm", "x", GIT_INDEX_FILE=own)
+
+
 class ACommitGitLetsNameNoPaths(Committing):
     """Git refuses paths while it concludes a merge or a cherry-pick, and commits without them itself
     as it continues a revert or a rebase, so a commit there passes; `-a` takes every file and does not."""

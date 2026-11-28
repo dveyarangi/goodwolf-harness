@@ -6,11 +6,16 @@
 # the hook how the commit was asked for, `next-index-...` where its paths are named, `index` where
 # none are, `index.lock` for `-a` and `-i`. No document of Git's promises those names.
 #
-# The hook itself lets the rest by, so that a commit that passes starts nothing while Git holds the
-# index's lock, and a broken copy of this file stops no such commit. An agent is told by
-# CLAUDE_CODE_CHILD_SESSION, which Claude Code gives the commands it runs and no terminal.
+# This script lets the rest by, so a hook that is this file alone stops nothing else. A hook that
+# lets them by itself before calling it, as the test's HOOK does, starts nothing for a commit that
+# passes while Git holds the index's lock, and a broken copy of this file stops no such commit. An
+# agent is told by CLAUDE_CODE_CHILD_SESSION, which Claude Code gives the commands it runs and no
+# terminal.
 #
 # Not seen: a directory or a glob among the paths, a commit that skips the hooks, another host.
+
+case "${GIT_INDEX_FILE##*/}" in index | index.lock) ;; *) exit 0 ;; esac
+[ "$CLAUDE_CODE_CHILD_SESSION" = 1 ] || exit 0
 
 # Git refuses paths while it concludes a merge or a cherry-pick, and commits from the shared index
 # itself as it continues a revert or rewords in a rebase. `-a` takes every changed file there too.
