@@ -178,9 +178,13 @@ Read by column:
   person — and self-improvement, and nothing measures whether it holds.
 - **G2** has guarded writes, the dial, and a push refused on a broken record. Roles have begun as
   the mechanisms a standing session holds, a change in another's asked of the session that holds it.
-  The host refuses no forbidden action; Git's own `pre-commit` stops an agent's commit that names no
-  paths, in this tree's clone alone and on trial. The question store's writes refuse a stale
-  read; every other file's are the host's.
+  Claude Code refuses an agent's call that names a file on the project's list of files closed to
+  agents, by core's call before a tool and the host's own rule for each listed file — wired
+  only in a tree that lists such files,
+  [built](rfc/01-0120.0010-claude-code-refuses-a-call-that-names-a-listed-file.md) and not yet
+  seen live in one. Git's own `pre-commit` stops an agent's commit that names no paths, in this
+  tree's clone alone and on trial. The question store's writes refuse a stale read; every other
+  file's are the host's.
 </straw-dog>
 
 ## Correction and evaluation, together
