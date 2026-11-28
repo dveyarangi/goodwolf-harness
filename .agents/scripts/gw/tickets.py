@@ -11,7 +11,7 @@ judges nothing, so a field a header lacks prints a dash, and a ticket it cannot 
 the table and fails the run.
 
 The shape is the ticket format shelf's, `TICKET-FORMAT.md`, under *The record*: the mark of what
-the ticket is a record of, the header's fields and their order, the sections a stage admits, the
+the ticket is a record of, the header's fields and their order, the sections it admits, the
 acceptance boxes, and the pairing of an RFC with the ticket that shares its basename. Of the question
 store the check reads one thing, that a ticket's `Answers` links an entry the ticket owns, and the
 list one, that entry's name. This script rules on form alone. Whether a ticket should have been

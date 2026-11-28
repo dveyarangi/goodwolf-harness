@@ -37,8 +37,8 @@ uv run --offline --no-project python .agents/scripts/gw/move_doc.py \
     docs/rfc/RR-NNNN-slug.md docs/rfc/done/RR-NNNN-slug.md
 ```
 
-The mover repairs citations and touches nothing else — no checkbox, no
-status, no date, no Git index. Eligibility and the ticket header are yours.
+The mover repairs citations and turns the ticket's mark to `what happened`, and touches
+nothing else — no checkbox, no status, no date, no Git index. Eligibility and the ticket header are yours.
 
 Artifacts predating this keep their names.
 
